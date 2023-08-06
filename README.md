@@ -1,2 +1,3 @@
 # OT2AP
-Octopath Traveler 2 Archipelago
+Why am I doing this to myself
+
