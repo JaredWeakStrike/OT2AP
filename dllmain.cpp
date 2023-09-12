@@ -57,8 +57,86 @@ public:
         //get_level_id();
         //auto_save();
         //spawn_chest();
-        change_text();
+        //change_text();
+        add_speed();
     }
+    auto add_speed() -> void {
+        std::vector<UObject*> PlayerCharacters;
+        UObjectGlobals::FindAllOf(STR("KSPlayerCharacter_C"), PlayerCharacters);
+
+        for (UObject* character : PlayerCharacters)
+        {
+            if (character == NULL) {
+                Output::send<LogLevel::Warning>(STR("character\n"));
+                return;
+            }
+
+            auto Function = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Script/Majesty.KSCharacterBase:SetLantern"));
+            auto AddMoveSpeed= UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Script/Majesty.KSCharacterBase:AddMoveSpeed"));
+            if (AddMoveSpeed == NULL) {
+                Output::send<LogLevel::Warning>(STR("SetCharacterCollision\n"));
+                return;
+            }
+            bool is_moving = character->GetPropertyByNameInChain(TEXT("Moving"));
+            if (is_moving == NULL) {
+                Output::send<LogLevel::Warning>(STR("is_moving\n"));
+                return;
+            }
+
+            Output::send<LogLevel::Warning>(STR("{}\n"), is_moving);
+            struct {
+                bool object_col;
+            }params;
+            params.object_col = true;
+            character->ProcessEvent(Function, &params);
+            struct {
+                float speed;
+            }params2;
+            params2.speed = 500000.00;
+            character->ProcessEvent(AddMoveSpeed, &params2);
+            break;
+            if (is_moving) {
+                const TCHAR* PropertyName = STR("ID");
+                const TCHAR* ChestTextProperty = STR("HaveItemLabel");
+                FProperty* ObjectData = character->GetPropertyByNameInChain(TEXT("ObjectData"));
+                //FProperty* ChestText = chest->
+                if (ObjectData == NULL) {
+                    Output::send<LogLevel::Warning>(STR("ima screem2\n"));
+                    return;
+                }
+                FStructProperty* StructProperty = static_cast<FStructProperty*>(ObjectData);
+                if (StructProperty == NULL) {
+                    Output::send<LogLevel::Warning>(STR("StructProperty isnt working \n"));
+                    return;
+                }
+                UScriptStruct* ScriptStruct = StructProperty->GetStruct();
+                if (ScriptStruct == NULL) {
+                    Output::send<LogLevel::Warning>(STR("ScriptStruct isnt working\n"));
+                    return;
+                }
+
+                void* StructDataPointer = StructProperty->ContainerPtrToValuePtr<void>(character);
+
+                FProperty* PropertyWithinStruct = ScriptStruct->GetPropertyByNameInChain(PropertyName);
+                FProperty* ChestText = ScriptStruct->GetPropertyByNameInChain(ChestTextProperty);
+                if (PropertyWithinStruct == NULL) {
+                    Output::send<LogLevel::Warning>(STR("PropertyWithinStruct isnt working\n"));
+                    return;
+                }
+
+                int object_data_id = *PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer);
+                FName chest_text = *ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer);
+                if (object_data_id == NULL) {
+                    Output::send<LogLevel::Warning>(STR("object_data_id is null\n"));
+                    return;
+                }
+                *PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer) = 2;
+                *ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer) = FName(TEXT("ITM_CSM_0030"));
+                Output::send<LogLevel::Warning>(STR("[{}]\n"), *PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer));
+            }
+        }
+    }
+
     auto change_text() -> void {
 
         UObject* GameTextEN = UObjectGlobals::StaticFindObject<UObject*>(nullptr, nullptr, STR("/Game/GameText/Database/GameTextEN.GameTextEN"));
