@@ -15,8 +15,10 @@
 #include <Unreal/FString.hpp>
 #include <Unreal/ITextData.hpp>
 #include <Unreal/TArray.hpp>
+#include <Unreal/FProperty.hpp>
 #include <Unreal/Property/FTextProperty.hpp>
-
+#include <Unreal/Property/FArrayProperty.hpp>
+//#include <Unreal/FTa>
 
 //#include "Animation/WidgetAnimation.h"
 //#include <Unreal/UWidgetAnimation>
@@ -58,8 +60,232 @@ public:
         //auto_save();
         //spawn_chest();
         //change_text();
-        add_speed();
+        //add_speed();
+        //spawn_chara();
+        //wrong_warp();
+        //close_chest();
+        casti_chapter2_reset();
+
     }
+    auto casti_chapter2_reset() -> void {
+        auto SaveGameBP = UObjectGlobals::StaticFindObject(nullptr, nullptr, STR("/Engine/Transient.KSSaveGameBP_C_2147479029"));
+        //auto SaveGameBP = UObjectGlobals::FindFirstOf(STR("KSSaveGameBP_C_2"));
+        if (SaveGameBP == NULL) {
+            Output::send<LogLevel::Warning>(STR("SaveGameBP is broke\n"));
+            return;
+        }
+        FProperty* MainStoryData = SaveGameBP->GetPropertyByNameInChain(TEXT("MainStoryData"));
+        if (MainStoryData) {
+
+            if (MainStoryData == NULL) {
+                Output::send<LogLevel::Warning>(STR("MainStoryData is broke\n"));
+                return;
+            }
+            //FArrayProperty* array_property = static_cast<FArrayProperty*>(MainStoryData);
+            //FProperty* thing = array_property->GetInner();
+
+            //if (array_property == NULL) {
+            //    Output::send<LogLevel::Warning>(STR("crap\n"));
+            //    return;
+            //}
+            //if (thing == NULL) {
+            //    Output::send<LogLevel::Warning>(STR("crap2\n"));
+            //    return;
+            //}
+            //Output::send<LogLevel::Warning>(STR("we found the tarray\n"));
+            //FScriptArray* property_value = MainStoryData->ContainerPtrToValuePtr<FScriptArray>(SaveGameBP);
+            
+            TArray<FMainStorySaveData>& property_value = *MainStoryData->ContainerPtrToValuePtr<TArray<FMainStorySaveData>>(SaveGameBP);
+            int32 counter = 0;
+            for (FMainStorySaveData i : property_value) {
+                property_value[counter].StoryID = 300;
+                Output::send(STR("Data: {}, Num: {}, Max: {}\n"), i.StoryID, property_value.Num(), property_value.Max());
+                counter++;
+                //i.StoryID = 300;
+            }
+            
+            //Output::send(STR("Data: {}, Num: {}, Max: {}\n"), (void*)property_value.GetData(), property_value.Num(), property_value.Max());
+           //static FMainStorySaveData yourmom = property_value[0];
+            //void* ArrayDataPointer = array_property->ContainerPtrToValuePtr<void>(MainStoryData);
+            //
+            //if (ArrayDataPointer == NULL) {
+            //    Output::send<LogLevel::Warning>(STR("StructDataPointer is broke\n"));
+            //    return;
+            //}
+
+            //TArray<FMainStorySaveData> object_data_id = *MainStoryData->ContainerPtrToValuePtr<TArray<FMainStorySaveData>>(ArrayDataPointer);
+            //Output::send<LogLevel::Warning>(STR("{[]} \n"), property_value[0].StoryID);
+            //TArray<FMainStorySaveData> StructProperty = static_cast<TArray<FMainStorySaveData>>(MainStoryData);
+
+//if (StructProperty == NULL) {
+//    Output::send<LogLevel::Warning>(STR("StructProperty isnt working \n"));
+//    return;
+//}
+//UScriptStruct* ScriptStruct = StructProperty->GetStruct();
+//if (ScriptStruct == NULL) {
+//    Output::send<LogLevel::Warning>(STR("ScriptStruct isnt working\n"));
+//    return;
+//}
+            ////FProperty* PropertyWithinStruct = ScriptStruct->GetPropertyByNameInChain(PropertyName);
+            ////FProperty* ChestText = ScriptStruct->GetPropertyByNameInChain(ChestTextProperty);
+            ////if (PropertyWithinStruct == NULL) {
+            ////    Output::send<LogLevel::Warning>(STR("PropertyWithinStruct isnt working\n"));
+            ////    return;
+            ////}
+            //
+            
+            ////if (!object_data_id) {
+            ////    Output::send<LogLevel::Warning>(STR("StructDataPointer is broke\n"));
+            ////    return;
+            ////}
+            ////FName chest_text = *ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer);
+            ////if (object_data_id == NULL) {
+            ////    Output::send<LogLevel::Warning>(STR("object_data_id is null\n"));
+            ////    return;
+            ////}
+            ////*PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer) = 2;
+            ////*ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer) = FName(TEXT("ITM_CSM_0030"));
+            //Output::send<LogLevel::Warning>(STR("[{}]\n"), object_data_id[0].StoryID);
+        }
+        else {
+            Output::send<LogLevel::Warning>(STR("MainStoryData is broke\n"));
+        }
+    }
+    struct FMainStorySaveData
+    {
+        int32 StoryID;                                                                    // 0x0000 (size: 0x4)
+        int32 CurrentTaskID;                                                              // 0x0004 (size: 0x4)
+        int32 State;                                                                      // 0x0008 (size: 0x4)
+        bool ConfirmedFlag;                                                               // 0x000C (size: 0x1)
+
+    };
+    auto close_chest() -> void {
+        auto save_system = UObjectGlobals::FindFirstOf(STR("KSSaveSystem"));
+        //auto save_data_util = UObjectGlobals::FindFirstOf(STR("DebugSaveDataUti"));
+        auto save_data_util = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Script/Majesty.Default__LevelSaveDataUtil"));
+        if (!save_system) {
+            Output::send<LogLevel::Warning>(STR("[{}] Crap\n"), ModName);
+            return;
+        }
+        if (!save_data_util) {
+            Output::send<LogLevel::Warning>(STR("[{}] save data crap\n"), ModName);
+            return;
+        }
+        auto SetMapData = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Script/Majesty.LevelSaveDataUtil:SetMapData"));
+        auto GetMapData = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Script/Majesty.LevelSaveDataUtil:FindMapData"));
+        if (GetMapData == NULL) {
+            Output::send<LogLevel::Warning>(STR("imapoop\n"));
+            return;
+        }
+        struct {
+            int32 levelid;
+            int32 objectid;
+        }CloseTreasureBoxParams;
+        struct {
+            int32 levelid;
+            FMapData TreasureState;
+            bool returnvalue;
+        }bitstuff;
+        bitstuff.levelid = 83;
+        //bitstuff.TreasureState.TreasureStateArray[0] = 1;
+        CloseTreasureBoxParams.levelid = 86;
+        CloseTreasureBoxParams.objectid = 3;
+        save_data_util->ProcessEvent(GetMapData, &bitstuff);
+        bool yourmom = true;
+        //bitstuff.TreasureState.TreasureStateArray;
+        // levelid 100 objectid 982
+        for (int i : bitstuff.TreasureState.TreasureStateArray) {
+            //Output::send<LogLevel::Warning>(STR("[{}] Crap\n"), ModName);
+            Output::send<LogLevel::Warning>(STR("[{}]\n"), bitstuff.TreasureState.TreasureStateArray[i]);
+            //Output::send<LogLevel::Warning>(STR("[{}]\n"), i);
+        }
+        
+    }
+    struct FMapData
+    {
+        TArray<uint8> TreasureStateArray;                                                 // 0x0000 (size: 0x10)
+
+    };
+    auto wrong_warp() -> void {
+        UObject* event_manager = UObjectGlobals::FindFirstOf(STR("EventManagerBP_C"));
+        if (!event_manager) {
+            Output::send<LogLevel::Warning>(STR("event_manager\n"));
+            return;
+        }
+        TArray<FString> yourmom;
+        UFunction* StartSetFastTravel = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Script/Majesty.EventManager:StartSetFastTravel"));
+        if (!StartSetFastTravel) {
+            Output::send<LogLevel::Warning>(STR("StartSetFastTravel\n"));
+            return;
+        }
+        struct FEventData
+        {
+            int32 Command;                                                                    // 0x0008 (size: 0x4)
+            int32 Target;                                                                     // 0x000C (size: 0x4)
+            FVector Pos;                                                                      // 0x0010 (size: 0xC)
+            int32 Dir;                                                                        // 0x001C (size: 0x4)
+            FString Text;                                                                     // 0x0020 (size: 0x10)
+            bool Async;                                                                       // 0x0030 (size: 0x1)
+            TArray<FString> OptAry;                                                           // 0x0038 (size: 0x10)
+        }params;
+        params.Command = 5;
+        params.Target = 5;
+        params.Pos.SetX(2);
+        params.Pos.SetY(2);
+        params.Pos.SetZ(2);
+        params.Dir = 50;
+        params.Text = FString(STR("Yourmom"));
+        params.Async = false;
+        params.OptAry = yourmom;
+        event_manager->ProcessEvent(StartSetFastTravel, &params);
+
+    }
+    auto spawn_chara() -> void {
+        //"RichEventCommandBase /Script/Majesty.Default__RichEventCommandBase"
+        auto event_base = UObjectGlobals::StaticFindObject<UObject*>(nullptr,nullptr,STR("/Script/Majesty.Default__RichEventCommandBase"));
+        if (!event_base) {
+            Output::send<LogLevel::Warning>(STR("event_base is cooked\n"));
+            return;
+        }
+        bool IsGameOverFinish = event_base->GetPropertyByNameInChain(STR("IsGameOverFinish"));
+        if (IsGameOverFinish == NULL) {
+            Output::send<LogLevel::Warning>(STR("IsGameOverFinish\n"));
+            return;
+        }
+        //else {
+        //    Output::send<LogLevel::Warning>(STR("we in bussin\n"));
+        //    return;
+        //}
+        void* akscharbase = event_base->GetValuePtrByPropertyName(STR("AKSCharacterBase"));
+        UFunction* SpawnCharaFunction = event_base->GetFunctionByNameInChain(STR("SpawnCharaFunction"));
+        if (SpawnCharaFunction == NULL) {
+            Output::send<LogLevel::Warning>(STR("SetOpenEventGameOverUI\n"));
+            return;
+        }
+        else {
+            Output::send<LogLevel::Warning>(STR("function is goated\n"));
+            struct {
+                UClass eventchara;
+                FName charalabelname;
+                EKSCharacterDir setdir;
+                FName addtagname;
+            }params;
+            //params.eventchara= *akscharbase;
+            params.charalabelname=FName(STR("NPC_EPI_FENCER"));
+            params.addtagname = FName(STR("NPC_EPI_FENCER"));
+            params.setdir = EKSCharacterDir::FRONT;
+            event_base->ProcessEvent(SpawnCharaFunction, &params);
+            return;
+        }
+    }
+    enum class EKSCharacterDir {
+        FRONT = 0,
+        REAR = 1,
+        LEFT = 2,
+        RIGHT = 3,
+        MAX_DIR = 4,
+        EKSCharacterDir_MAX = 5,
+    };
     auto add_speed() -> void {
         std::vector<UObject*> PlayerCharacters;
         UObjectGlobals::FindAllOf(STR("KSPlayerCharacter_C"), PlayerCharacters);
