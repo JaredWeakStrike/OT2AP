@@ -60,41 +60,207 @@ public:
         //auto_save();
         //spawn_chest();
         //change_text();
-        //add_speed();
+        add_speed();
         //spawn_chara();
         //wrong_warp();
         //close_chest();
-        casti_chapter2_reset();
+        //casti_chapter2_reset();
+        give_chara();
 
     }
+    enum class EPlayableCharacterID {
+        eNONE = 0,
+        eFENCER = 1,
+        eHUNTER = 2,
+        eALCHEMIST = 3,
+        eMERCHANT = 4,
+        ePRIEST = 5,
+        ePROFESSOR = 6,
+        eTHIEF = 7,
+        eDANCER = 8,
+        eGUEST_000 = 9,
+        eGUEST_001 = 10,
+        eGUEST_002 = 11,
+        eGUEST_003 = 12,
+        eGUEST_004 = 13,
+        eGUEST_005 = 14,
+        eGUEST_006 = 15,
+        eGUEST_007 = 16,
+        eGUEST_008 = 17,
+        eGUEST_009 = 18,
+        eGUEST_010 = 19,
+        eGUEST_011 = 20,
+        eGUEST_012 = 21,
+        eGUEST_013 = 22,
+        eGUEST_014 = 23,
+        eGUEST_015 = 24,
+        eGUEST_016 = 25,
+        eGUEST_017 = 26,
+        eGUEST_018 = 27,
+        eGUEST_019 = 28,
+        eGUEST_020 = 29,
+        eGUEST_021 = 30,
+        eGUEST_022 = 31,
+        eGUEST_023 = 32,
+        eGUEST_024 = 33,
+        eGUEST_025 = 34,
+        eMAX = 35,
+        EPlayableCharacterID_MAX = 36,
+    };
+    struct FPlayerParty
+    {
+        TArray<int32> MainMemberID;                                                       // 0x0000 (size: 0x10)
+        TArray<int32> SubMemberID;                                                        // 0x0010 (size: 0x10)
+        FVector CameraLockPos;                                                            // 0x0020 (size: 0xC)
+        int32 LastBgmID;                                                                  // 0x002C (size: 0x4)
+        int32 levelId;                                                                    // 0x0030 (size: 0x4)
+        FVector Position;                                                                 // 0x0034 (size: 0xC)
+        uint8 Dir;                                                                        // 0x0040 (size: 0x1)
+
+    };
+    auto give_chara() -> void {
+        auto SaveGameBP = UObjectGlobals::FindFirstOf(STR("KSSaveGameBP_C"));
+        if (SaveGameBP == NULL) {
+            Output::send<LogLevel::Warning>(STR("SaveGameBP is broke\n"));
+            return;
+        }
+        const TCHAR* PropertyName = STR("ID");
+        const TCHAR* ChestTextProperty = STR("HaveItemLabel");
+        //get fproperty of the propertystruct
+        //cast that to struct property
+        // get the struct
+        // get void pointer to parent object of the fproperty
+        // get property by name of the uscriptstruct
+        // get void pointer to the struct
+        // get propertywithin the struct
+        // 
+        FProperty* PlayerParty = SaveGameBP->GetPropertyByNameInChain(TEXT("PlayerParty"));
+        FPlayerParty& property_value = *PlayerParty->ContainerPtrToValuePtr<FPlayerParty>(SaveGameBP);
+        //UScriptStruct* ScriptStruct = StructProperty->GetStruct();
+        if (property_value.MainMemberID[0]==NULL) {
+            Output::send<LogLevel::Warning>(STR("craps\n"));
+            return;
+        }
+        FProperty* MainMemberID = SaveGameBP->GetPropertyByNameInChain(TEXT("MainMemberID"));
+
+        FProperty* MainStoryData = SaveGameBP->GetPropertyByNameInChain(TEXT("MainStoryData"));
+        //<int32>& property_value = *MainStoryData->ContainerPtrToValuePtr<TArray<int32>>(SaveGameBP);
+        Output::send<LogLevel::Warning>(STR("{}\n"), property_value.MainMemberID[0]);
+        //if (property_value.MainMemberID[0] == 1) {
+        //    property_value.MainMemberID[0] = 3;
+        //}
+        //if (property_value.MainMemberID[0] == 3) {
+        //    property_value.MainMemberID[0] = 1;
+        //}
+        property_value.MainMemberID[0] = 3;
+        property_value.MainMemberID[1] = 3;
+        property_value.MainMemberID[2] = 3;
+        property_value.MainMemberID[3] = 9;
+        property_value.SubMemberID[0] = 9;
+        property_value.SubMemberID[1] = 9;
+        property_value.SubMemberID[2] = 9;
+        property_value.SubMemberID[3] = 9;
+        property_value.SubMemberID[4] = 9;
+        property_value.SubMemberID[5] = 9;
+        property_value.SubMemberID[6] = 9;
+        property_value.SubMemberID[7] = 9;
+        //FArrayProperty* MainMemberID = SaveGameBP->GetPropertyByNameInChain(TEXT("MainMemberID"));
+        if (MainMemberID == NULL) {
+            //Output::send<LogLevel::Warning>(STR("MainMemberID is broke\n"));
+            return;
+        }
+        return;
+        auto SetPlayingReminiscenceId = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Script/Majesty.ReminiscenceUtility:SetCompletedPrologueReminiscence"));
+        if (SetPlayingReminiscenceId == NULL) {
+                Output::send<LogLevel::Warning>(STR("functino is broke\n"));
+                return;
+            }
+        for (int32 i = 0; i < 7; i++) {
+                struct {
+                    EPlayableCharacterID param1;
+                    bool param2;
+                    bool param3;
+                }params;
+                params.param1 = (EPlayableCharacterID)i;
+                params.param2 = true;
+                params.param3 = true;
+                SaveGameBP->ProcessEvent(SetPlayingReminiscenceId, &params);
+            }
+        }
+    std::list<int32> li{ 100,
+101,
+102,
+103,
+104,
+200,
+202,
+201,
+203,
+204,
+300,
+302,
+301,
+303,
+304,
+400,
+401,
+402,
+403,
+410,
+411,
+412,
+500,
+501,
+502,
+503,
+504,
+600,
+601,
+602,
+603,
+604,
+700,
+701,
+702,
+703,
+704,
+705,
+800,
+801,
+802,
+803,
+804,
+900,
+901,
+1000,
+1001,
+1100,
+1101,
+1200,
+1201,
+1300,
+1301,
+1302,
+1303,
+1304,
+1305,
+1306 };
     auto casti_chapter2_reset() -> void {
-        auto SaveGameBP = UObjectGlobals::StaticFindObject(nullptr, nullptr, STR("/Engine/Transient.KSSaveGameBP_C_2147479029"));
-        //auto SaveGameBP = UObjectGlobals::FindFirstOf(STR("KSSaveGameBP_C_2"));
+        //auto SaveGameBP = UObjectGlobals::StaticFindObject(nullptr, nullptr, STR("/Engine/Transient.KSSaveGameBP_C_2147479029"));
+        auto SaveGameBP = UObjectGlobals::FindFirstOf(STR("KSSaveGameBP_C"));
         if (SaveGameBP == NULL) {
             Output::send<LogLevel::Warning>(STR("SaveGameBP is broke\n"));
             return;
         }
         FProperty* MainStoryData = SaveGameBP->GetPropertyByNameInChain(TEXT("MainStoryData"));
+        TArray<int32>& property_value = *MainStoryData->ContainerPtrToValuePtr<TArray<int32>>(SaveGameBP);
+        
         if (MainStoryData) {
 
             if (MainStoryData == NULL) {
                 Output::send<LogLevel::Warning>(STR("MainStoryData is broke\n"));
                 return;
             }
-            //FArrayProperty* array_property = static_cast<FArrayProperty*>(MainStoryData);
-            //FProperty* thing = array_property->GetInner();
-
-            //if (array_property == NULL) {
-            //    Output::send<LogLevel::Warning>(STR("crap\n"));
-            //    return;
-            //}
-            //if (thing == NULL) {
-            //    Output::send<LogLevel::Warning>(STR("crap2\n"));
-            //    return;
-            //}
-            //Output::send<LogLevel::Warning>(STR("we found the tarray\n"));
-            //FScriptArray* property_value = MainStoryData->ContainerPtrToValuePtr<FScriptArray>(SaveGameBP);
-            
             TArray<FMainStorySaveData>& property_value = *MainStoryData->ContainerPtrToValuePtr<TArray<FMainStorySaveData>>(SaveGameBP);
             int32 counter = 0;
             for (FMainStorySaveData i : property_value) {
@@ -103,49 +269,21 @@ public:
                 counter++;
                 //i.StoryID = 300;
             }
-            
-            //Output::send(STR("Data: {}, Num: {}, Max: {}\n"), (void*)property_value.GetData(), property_value.Num(), property_value.Max());
-           //static FMainStorySaveData yourmom = property_value[0];
-            //void* ArrayDataPointer = array_property->ContainerPtrToValuePtr<void>(MainStoryData);
-            //
-            //if (ArrayDataPointer == NULL) {
-            //    Output::send<LogLevel::Warning>(STR("StructDataPointer is broke\n"));
-            //    return;
-            //}
-
-            //TArray<FMainStorySaveData> object_data_id = *MainStoryData->ContainerPtrToValuePtr<TArray<FMainStorySaveData>>(ArrayDataPointer);
-            //Output::send<LogLevel::Warning>(STR("{[]} \n"), property_value[0].StoryID);
-            //TArray<FMainStorySaveData> StructProperty = static_cast<TArray<FMainStorySaveData>>(MainStoryData);
-
-//if (StructProperty == NULL) {
-//    Output::send<LogLevel::Warning>(STR("StructProperty isnt working \n"));
-//    return;
-//}
-//UScriptStruct* ScriptStruct = StructProperty->GetStruct();
-//if (ScriptStruct == NULL) {
-//    Output::send<LogLevel::Warning>(STR("ScriptStruct isnt working\n"));
-//    return;
-//}
-            ////FProperty* PropertyWithinStruct = ScriptStruct->GetPropertyByNameInChain(PropertyName);
-            ////FProperty* ChestText = ScriptStruct->GetPropertyByNameInChain(ChestTextProperty);
-            ////if (PropertyWithinStruct == NULL) {
-            ////    Output::send<LogLevel::Warning>(STR("PropertyWithinStruct isnt working\n"));
-            ////    return;
-            ////}
-            //
-            
-            ////if (!object_data_id) {
-            ////    Output::send<LogLevel::Warning>(STR("StructDataPointer is broke\n"));
-            ////    return;
-            ////}
-            ////FName chest_text = *ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer);
-            ////if (object_data_id == NULL) {
-            ////    Output::send<LogLevel::Warning>(STR("object_data_id is null\n"));
-            ////    return;
-            ////}
-            ////*PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer) = 2;
-            ////*ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer) = FName(TEXT("ITM_CSM_0030"));
-            //Output::send<LogLevel::Warning>(STR("[{}]\n"), object_data_id[0].StoryID);
+            auto SetPlayingReminiscenceId = UObjectGlobals::StaticFindObject<UFunction*>(nullptr,nullptr,STR("/Script/Majesty.ReminiscenceUtility:SetCompletedPrologueReminiscence"));
+            if (SetPlayingReminiscenceId == NULL) {
+                Output::send<LogLevel::Warning>(STR("functino is broke\n"));
+                return;
+            }
+            for (int32 i = 0; i < 7; i++) {
+                struct {
+                    EPlayableCharacterID param1;
+                    bool param2;
+                }params;
+                params.param1 = (EPlayableCharacterID)i;
+                params.param2 = true;
+                SaveGameBP->ProcessEvent(SetPlayingReminiscenceId, &params);
+            }
+          
         }
         else {
             Output::send<LogLevel::Warning>(STR("MainStoryData is broke\n"));
@@ -303,23 +441,34 @@ public:
                 Output::send<LogLevel::Warning>(STR("SetCharacterCollision\n"));
                 return;
             }
-            bool is_moving = character->GetPropertyByNameInChain(TEXT("Moving"));
-            if (is_moving == NULL) {
-                Output::send<LogLevel::Warning>(STR("is_moving\n"));
-                return;
-            }
+            //bool is_moving = character->GetPropertyByNameInChain(TEXT("Moving"));
+            bool is_moving = false;
+            //if (is_moving == NULL) {
+            //    Output::send<LogLevel::Warning>(STR("is_moving\n"));
+            //    return;
+            //}
 
-            Output::send<LogLevel::Warning>(STR("{}\n"), is_moving);
-            struct {
-                bool object_col;
-            }params;
-            params.object_col = true;
-            character->ProcessEvent(Function, &params);
-            struct {
-                float speed;
-            }params2;
-            params2.speed = 500000.00;
-            character->ProcessEvent(AddMoveSpeed, &params2);
+            //Output::send<LogLevel::Warning>(STR("{}\n"), is_moving);
+            FProperty* MoveSpeed = character->GetPropertyByNameInChain(STR("MoveSpeed"));
+            TArray<float>& property_value = *MoveSpeed->ContainerPtrToValuePtr<TArray<float>>(character);
+            int32 counter = 0;
+            float running_speed = 70000;
+            for (float num : property_value) {
+                if (num != 70000) {
+                    property_value[counter] = running_speed;
+                }
+                counter++;
+            }
+            //struct {
+            //    bool object_col;
+            //}params;
+            //params.object_col = true;
+            //character->ProcessEvent(Function, &params);
+            //struct {
+            //    float speed;
+            //}params2;
+            //params2.speed = 50000000000000000.00;
+            //character->ProcessEvent(AddMoveSpeed, &params2);
             break;
             if (is_moving) {
                 const TCHAR* PropertyName = STR("ID");
