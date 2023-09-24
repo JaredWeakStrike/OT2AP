@@ -65,7 +65,7 @@ public:
         //wrong_warp();
         //close_chest();
         //casti_chapter2_reset();
-        give_chara();
+        //give_chara();
 
     }
     enum class EPlayableCharacterID {
@@ -152,10 +152,10 @@ public:
         //if (property_value.MainMemberID[0] == 3) {
         //    property_value.MainMemberID[0] = 1;
         //}
-        property_value.MainMemberID[0] = 3;
-        property_value.MainMemberID[1] = 3;
-        property_value.MainMemberID[2] = 3;
-        property_value.MainMemberID[3] = 9;
+        property_value.MainMemberID[0] = 7;
+        property_value.MainMemberID[1] = 7;
+        property_value.MainMemberID[2] = 7;
+        property_value.MainMemberID[3] = 7;
         property_value.SubMemberID[0] = 9;
         property_value.SubMemberID[1] = 9;
         property_value.SubMemberID[2] = 9;
