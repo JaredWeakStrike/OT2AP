@@ -195,7 +195,8 @@
         "Name": "The Roque Company: Factory",
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_ACS_710",
-        "ChestID": 720
+        "ChestID": 720,
+        "Notes": "Return after Boss"
     },
     "Treasure_Dng_Cty_2_1_02": {
         "Item": "Empowering Lychee (M)",
@@ -510,7 +511,8 @@
         "Name": "Dragonridge",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0220",
-        "ChestID": 1060
+        "ChestID": 1060,
+        "Notes": "Not a chest; talk to the Ku Guard along the way during Hikari's Chapter 1"
     },
     "Treasure_Dng_Dst_2_1_02": {
         "Item": "Inspiriting Plum Basket",
@@ -3039,7 +3041,8 @@
         "Name": "Beneath the Wall",
         "Parent": "Winterlands",
         "ItemFileName": "ITM_FLV_0250",
-        "ChestID": 1968
+        "ChestID": 1968,
+        "Notes": "Missable"
     },
     "Treasure_Dng_Snw_3_4_A_02": {
         "Item": "Inspiriting Plum (M)",
@@ -3147,7 +3150,8 @@
         "Name": "Giff's Manse",
         "Parent": "Wildlands",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 56
+        "ChestID": 56,
+        "Notes": "Partitio Chapter 1"
     },
     "Treasure_Dng_Wld_1_1_02": {
         "Item": "Small Silver Ore",
@@ -3912,7 +3916,8 @@
         "Name": "Southern Sai Sands",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0170",
-        "ChestID": 1762
+        "ChestID": 1762,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Fld_Dst_2_3_02": {
         "Item": "Inspiriting Plum (M)",
@@ -4029,7 +4034,8 @@
         "Name": "Sandflow Pass",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_AMR_360",
-        "ChestID": 1067
+        "ChestID": 1067,
+        "Notes": "Guarded"
     },
     "Treasure_Fld_Dst_2_5_A_03": {
         "Item": "Empowering Lychee (M)",
@@ -4056,7 +4062,8 @@
         "Name": "Sandflow Pass",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_SWD_260",
-        "ChestID": 1070
+        "ChestID": 1070,
+        "Notes": "Guarded"
     },
     "Treasure_Fld_Dst_2_5_A_06": {
         "Item": "Steel Lance",
@@ -4065,7 +4072,8 @@
         "Name": "Sandflow Pass",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_LNS_090",
-        "ChestID": 1071
+        "ChestID": 1071,
+        "Notes": "Guarded"
     },
     "Treasure_Fld_Dst_2_5_B_01": {
         "Item": "Dual Flower",
@@ -4749,7 +4757,8 @@
         "Name": "Flamechurch Pilgrims' Way",
         "Parent": "Crestlands",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 37
+        "ChestID": 37,
+        "Notes": "Guarded"
     },
     "Treasure_Fld_Mnt_1_1_03": {
         "Item": "Tough Nut",
@@ -5667,7 +5676,8 @@
         "Name": "Northern Conning Creek Coast",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_EQP_LNS_430",
-        "ChestID": 1889
+        "ChestID": 1889,
+        "Notes": "Guarded"
     },
     "Treasure_Fld_Sea_2_2_05": {
         "Item": "Inspiriting Plum (M)",
@@ -6144,7 +6154,8 @@
         "Name": "Silver Mine",
         "Parent": "Wildlands",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 51
+        "ChestID": 51,
+        "Notes": "Partitio Chapter 1"
     },
     "Treasure_Fld_Wld_1_1_B_01": {
         "Item": "500 L",
@@ -6540,7 +6551,8 @@
         "Name": "New Delsta: Backstreets",
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_DGR_040",
-        "ChestID": 1048
+        "ChestID": 1048,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Cty_1_1_B_07": {
         "Item": "Inspiriting Plum (M)",
@@ -6594,7 +6606,8 @@
         "Name": "New Delsta: Game Parlor",
         "Parent": "Brightlands",
         "ItemFileName": "None",
-        "ChestID": 88
+        "ChestID": 88,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Cty_1_1_C_02": {
         "Item": "Physical Belt",
@@ -6603,7 +6616,8 @@
         "Name": "New Delsta: Game Parlor",
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_ACS_220",
-        "ChestID": 89
+        "ChestID": 89,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Cty_1_1_C_03": {
         "Item": "Forbidden Dagger",
@@ -6612,7 +6626,8 @@
         "Name": "New Delsta: Game Parlor",
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_DGR_270",
-        "ChestID": 90
+        "ChestID": 90,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Cty_1_1_C_06": {
         "Item": "Inspiriting Plum (M)",
@@ -6837,7 +6852,8 @@
         "Name": "Clockbank: Industrial District",
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_LNS_100",
-        "ChestID": 712
+        "ChestID": 712,
+        "Notes": "Partitio Chapter 2"
     },
     "Treasure_Twn_Cty_2_1_B_05": {
         "Item": "Healing Grape Bunch",
@@ -6918,7 +6934,8 @@
         "Name": "Lostseed",
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_HLM_460",
-        "ChestID": 1532
+        "ChestID": 1532,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Cty_3_1_A_05": {
         "Item": "Inspiriting Plum (M)",
@@ -6981,7 +6998,8 @@
         "Name": "Ryu",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0220",
-        "ChestID": 20
+        "ChestID": 20,
+        "Notes": "Not a chest; talk to the Ku Guard along the way during Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_1_1_A_03": {
         "Item": "Inspiriting Plum (M)",
@@ -7062,7 +7080,8 @@
         "Name": "Ryu",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0530",
-        "ChestID": 2073
+        "ChestID": 2073,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_1_1_A_AP_050": {
         "Item": "Empowering Lychee",
@@ -7071,7 +7090,8 @@
         "Name": "Ryu",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0220",
-        "ChestID": 2075
+        "ChestID": 2075,
+        "Notes": "Not a chest; talk to the Ku Guard along the way during Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_2_1_A_01": {
         "Item": "Inspiriting Plum (M)",
@@ -7134,7 +7154,8 @@
         "Name": "Sai",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0170",
-        "ChestID": 2132
+        "ChestID": 2132,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_2_1_B_01": {
         "Item": "Refined Sword",
@@ -7143,7 +7164,8 @@
         "Name": "Sai: East District",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_SWD_110",
-        "ChestID": 210
+        "ChestID": 210,
+        "Notes": "requires quest Plans from a Ruined Nation completion"
     },
     "Treasure_Twn_Dst_2_1_B_02": {
         "Item": "Battle Hatchet",
@@ -7152,7 +7174,8 @@
         "Name": "Sai: East District",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_AXE_080",
-        "ChestID": 211
+        "ChestID": 211,
+        "Notes": "requires quest Plans from a Ruined Nation completion"
     },
     "Treasure_Twn_Dst_2_1_B_03": {
         "Item": "Herb of Revival",
@@ -7170,7 +7193,8 @@
         "Name": "Sai: East District",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_ACS_140",
-        "ChestID": 213
+        "ChestID": 213,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Dst_2_1_B_05": {
         "Item": "Tattered Dress",
@@ -7179,7 +7203,8 @@
         "Name": "Sai: East District",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_AMR_050",
-        "ChestID": 214
+        "ChestID": 214,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Dst_2_1_B_06": {
         "Item": "Inspiriting Plum (M)",
@@ -7251,7 +7276,8 @@
         "Name": "Sai: East District",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_TRE_Oth_01",
-        "ChestID": 2334
+        "ChestID": 2334,
+        "Notes": "not a chest; near previous"
     },
     "Treasure_Twn_Dst_3_1_A_01": {
         "Item": "Inspiriting Plum",
@@ -7260,7 +7286,8 @@
         "Name": "Ku: Castle Town",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0040",
-        "ChestID": 8
+        "ChestID": 8,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_3_1_A_02": {
         "Item": "Healing Grape",
@@ -7269,7 +7296,8 @@
         "Name": "Ku: Castle Town",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 9
+        "ChestID": 9,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_3_1_A_06": {
         "Item": "Inspiriting Plum (M)",
@@ -7341,7 +7369,8 @@
         "Name": "Ku: Castle Town",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0170",
-        "ChestID": 2216
+        "ChestID": 2216,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_3_1_A_AP_100": {
         "Item": "Healing Grape",
@@ -7350,7 +7379,8 @@
         "Name": "Ku: Castle Town",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 2217
+        "ChestID": 2217,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_3_1_A_AP_110": {
         "Item": "Critical Ring",
@@ -7359,7 +7389,8 @@
         "Name": "Ku: Castle Town",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_ACS_330",
-        "ChestID": 2218
+        "ChestID": 2218,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_3_1_B_01": {
         "Item": "Critical Ring",
@@ -7368,7 +7399,8 @@
         "Name": "Castle Ku: Entrance",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_ACS_330",
-        "ChestID": 13
+        "ChestID": 13,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_3_1_B_02": {
         "Item": "1600 L",
@@ -7377,7 +7409,8 @@
         "Name": "Castle Ku: Entrance",
         "Parent": "Hinoeuma",
         "ItemFileName": "None",
-        "ChestID": 14
+        "ChestID": 14,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_3_1_B_04": {
         "Item": "Inspiriting Plum (M)",
@@ -7449,7 +7482,8 @@
         "Name": "Castle Ku: Entrance",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0070",
-        "ChestID": 2220
+        "ChestID": 2220,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_3_1_C_01": {
         "Item": "Healing Grape",
@@ -7458,7 +7492,8 @@
         "Name": "Castle Ku",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 16
+        "ChestID": 16,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_3_1_C_02": {
         "Item": "Fortifying Nut",
@@ -7467,7 +7502,8 @@
         "Name": "Castle Ku",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0530",
-        "ChestID": 17
+        "ChestID": 17,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_3_1_C_03": {
         "Item": "Thunder Soulstone",
@@ -7476,7 +7512,8 @@
         "Name": "Castle Ku",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0350",
-        "ChestID": 1049
+        "ChestID": 1049,
+        "Notes": "Hikari's Chapter 1"
     },
     "Treasure_Twn_Dst_3_1_C_04": {
         "Item": "Inspiriting Plum (M)",
@@ -7989,7 +8026,8 @@
         "Name": "Beasting Village",
         "Parent": "Totohaha",
         "ItemFileName": "ITM_MEAT_1500",
-        "ChestID": 968
+        "ChestID": 968,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Isd_1_1_A_07": {
         "Item": "Resistant Nut (L)",
@@ -7998,7 +8036,8 @@
         "Name": "Beasting Village",
         "Parent": "Totohaha",
         "ItemFileName": "ITM_CSM_0640",
-        "ChestID": 1852
+        "ChestID": 1852,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Isd_1_1_A_08": {
         "Item": "Reinforcing Jam",
@@ -8007,7 +8046,8 @@
         "Name": "Beasting Village",
         "Parent": "Totohaha",
         "ItemFileName": "ITM_CSM_0101",
-        "ChestID": 1853
+        "ChestID": 1853,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Isd_1_1_A_09": {
         "Item": "Giant Bow",
@@ -8016,7 +8056,8 @@
         "Name": "Beasting Village",
         "Parent": "Totohaha",
         "ItemFileName": "ITM_EQP_BOW_370",
-        "ChestID": 1854
+        "ChestID": 1854,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Isd_3_1_A_01": {
         "Item": "Mythical Horn",
@@ -8088,7 +8129,8 @@
         "Name": "Flamechurch",
         "Parent": "Crestlands",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 26
+        "ChestID": 26,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Mnt_1_1_A_03": {
         "Item": "Guard's Shield",
@@ -8097,7 +8139,8 @@
         "Name": "Flamechurch",
         "Parent": "Crestlands",
         "ItemFileName": "ITM_EQP_SLD_100",
-        "ChestID": 27
+        "ChestID": 27,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Mnt_1_1_A_07": {
         "Item": "Inspiriting Plum (M)",
@@ -8241,7 +8284,8 @@
         "Name": "Flamechurch: Cathedral",
         "Parent": "Crestlands",
         "ItemFileName": "ITM_EQP_ACS_770",
-        "ChestID": 35
+        "ChestID": 35,
+        "Notes": "Temenos and Thron\u00e9 Crossed Path 1"
     },
     "Treasure_Twn_Mnt_1_2_B_03": {
         "Item": "Light Soulstone",
@@ -8331,7 +8375,8 @@
         "Name": "Montwise",
         "Parent": "Crestlands",
         "ItemFileName": "ITM_EQP_BOW_420",
-        "ChestID": 1128
+        "ChestID": 1128,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Mnt_2_1_A_09": {
         "Item": "Inspiriting Plum (M)",
@@ -8412,7 +8457,8 @@
         "Name": "Montwise: Underground Arena",
         "Parent": "Crestlands",
         "ItemFileName": "ITM_CSM_0260",
-        "ChestID": 933
+        "ChestID": 933,
+        "Notes": "During Hikari Ch. 2"
     },
     "Treasure_Twn_Mnt_2_1_C_07": {
         "Item": "Inspiriting Plum (M)",
@@ -8655,7 +8701,8 @@
         "Name": "Canalbrine",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_EQP_AXE_050",
-        "ChestID": 971
+        "ChestID": 971,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Sea_1_1_A_08": {
         "Item": "Inspiriting Plum (M)",
@@ -8718,7 +8765,8 @@
         "Name": "Conning Creek",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_EQP_ACS_260",
-        "ChestID": 1564
+        "ChestID": 1564,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Sea_2_1_A_05": {
         "Item": "Bottle of Befuddling Dust",
@@ -8889,7 +8937,8 @@
         "Name": "Conning Creek: Outskirts",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_CSM_0300",
-        "ChestID": 821
+        "ChestID": 821,
+        "Notes": "Available after Osvald ch.3"
     },
     "Treasure_Twn_Sea_2_1_C_03": {
         "Item": "Inspiriting Plum (M)",
@@ -8988,7 +9037,8 @@
         "Name": "Roque Island",
         "Parent": "Harborlands",
         "ItemFileName": "None",
-        "ChestID": 1597
+        "ChestID": 1597,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Sea_3_1_A_06": {
         "Item": "Rejuvenating Jam",
@@ -8997,7 +9047,8 @@
         "Name": "Roque Island",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_CSM_0111",
-        "ChestID": 1598
+        "ChestID": 1598,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Sea_3_1_A_07": {
         "Item": "Rejuvenating Jam",
@@ -9006,7 +9057,8 @@
         "Name": "Roque Island",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_CSM_0111",
-        "ChestID": 1599
+        "ChestID": 1599,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Sea_3_1_A_08": {
         "Item": "Magic Nut (L)",
@@ -9015,7 +9067,8 @@
         "Name": "Roque Island",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_CSM_0610",
-        "ChestID": 1600
+        "ChestID": 1600,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Sea_3_1_A_09": {
         "Item": "Rejuvenating Jam",
@@ -9024,7 +9077,8 @@
         "Name": "Roque Island",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_CSM_0111",
-        "ChestID": 1601
+        "ChestID": 1601,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Sea_3_1_A_10": {
         "Item": "Empowering Lychee (L)",
@@ -9411,7 +9465,8 @@
         "Name": "Winterbloom",
         "Parent": "Winterlands",
         "ItemFileName": "None",
-        "ChestID": 941
+        "ChestID": 941,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Snw_2_1_A_06": {
         "Item": "Healing Grape",
@@ -9429,7 +9484,8 @@
         "Name": "Winterbloom",
         "Parent": "Winterlands",
         "ItemFileName": "ITM_EQP_AMR_560",
-        "ChestID": 1328
+        "ChestID": 1328,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Snw_2_1_A_08": {
         "Item": "Inspiriting Plum (M)",
@@ -9465,7 +9521,8 @@
         "Name": "Winterbloom",
         "Parent": "Winterlands",
         "ItemFileName": "ITM_FLV_0250",
-        "ChestID": 2182
+        "ChestID": 2182,
+        "Notes": "Missable"
     },
     "Treasure_Twn_Snw_2_1_B_01": {
         "Item": "Empowering Lychee (M)",
@@ -9636,7 +9693,8 @@
         "Name": "Stormhail: Sacred Guard Headquarters",
         "Parent": "Winterlands",
         "ItemFileName": "ITM_EQP_AXE_430",
-        "ChestID": 520
+        "ChestID": 520,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Snw_3_1_B_02": {
         "Item": "Energizing Pomegranate",
@@ -9924,7 +9982,8 @@
         "Name": "Oresrush: Foundry",
         "Parent": "Wildlands",
         "ItemFileName": "ITM_TRE_SS_TW11_0100_0010",
-        "ChestID": 1224
+        "ChestID": 1224,
+        "Notes": "Guarded"
     },
     "Treasure_Twn_Wld_2_1_A_02": {
         "Item": "Olive of Life (M)",
