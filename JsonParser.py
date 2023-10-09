@@ -1,5 +1,6 @@
 import json
 import os
+import re
 
 
 # with open(self.game_communication_path + f"\kh2save{self.kh2seedname}{self.auth}.json", 'r') as f:
@@ -304,7 +305,7 @@ def make_gametext():
                     else:
                         yourdad[k['Name']] = k['Value'][1]['CultureInvariantString']
     print(yourdad)
-    with open(os.path.join("C:\\Users\.......\OneDrive\Documents\GitHub\OT2AP", "GameTextENMap.json"),
+    with open(os.path.join("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP", "GameTextENMap.json"),
             'wt') as f:
         f.write(json.dumps(yourdad, indent=4))
 
@@ -312,7 +313,7 @@ def make_gametext():
 def get_itemdb_map():
     yourdad = {}
     yas = []
-    game_text = open("C:\\Users\.......\OneDrive\Documents\GitHub\OT2AP/GameTextENMap.json", 'rb')
+    game_text = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP\Jsons/GameTextENMap.json", 'rb')
     loaded_game_text = json.load(game_text)
     with open("C:\Programming-stuff\OT2AP\\UsefulJsons/ItemDB.json", 'rb') as f:
         print(f)
@@ -337,7 +338,7 @@ def get_itemdb_map():
                 yourdad[k["Name"]].append(objectdata)
     for k, v in yourdad.items():
         yas.append(f"{k}: ObjectData:{v}\n")
-    with open(os.path.join("C:\\Users\.......\OneDrive\Documents\GitHub\OT2AP", "ItemData.json"),
+    with open(os.path.join("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP", "ItemData.json"),
             'wt') as f:
         f.write(json.dumps(yourdad, indent=4))
 
@@ -366,7 +367,7 @@ def make_objectdata():
                 yourdad[k["Name"]].append(objectdata)
     for k, v in yourdad.items():
         yas.append(f"{k}: ObjectData:{v}\n")
-    with open(os.path.join("C:\\Users\.......\OneDrive\Documents\GitHub\OT2AP", "ChestData.json"),
+    with open(os.path.join("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP", "ChestData.json"),
             'wt') as f:
         f.write(json.dumps(yourdad, indent=4))
 
@@ -375,8 +376,8 @@ def make_chest_to_item():
 
     yas = []
     output = {}
-    game_text = open("C:\\Users\.......\OneDrive\Documents\GitHub\OT2AP/ItemData.json", 'rb')
-    object_data = open("C:\\Users\.......\OneDrive\Documents\GitHub\OT2AP/ChestData.json", 'rb')
+    game_text = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP/ItemData.json", 'rb')
+    object_data = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP\Jsons/ChestData.json", 'rb')
     loaded_game_text = json.load(game_text)
     loaded_object_data = json.load(object_data)
     for k, v in loaded_object_data.items():
@@ -384,8 +385,8 @@ def make_chest_to_item():
             if v[0]["HaveItemLabel"] in loaded_game_text.keys():
                 output[k] = loaded_game_text[v[0]["HaveItemLabel"]][0]["ItemName"]
         elif "Money:" in v[0]:
-            output[k] = f"{v[0]['Money:']} leafs"
-    with open(os.path.join("C:\\Users\.......\OneDrive\Documents\GitHub\OT2AP", "Chest_to_ItemText.json"),
+            output[k] = f"{v[0]['Money:']} L"
+    with open(os.path.join("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP", "Chest_to_ItemText.json"),
             'wt') as f:
         f.write(json.dumps(output, indent=4))
 
@@ -393,24 +394,197 @@ def make_chest_to_item():
 
 
 def chest_to_region():
-    yas = []
-    not_loaded_game_text = open("C:\\Users\.......\OneDrive\Documents\GitHub\OT2AP/GameTextENMap.json", 'rb')
-    not_loaded_chest_to_item = open("C:\\Users\.......\OneDrive\Documents\GitHub\OT2AP/Chest_to_ItemText.json", 'rb')
+    yas = {}
+    not_loaded_game_text = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP\Jsons/GameTextENMap.json", 'rb')
+    not_loaded_chest_to_item = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP/Chest_to_ItemText.json", 'rb')
     chest_to_item = json.load(not_loaded_chest_to_item)
+    yourmom = ""
     game_text = json.load(not_loaded_game_text)
     for region in shorter_hand.keys():
         for chest, item in chest_to_item.items():
-            if region in chest:
-                for k, v in shorter_hand.items():
-                    if k in region and item != "TX_NA_ITM_CSM_0890":
-                        yas.append(f"{v} Treasure {item}")
+            for k, v in shorter_hand.items():
+                if k in chest and item != "TX_NA_ITM_CSM_0890":
+                    for region_name in short_hand.keys():
+                        if region_name in chest:
+                            yourmom = short_hand[region_name]
+                    if "AP" in chest:
+                        yas[chest] = {"Item": item, "region": k, "Hidden Item": True, "Name": v, "Parent": yourmom}
+                    else:
+                        yas[chest] = {"Item": item, "region": k, "Hidden Item": False, "Name": v, "Parent": yourmom}
 
-    with open(os.path.join("C:\\Users\.......\OneDrive\Documents\GitHub\OT2AP", "Location_to_Chest.json"),
+    with open(os.path.join("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP", "Location_to_Chest.json"),
             'wt') as f:
         f.write(json.dumps(yas, indent=4))
 
 
+def make_location_list():
+    yas = {}
+    item_to_filename = {}
+    not_loaded_game_text = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP/Jsons/GameTextENMap.json", 'rb')
+    not_loaded_chest_to_item = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP/Chest_to_ItemText.json", 'rb')
+    not_location_to_chest = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP/Location_to_Chest.json", 'rb')
+    not_loaded_sheetdump = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP\Jsons/SheetDump.json", 'rb')
+    item_data = json.load(open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP/ItemData.json", 'rb'))
+    chest_data = json.load(open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP/Jsons/ChestData.json", 'rb'))
+    for file_name, data in item_data.items():
+        if "ItemName" in data[0]:
+            item_to_filename[data[0]["ItemName"]] = file_name
+    chest_to_item = json.load(not_loaded_chest_to_item)
+    game_text = json.load(not_loaded_game_text)
+    loc_to_chest = json.load(not_location_to_chest)
+    sheetdump = json.load(not_loaded_sheetdump)
+    for chest, data in loc_to_chest.items():
+        for dic in sheetdump:
+            if chest == "Treasure_Twn_Snw_2_1_A_AP_020":
+                print()
+            if (data["Name"] == dic["Sub Area"] or data["Parent"] == dic["a"]) and data["Item"] == dic["Item"]:
+                if chest == "Treasure_Twn_Snw_2_1_A_AP_020":
+                    print()
+                yas[chest] = data
+                if data["Item"] not in item_to_filename:
+                    yas[chest]["ItemFileName"] = "None"
+                else:
+                    yas[chest]["ItemFileName"] = item_to_filename[data["Item"]]
+                yas[chest]["ChestID"] = chest_data[chest][0]["ID"]
+                break
+
+    with open(os.path.join("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP\Jsons", "Pruned_Locations.json"),
+            'wt') as f:
+        f.write(json.dumps(yas, indent=4))
+
+
+# def make_better_loc_to_chest():
+#    yas = {}
+#    item_to_filename = {}
+#    not_loaded_game_text = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP\Jsons/GameTextENMap.json", 'rb')
+#    not_loaded_chest_to_item = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP/Chest_to_ItemText.json", 'rb')
+#    chest_to_item = json.load(not_loaded_chest_to_item)
+#    aidhfiadus=json.load(open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP\Jsons/ItemData.json", 'rb'))
+#    item_data = json.load(open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP/ItemData.json", 'rb'))
+#    for file_name, data in item_data.items():
+#        if "ItemName" in data[0]:
+#            item_to_filename[data[0]["ItemName"]] = file_name
+#    yourmom = ""
+#    print(item_to_filename)
+#    game_text = json.load(not_loaded_game_text)
+#    for region in shorter_hand.keys():
+#        for chest, item in chest_to_item.items():
+#            for k, v in shorter_hand.items():
+#                if k in chest and item != "TX_NA_ITM_CSM_0890":
+#                    for region_name in short_hand.keys():
+#                        if region_name in chest:
+#                            yourmom = short_hand[region_name]
+#                    if "AP" in chest:
+#                        yas[chest] = {"ItemName": item, "Item": item_to_filename[item], "region": k, "Hidden Item": True, "Name": v, "Parent": yourmom}
+#                    else:
+#                        print()
+#                        yas[chest] = {"ItemName": item, "Item": item_to_filename[item], "region": k, "Hidden Item": False, "Name": v, "Parent": yourmom}
+#                        print()
+#
+#    with open(os.path.join("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP", "Location_to_Chest.json"),
+#            'wt') as f:
+#        f.write(json.dumps(yas, indent=4))
+
+
+# def npc_to_data():
+def quest_to_reward():
+    not_loaded_game_text = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP\Jsons/csvjson.json", 'rb')
+    # not_loaded_chest_to_item = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP/Chest_to_ItemText.json", 'rb')
+    chest_to_item = json.load(not_loaded_game_text)
+    yourmom = ""
+    print(chest_to_item)
+    yas = {}
+    for dic in chest_to_item:
+        yas[dic['']] = {}
+        yas[dic['']]["Region"] = dic["__1"]
+        yas[dic['']]["Location"] = dic["__2"]
+        yas[dic['']]["Client"] = dic["__3"]
+        yas[dic['']]["Objective"] = dic["__4"]
+        yas[dic['']]["Unlock Criteria"] = dic["__5"]
+        yas[dic['']]["Money"] = dic["__6"]
+        if "__7" in dic:
+            dic["__7"] = re.sub(r'\sx\s\d+', ' ', dic["__7"])
+            if "x1" in dic["__7"]:
+                dic["__7"] = dic["__7"].replace(" x1", "")
+        if "," in dic["__7"]:
+            yourmom = dic["__7"].split(",")
+            for _ in range(len(yourmom)):
+                if yourmom[_][0] == " ":
+                    yourmom[_] = yourmom[_][1:]
+                    # ah=item.replace(r'^\s', "")
+                    # print(ah)
+            yas[dic['']]["Items"] = yourmom
+        else:
+            yas[dic['']]["Items"] = [dic["__7"]]
+
+    print(yas)
+    yourmom = yas["The Cave Monster"]
+    print(yourmom)
+    with open(os.path.join("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP", "Quest_to_Rewards.json"),
+            'wt') as f:
+        f.write(json.dumps(yas, indent=4))
+
+
+# for region in shorter_hand.keys():
+#    for chest, item in chest_to_item.items():
+#        for k, v in shorter_hand.items():
+#            if k in chest and item != "TX_NA_ITM_CSM_0890":
+#                for region_name in short_hand.keys():
+#                    if region_name in chest:
+#                        yourmom = short_hand[region_name]
+
+# with open(os.path.join("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP", "Location_to_Chest.json"),
+#        'wt') as f:
+#    f.write(json.dumps(yas, indent=4))
+
 # get_itemdb_map()
 # make_chest_to_item()
-#chest_to_region()
-make_chest_to_item()
+# chest_to_region()
+# make_chest_to_item()
+make_location_list()
+
+
+# make_better_loc_to_chest()
+#
+def npc_to_stuff():
+    yas = {}
+    item_to_filename = {}
+    not_loaded_chest_to_item = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP/npc_to_data.json", 'rb')
+    # not_loaded_chest_to_item = open("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP/Chest_to_ItemText.json", 'rb')
+    chest_to_item = json.load(not_loaded_chest_to_item)
+    # yourmom = ""
+    # game_text = json.load(not_loaded_game_text)
+    for npc in chest_to_item:
+        npc_list_stuff = {}
+        npc_list_stuff["Time"] = npc["__1"]
+        if npc["X"] != "None" and npc["X"] != "n/a":
+            npc_list_stuff["Gleaned"] = npc["X"]
+        print(npc_list_stuff)
+        lasy = {
+            "Purchase / Steal": 1,
+            "__4":              2,
+            "__5":              3,
+            "__6":              4,
+            "__7":              5
+        }
+        for name in {"Purchase / Steal",
+                     "__4",
+                     "__5",
+                     "__6",
+                     "__7", }:
+            if npc[name] != "n/a" and npc[name] != "none":
+                npc_list_stuff[f"Item Steal {lasy[name]}"] = npc[name]
+
+        npc_list_stuff["Items"] = npc["__23"]
+        npc_list_stuff["Region"] = npc['ah']
+        npc_list_stuff["Name"] = npc['Done - if you find any missing NPC or information, please add a commentary!']
+        npc_list_stuff["EnemyID"] = npc["__25"]
+        npc_list_stuff["Note"] = npc["__26"]
+        yas[f"{npc['ah']} {npc['Done - if you find any missing NPC or information, please add a commentary!']}"] = [npc_list_stuff]
+
+    with open(os.path.join("C:\\Users\........\OneDrive\Documents\GitHub\OT2AP", "npc_data.json"),
+            'wt') as f:
+        f.write(json.dumps(yas, indent=4))
+    print(yas)
+
+# npc_to_stuff()

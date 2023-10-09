@@ -1,0 +1,799 @@
+{
+    "Total money earned": {
+        "Region": "$538,700",
+        "Location": "",
+        "Client": "",
+        "Objective": "",
+        "Unlock Criteria": "",
+        "Money": "",
+        "Items": [
+            ""
+        ]
+    },
+    "Side Story": {
+        "Region": "Region",
+        "Location": "Location",
+        "Client": "Client",
+        "Objective": "Objective",
+        "Unlock Criteria": "Unlock Criteria",
+        "Money": "Reward: Money",
+        "Items": [
+            "Reward: Other"
+        ]
+    },
+    "The Traveler's Bag": {
+        "Region": "-",
+        "Location": "Outside your starting character's town - changes based on your selected character",
+        "Client": "Al",
+        "Objective": "Retrieve stolen bag from a bandit a little north on same screen during the night.",
+        "Unlock Criteria": "None",
+        "Money": "$1,500",
+        "Items": [
+            "Slippery Nut",
+            "Healing Grape"
+        ]
+    },
+    "My Beloved Catharine": {
+        "Region": "Brightlands",
+        "Location": "Clockbank",
+        "Client": "Haggard Man",
+        "Objective": "Recruit the haggard man and take him north to the lonesome cat",
+        "Unlock Criteria": "None",
+        "Money": "$12,000",
+        "Items": [
+            "Cait Powder"
+        ]
+    },
+    "For whom the Clock Tower Tolls": {
+        "Region": "Brightlands",
+        "Location": "Clockbank",
+        "Client": "Clock Tower Technician",
+        "Objective": "Guide the guy and see pic: https://imgur.com/a/bUhj9T5  on where to go.Go inside tower to the top and fight the phoenix bird in order to complete side quest.",
+        "Unlock Criteria": "None",
+        "Money": "$10,000",
+        "Items": [
+            "Invigorating Nut (L) "
+        ]
+    },
+    "Descended from Royalty": {
+        "Region": "Brightlands",
+        "Location": "Clockbank",
+        "Client": "Royal Descendant",
+        "Objective": "Obtain the item 'Nyx Royal Family Tree' and talk to him again, Also Bribe/Inquire/Coerce Historian in Montwise: Library for Nyx Family History, both Nyx Royal Family Tree and Nyx Family History gives different dialogues, Both options completes the quest",
+        "Unlock Criteria": "None",
+        "Money": "$6,000",
+        "Items": [
+            "Resistant Nut (M) "
+        ]
+    },
+    "A Gambling Man": {
+        "Region": "Brightlands",
+        "Location": "New Delsta",
+        "Client": "Concerned Wife",
+        "Objective": "Inquire/Scrutinize \"Truth of the Game Parlor\" from NPC in the game parlor and return to wife.",
+        "Unlock Criteria": "None.",
+        "Money": "-",
+        "Items": [
+            "Victory Ring",
+            "Energizing Pomegranate"
+        ]
+    },
+    "Veronica's Next Chapter": {
+        "Region": "Brightlands",
+        "Location": "New Delsta",
+        "Client": "Veronica",
+        "Objective": "Inquire/Scrutinize \"Dolcinea and Gifts\" from Platt's Wife in Sai and return to Veronica",
+        "Unlock Criteria": "Clear Agnea's Story",
+        "Money": "$12,000",
+        "Items": [
+            "Bodyguard's Vantage "
+        ]
+    },
+    "The Bourgeois Boy": {
+        "Region": "Brightlands",
+        "Location": "New Delsta",
+        "Client": "Wealthy Boy",
+        "Objective": "Recruit Wealthy Boy's father via Hire, Befriend etc in the Canalbrine church and return to Wealthy Boy.",
+        "Unlock Criteria": "None",
+        "Money": "$9,000",
+        "Items": [
+            "Sharp Nut (M)"
+        ]
+    },
+    "Utterly Exhausted!": {
+        "Region": "Brightlands",
+        "Location": "New Delsta",
+        "Client": "Exhausted Man",
+        "Objective": "Knock out the stalker girl hiding behind a tree to the right. Alternative: Bring a Miracle Stone",
+        "Unlock Criteria": "None",
+        "Money": "$6,000",
+        "Items": [
+            "Dragon's Scarf"
+        ]
+    },
+    "A Devilishly Delicious Dish": {
+        "Region": "Brightlands",
+        "Location": "New Delsta",
+        "Client": "Tavern Cook",
+        "Objective": "Sunken Maw Level 34 dungeon. Get bait (inside) then kill boss.",
+        "Unlock Criteria": "None",
+        "Money": "$5,000",
+        "Items": [
+            "Chef's Ladle",
+            "Master Rod"
+        ]
+    },
+    "A Genius Inventor": {
+        "Region": "Brightlands",
+        "Location": "New Delsta Highroad",
+        "Client": "Arkar",
+        "Objective": "Build all of Arkar's inventions.  Here is list of location",
+        "Unlock Criteria": "None",
+        "Money": "$12,000?",
+        "Items": [
+            "Mechanical Top Hat"
+        ]
+    },
+    "Pilgrim Protection": {
+        "Region": "Crestlands",
+        "Location": "Flamechurch",
+        "Client": "Elder",
+        "Objective": "Steal or buy the 3 candles from clerics around town. Return to Elder.",
+        "Unlock Criteria": "None",
+        "Money": "$5,000",
+        "Items": [
+            "Fortifying Nut",
+            "Tough Nut\nNo more random encounters in Pilgrims Way area"
+        ]
+    },
+    "Ort's Next Chapter": {
+        "Region": "Crestlands",
+        "Location": "Flamechurch: Cathedral",
+        "Client": "Ort",
+        "Objective": "Follow Ort to the North East building in Flamechurch. Ambush the guard at the door. After some cutscenes, go to the Cathedral Cellar to the next Quest Marker and fight two enemies.",
+        "Unlock Criteria": "Clear Temenos's Story",
+        "Money": "$10,000",
+        "Items": [
+            "Sword of Oaths"
+        ]
+    },
+    "Cathedral Window Repair": {
+        "Region": "Crestlands",
+        "Location": "Flamechurch: Cathedral",
+        "Client": "Cleric",
+        "Objective": "Bring one large fire, ice, thunder and wind soulstone to Cleric.",
+        "Unlock Criteria": "None",
+        "Money": "$8,000",
+        "Items": [
+            "Psychic Staff"
+        ]
+    },
+    "A Mysterious Box": {
+        "Region": "Crestlands",
+        "Location": "Merry Hills",
+        "Client": "Young Collector",
+        "Objective": "Obtain the box from the npc and bring it to House Wellows Manor at night",
+        "Unlock Criteria": "None",
+        "Money": "$6,666",
+        "Items": [
+            "Reaper's Sickle"
+        ]
+    },
+    "Laila's Next Chapter": {
+        "Region": "Crestlands",
+        "Location": "Merry Hills",
+        "Client": "Laila",
+        "Objective": "Follow Laila to the Shrine Entrance for a cutscene. After the cutscene, find Laila on the bridge back in town. Follow both Laila and Hermes back to the Shrine Entrance for another cutscene. Knock out the Judge hiding in the far right of the area.",
+        "Unlock Criteria": "Clear Agnea's Story\nClear Temenos' Story",
+        "Money": "$10,000",
+        "Items": [
+            "Laila's Amulet"
+        ]
+    },
+    "Will Research for Money": {
+        "Region": "Crestlands",
+        "Location": "Montwise",
+        "Client": "Octopus Researcher",
+        "Objective": "Guide/Allure Octopus Enthusaist in Harborlands Conning Creek Tavern",
+        "Unlock Criteria": "None",
+        "Money": "-",
+        "Items": [
+            "Octopuff Pot"
+        ]
+    },
+    "Procuring Peculiar Tomes": {
+        "Region": "Crestlands",
+        "Location": "Montwise",
+        "Client": "Unusual Tome Specialist",
+        "Objective": "Bring the three books found at: a guarded chest in Crackridge, Purchase/Steal in Beasting Village and Purchase / Steal in Southern Stormhail Snows",
+        "Unlock Criteria": "",
+        "Money": "$6,500",
+        "Items": [
+            "Librarian's Amulet",
+            "Refreshing Jam"
+        ]
+    },
+    "Tourney Champion": {
+        "Region": "Crestlands",
+        "Location": "Montwise",
+        "Client": "Worried Woman",
+        "Objective": "Knock out Fainthearted Youth in Arena. Then battle tourney champion and quest will complete. Note that tourney champion also drops Champion Belt, and it can farmed from this person after this quest to get more Champion Belts.",
+        "Unlock Criteria": "Clear Hikari Chp 2",
+        "Money": "$2,000",
+        "Items": [
+            "Reinforcing Jam"
+        ]
+    },
+    "From the Far Reaches of Hell": {
+        "Region": "Crestlands",
+        "Location": "Montwise: Library",
+        "Client": "Al",
+        "Objective": "Use ship to travel to Nameless Isle. Fight boss and Inquire/Scrutinize Georges, then return to Al (Must have completed The Traveler's Bag Quest outside starting town)",
+        "Unlock Criteria": "Ship Required\nClear Procurring Peculiar Tomes",
+        "Money": "$4,500",
+        "Items": [
+            "Coat of Arms"
+        ]
+    },
+    "Goading the Grapes": {
+        "Region": "Harborands",
+        "Location": "Conning Creek Coast",
+        "Client": "Grape Farmer",
+        "Objective": "Inquire old man inside the tavern in Cropdale",
+        "Unlock Criteria": "None",
+        "Money": "$10,000",
+        "Items": [
+            "Nourishing Nut (M)"
+        ]
+    },
+    "The Fish Filcher": {
+        "Region": "Harborands",
+        "Location": "Conning Creek Harbor",
+        "Client": "Head Fisherman",
+        "Objective": "Switch to night, then wait several minutes for the Fish Thief to appear. Knock him out.",
+        "Unlock Criteria": "",
+        "Money": "$6,000",
+        "Items": [
+            "Fortifying Nut (M)"
+        ]
+    },
+    "A Young Girl's Wish": {
+        "Region": "Harborands",
+        "Location": "Conning Creek Outskirts",
+        "Client": "Apathetic Girl",
+        "Objective": "1. Scrutinize/Inquire Cleric in Cleric guild to learn about \"Adventures of an Apprentice Cleric\u2019s Sequel\".\n2. Steal or buy the Deluxe Crepe from the Crepe Maker.\n3. Guide/Allure/etc Roland on Timberlain town square and return to girl.",
+        "Unlock Criteria": "None",
+        "Money": "$15,000",
+        "Items": [
+            "Vest of Joy",
+            "Revitalizing Jam"
+        ]
+    },
+    "Lady Clarissa's Next Chapter": {
+        "Region": "Harborands",
+        "Location": "Conning Creek Outskirts",
+        "Client": "Lady Clarrisa",
+        "Objective": "Recuit Clarissa and take her to the Beastling Village",
+        "Unlock Criteria": "Completed Osvald Story, Completed Ochette Story",
+        "Money": "$9,000",
+        "Items": [
+            "Well-Worn Pole"
+        ]
+    },
+    "Lighthouse Restoration": {
+        "Region": "Harborlands",
+        "Location": "Canalbrine",
+        "Client": "Town Lighthouse Keeper",
+        "Objective": "Lighthouse island NPC has the item.",
+        "Unlock Criteria": "Ship required",
+        "Money": "$12,000",
+        "Items": [
+            "Lighthouse Keeper's Bandana",
+            "\nTough Nut (L)"
+        ]
+    },
+    "Traveler's Lost and Found": {
+        "Region": "Harborlands",
+        "Location": "Canalbrine",
+        "Client": "Young Traveler",
+        "Objective": "Item is held by woman in harbor closest to Totohaha",
+        "Unlock Criteria": "None",
+        "Money": "$4,000",
+        "Items": [
+            "Critical Nut (M)"
+        ]
+    },
+    "Waiting All Day and Night": {
+        "Region": "Harborlands",
+        "Location": "Canalbrine",
+        "Client": "Waiting Youth",
+        "Objective": "Recruit waiting youth via Hire, Befriend etc, change time of day and speak with the other waiting youth.",
+        "Unlock Criteria": "None",
+        "Money": "$3,000",
+        "Items": [
+            "Magic Nut",
+            "Empowering Lychee"
+        ]
+    },
+    "Floyd and Thurston's Next Chapter": {
+        "Region": "Harborlands",
+        "Location": "Roque Island",
+        "Client": "Thurston",
+        "Objective": "Knock out Floyd",
+        "Unlock Criteria": "Partitio story",
+        "Money": "$12,000",
+        "Items": [
+            "Floyd's Neo Bow"
+        ]
+    },
+    "A Tower of Trials": {
+        "Region": "Hinoeuma",
+        "Location": "Ku",
+        "Client": "Guide",
+        "Objective": "Complete the five trials",
+        "Unlock Criteria": "Beat Hikari Story",
+        "Money": "$20,000",
+        "Items": [
+            "Proof of the Conjurer",
+            "Conjurer's Raiment"
+        ]
+    },
+    "The Runaways": {
+        "Region": "HInoeuma",
+        "Location": "Ku",
+        "Client": "Horse Lender",
+        "Objective": "Guide ranch guy from Oresrush OR Ambush the horse thief (Eastern Welgrove Trail)",
+        "Unlock Criteria": "Beat Hikari Story",
+        "Money": "$20,000",
+        "Items": [
+            "Light Nut (M)"
+        ]
+    },
+    "The Treasures of Ku": {
+        "Region": "Hinoeuma",
+        "Location": "Ku",
+        "Client": "Treasurer",
+        "Objective": "Steal/buy Dragon Vase from Suspicious Peddler (Canalbrine), Phoniex Fan from Suspicious Man (Crackridge Harbor Anchorage)",
+        "Unlock Criteria": "Beat Hikari Story",
+        "Money": "$15,000",
+        "Items": [
+            "Staff of Carnage"
+        ]
+    },
+    "The Strongest": {
+        "Region": "Hinoeuma",
+        "Location": "Ku",
+        "Client": "Childhood Friend",
+        "Objective": "Provoke/Challenge the 2 men next to the Childhood Friend",
+        "Unlock Criteria": "Beat Hikari Story",
+        "Money": "$10,000",
+        "Items": [
+            "Shield of Strength",
+            "Spear of Strength"
+        ]
+    },
+    "Mikka's Next Chapter": {
+        "Region": "Hinoeuma",
+        "Location": "Ku",
+        "Client": "Mikka",
+        "Objective": "Go to Agnea's House in Cropdale (Far West Side of town). After a Cutscene, guide Pala back to Mikka in Ku.\nAfter another scene, Steal Mikka's Earrings back from a bandit.",
+        "Unlock Criteria": "Beat Hikari Story +\nBeat Agnea Hikari",
+        "Money": "$10,000",
+        "Items": [
+            "Mikka's Amulet"
+        ]
+    },
+    "Sword Hunter in the Decaying Temple": {
+        "Region": "Hinoeuma",
+        "Location": "Sai",
+        "Client": "Young Warrior",
+        "Objective": "Enter Decaying temple at East Sai Lands (Requires to be alone) and defeat Karma at the end",
+        "Unlock Criteria": "None",
+        "Money": "$12,000",
+        "Items": [
+            "Refreshing Jam",
+            "Keepsake sword is available to steal"
+        ]
+    },
+    "Plans from a Ruined Nation": {
+        "Region": "Hinoeuma",
+        "Location": "Sai: East District",
+        "Client": "Master Carpenter",
+        "Objective": "Steal plan form the former U carpenter in the Canalbrine Tavern",
+        "Unlock Criteria": "None",
+        "Money": "$6,500",
+        "Items": [
+            "Tough Nut (M)",
+            "access to chests containing Refined Sword and Battle Hatchet"
+        ]
+    },
+    "The Soused Nobleman": {
+        "Region": "Leaflands",
+        "Location": "Cropdale",
+        "Client": "Tavern Assistant",
+        "Objective": "Knock out Drunk Aristocrat",
+        "Unlock Criteria": "None",
+        "Money": "$4,000",
+        "Items": [
+            "Prosperity Charm"
+        ]
+    },
+    "Crop Revival": {
+        "Region": "Leaflands",
+        "Location": "Cropdale",
+        "Client": "Weaver",
+        "Objective": "Inquire/Scrutinize Elderly Woman's Son (found in Forest Path), find the hidden item, then bring it back to Weaver.",
+        "Unlock Criteria": "None",
+        "Money": "$3,000",
+        "Items": [
+            "Invigorating Nut",
+            "Inspiriting Plum (M)"
+        ]
+    },
+    "Proof of Justice": {
+        "Region": "Leaflands",
+        "Location": "Timberain",
+        "Client": "Spectator",
+        "Objective": "If you leave town and then head towards the eastern exit going towards lower level areas, there is the little boat pier to go into the lake. Basically at the other pier across the water (not the small gazebo) you\u2019ll see something shining (Stolen Sword) over there. That\u2019s the murder weapon. After getting murder weapon, go to New Delsta and find Dour Elderly Woman (found in Backstreets) and inquire with her. Then go back to the court.",
+        "Unlock Criteria": "Proof of Guilt",
+        "Money": "$30,000",
+        "Items": [
+            "Fortifying Nut (L)",
+            "Magic Nut (L)"
+        ]
+    },
+    "Proof of Guilt": {
+        "Region": "Leaflands",
+        "Location": "Timberain",
+        "Client": "Meylan",
+        "Objective": "Coerce the Remorseful Old Man south of the Court House at night and bring the hidden item to the guard",
+        "Unlock Criteria": "Proof of Innocence",
+        "Money": "$12,000",
+        "Items": [
+            "Critical Nut (L)"
+        ]
+    },
+    "Proof of Innocence": {
+        "Region": "Leaflands",
+        "Location": "Timberain",
+        "Client": "Meylan",
+        "Objective": "Guide/Allure/Hire/Befriend Sickly Girl near the courthouse on top of the bridge at Timberain and bring her to Meylan.",
+        "Unlock Criteria": "None",
+        "Money": "$11,000",
+        "Items": [
+            "Nourishing Nut (L) ",
+            "\nOlive of Life (M)"
+        ]
+    },
+    "A Forced Hand": {
+        "Region": "Leaflands",
+        "Location": "Timberain Castle: Town Square",
+        "Client": "Tiffany",
+        "Objective": "Guide/Allure Margello (found in Montwise: Library) and bring him back to Tiffany. \nCoerce/Inquire/Scrutinize Margello's Attendant and bring Margello's Personality to Tiffany. Either one will complete the quest.",
+        "Unlock Criteria": "None",
+        "Money": "$15,000",
+        "Items": [
+            "Mental belt"
+        ]
+    },
+    "Mira and the Elderly Guard's Next Chapter": {
+        "Region": "Leaflands",
+        "Location": "Wellgrove",
+        "Client": "Elderly Guard",
+        "Objective": "Guide/Allure the Elderly Guard and go to the gondola east of Lostseed, after the cutscene go to Lostseed",
+        "Unlock Criteria": "Clear Thron\u00e9's 4th Chapter",
+        "Money": "$9,000",
+        "Items": [
+            "Vengeful Knife"
+        ]
+    },
+    "Useless Fruit": {
+        "Region": "Leaflands",
+        "Location": "Wellgrove",
+        "Client": "Considerate Youth",
+        "Objective": "Travel to Cropdale and Inquire/Scrutinize Knowledgeable Villager (in front of Inn) for \"Well Iris Uses\" info",
+        "Unlock Criteria": "None",
+        "Money": "$6,000",
+        "Items": [
+            "Dyed Clothes",
+            "Beastly Scarf"
+        ]
+    },
+    "Through a Child's Eyes": {
+        "Region": "Leaflands",
+        "Location": "Wellgrove",
+        "Client": "Brooding Girl",
+        "Objective": "Guide/Allure/Hire/Befriend Step father near Dancer's Guild and Mother further right of the girl near Inn and Tavern.",
+        "Unlock Criteria": "None",
+        "Money": "$5,000",
+        "Items": [
+            "Charm of Compassion.\n(Recover more HP and SP when healed.)"
+        ]
+    },
+    "Misha's Next Chapter": {
+        "Region": "Leaflands",
+        "Location": "Wellgrove: Alrond's Estate",
+        "Client": "Misha",
+        "Objective": "Get \"Garbage Collector\" info (from Eager Townsperson in front of department store during day) and \"Man in a Brown Coat\" info (from Strolling Townsperson to the left of the department store during night) and bring that information to Misha.",
+        "Unlock Criteria": "Finish Partitio's chapter 4",
+        "Money": "$15,000",
+        "Items": [
+            "Butler's Tailcoat"
+        ]
+    },
+    "Building Bridges": {
+        "Region": "Toto'haha",
+        "Location": "Beastling Village",
+        "Client": "Human Boy",
+        "Objective": "Steal amulet from beastling girl in the opposing village and bring to Human Boy",
+        "Unlock Criteria": "None",
+        "Money": "-",
+        "Items": [
+            "Critical Nut",
+            "Resistant Nut"
+        ]
+    },
+    "Culinary Cunning": {
+        "Region": "Toto'haha",
+        "Location": "Beastling Village",
+        "Client": "Cooking Enthusiast",
+        "Objective": "Scrutinize Street Vendor in Tropu'hopu: Floating Theatre to learn recipe of Spicy Chicken and return back to quest giver.",
+        "Unlock Criteria": "None",
+        "Money": "$3,000",
+        "Items": [
+            "Gluttonous Glaive"
+        ]
+    },
+    "Ghormf!": {
+        "Region": "Toto'haha",
+        "Location": "Nameless Village",
+        "Client": "Beastling",
+        "Objective": "Guide/Allure a male beastling at North West exit of Beastling Village that is also speaking in ancient beast language to Ghormf!",
+        "Unlock Criteria": "None",
+        "Money": "$10,000",
+        "Items": [
+            "Stupefying Stone Axe"
+        ]
+    },
+    "Shirlutto's Next Chapter": {
+        "Region": "Toto'haha",
+        "Location": "Nameless Village",
+        "Client": "Shirlutto",
+        "Objective": "Bring him Lute (take from Merchant in Sai), Paper Play (take from Cleric in Flamechurch, inside church), History Book (take from Merchant in Montwise, inside General Store night)",
+        "Unlock Criteria": "Clear Temenos' Story",
+        "Money": "$10,000",
+        "Items": [
+            "Befuddling Greatbow"
+        ]
+    },
+    "A Gate Between Worlds": {
+        "Region": "Toto'haha",
+        "Location": "The Sundering Sea: ??? Island",
+        "Client": "Al",
+        "Objective": "Defeat the secret boss (Warning* endgame content, Recommended level 80+ all characters, expect minimum 1 hour long boss fight)",
+        "Unlock Criteria": "Clear 2 Side Quests:\n1. Procurring Peculiar Tomes\n2. From the Far Reaches of Hell",
+        "Money": "-",
+        "Items": [
+            "Spurning Ribbon"
+        ]
+    },
+    "Pearl Hunt": {
+        "Region": "Toto'haha",
+        "Location": "Tropu'hopu",
+        "Client": "Man Searching For Pearls",
+        "Objective": "Item: Pretty Pearl. In the northeast of Tropu'hopu is a belligerent Islander who is guarding a ladder down to a chest. Remove him - Ambush or fighting works nicely - and you can pop open the chest to retrieve a Pretty Pearl.The Artisan knows of a hidden Vivid Jewel by the Tavern, while the Elderly Man knows of a hidden Pretty Pearl on the beach to the west. At Night: There's an Islander and a Beastling standing to the east of the entrance to Tropu'hopu. They're carrying a Healing Grape, an Inspiriting Plum, an Olive of Life (M), a Marksman's Bow, a Light Nut (L), and a Pretty Pearl between the two of them.",
+        "Unlock Criteria": "None",
+        "Money": "$15,000",
+        "Items": [
+            ""
+        ]
+    },
+    "The Late Riser": {
+        "Region": "Toto'haha",
+        "Location": "Tropu'hopu",
+        "Client": "Master Fisherman",
+        "Objective": "Challenge/Provoke Sleepy Fisherman beside him to \"put him to sleep\" early",
+        "Unlock Criteria": "None",
+        "Money": "$4,800",
+        "Items": [
+            "Slippery Nut (M)"
+        ]
+    },
+    "Stage Actors": {
+        "Region": "Toto'haha",
+        "Location": "Tropu'hopu",
+        "Client": "Stage Director",
+        "Objective": "Mug/Provoke/Challange/Coerce him to complete the quest.",
+        "Unlock Criteria": "None",
+        "Money": "$4,500",
+        "Items": [
+            "Physical Belt"
+        ]
+    },
+    "Reaching for the Stars": {
+        "Region": "Wildlands",
+        "Location": "Gravell",
+        "Client": "Ambitious Youth",
+        "Objective": "During Night time, knock-out every villager in Gravell that is not inside a building.",
+        "Unlock Criteria": "None",
+        "Money": "$15,000",
+        "Items": [
+            "Gaudy Hat"
+        ]
+    },
+    "The Missing Girl": {
+        "Region": "Wildlands",
+        "Location": "Gravell",
+        "Client": "Worried Mother",
+        "Objective": "Locate daughter in West Gravell Wilds. Requires you to go to Ivory Ravine and fight monster(Lvl 50+). After killing the boss, guide / Allure the lost girl and take her back to the worried mother.",
+        "Unlock Criteria": "None",
+        "Money": "$15,000",
+        "Items": [
+            "Sister's Amulet "
+        ]
+    },
+    "Alpione's Next Chapter": {
+        "Region": "Wildlands",
+        "Location": "Gravell",
+        "Client": "Alpione",
+        "Objective": "Inquire (Lv 45), Bribe (1000), or Scrutinize Merchant outside of Gravell for \"Hunting Request\" information. After that, report back to Alpione.",
+        "Unlock Criteria": "Clear Ochette's Story",
+        "Money": "$10,000",
+        "Items": [
+            "Alpione's Amulet"
+        ]
+    },
+    "In Search Of The Divine Weapons": {
+        "Region": "Wildlands",
+        "Location": "Gravell",
+        "Client": "Retired Blacksmith(Porta)",
+        "Objective": "\u2022After completing 'Sword In The Stone' , bring to Retired BlackSmith to start the Divine Weapon(Sword in stone gives you Rusty sword)\n\u2022In Timberrain in far left where there is a guard, set time to night, ambush him and go through door to eventually reach far right to get chest to get Rusty Polearm",
+        "Unlock Criteria": "1 Rusty Weapon",
+        "Money": "",
+        "Items": [
+            "Armsmaster Job",
+            "Conqueror's Sword (Rusty Sword)",
+            "Warlord's Spear (Rusty Spear)",
+            "Dancer's Blade (Rusty Dagger)",
+            "Lionheart's Axe (Rusty Axe)",
+            "Hunter's Bow (Rusty Bow)",
+            "Spiritlord's Staff (Rusty Staff)"
+        ]
+    },
+    "Wanted: A Good Joke": {
+        "Region": "Wildlands",
+        "Location": "Oresrush",
+        "Client": "Joe",
+        "Objective": "Acquire information (inquire, scrutinize, etc) from Nikki, Harry and Ned and return to Joe.",
+        "Unlock Criteria": "None",
+        "Money": "$3,500",
+        "Items": [
+            "Invigorating Nut (M)"
+        ]
+    },
+    "Stolen Goods": {
+        "Region": "Wildlands",
+        "Location": "Oresrush",
+        "Client": "Peddler",
+        "Objective": "Knock out Boorish Merchant at Oresrush: Foundry. Inside the room they were guarding, there is a chest with the stocked goods.",
+        "Unlock Criteria": "None",
+        "Money": "$3,000",
+        "Items": [
+            "Light Nut",
+            "Healing Grape (M)"
+        ]
+    },
+    "The Cave Monster": {
+        "Region": "Wildlands",
+        "Location": "Unfinished Tunnel",
+        "Client": "Foreman",
+        "Objective": "Automatically given when entering Unfinished Mine (West of Southern Crackridge Wilds, npc is blocking path. Needs to be knocked out). Requires killing boss end of dungeon.",
+        "Unlock Criteria": "None",
+        "Money": "$5,000",
+        "Items": [
+            "Resistant Nut (L) "
+        ]
+    },
+    "The Baby's Coming": {
+        "Region": "Winterlands",
+        "Location": "Cape Cold",
+        "Client": "Flustered Villager",
+        "Objective": "Recruit midwife from Flamechurch and bring back to client",
+        "Unlock Criteria": "None",
+        "Money": "$3,000",
+        "Items": [
+            "Nourishing Nut"
+        ]
+    },
+    "Ruffians' Redoubt": {
+        "Region": "Winterlands",
+        "Location": "Eastern Cape Cold Snows",
+        "Client": "Peddler",
+        "Objective": "Defeat Ruffian Leader in Ruffian Hideout(East of Eastern Cape Cold Snow accessible by canoe) in Winterlands.",
+        "Unlock Criteria": "None",
+        "Money": "$6,000",
+        "Items": [
+            "Peddler's Feathered Cap"
+        ]
+    },
+    "Lingering Love": {
+        "Region": "Winterlands",
+        "Location": "Stormhail",
+        "Client": "Dismal Woman",
+        "Objective": "Obtain Treasured Necklace from quest giver, then give to Eugis in Merry Hills, or bring Eugis to the quest giver. Either options will complete the Side Story, but will play out differently.",
+        "Unlock Criteria": "None",
+        "Money": "$14,000",
+        "Items": [
+            "Alluring Ribbon (?)"
+        ]
+    },
+    "A Disquieting Shop": {
+        "Region": "Winterlands",
+        "Location": "Stormhail",
+        "Client": "Shopkeeper's Daughter",
+        "Objective": "Knock the Clingy Woman next to the Shopkeeper unconscious.",
+        "Unlock Criteria": "",
+        "Money": "$12,000",
+        "Items": [
+            "Sharp Nut (L)",
+            "Slippery Nut (L)"
+        ]
+    },
+    "The Washed-Up Letter": {
+        "Region": "Winterlands",
+        "Location": "Sundering Sea Lighthouse Island",
+        "Client": "Lighthouse Keeper's Wife",
+        "Objective": "Bring Emerald's letter to Ruby in Timberain to the left of the courthouse",
+        "Unlock Criteria": "Ship required",
+        "Money": "$6,600",
+        "Items": [
+            "Jade Dagger"
+        ]
+    },
+    "Melia's Next Chapter": {
+        "Region": "Winterlands",
+        "Location": "Winterbloom",
+        "Client": "Melia",
+        "Objective": "Go to Thieves' Quarter and Steal the letter from Plukk, return to Melia",
+        "Unlock Criteria": "Castti Story Completed",
+        "Money": "$9,000",
+        "Items": [
+            "Melia's Amulet"
+        ]
+    },
+    "Sword in the Stone": {
+        "Region": "Winterlands",
+        "Location": "Winterbloom",
+        "Client": "Troubled Woman",
+        "Objective": "Steal \"Sturdy Pickaxe\" from NPC in Oresrush weapon shop and bring back to quest giver.  You can also Guide/Allure/Befriend/Hire four people at once and all eight of you will be able to pull the sword out of the stone.",
+        "Unlock Criteria": "None",
+        "Money": "$7,000",
+        "Items": [
+            "Rusty Sword",
+            "Revitalizing Jam"
+        ]
+    },
+    "A Present for My Son": {
+        "Region": "Winterlands",
+        "Location": "Winterbloom",
+        "Client": "Thoughtful Father",
+        "Objective": "Steal or buy Silver Quill from Retired Scholar in Cape Cold (Far West side)",
+        "Unlock Criteria": "None",
+        "Money": "$300",
+        "Items": [
+            "Magic Nut(M)",
+            "Refreshing Jam"
+        ]
+    },
+    "": {
+        "Region": "",
+        "Location": "",
+        "Client": "",
+        "Objective": "",
+        "Unlock Criteria": "",
+        "Money": "",
+        "Items": [
+            ""
+        ]
+    }
+}
