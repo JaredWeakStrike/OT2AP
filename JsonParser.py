@@ -541,10 +541,22 @@ def quest_to_reward():
 # make_chest_to_item()
 # chest_to_region()
 # make_chest_to_item()
-make_location_list()
+#make_location_list()
 
-
+def levelid_to_name():
+    yourmom={}
+    leveltable = json.load(open("C:\Programming-stuff\OT2AP\\UsefulJsons/LevelTable.json", 'rb'))
+    for thing in leveltable["Exports"][0]["Table"]["Data"]:
+        if thing["Name"] in shorter_hand.keys():
+            yourmom[thing["Name"]]={}
+            yourmom[thing["Name"]]["Level_Name"]=thing["Value"][0]["Value"]
+            yourmom[thing["Name"]]["Level_ID"] =shorter_hand[thing["Name"]]
+    with open(os.path.join("C:\\Users\jddoc\OneDrive\Documents\GitHub\OT2AP\Jsons", "levelname_to_id.json"),
+            'wt') as f:
+        f.write(json.dumps(yourmom, indent=4))
+levelid_to_name()
 # make_better_loc_to_chest()
+
 #
 def npc_to_stuff():
     yas = {}

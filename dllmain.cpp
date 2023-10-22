@@ -8,6 +8,7 @@
 #include <Unreal/UClass.hpp>
 #include <Unreal/World.hpp>
 #include <vector>
+#include <windows.h>
 #include <Unreal/Property/FNumericProperty.hpp>
 #include <Unreal/UStruct.hpp>
 #include <Unreal/UScriptStruct.hpp>
@@ -18,31 +19,38 @@
 #include <Unreal/FProperty.hpp>
 #include <Unreal/Property/FTextProperty.hpp>
 #include <Unreal/Property/FArrayProperty.hpp>
+#include <Unreal/BPMacros.hpp>
 //#include <Unreal/FTa>
-
+#include <StructsAndStuff.hpp>
+#include <BattleManager.hpp>
+#include <StoryManager.hpp>
+#include <GameUtil.hpp>
 //#include "Animation/WidgetAnimation.h"
 //#include <Unreal/UWidgetAnimation>
-
+using namespace Majesty;
 using namespace RC;
 using namespace RC::Unreal;
 
-class MyAwesomeMod : public RC::CppUserModBase
+class OT2AP : public RC::CppUserModBase
 {
 public:
-    MyAwesomeMod() : CppUserModBase()
+
+        
+    OT2AP() : CppUserModBase()
     {
-        ModName = STR("MyAwesomeMod");
+        ModName = STR("OT2AP");
         ModVersion = STR("1.0");
-        ModDescription = STR("This is my awesome mod");
-        ModAuthors = STR("UE4SS Team");
+        ModDescription = STR("OT2 Archipelago");
+        ModAuthors = STR("JaredWeakStrike");
         // Do not change this unless you want to target a UE4SS version
         // other than the one you're currently building with somehow.
         //ModIntendedSDKVersion = STR("2.6");
         
-        Output::send<LogLevel::Verbose>(STR("MyAwesomeMod says hello\n"));
+        Output::send<LogLevel::Verbose>(STR("OT2AP says hello\n"));
+
     }
 
-    ~MyAwesomeMod()
+    ~OT2AP()
     {
 
     }
@@ -64,187 +72,15 @@ public:
         //spawn_chara();
         //wrong_warp();
         //close_chest();
-        //casti_chapter2_reset();
-        //give_chara();
+        casti_chapter2_reset();
 
     }
-    enum class EPlayableCharacterID {
-        eNONE = 0,
-        eFENCER = 1,
-        eHUNTER = 2,
-        eALCHEMIST = 3,
-        eMERCHANT = 4,
-        ePRIEST = 5,
-        ePROFESSOR = 6,
-        eTHIEF = 7,
-        eDANCER = 8,
-        eGUEST_000 = 9,
-        eGUEST_001 = 10,
-        eGUEST_002 = 11,
-        eGUEST_003 = 12,
-        eGUEST_004 = 13,
-        eGUEST_005 = 14,
-        eGUEST_006 = 15,
-        eGUEST_007 = 16,
-        eGUEST_008 = 17,
-        eGUEST_009 = 18,
-        eGUEST_010 = 19,
-        eGUEST_011 = 20,
-        eGUEST_012 = 21,
-        eGUEST_013 = 22,
-        eGUEST_014 = 23,
-        eGUEST_015 = 24,
-        eGUEST_016 = 25,
-        eGUEST_017 = 26,
-        eGUEST_018 = 27,
-        eGUEST_019 = 28,
-        eGUEST_020 = 29,
-        eGUEST_021 = 30,
-        eGUEST_022 = 31,
-        eGUEST_023 = 32,
-        eGUEST_024 = 33,
-        eGUEST_025 = 34,
-        eMAX = 35,
-        EPlayableCharacterID_MAX = 36,
-    };
-    struct FPlayerParty
-    {
-        TArray<int32> MainMemberID;                                                       // 0x0000 (size: 0x10)
-        TArray<int32> SubMemberID;                                                        // 0x0010 (size: 0x10)
-        FVector CameraLockPos;                                                            // 0x0020 (size: 0xC)
-        int32 LastBgmID;                                                                  // 0x002C (size: 0x4)
-        int32 levelId;                                                                    // 0x0030 (size: 0x4)
-        FVector Position;                                                                 // 0x0034 (size: 0xC)
-        uint8 Dir;                                                                        // 0x0040 (size: 0x1)
+    
 
-    };
-    auto give_chara() -> void {
-        auto SaveGameBP = UObjectGlobals::FindFirstOf(STR("KSSaveGameBP_C"));
-        if (SaveGameBP == NULL) {
-            Output::send<LogLevel::Warning>(STR("SaveGameBP is broke\n"));
-            return;
-        }
-        const TCHAR* PropertyName = STR("ID");
-        const TCHAR* ChestTextProperty = STR("HaveItemLabel");
-        //get fproperty of the propertystruct
-        //cast that to struct property
-        // get the struct
-        // get void pointer to parent object of the fproperty
-        // get property by name of the uscriptstruct
-        // get void pointer to the struct
-        // get propertywithin the struct
-        // 
-        FProperty* PlayerParty = SaveGameBP->GetPropertyByNameInChain(TEXT("PlayerParty"));
-        FPlayerParty& property_value = *PlayerParty->ContainerPtrToValuePtr<FPlayerParty>(SaveGameBP);
-        //UScriptStruct* ScriptStruct = StructProperty->GetStruct();
-        if (property_value.MainMemberID[0]==NULL) {
-            Output::send<LogLevel::Warning>(STR("craps\n"));
-            return;
-        }
-        FProperty* MainMemberID = SaveGameBP->GetPropertyByNameInChain(TEXT("MainMemberID"));
 
-        FProperty* MainStoryData = SaveGameBP->GetPropertyByNameInChain(TEXT("MainStoryData"));
-        //<int32>& property_value = *MainStoryData->ContainerPtrToValuePtr<TArray<int32>>(SaveGameBP);
-        Output::send<LogLevel::Warning>(STR("{}\n"), property_value.MainMemberID[0]);
-        //if (property_value.MainMemberID[0] == 1) {
-        //    property_value.MainMemberID[0] = 3;
-        //}
-        //if (property_value.MainMemberID[0] == 3) {
-        //    property_value.MainMemberID[0] = 1;
-        //}
-        property_value.MainMemberID[0] = 7;
-        property_value.MainMemberID[1] = 7;
-        property_value.MainMemberID[2] = 7;
-        property_value.MainMemberID[3] = 7;
-        property_value.SubMemberID[0] = 9;
-        property_value.SubMemberID[1] = 9;
-        property_value.SubMemberID[2] = 9;
-        property_value.SubMemberID[3] = 9;
-        property_value.SubMemberID[4] = 9;
-        property_value.SubMemberID[5] = 9;
-        property_value.SubMemberID[6] = 9;
-        property_value.SubMemberID[7] = 9;
-        //FArrayProperty* MainMemberID = SaveGameBP->GetPropertyByNameInChain(TEXT("MainMemberID"));
-        if (MainMemberID == NULL) {
-            //Output::send<LogLevel::Warning>(STR("MainMemberID is broke\n"));
-            return;
-        }
-        return;
-        auto SetPlayingReminiscenceId = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Script/Majesty.ReminiscenceUtility:SetCompletedPrologueReminiscence"));
-        if (SetPlayingReminiscenceId == NULL) {
-                Output::send<LogLevel::Warning>(STR("functino is broke\n"));
-                return;
-            }
-        for (int32 i = 0; i < 7; i++) {
-                struct {
-                    EPlayableCharacterID param1;
-                    bool param2;
-                    bool param3;
-                }params;
-                params.param1 = (EPlayableCharacterID)i;
-                params.param2 = true;
-                params.param3 = true;
-                SaveGameBP->ProcessEvent(SetPlayingReminiscenceId, &params);
-            }
-        }
-    std::list<int32> li{ 100,
-101,
-102,
-103,
-104,
-200,
-202,
-201,
-203,
-204,
-300,
-302,
-301,
-303,
-304,
-400,
-401,
-402,
-403,
-410,
-411,
-412,
-500,
-501,
-502,
-503,
-504,
-600,
-601,
-602,
-603,
-604,
-700,
-701,
-702,
-703,
-704,
-705,
-800,
-801,
-802,
-803,
-804,
-900,
-901,
-1000,
-1001,
-1100,
-1101,
-1200,
-1201,
-1300,
-1301,
-1302,
-1303,
-1304,
-1305,
-1306 };
+
+    
+   
     auto casti_chapter2_reset() -> void {
         //auto SaveGameBP = UObjectGlobals::StaticFindObject(nullptr, nullptr, STR("/Engine/Transient.KSSaveGameBP_C_2147479029"));
         auto SaveGameBP = UObjectGlobals::FindFirstOf(STR("KSSaveGameBP_C"));
@@ -252,7 +88,7 @@ public:
             Output::send<LogLevel::Warning>(STR("SaveGameBP is broke\n"));
             return;
         }
-        FProperty* MainStoryData = SaveGameBP->GetPropertyByNameInChain(TEXT("MainStoryData"));
+        FProperty* MainStoryData = SaveGameBP->GetPropertyByNameInChain(STR("MainStoryData"));
         TArray<int32>& property_value = *MainStoryData->ContainerPtrToValuePtr<TArray<int32>>(SaveGameBP);
         
         if (MainStoryData) {
@@ -263,40 +99,53 @@ public:
             }
             TArray<FMainStorySaveData>& property_value = *MainStoryData->ContainerPtrToValuePtr<TArray<FMainStorySaveData>>(SaveGameBP);
             int32 counter = 0;
-            for (FMainStorySaveData i : property_value) {
-                property_value[counter].StoryID = 300;
-                Output::send(STR("Data: {}, Num: {}, Max: {}\n"), i.StoryID, property_value.Num(), property_value.Max());
-                counter++;
-                //i.StoryID = 300;
-            }
-            auto SetPlayingReminiscenceId = UObjectGlobals::StaticFindObject<UFunction*>(nullptr,nullptr,STR("/Script/Majesty.ReminiscenceUtility:SetCompletedPrologueReminiscence"));
-            if (SetPlayingReminiscenceId == NULL) {
+            //for (FMainStorySaveData i : property_value) {
+            //    auto yourmom = property_value[counter].StoryID;
+            //    if (yourmom == 0) {
+            //        //Output::send<LogLevel::Warning>(STR("functino is broke\n"));
+            //        property_value[counter].StoryID = 403;
+            //        property_value[counter].State = 1;
+            //    }
+            //    else if(yourmom!=403){
+            //        property_value[counter].StoryID = 0;
+            //        property_value[counter].State = 0;
+            //    }
+            //    Output::send(STR("Data: {}, Num: {}, Max: {}\n"), i.StoryID, property_value.Num(), property_value.Max());
+            //    counter++;
+            //}
+            auto ReminiscenceUtil = UObjectGlobals::StaticFindObject<UObject*>(nullptr,nullptr,STR("/Script/Majesty.Default__ReminiscenceUtility"));
+            auto yourmom = ReminiscenceUtil->GetFunctionByNameInChain(STR("SetCompletedPrologueReminiscence"));
+            auto SetCompletedPrologueReminiscence = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Script/Majesty.ReminiscenceUtility:SetCompletedPrologueReminiscence"));
+            if (SetCompletedPrologueReminiscence == NULL) {
                 Output::send<LogLevel::Warning>(STR("functino is broke\n"));
                 return;
             }
-            for (int32 i = 0; i < 7; i++) {
-                struct {
-                    EPlayableCharacterID param1;
-                    bool param2;
-                }params;
-                params.param1 = (EPlayableCharacterID)i;
-                params.param2 = true;
-                SaveGameBP->ProcessEvent(SetPlayingReminiscenceId, &params);
-            }
-          
+            struct {
+                Majesty::EPlayableCharacterID param1;
+                bool param2;
+            }params;
+            params.param1 = EPlayableCharacterID::eMERCHANT;
+            params.param2 = true;
+
+            ReminiscenceUtil->ProcessEvent(yourmom, &params);
+            Output::send<LogLevel::Warning>(STR("{}\n"), params.param2);
+             //Output::send<LogLevel::Warning>(STR("functino is not broke\n"));
+            //for (int32 i = 0; i < 7; i++) {
+            //    struct {
+            //        Majesty::EPlayableCharacterID param1;
+            //        bool param2;
+            //    }params;
+            //    params.param1 = (Majesty::EPlayableCharacterID)i;
+            //    params.param2 = true;
+            //    SaveGameBP->ProcessEvent(SetPlayingReminiscenceId, &params);
+            //}
+
         }
         else {
             Output::send<LogLevel::Warning>(STR("MainStoryData is broke\n"));
         }
     }
-    struct FMainStorySaveData
-    {
-        int32 StoryID;                                                                    // 0x0000 (size: 0x4)
-        int32 CurrentTaskID;                                                              // 0x0004 (size: 0x4)
-        int32 State;                                                                      // 0x0008 (size: 0x4)
-        bool ConfirmedFlag;                                                               // 0x000C (size: 0x1)
-
-    };
+    
     auto close_chest() -> void {
         auto save_system = UObjectGlobals::FindFirstOf(STR("KSSaveSystem"));
         //auto save_data_util = UObjectGlobals::FindFirstOf(STR("DebugSaveDataUti"));
@@ -339,11 +188,7 @@ public:
         }
         
     }
-    struct FMapData
-    {
-        TArray<uint8> TreasureStateArray;                                                 // 0x0000 (size: 0x10)
-
-    };
+    
     auto wrong_warp() -> void {
         UObject* event_manager = UObjectGlobals::FindFirstOf(STR("EventManagerBP_C"));
         if (!event_manager) {
@@ -416,101 +261,8 @@ public:
             return;
         }
     }
-    enum class EKSCharacterDir {
-        FRONT = 0,
-        REAR = 1,
-        LEFT = 2,
-        RIGHT = 3,
-        MAX_DIR = 4,
-        EKSCharacterDir_MAX = 5,
-    };
-    auto add_speed() -> void {
-        std::vector<UObject*> PlayerCharacters;
-        UObjectGlobals::FindAllOf(STR("KSPlayerCharacter_C"), PlayerCharacters);
-
-        for (UObject* character : PlayerCharacters)
-        {
-            if (character == NULL) {
-                Output::send<LogLevel::Warning>(STR("character\n"));
-                return;
-            }
-
-            auto Function = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Script/Majesty.KSCharacterBase:SetLantern"));
-            auto AddMoveSpeed= UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Script/Majesty.KSCharacterBase:AddMoveSpeed"));
-            if (AddMoveSpeed == NULL) {
-                Output::send<LogLevel::Warning>(STR("SetCharacterCollision\n"));
-                return;
-            }
-            //bool is_moving = character->GetPropertyByNameInChain(TEXT("Moving"));
-            bool is_moving = false;
-            //if (is_moving == NULL) {
-            //    Output::send<LogLevel::Warning>(STR("is_moving\n"));
-            //    return;
-            //}
-
-            //Output::send<LogLevel::Warning>(STR("{}\n"), is_moving);
-            FProperty* MoveSpeed = character->GetPropertyByNameInChain(STR("MoveSpeed"));
-            TArray<float>& property_value = *MoveSpeed->ContainerPtrToValuePtr<TArray<float>>(character);
-            int32 counter = 0;
-            float running_speed = 70000;
-            for (float num : property_value) {
-                if (num != 70000) {
-                    property_value[counter] = running_speed;
-                }
-                counter++;
-            }
-            //struct {
-            //    bool object_col;
-            //}params;
-            //params.object_col = true;
-            //character->ProcessEvent(Function, &params);
-            //struct {
-            //    float speed;
-            //}params2;
-            //params2.speed = 50000000000000000.00;
-            //character->ProcessEvent(AddMoveSpeed, &params2);
-            break;
-            if (is_moving) {
-                const TCHAR* PropertyName = STR("ID");
-                const TCHAR* ChestTextProperty = STR("HaveItemLabel");
-                FProperty* ObjectData = character->GetPropertyByNameInChain(TEXT("ObjectData"));
-                //FProperty* ChestText = chest->
-                if (ObjectData == NULL) {
-                    Output::send<LogLevel::Warning>(STR("ima screem2\n"));
-                    return;
-                }
-                FStructProperty* StructProperty = static_cast<FStructProperty*>(ObjectData);
-                if (StructProperty == NULL) {
-                    Output::send<LogLevel::Warning>(STR("StructProperty isnt working \n"));
-                    return;
-                }
-                UScriptStruct* ScriptStruct = StructProperty->GetStruct();
-                if (ScriptStruct == NULL) {
-                    Output::send<LogLevel::Warning>(STR("ScriptStruct isnt working\n"));
-                    return;
-                }
-
-                void* StructDataPointer = StructProperty->ContainerPtrToValuePtr<void>(character);
-
-                FProperty* PropertyWithinStruct = ScriptStruct->GetPropertyByNameInChain(PropertyName);
-                FProperty* ChestText = ScriptStruct->GetPropertyByNameInChain(ChestTextProperty);
-                if (PropertyWithinStruct == NULL) {
-                    Output::send<LogLevel::Warning>(STR("PropertyWithinStruct isnt working\n"));
-                    return;
-                }
-
-                int object_data_id = *PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer);
-                FName chest_text = *ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer);
-                if (object_data_id == NULL) {
-                    Output::send<LogLevel::Warning>(STR("object_data_id is null\n"));
-                    return;
-                }
-                *PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer) = 2;
-                *ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer) = FName(TEXT("ITM_CSM_0030"));
-                Output::send<LogLevel::Warning>(STR("[{}]\n"), *PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer));
-            }
-        }
-    }
+    
+    
 
     auto change_text() -> void {
 
@@ -519,7 +271,7 @@ public:
             Output::send<LogLevel::Warning>(STR("[{}] GameTextEN isnt working\n"), ModName);
         }
         else {
-            FProperty* RowStruct = GameTextEN->GetPropertyByName(TEXT("RowStruct"));
+            FProperty* RowStruct = GameTextEN->GetPropertyByName(STR("RowStruct"));
             if (RowStruct == NULL) {
               Output::send<LogLevel::Warning>(STR("RowStruct inst working\n"));
              return;
@@ -534,7 +286,7 @@ public:
                 Output::send<LogLevel::Warning>(STR("ScriptStruct isnt working\n"));
                 return;
             }
-            FProperty* PropertyWithinStruct = ScriptStruct->GetPropertyByName(TEXT("eTHIEF_TREASUREBOX"));
+            FProperty* PropertyWithinStruct = ScriptStruct->GetPropertyByName(STR("eTHIEF_TREASUREBOX"));
             if (PropertyWithinStruct == NULL) {
                 Output::send<LogLevel::Warning>(STR("PropertyWithinStruct isnt working\n"));
                 return;
@@ -547,7 +299,7 @@ public:
         auto chest_objectparam = FStaticConstructObjectParameters(yourmom,yourdad);
         auto chest_hopefully = UObjectGlobals::StaticConstructObject(chest_objectparam);
         //UObjectGlobals::Co
-        FString TestHUDString = FString(TEXT("This is my test FString."));
+        FString TestHUDString = FString(STR("This is my test FString."));
         FText ahh;
         ahh.SetString(std::move(TestHUDString));
 
@@ -582,8 +334,8 @@ public:
         auto OpenTreasureBox = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Script/Majesty.LevelSaveDataUtil:OpenTreasureBox"));
 
         struct {
-            EKSSaveSlotName param1;
-            FKSSaveSlotData param2;
+            Majesty::EKSSaveSlotName param1;
+            Majesty::FKSSaveSlotData param2;
             bool ReturnValue;
         }params;
         struct {
@@ -592,47 +344,13 @@ public:
         }CloseTreasureBoxParams;
         CloseTreasureBoxParams.levelid = 86;
         CloseTreasureBoxParams.objectid = 3;
-        params.param1 = EKSSaveSlotName::AUTO_SAVE;
+        params.param1 = Majesty::EKSSaveSlotName::AUTO_SAVE;
         save_system->ProcessEvent(GetSlotData, &params);
         save_data_util->ProcessEvent(CloseTreasureBox, &CloseTreasureBoxParams);
         Output::send<LogLevel::Warning>(STR("[{}] not Crap\n"), params.param2.levelId);
         // levelid 100 objectid 982
     }
-    struct FKSSaveSlotData
-    {
-        int32 PlayTime;                                                                   // 0x0000 (size: 0x4)
-        int32 SaveDate_Year;                                                              // 0x0004 (size: 0x4)
-        int32 SaveDate_Month;                                                             // 0x0008 (size: 0x4)
-        int32 SaveDate_Day;                                                               // 0x000C (size: 0x4)
-        int32 SaveDate_Hour;                                                              // 0x0010 (size: 0x4)
-        int32 SaveDate_Minute;                                                            // 0x0014 (size: 0x4)
-        int32 SaveDate_Second;                                                            // 0x0018 (size: 0x4)
-        int32 levelId;                                                                    // 0x001C (size: 0x4)
-        int32 LevelAreaID;                                                                // 0x0020 (size: 0x4)
-        int32 ClearFlag;                                                                  // 0x0024 (size: 0x4)
-        int32 LeaderCharaLevel;                                                           // 0x0028 (size: 0x4)
-        TArray<int32> MainMemberCharacterID;                                              // 0x0030 (size: 0x10)
-        TArray<int32> MainMemberJobID;                                                    // 0x0040 (size: 0x10)
-        TArray<uint8> CharaForm;                                                          // 0x0050 (size: 0x10)
-        bool IsEnabled;                                                                   // 0x0060 (size: 0x1)
-        bool IsAutoSaveLine;                                                              // 0x0061 (size: 0x1)
-        bool IsForcusAnimImmideate;                                                       // 0x0062 (size: 0x1)
-        bool IsInReminiscence;                                                            // 0x0063 (size: 0x1)
-        int32 ReminiscenceStoryIndex;                                                     // 0x0064 (size: 0x4)
-    };
-    enum class EKSSaveSlotName {
-        AUTO_SAVE = 0,
-        SLOT_1 = 1,
-        SLOT_2 = 2,
-        SLOT_3 = 3,
-        SLOT_4 = 4,
-        SLOT_5 = 5,
-        SLOT_6 = 6,
-        SLOT_7 = 7,
-        SLOT_8 = 8,
-        SLOT_9 = 9,
-        EKSSaveSlotName_MAX = 10,
-    };
+    
     auto get_game_text() -> void {
         auto game_text = UObjectGlobals::StaticFindObject(nullptr, nullptr, STR("/Game/UserInterface/TimeZone/BP/BPW_TimeChangeButton.BPW_TimeChangeButton_C:WidgetTree.MainText"));
         auto game_text2 = UObjectGlobals::StaticFindObject(nullptr, nullptr, STR("/Game/UserInterface/SaveLoad/BP/UIAutoSaving.UIAutoSaving_C:WidgetTree.Text_AS"));
@@ -641,11 +359,11 @@ public:
         }
         else {
             //Output::send<LogLevel::Verbose>(STR("Not crap\n"));
-            FString TestHUDString = FString(TEXT("This is my test FString."));
+            FString TestHUDString = FString(STR("This is my test FString."));
             FText ahh;
             ahh.SetString(std::move(TestHUDString));
-            FProperty* ObjectData = game_text->GetPropertyByNameInChain(TEXT("Text"));
-            FProperty* ObjectData2 = game_text2->GetPropertyByNameInChain(TEXT("Text"));
+            FProperty* ObjectData = game_text->GetPropertyByNameInChain(STR("Text"));
+            FProperty* ObjectData2 = game_text2->GetPropertyByNameInChain(STR("Text"));
             void* text_hopefully = ObjectData->ContainerPtrToValuePtr<void>(game_text);
             void* text_hopefully2 = ObjectData2->ContainerPtrToValuePtr<void>(game_text2);
             FText yourdad = *ObjectData->ContainerPtrToValuePtr<FText>(text_hopefully);
@@ -849,11 +567,11 @@ public:
 
         for (UObject* chest: YasQueen)
         {
-            bool chest_is_open = chest->GetPropertyByName(TEXT("IsOpenFlag"));
+            bool chest_is_open = chest->GetPropertyByName(STR("IsOpenFlag"));
             if (chest_is_open) {
-                const TCHAR* PropertyName = STR("ID");
-                const TCHAR* ChestTextProperty= STR("HaveItemLabel");
-                FProperty* ObjectData = chest->GetPropertyByNameInChain(TEXT("ObjectData"));
+                const Unreal::TCHAR* PropertyName = STR("ID");
+                const Unreal::TCHAR* ChestTextProperty= STR("HaveItemLabel");
+                FProperty* ObjectData = chest->GetPropertyByNameInChain(STR("ObjectData"));
                 //FProperty* ChestText = chest->
                 if (ObjectData == NULL) {
                     Output::send<LogLevel::Warning>(STR("ima screem2\n"));
@@ -886,7 +604,7 @@ public:
                     return;
                 }
                 *PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer) = 2;
-                *ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer) = FName(TEXT("ITM_CSM_0030"));
+                *ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer) = FName(STR("ITM_CSM_0030"));
                 Output::send<LogLevel::Warning>(STR("[{}]\n"), *PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer));
             }
         }
@@ -898,7 +616,7 @@ extern "C"
 {
     MY_AWESOME_MOD_API RC::CppUserModBase* start_mod()
     {
-        return new MyAwesomeMod();
+        return new OT2AP();
     }
 
     MY_AWESOME_MOD_API void uninstall_mod(RC::CppUserModBase* mod)
@@ -906,3 +624,4 @@ extern "C"
         delete mod;
     }
 }
+
