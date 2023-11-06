@@ -35,24 +35,6 @@
         "ItemFileName": "ITM_CSM_0040",
         "ChestID": 98
     },
-    "Treasure_Dng_Cty_1_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_1_1",
-        "Hidden Item": false,
-        "Name": "Diamante's Estate",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1485
-    },
-    "Treasure_Dng_Cty_1_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_1_1",
-        "Hidden Item": false,
-        "Name": "Diamante's Estate",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1486
-    },
     "Treasure_Dng_Cty_1_3_01": {
         "Item": "Wriggling Root",
         "Region": "Dng_Cty_1_3",
@@ -116,24 +98,6 @@
         "ItemFileName": "ITM_CSM_0211",
         "ChestID": 2344
     },
-    "Treasure_Dng_Cty_1_3_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_1_3",
-        "Hidden Item": false,
-        "Name": "Abandoned Waterway",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2342
-    },
-    "Treasure_Dng_Cty_1_3_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_1_3",
-        "Hidden Item": false,
-        "Name": "Abandoned Waterway",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2343
-    },
     "Treasure_Dng_Cty_1_4_01": {
         "Item": "Quartz Rod",
         "Region": "Dng_Cty_1_4",
@@ -195,8 +159,7 @@
         "Name": "The Roque Company: Factory",
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_ACS_710",
-        "ChestID": 720,
-        "Notes": "Return after Boss"
+        "ChestID": 720
     },
     "Treasure_Dng_Cty_2_1_02": {
         "Item": "Empowering Lychee (M)",
@@ -215,33 +178,6 @@
         "Parent": "Brightlands",
         "ItemFileName": "None",
         "ChestID": 722
-    },
-    "Treasure_Dng_Cty_2_1_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_2_1",
-        "Hidden Item": false,
-        "Name": "The Roque Company: Factory",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1529
-    },
-    "Treasure_Dng_Cty_2_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_2_1",
-        "Hidden Item": false,
-        "Name": "The Roque Company: Factory",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1530
-    },
-    "Treasure_Dng_Cty_2_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_2_1",
-        "Hidden Item": false,
-        "Name": "The Roque Company: Factory",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1531
     },
     "Treasure_Dng_Cty_2_2_01": {
         "Item": "12500 L",
@@ -315,33 +251,6 @@
         "ItemFileName": "ITM_EQP_LNS_240",
         "ChestID": 1818
     },
-    "Treasure_Dng_Cty_2_3_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_2_3",
-        "Hidden Item": false,
-        "Name": "Old Clock Tower",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1819
-    },
-    "Treasure_Dng_Cty_2_3_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_2_3",
-        "Hidden Item": false,
-        "Name": "Old Clock Tower",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1820
-    },
-    "Treasure_Dng_Cty_2_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_2_3",
-        "Hidden Item": false,
-        "Name": "Old Clock Tower",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1821
-    },
     "Treasure_Dng_Cty_3_1_01": {
         "Item": "Healing Grape",
         "Region": "Dng_Cty_3_1",
@@ -359,42 +268,6 @@
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_ACS_290",
         "ChestID": 94
-    },
-    "Treasure_Dng_Cty_3_1_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_3_1",
-        "Hidden Item": false,
-        "Name": "Underground Waterway",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1481
-    },
-    "Treasure_Dng_Cty_3_1_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_3_1",
-        "Hidden Item": false,
-        "Name": "Underground Waterway",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1482
-    },
-    "Treasure_Dng_Cty_3_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_3_1",
-        "Hidden Item": false,
-        "Name": "Underground Waterway",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1483
-    },
-    "Treasure_Dng_Cty_3_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_3_1",
-        "Hidden Item": false,
-        "Name": "Underground Waterway",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1484
     },
     "Treasure_Dng_Cty_3_2_A_01": {
         "Item": "Empowering Lychee (M)",
@@ -431,24 +304,6 @@
         "Parent": "Brightlands",
         "ItemFileName": "ITM_CSM_0211",
         "ChestID": 1548
-    },
-    "Treasure_Dng_Cty_3_2_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_3_2_A",
-        "Hidden Item": false,
-        "Name": "Lostseed Castle",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1549
-    },
-    "Treasure_Dng_Cty_3_2_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_3_2_A",
-        "Hidden Item": false,
-        "Name": "Lostseed Castle",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1550
     },
     "Treasure_Dng_Cty_3_2_B_01": {
         "Item": "Revitalizing Jam",
@@ -495,15 +350,6 @@
         "ItemFileName": "ITM_CSM_0420",
         "ChestID": 1555
     },
-    "Treasure_Dng_Cty_3_2_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Cty_3_2_B",
-        "Hidden Item": false,
-        "Name": "Lostseed Castle: Upper Level",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1556
-    },
     "Treasure_Dng_Dst_2_1_01": {
         "Item": "Empowering Lychee",
         "Region": "Dng_Dst_2_1",
@@ -511,8 +357,7 @@
         "Name": "Dragonridge",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0220",
-        "ChestID": 1060,
-        "Notes": "Not a chest; talk to the Ku Guard along the way during Hikari's Chapter 1"
+        "ChestID": 1060
     },
     "Treasure_Dng_Dst_2_1_02": {
         "Item": "Inspiriting Plum Basket",
@@ -540,24 +385,6 @@
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_DGR_210",
         "ChestID": 1063
-    },
-    "Treasure_Dng_Dst_2_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Dst_2_1",
-        "Hidden Item": false,
-        "Name": "Dragonridge",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1064
-    },
-    "Treasure_Dng_Dst_2_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Dst_2_1",
-        "Hidden Item": false,
-        "Name": "Dragonridge",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1065
     },
     "Treasure_Dng_Dst_2_2_01": {
         "Item": "Rusty Axe",
@@ -604,15 +431,6 @@
         "ItemFileName": "ITM_EQP_LNS_220",
         "ChestID": 1778
     },
-    "Treasure_Dng_Dst_2_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Dst_2_2",
-        "Hidden Item": false,
-        "Name": "Quicksand Gaol",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1779
-    },
     "Treasure_Dng_Dst_2_3_01": {
         "Item": "Bottle of Sleeping Dust",
         "Region": "Dng_Dst_2_3",
@@ -658,15 +476,6 @@
         "ItemFileName": "None",
         "ChestID": 1784
     },
-    "Treasure_Dng_Dst_2_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Dst_2_3",
-        "Hidden Item": false,
-        "Name": "Decaying Temple",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1785
-    },
     "Treasure_Dng_Dst_2_4_01": {
         "Item": "Poisoned Hatchet",
         "Region": "Dng_Dst_2_4",
@@ -703,24 +512,6 @@
         "ItemFileName": "ITM_CSM_0140",
         "ChestID": 1081
     },
-    "Treasure_Dng_Dst_2_4_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Dst_2_4",
-        "Hidden Item": false,
-        "Name": "Sand Lion's Den",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1082
-    },
-    "Treasure_Dng_Dst_2_4_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Dst_2_4",
-        "Hidden Item": false,
-        "Name": "Sand Lion's Den",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1083
-    },
     "Treasure_Dng_Dst_3_1_01": {
         "Item": "Olive of Life (L)",
         "Region": "Dng_Dst_3_1",
@@ -756,24 +547,6 @@
         "Parent": "Hinoeuma",
         "ItemFileName": "None",
         "ChestID": 1087
-    },
-    "Treasure_Dng_Dst_3_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Dst_3_1",
-        "Hidden Item": false,
-        "Name": "Tranquil Grotto",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1088
-    },
-    "Treasure_Dng_Dst_3_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Dst_3_1",
-        "Hidden Item": false,
-        "Name": "Tranquil Grotto",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1089
     },
     "Treasure_Dng_Fst_1_1_01": {
         "Item": "Inspiriting Plum",
@@ -874,15 +647,6 @@
         "ItemFileName": "None",
         "ChestID": 1926
     },
-    "Treasure_Dng_Fst_1_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_1_2",
-        "Hidden Item": false,
-        "Name": "Starfall Spring",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1927
-    },
     "Treasure_Dng_Fst_2_1_01": {
         "Item": "Light Amulet",
         "Region": "Dng_Fst_2_1",
@@ -919,24 +683,6 @@
         "ItemFileName": "ITM_CSM_0100",
         "ChestID": 1711
     },
-    "Treasure_Dng_Fst_2_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_1",
-        "Hidden Item": false,
-        "Name": "Secret Forest",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1712
-    },
-    "Treasure_Dng_Fst_2_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_1",
-        "Hidden Item": false,
-        "Name": "Secret Forest",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1713
-    },
     "Treasure_Dng_Fst_2_2_A_01": {
         "Item": "Herb of Serenity",
         "Region": "Dng_Fst_2_2_A",
@@ -945,105 +691,6 @@
         "Parent": "Leaflands",
         "ItemFileName": "ITM_SLP_0020",
         "ChestID": 1714
-    },
-    "Treasure_Dng_Fst_2_2_A_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_2_A",
-        "Hidden Item": false,
-        "Name": "Animal Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1715
-    },
-    "Treasure_Dng_Fst_2_2_A_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_2_A",
-        "Hidden Item": false,
-        "Name": "Animal Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1716
-    },
-    "Treasure_Dng_Fst_2_2_A_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_2_A",
-        "Hidden Item": false,
-        "Name": "Animal Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1717
-    },
-    "Treasure_Dng_Fst_2_2_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_2_A",
-        "Hidden Item": false,
-        "Name": "Animal Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1718
-    },
-    "Treasure_Dng_Fst_2_2_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_2_A",
-        "Hidden Item": false,
-        "Name": "Animal Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1719
-    },
-    "Treasure_Dng_Fst_2_2_B_01": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_2_B",
-        "Hidden Item": false,
-        "Name": "Dark Night",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1928
-    },
-    "Treasure_Dng_Fst_2_2_B_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_2_B",
-        "Hidden Item": false,
-        "Name": "Dark Night",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1929
-    },
-    "Treasure_Dng_Fst_2_2_B_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_2_B",
-        "Hidden Item": false,
-        "Name": "Dark Night",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1930
-    },
-    "Treasure_Dng_Fst_2_2_B_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_2_B",
-        "Hidden Item": false,
-        "Name": "Dark Night",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1931
-    },
-    "Treasure_Dng_Fst_2_2_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_2_B",
-        "Hidden Item": false,
-        "Name": "Dark Night",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1932
-    },
-    "Treasure_Dng_Fst_2_2_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_2_2_B",
-        "Hidden Item": false,
-        "Name": "Dark Night",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1933
     },
     "Treasure_Dng_Fst_3_1_A_01": {
         "Item": "Dreamy Flower",
@@ -1080,24 +727,6 @@
         "Parent": "Leaflands",
         "ItemFileName": "ITM_CSM_0211",
         "ChestID": 1672
-    },
-    "Treasure_Dng_Fst_3_1_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_3_1_A",
-        "Hidden Item": false,
-        "Name": "Timberain Castle",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1673
-    },
-    "Treasure_Dng_Fst_3_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_3_1_A",
-        "Hidden Item": false,
-        "Name": "Timberain Castle",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1674
     },
     "Treasure_Dng_Fst_3_1_B_01": {
         "Item": "23000 L",
@@ -1144,15 +773,6 @@
         "ItemFileName": "ITM_CSM_0090",
         "ChestID": 1679
     },
-    "Treasure_Dng_Fst_3_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_3_1_B",
-        "Hidden Item": false,
-        "Name": "Timberain Castle: Roof",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1680
-    },
     "Treasure_Dng_Fst_3_2_01": {
         "Item": "Horned Helm",
         "Region": "Dng_Fst_3_2",
@@ -1198,15 +818,6 @@
         "ItemFileName": "ITM_CSM_0030",
         "ChestID": 1685
     },
-    "Treasure_Dng_Fst_3_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_3_2",
-        "Hidden Item": false,
-        "Name": "Mother's Garden",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1686
-    },
     "Treasure_Dng_Fst_3_3_01": {
         "Item": "Olive of Life (L)",
         "Region": "Dng_Fst_3_3",
@@ -1242,15 +853,6 @@
         "Parent": "Leaflands",
         "ItemFileName": "ITM_EQP_AXE_280",
         "ChestID": 1937
-    },
-    "Treasure_Dng_Fst_3_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Fst_3_3",
-        "Hidden Item": false,
-        "Name": "House Wellows Manor",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1939
     },
     "Treasure_Dng_Isd_1_1_02": {
         "Item": "Composite Bow",
@@ -1612,33 +1214,6 @@
         "ItemFileName": "ITM_EQP_ROD_350",
         "ChestID": 42
     },
-    "Treasure_Dng_Mnt_1_1_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_1_1",
-        "Hidden Item": false,
-        "Name": "Cathedral Cellars",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1211
-    },
-    "Treasure_Dng_Mnt_1_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_1_1",
-        "Hidden Item": false,
-        "Name": "Cathedral Cellars",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1212
-    },
-    "Treasure_Dng_Mnt_1_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_1_1",
-        "Hidden Item": false,
-        "Name": "Cathedral Cellars",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1213
-    },
     "Treasure_Dng_Mnt_2_1_01": {
         "Item": "Grail of Life",
         "Region": "Dng_Mnt_2_1",
@@ -1683,15 +1258,6 @@
         "Parent": "Crestlands",
         "ItemFileName": "ITM_EQP_SWD_290",
         "ChestID": 1748
-    },
-    "Treasure_Dng_Mnt_2_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_2_1",
-        "Hidden Item": false,
-        "Name": "Forsaken Graveyard",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1749
     },
     "Treasure_Dng_Mnt_2_2_01": {
         "Item": "Inspiriting Plum Basket",
@@ -1792,78 +1358,6 @@
         "ItemFileName": "ITM_CSM_0281",
         "ChestID": 1099
     },
-    "Treasure_Dng_Mnt_2_3_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_2_3",
-        "Hidden Item": false,
-        "Name": "Underground Laboratory",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1100
-    },
-    "Treasure_Dng_Mnt_2_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_2_3",
-        "Hidden Item": false,
-        "Name": "Underground Laboratory",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1101
-    },
-    "Treasure_Dng_Mnt_3_1_A_01": {
-        "Item": "Refreshing Jam",
-        "Region": "Dng_Mnt_3_1_A",
-        "Hidden Item": false,
-        "Name": "Shrine of Ul'sterra",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0100",
-        "ChestID": 1142
-    },
-    "Treasure_Dng_Mnt_3_1_A_02": {
-        "Item": "Elemental Augmentor",
-        "Region": "Dng_Mnt_3_1_A",
-        "Hidden Item": false,
-        "Name": "Shrine of Ul'sterra",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_EQP_ACS_250",
-        "ChestID": 1143
-    },
-    "Treasure_Dng_Mnt_3_1_A_03": {
-        "Item": "Bloodstained Knife",
-        "Region": "Dng_Mnt_3_1_A",
-        "Hidden Item": false,
-        "Name": "Shrine of Ul'sterra",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_EQP_DGR_250",
-        "ChestID": 1144
-    },
-    "Treasure_Dng_Mnt_3_1_A_04": {
-        "Item": "Resplendent Costume",
-        "Region": "Dng_Mnt_3_1_A",
-        "Hidden Item": false,
-        "Name": "Shrine of Ul'sterra",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_EQP_AMR_390",
-        "ChestID": 1145
-    },
-    "Treasure_Dng_Mnt_3_1_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_3_1_A",
-        "Hidden Item": false,
-        "Name": "Shrine of Ul'sterra",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1146
-    },
-    "Treasure_Dng_Mnt_3_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_3_1_A",
-        "Hidden Item": false,
-        "Name": "Shrine of Ul'sterra",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1147
-    },
     "Treasure_Dng_Mnt_3_1_B_01": {
         "Item": "24000 L",
         "Region": "Dng_Mnt_3_1_B",
@@ -1872,51 +1366,6 @@
         "Parent": "Crestlands",
         "ItemFileName": "None",
         "ChestID": 1148
-    },
-    "Treasure_Dng_Mnt_3_1_B_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_3_1_B",
-        "Hidden Item": false,
-        "Name": "Stage of the Moon and Sun",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1149
-    },
-    "Treasure_Dng_Mnt_3_1_B_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_3_1_B",
-        "Hidden Item": false,
-        "Name": "Stage of the Moon and Sun",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1150
-    },
-    "Treasure_Dng_Mnt_3_1_B_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_3_1_B",
-        "Hidden Item": false,
-        "Name": "Stage of the Moon and Sun",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1151
-    },
-    "Treasure_Dng_Mnt_3_1_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_3_1_B",
-        "Hidden Item": false,
-        "Name": "Stage of the Moon and Sun",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1152
-    },
-    "Treasure_Dng_Mnt_3_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_3_1_B",
-        "Hidden Item": false,
-        "Name": "Stage of the Moon and Sun",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1153
     },
     "Treasure_Dng_Mnt_3_3_01": {
         "Item": "Olive of Life (M)",
@@ -1953,24 +1402,6 @@
         "Parent": "Crestlands",
         "ItemFileName": "ITM_CSM_0030",
         "ChestID": 1111
-    },
-    "Treasure_Dng_Mnt_3_3_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_3_3",
-        "Hidden Item": false,
-        "Name": "Abandoned Church",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1112
-    },
-    "Treasure_Dng_Mnt_3_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Mnt_3_3",
-        "Hidden Item": false,
-        "Name": "Abandoned Church",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1113
     },
     "Treasure_Dng_Ocn_1_1_01": {
         "Item": "Inspiriting Plum Basket",
@@ -2062,15 +1493,6 @@
         "ItemFileName": "ITM_EQP_ACS_960",
         "ChestID": 2013
     },
-    "Treasure_Dng_Ocn_1_2_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Ocn_1_2",
-        "Hidden Item": false,
-        "Name": "Curious Nest",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2014
-    },
     "Treasure_Dng_Ocn_1_2_06": {
         "Item": "Decaying Dragon's Essence",
         "Region": "Dng_Ocn_1_2",
@@ -2079,15 +1501,6 @@
         "Parent": "Crestlands",
         "ItemFileName": "ITM_CSM_0477",
         "ChestID": 2015
-    },
-    "Treasure_Dng_Ocn_1_2_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Ocn_1_2",
-        "Hidden Item": false,
-        "Name": "Curious Nest",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2345
     },
     "Treasure_Dng_Ocn_1_2_08": {
         "Item": "Decaying Dragon's Essence",
@@ -2134,78 +1547,6 @@
         "ItemFileName": "ITM_EQP_ACS_940",
         "ChestID": 2019
     },
-    "Treasure_Dng_Ocn_1_3_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Ocn_1_3",
-        "Hidden Item": false,
-        "Name": "Nameless Isle",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2020
-    },
-    "Treasure_Dng_Ocn_1_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Ocn_1_3",
-        "Hidden Item": false,
-        "Name": "Nameless Isle",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2021
-    },
-    "Treasure_Dng_Ocn_1_4_01": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Ocn_1_4",
-        "Hidden Item": false,
-        "Name": "Gate of \u3300\u3301\u3302\u3303\u3304",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2022
-    },
-    "Treasure_Dng_Ocn_1_4_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Ocn_1_4",
-        "Hidden Item": false,
-        "Name": "Gate of \u3300\u3301\u3302\u3303\u3304",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2023
-    },
-    "Treasure_Dng_Ocn_1_4_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Ocn_1_4",
-        "Hidden Item": false,
-        "Name": "Gate of \u3300\u3301\u3302\u3303\u3304",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2024
-    },
-    "Treasure_Dng_Ocn_1_4_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Ocn_1_4",
-        "Hidden Item": false,
-        "Name": "Gate of \u3300\u3301\u3302\u3303\u3304",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2025
-    },
-    "Treasure_Dng_Ocn_1_4_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Ocn_1_4",
-        "Hidden Item": false,
-        "Name": "Gate of \u3300\u3301\u3302\u3303\u3304",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2026
-    },
-    "Treasure_Dng_Ocn_1_4_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Ocn_1_4",
-        "Hidden Item": false,
-        "Name": "Gate of \u3300\u3301\u3302\u3303\u3304",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2027
-    },
     "Treasure_Dng_Sea_1_1_01": {
         "Item": "Diffusing Serum",
         "Region": "Dng_Sea_1_1",
@@ -2241,24 +1582,6 @@
         "Parent": "Harborlands",
         "ItemFileName": "ITM_CSM_0150",
         "ChestID": 116
-    },
-    "Treasure_Dng_Sea_1_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Sea_1_1",
-        "Hidden Item": false,
-        "Name": "Canalbrine: Water Source",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1560
-    },
-    "Treasure_Dng_Sea_1_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Sea_1_1",
-        "Hidden Item": false,
-        "Name": "Canalbrine: Water Source",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1561
     },
     "Treasure_Dng_Sea_1_2_01": {
         "Item": "Inspiriting Plum (M)",
@@ -2377,15 +1700,6 @@
         "ItemFileName": "ITM_CSM_0479",
         "ChestID": 2346
     },
-    "Treasure_Dng_Sea_1_3_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Sea_1_3",
-        "Hidden Item": false,
-        "Name": "Lair of the Usurper",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2347
-    },
     "Treasure_Dng_Sea_2_1_01": {
         "Item": "Empowering Lychee (M)",
         "Region": "Dng_Sea_2_1",
@@ -2421,24 +1735,6 @@
         "Parent": "Harborlands",
         "ItemFileName": "None",
         "ChestID": 1588
-    },
-    "Treasure_Dng_Sea_2_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Sea_2_1",
-        "Hidden Item": false,
-        "Name": "Cavern of the Sea God",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1589
-    },
-    "Treasure_Dng_Sea_2_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Sea_2_1",
-        "Hidden Item": false,
-        "Name": "Cavern of the Sea God",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1590
     },
     "Treasure_Dng_Sea_2_2_01": {
         "Item": "Guard's Hat",
@@ -2485,15 +1781,6 @@
         "ItemFileName": "ITM_EQP_AMR_150",
         "ChestID": 1595
     },
-    "Treasure_Dng_Sea_2_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Sea_2_2",
-        "Hidden Item": false,
-        "Name": "Guard Outpost",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1596
-    },
     "Treasure_Dng_Sea_2_3_01": {
         "Item": "Mighty Belt",
         "Region": "Dng_Sea_2_3",
@@ -2520,33 +1807,6 @@
         "Parent": "Harborlands",
         "ItemFileName": "None",
         "ChestID": 1632
-    },
-    "Treasure_Dng_Sea_2_3_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Sea_2_3",
-        "Hidden Item": false,
-        "Name": "Cavern of the Moon and Sun",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1633
-    },
-    "Treasure_Dng_Sea_2_3_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Sea_2_3",
-        "Hidden Item": false,
-        "Name": "Cavern of the Moon and Sun",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1634
-    },
-    "Treasure_Dng_Sea_2_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Sea_2_3",
-        "Hidden Item": false,
-        "Name": "Cavern of the Moon and Sun",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1635
     },
     "Treasure_Dng_Sea_3_1_A_01": {
         "Item": "Venom Lance",
@@ -2583,24 +1843,6 @@
         "Parent": "Harborlands",
         "ItemFileName": "ITM_CSM_0060",
         "ChestID": 1621
-    },
-    "Treasure_Dng_Sea_3_1_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Sea_3_1_A",
-        "Hidden Item": false,
-        "Name": "The Roque Company: West Tower",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1622
-    },
-    "Treasure_Dng_Sea_3_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Sea_3_1_A",
-        "Hidden Item": false,
-        "Name": "The Roque Company: West Tower",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1623
     },
     "Treasure_Dng_Sea_3_1_B_01": {
         "Item": "Olive of Life (L)",
@@ -2701,15 +1943,6 @@
         "ItemFileName": "ITM_CSM_0120",
         "ChestID": 68
     },
-    "Treasure_Dng_Snw_1_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_1_1",
-        "Hidden Item": false,
-        "Name": "Prison: Underground Passage",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1310
-    },
     "Treasure_Dng_Snw_1_2_01": {
         "Item": "Heretic's Greatsword",
         "Region": "Dng_Snw_1_2",
@@ -2754,15 +1987,6 @@
         "Parent": "Winterlands",
         "ItemFileName": "ITM_CSM_0260",
         "ChestID": 1966
-    },
-    "Treasure_Dng_Snw_1_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_1_2",
-        "Hidden Item": false,
-        "Name": "Ruffians' Hideout",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1967
     },
     "Treasure_Dng_Snw_2_1_01": {
         "Item": "Quartz Dagger",
@@ -2863,15 +2087,6 @@
         "ItemFileName": "ITM_EQP_ACS_510",
         "ChestID": 1379
     },
-    "Treasure_Dng_Snw_3_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_1",
-        "Hidden Item": false,
-        "Name": "Forbidden Shrine",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1380
-    },
     "Treasure_Dng_Snw_3_2_A_01": {
         "Item": "Nightmare Glaive",
         "Region": "Dng_Snw_3_2_A",
@@ -2917,69 +2132,6 @@
         "ItemFileName": "ITM_SLP_0020",
         "ChestID": 1385
     },
-    "Treasure_Dng_Snw_3_2_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_2_A",
-        "Hidden Item": false,
-        "Name": "Castle Mei: East Tower",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1386
-    },
-    "Treasure_Dng_Snw_3_2_B_01": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_2_B",
-        "Hidden Item": false,
-        "Name": "Castle Mei: Gallows",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1387
-    },
-    "Treasure_Dng_Snw_3_2_B_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_2_B",
-        "Hidden Item": false,
-        "Name": "Castle Mei: Gallows",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1388
-    },
-    "Treasure_Dng_Snw_3_2_B_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_2_B",
-        "Hidden Item": false,
-        "Name": "Castle Mei: Gallows",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1389
-    },
-    "Treasure_Dng_Snw_3_2_B_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_2_B",
-        "Hidden Item": false,
-        "Name": "Castle Mei: Gallows",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1390
-    },
-    "Treasure_Dng_Snw_3_2_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_2_B",
-        "Hidden Item": false,
-        "Name": "Castle Mei: Gallows",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1391
-    },
-    "Treasure_Dng_Snw_3_2_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_2_B",
-        "Hidden Item": false,
-        "Name": "Castle Mei: Gallows",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1392
-    },
     "Treasure_Dng_Snw_3_3_01": {
         "Item": "Ice Amulet",
         "Region": "Dng_Snw_3_3",
@@ -3016,24 +2168,6 @@
         "ItemFileName": "ITM_CSM_0340",
         "ChestID": 1396
     },
-    "Treasure_Dng_Snw_3_3_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_3",
-        "Hidden Item": false,
-        "Name": "Sacred Peak Altahe",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1397
-    },
-    "Treasure_Dng_Snw_3_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_3",
-        "Hidden Item": false,
-        "Name": "Sacred Peak Altahe",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1398
-    },
     "Treasure_Dng_Snw_3_4_A_01": {
         "Item": "Stone",
         "Region": "Dng_Snw_3_4_A",
@@ -3041,53 +2175,7 @@
         "Name": "Beneath the Wall",
         "Parent": "Winterlands",
         "ItemFileName": "ITM_FLV_0250",
-        "ChestID": 1968,
-        "Notes": "Missable"
-    },
-    "Treasure_Dng_Snw_3_4_A_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_4_A",
-        "Hidden Item": false,
-        "Name": "Beneath the Wall",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1969
-    },
-    "Treasure_Dng_Snw_3_4_A_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_4_A",
-        "Hidden Item": false,
-        "Name": "Beneath the Wall",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1970
-    },
-    "Treasure_Dng_Snw_3_4_A_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_4_A",
-        "Hidden Item": false,
-        "Name": "Beneath the Wall",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1971
-    },
-    "Treasure_Dng_Snw_3_4_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_4_A",
-        "Hidden Item": false,
-        "Name": "Beneath the Wall",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1972
-    },
-    "Treasure_Dng_Snw_3_4_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Dng_Snw_3_4_A",
-        "Hidden Item": false,
-        "Name": "Beneath the Wall",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1973
+        "ChestID": 1968
     },
     "Treasure_Dng_Snw_3_4_B_01": {
         "Item": "Inspiriting Plum Basket",
@@ -3150,8 +2238,7 @@
         "Name": "Giff's Manse",
         "Parent": "Wildlands",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 56,
-        "Notes": "Partitio Chapter 1"
+        "ChestID": 56
     },
     "Treasure_Dng_Wld_1_1_02": {
         "Item": "Small Silver Ore",
@@ -3441,42 +2528,6 @@
         "ItemFileName": "ITM_CSM_0250",
         "ChestID": 996
     },
-    "Treasure_Fld_Cty_1_1_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_1",
-        "Hidden Item": false,
-        "Name": "New Delsta Harbor: Anchorage",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1489
-    },
-    "Treasure_Fld_Cty_1_1_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_1",
-        "Hidden Item": false,
-        "Name": "New Delsta Harbor: Anchorage",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1490
-    },
-    "Treasure_Fld_Cty_1_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_1",
-        "Hidden Item": false,
-        "Name": "New Delsta Harbor: Anchorage",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1491
-    },
-    "Treasure_Fld_Cty_1_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_1",
-        "Hidden Item": false,
-        "Name": "New Delsta Harbor: Anchorage",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1492
-    },
     "Treasure_Fld_Cty_1_2_01": {
         "Item": "Energizing Pomegranate",
         "Region": "Fld_Cty_1_2",
@@ -3503,33 +2554,6 @@
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_SLD_080",
         "ChestID": 1788
-    },
-    "Treasure_Fld_Cty_1_2_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_2",
-        "Hidden Item": false,
-        "Name": "New Delsta Flats",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1789
-    },
-    "Treasure_Fld_Cty_1_2_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_2",
-        "Hidden Item": false,
-        "Name": "New Delsta Flats",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1790
-    },
-    "Treasure_Fld_Cty_1_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_2",
-        "Hidden Item": false,
-        "Name": "New Delsta Flats",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1791
     },
     "Treasure_Fld_Cty_1_3_01": {
         "Item": "Iron Blade",
@@ -3558,33 +2582,6 @@
         "ItemFileName": "None",
         "ChestID": 1050
     },
-    "Treasure_Fld_Cty_1_3_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_3",
-        "Hidden Item": false,
-        "Name": "Eastern New Delsta Highroad",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1493
-    },
-    "Treasure_Fld_Cty_1_3_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_3",
-        "Hidden Item": false,
-        "Name": "Eastern New Delsta Highroad",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1494
-    },
-    "Treasure_Fld_Cty_1_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_3",
-        "Hidden Item": false,
-        "Name": "Eastern New Delsta Highroad",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1495
-    },
     "Treasure_Fld_Cty_1_4_01": {
         "Item": "Herb of Clarity",
         "Region": "Fld_Cty_1_4",
@@ -3611,33 +2608,6 @@
         "Parent": "Brightlands",
         "ItemFileName": "ITM_CSM_0060",
         "ChestID": 1794
-    },
-    "Treasure_Fld_Cty_1_4_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_4",
-        "Hidden Item": false,
-        "Name": "Western Clockbank Highroad",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1795
-    },
-    "Treasure_Fld_Cty_1_4_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_4",
-        "Hidden Item": false,
-        "Name": "Western Clockbank Highroad",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1796
-    },
-    "Treasure_Fld_Cty_1_4_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_1_4",
-        "Hidden Item": false,
-        "Name": "Western Clockbank Highroad",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1797
     },
     "Treasure_Fld_Cty_2_1_01": {
         "Item": "Light Soulstone (M)",
@@ -3675,78 +2645,6 @@
         "ItemFileName": "ITM_EQP_BOW_230",
         "ChestID": 1801
     },
-    "Treasure_Fld_Cty_2_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_2_1",
-        "Hidden Item": false,
-        "Name": "Southern Clockbank Highroad",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1802
-    },
-    "Treasure_Fld_Cty_2_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_2_1",
-        "Hidden Item": false,
-        "Name": "Southern Clockbank Highroad",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1803
-    },
-    "Treasure_Fld_Cty_2_2_01": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_2_2",
-        "Hidden Item": false,
-        "Name": "Path to Mount Liphia",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1506
-    },
-    "Treasure_Fld_Cty_2_2_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_2_2",
-        "Hidden Item": false,
-        "Name": "Path to Mount Liphia",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1507
-    },
-    "Treasure_Fld_Cty_2_2_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_2_2",
-        "Hidden Item": false,
-        "Name": "Path to Mount Liphia",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1508
-    },
-    "Treasure_Fld_Cty_2_2_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_2_2",
-        "Hidden Item": false,
-        "Name": "Path to Mount Liphia",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1509
-    },
-    "Treasure_Fld_Cty_2_2_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_2_2",
-        "Hidden Item": false,
-        "Name": "Path to Mount Liphia",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1510
-    },
-    "Treasure_Fld_Cty_2_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_2_2",
-        "Hidden Item": false,
-        "Name": "Path to Mount Liphia",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1511
-    },
     "Treasure_Fld_Cty_3_1_01": {
         "Item": "Dragon Mail",
         "Region": "Fld_Cty_3_1",
@@ -3783,24 +2681,6 @@
         "ItemFileName": "ITM_CSM_0140",
         "ChestID": 1542
     },
-    "Treasure_Fld_Cty_3_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_3_1",
-        "Hidden Item": false,
-        "Name": "Deserted Highroad",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1543
-    },
-    "Treasure_Fld_Cty_3_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Cty_3_1",
-        "Hidden Item": false,
-        "Name": "Deserted Highroad",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1544
-    },
     "Treasure_Fld_Dst_1_1_01": {
         "Item": "Bone Spear",
         "Region": "Fld_Dst_1_1",
@@ -3827,33 +2707,6 @@
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_MRL_COM_0010",
         "ChestID": 974
-    },
-    "Treasure_Fld_Dst_1_1_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_1_1",
-        "Hidden Item": false,
-        "Name": "Northern Ryu Sands",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1161
-    },
-    "Treasure_Fld_Dst_1_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_1_1",
-        "Hidden Item": false,
-        "Name": "Northern Ryu Sands",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1162
-    },
-    "Treasure_Fld_Dst_1_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_1_1",
-        "Hidden Item": false,
-        "Name": "Northern Ryu Sands",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1163
     },
     "Treasure_Fld_Dst_2_2_01": {
         "Item": "Iron Shield",
@@ -3882,33 +2735,6 @@
         "ItemFileName": "ITM_CSM_0140",
         "ChestID": 1758
     },
-    "Treasure_Fld_Dst_2_2_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_2_2",
-        "Hidden Item": false,
-        "Name": "Western Sai Sands",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1759
-    },
-    "Treasure_Fld_Dst_2_2_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_2_2",
-        "Hidden Item": false,
-        "Name": "Western Sai Sands",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1760
-    },
-    "Treasure_Fld_Dst_2_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_2_2",
-        "Hidden Item": false,
-        "Name": "Western Sai Sands",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1761
-    },
     "Treasure_Fld_Dst_2_3_01": {
         "Item": "Herb of Light",
         "Region": "Fld_Dst_2_3",
@@ -3916,17 +2742,7 @@
         "Name": "Southern Sai Sands",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0170",
-        "ChestID": 1762,
-        "Notes": "Hikari's Chapter 1"
-    },
-    "Treasure_Fld_Dst_2_3_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_2_3",
-        "Hidden Item": false,
-        "Name": "Southern Sai Sands",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1763
+        "ChestID": 1762
     },
     "Treasure_Fld_Dst_2_3_03": {
         "Item": "Energizing Pomegranate (M)",
@@ -3954,15 +2770,6 @@
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0060",
         "ChestID": 1766
-    },
-    "Treasure_Fld_Dst_2_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_2_3",
-        "Hidden Item": false,
-        "Name": "Southern Sai Sands",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1767
     },
     "Treasure_Fld_Dst_2_4_01": {
         "Item": "Healing Grape Bunch",
@@ -4000,24 +2807,6 @@
         "ItemFileName": "ITM_CSM_0230",
         "ChestID": 1771
     },
-    "Treasure_Fld_Dst_2_4_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_2_4",
-        "Hidden Item": false,
-        "Name": "Eastern Sai Sands",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1772
-    },
-    "Treasure_Fld_Dst_2_4_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_2_4",
-        "Hidden Item": false,
-        "Name": "Eastern Sai Sands",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1773
-    },
     "Treasure_Fld_Dst_2_5_A_01": {
         "Item": "Stimulating Bracelet",
         "Region": "Fld_Dst_2_5_A",
@@ -4034,8 +2823,7 @@
         "Name": "Sandflow Pass",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_AMR_360",
-        "ChestID": 1067,
-        "Notes": "Guarded"
+        "ChestID": 1067
     },
     "Treasure_Fld_Dst_2_5_A_03": {
         "Item": "Empowering Lychee (M)",
@@ -4062,8 +2850,7 @@
         "Name": "Sandflow Pass",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_SWD_260",
-        "ChestID": 1070,
-        "Notes": "Guarded"
+        "ChestID": 1070
     },
     "Treasure_Fld_Dst_2_5_A_06": {
         "Item": "Steel Lance",
@@ -4072,8 +2859,7 @@
         "Name": "Sandflow Pass",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_LNS_090",
-        "ChestID": 1071,
-        "Notes": "Guarded"
+        "ChestID": 1071
     },
     "Treasure_Fld_Dst_2_5_B_01": {
         "Item": "Dual Flower",
@@ -4083,51 +2869,6 @@
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_MRL_ATK_0090",
         "ChestID": 1072
-    },
-    "Treasure_Fld_Dst_2_5_B_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_2_5_B",
-        "Hidden Item": false,
-        "Name": "Old Campsite",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1073
-    },
-    "Treasure_Fld_Dst_2_5_B_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_2_5_B",
-        "Hidden Item": false,
-        "Name": "Old Campsite",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1074
-    },
-    "Treasure_Fld_Dst_2_5_B_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_2_5_B",
-        "Hidden Item": false,
-        "Name": "Old Campsite",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1075
-    },
-    "Treasure_Fld_Dst_2_5_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_2_5_B",
-        "Hidden Item": false,
-        "Name": "Old Campsite",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1076
-    },
-    "Treasure_Fld_Dst_2_5_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_2_5_B",
-        "Hidden Item": false,
-        "Name": "Old Campsite",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1077
     },
     "Treasure_Fld_Dst_3_2_01": {
         "Item": "Thunder Soulstone (L)",
@@ -4174,24 +2915,6 @@
         "ItemFileName": "ITM_CSM_0030",
         "ChestID": 1094
     },
-    "Treasure_Fld_Dst_3_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Dst_3_2",
-        "Hidden Item": false,
-        "Name": "Eastern Ku Sands",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1095
-    },
-    "Treasure_Fld_Fst_1_1_01": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_1_1",
-        "Hidden Item": false,
-        "Name": "Forest Path",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 123
-    },
     "Treasure_Fld_Fst_1_1_02": {
         "Item": "Healing Grape",
         "Region": "Fld_Fst_1_1",
@@ -4219,24 +2942,6 @@
         "ItemFileName": "ITM_EQP_AMR_090",
         "ChestID": 126
     },
-    "Treasure_Fld_Fst_1_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_1_1",
-        "Hidden Item": false,
-        "Name": "Forest Path",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1636
-    },
-    "Treasure_Fld_Fst_1_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_1_1",
-        "Hidden Item": false,
-        "Name": "Forest Path",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1637
-    },
     "Treasure_Fld_Fst_1_2_02": {
         "Item": "500 L",
         "Region": "Fld_Fst_1_2",
@@ -4245,42 +2950,6 @@
         "Parent": "Leaflands",
         "ItemFileName": "None",
         "ChestID": 128
-    },
-    "Treasure_Fld_Fst_1_2_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_1_2",
-        "Hidden Item": false,
-        "Name": "Festival Grounds",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1638
-    },
-    "Treasure_Fld_Fst_1_2_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_1_2",
-        "Hidden Item": false,
-        "Name": "Festival Grounds",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1639
-    },
-    "Treasure_Fld_Fst_1_2_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_1_2",
-        "Hidden Item": false,
-        "Name": "Festival Grounds",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1640
-    },
-    "Treasure_Fld_Fst_1_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_1_2",
-        "Hidden Item": false,
-        "Name": "Festival Grounds",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1641
     },
     "Treasure_Fld_Fst_1_3_01": {
         "Item": "Round Shield",
@@ -4318,24 +2987,6 @@
         "ItemFileName": "ITM_SLP_0010",
         "ChestID": 1012
     },
-    "Treasure_Fld_Fst_1_3_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_1_3",
-        "Hidden Item": false,
-        "Name": "Eastern Cropdale Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1642
-    },
-    "Treasure_Fld_Fst_1_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_1_3",
-        "Hidden Item": false,
-        "Name": "Eastern Cropdale Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1643
-    },
     "Treasure_Fld_Fst_1_4_01": {
         "Item": "Healing Grape (M)",
         "Region": "Fld_Fst_1_4",
@@ -4362,33 +3013,6 @@
         "Parent": "Leaflands",
         "ItemFileName": "ITM_EQP_ACS_540",
         "ChestID": 1646
-    },
-    "Treasure_Fld_Fst_1_4_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_1_4",
-        "Hidden Item": false,
-        "Name": "Southern Cropdale Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1647
-    },
-    "Treasure_Fld_Fst_1_4_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_1_4",
-        "Hidden Item": false,
-        "Name": "Southern Cropdale Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1648
-    },
-    "Treasure_Fld_Fst_1_4_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_1_4",
-        "Hidden Item": false,
-        "Name": "Southern Cropdale Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1649
     },
     "Treasure_Fld_Fst_2_1_01": {
         "Item": "Wind Soulstone (M)",
@@ -4435,15 +3059,6 @@
         "ItemFileName": "ITM_CSM_0090",
         "ChestID": 1908
     },
-    "Treasure_Fld_Fst_2_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_2_1",
-        "Hidden Item": false,
-        "Name": "Northern Wellgrove Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1909
-    },
     "Treasure_Fld_Fst_2_2_01": {
         "Item": "Fire Soulstone (M)",
         "Region": "Fld_Fst_2_2",
@@ -4488,15 +3103,6 @@
         "Parent": "Leaflands",
         "ItemFileName": "ITM_CSM_0240",
         "ChestID": 1914
-    },
-    "Treasure_Fld_Fst_2_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_2_2",
-        "Hidden Item": false,
-        "Name": "Eastern Wellgrove Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1915
     },
     "Treasure_Fld_Fst_3_1_01": {
         "Item": "Herb of Valor",
@@ -4587,24 +3193,6 @@
         "Parent": "Leaflands",
         "ItemFileName": "ITM_CSM_0080",
         "ChestID": 1919
-    },
-    "Treasure_Fld_Fst_3_2_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_3_2",
-        "Hidden Item": false,
-        "Name": "Southern Timberain Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1920
-    },
-    "Treasure_Fld_Fst_3_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Fst_3_2",
-        "Hidden Item": false,
-        "Name": "Southern Timberain Trail",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1921
     },
     "Treasure_Fld_Isd_1_1_01": {
         "Item": "Unerring Ring",
@@ -4757,8 +3345,7 @@
         "Name": "Flamechurch Pilgrims' Way",
         "Parent": "Crestlands",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 37,
-        "Notes": "Guarded"
+        "ChestID": 37
     },
     "Treasure_Fld_Mnt_1_1_03": {
         "Item": "Tough Nut",
@@ -4777,24 +3364,6 @@
         "Parent": "Crestlands",
         "ItemFileName": "ITM_EQP_ACS_280",
         "ChestID": 39
-    },
-    "Treasure_Fld_Mnt_1_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Mnt_1_1",
-        "Hidden Item": false,
-        "Name": "Flamechurch Pilgrims' Way",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1209
-    },
-    "Treasure_Fld_Mnt_1_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Mnt_1_1",
-        "Hidden Item": false,
-        "Name": "Flamechurch Pilgrims' Way",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1210
     },
     "Treasure_Fld_Mnt_1_2_01": {
         "Item": "Energizing Pomegranate",
@@ -4832,24 +3401,6 @@
         "ItemFileName": "ITM_EQP_AMR_090",
         "ChestID": 978
     },
-    "Treasure_Fld_Mnt_1_2_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Mnt_1_2",
-        "Hidden Item": false,
-        "Name": "Eastern Flamechurch Pass",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1214
-    },
-    "Treasure_Fld_Mnt_1_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Mnt_1_2",
-        "Hidden Item": false,
-        "Name": "Eastern Flamechurch Pass",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1215
-    },
     "Treasure_Fld_Mnt_2_1_01": {
         "Item": "Energizing Pomegranate (M)",
         "Region": "Fld_Mnt_2_1",
@@ -4876,33 +3427,6 @@
         "Parent": "Crestlands",
         "ItemFileName": "ITM_EQP_HLM_280",
         "ChestID": 1722
-    },
-    "Treasure_Fld_Mnt_2_1_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Mnt_2_1",
-        "Hidden Item": false,
-        "Name": "Western Montwise Pass",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1723
-    },
-    "Treasure_Fld_Mnt_2_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Mnt_2_1",
-        "Hidden Item": false,
-        "Name": "Western Montwise Pass",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1724
-    },
-    "Treasure_Fld_Mnt_2_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Mnt_2_1",
-        "Hidden Item": false,
-        "Name": "Western Montwise Pass",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1725
     },
     "Treasure_Fld_Mnt_2_2_01": {
         "Item": "Thunder Soulstone (M)",
@@ -5066,24 +3590,6 @@
         "ItemFileName": "ITM_CSM_0020",
         "ChestID": 1741
     },
-    "Treasure_Fld_Mnt_3_2_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Mnt_3_2",
-        "Hidden Item": false,
-        "Name": "Western Merry Hills Pass",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1742
-    },
-    "Treasure_Fld_Mnt_3_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Mnt_3_2",
-        "Hidden Item": false,
-        "Name": "Western Merry Hills Pass",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1743
-    },
     "Treasure_Fld_Mnt_3_3_01": {
         "Item": "Ice Soulstone (M)",
         "Region": "Fld_Mnt_3_3",
@@ -5119,24 +3625,6 @@
         "Parent": "Crestlands",
         "ItemFileName": "ITM_CSM_0250",
         "ChestID": 1105
-    },
-    "Treasure_Fld_Mnt_3_3_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Mnt_3_3",
-        "Hidden Item": false,
-        "Name": "Abandoned Traverse",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1106
-    },
-    "Treasure_Fld_Mnt_3_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Mnt_3_3",
-        "Hidden Item": false,
-        "Name": "Abandoned Traverse",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1107
     },
     "Treasure_Fld_Ocn_1_1_01": {
         "Item": "Double Tomahawk",
@@ -5335,42 +3823,6 @@
         "Parent": "Crestlands",
         "ItemFileName": "None",
         "ChestID": 1987
-    },
-    "Treasure_Fld_Ocn_1_2_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Ocn_1_2",
-        "Hidden Item": false,
-        "Name": "Lighthouse Island",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1988
-    },
-    "Treasure_Fld_Ocn_1_2_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Ocn_1_2",
-        "Hidden Item": false,
-        "Name": "Lighthouse Island",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1989
-    },
-    "Treasure_Fld_Ocn_1_2_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Ocn_1_2",
-        "Hidden Item": false,
-        "Name": "Lighthouse Island",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1990
-    },
-    "Treasure_Fld_Ocn_1_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Ocn_1_2",
-        "Hidden Item": false,
-        "Name": "Lighthouse Island",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1991
     },
     "Treasure_Fld_Ocn_1_3_01": {
         "Item": "Ancient Cursed Talisman",
@@ -5676,26 +4128,7 @@
         "Name": "Northern Conning Creek Coast",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_EQP_LNS_430",
-        "ChestID": 1889,
-        "Notes": "Guarded"
-    },
-    "Treasure_Fld_Sea_2_2_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Sea_2_2",
-        "Hidden Item": false,
-        "Name": "Northern Conning Creek Coast",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1890
-    },
-    "Treasure_Fld_Sea_2_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Sea_2_2",
-        "Hidden Item": false,
-        "Name": "Northern Conning Creek Coast",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1891
+        "ChestID": 1889
     },
     "Treasure_Fld_Sea_2_3_01": {
         "Item": "Unerring Bracelet",
@@ -5733,24 +4166,6 @@
         "ItemFileName": "ITM_CSM_0070",
         "ChestID": 1895
     },
-    "Treasure_Fld_Sea_2_3_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Sea_2_3",
-        "Hidden Item": false,
-        "Name": "Western Conning Creek Coast",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1896
-    },
-    "Treasure_Fld_Sea_2_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Sea_2_3",
-        "Hidden Item": false,
-        "Name": "Western Conning Creek Coast",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1897
-    },
     "Treasure_Fld_Sea_3_1_01": {
         "Item": "22000 L",
         "Region": "Fld_Sea_3_1",
@@ -5778,51 +4193,6 @@
         "ItemFileName": "ITM_CSM_0030",
         "ChestID": 1614
     },
-    "Treasure_Fld_Sea_3_1_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Sea_3_1",
-        "Hidden Item": false,
-        "Name": "Roque Island: Anchorage",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1615
-    },
-    "Treasure_Fld_Sea_3_1_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Sea_3_1",
-        "Hidden Item": false,
-        "Name": "Roque Island: Anchorage",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1616
-    },
-    "Treasure_Fld_Sea_3_1_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Sea_3_1",
-        "Hidden Item": false,
-        "Name": "Roque Island: Anchorage",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1617
-    },
-    "Treasure_Fld_Sea_3_1_AP_020": {
-        "Item": "Herb of Healing",
-        "Region": "Fld_Sea_3_1",
-        "Hidden Item": true,
-        "Name": "Roque Island: Anchorage",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0150",
-        "ChestID": 2276
-    },
-    "Treasure_Fld_Sea_3_1_AP_040": {
-        "Item": "Olive of Life (M)",
-        "Region": "Fld_Sea_3_1",
-        "Hidden Item": true,
-        "Name": "Roque Island: Anchorage",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0130",
-        "ChestID": 2278
-    },
     "Treasure_Fld_Snw_1_1_A_01": {
         "Item": "Healing Grape",
         "Region": "Fld_Snw_1_1_A",
@@ -5831,51 +4201,6 @@
         "Parent": "Winterlands",
         "ItemFileName": "ITM_CSM_0010",
         "ChestID": 983
-    },
-    "Treasure_Fld_Snw_1_1_A_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Entrance",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1311
-    },
-    "Treasure_Fld_Snw_1_1_A_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Entrance",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1312
-    },
-    "Treasure_Fld_Snw_1_1_A_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Entrance",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1313
-    },
-    "Treasure_Fld_Snw_1_1_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Entrance",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1314
-    },
-    "Treasure_Fld_Snw_1_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Entrance",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1315
     },
     "Treasure_Fld_Snw_1_1_B_01": {
         "Item": "Inspiriting Plum",
@@ -5903,33 +4228,6 @@
         "Parent": "Winterlands",
         "ItemFileName": "ITM_CSM_0320",
         "ChestID": 986
-    },
-    "Treasure_Fld_Snw_1_1_B_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_1_1_B",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Anchorage",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1316
-    },
-    "Treasure_Fld_Snw_1_1_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_1_1_B",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Anchorage",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1317
-    },
-    "Treasure_Fld_Snw_1_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_1_1_B",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Anchorage",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1318
     },
     "Treasure_Fld_Snw_1_2_01": {
         "Item": "Pilgrim's Robe",
@@ -6021,24 +4319,6 @@
         "ItemFileName": "None",
         "ChestID": 1947
     },
-    "Treasure_Fld_Snw_1_3_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_1_3",
-        "Hidden Item": false,
-        "Name": "Eastern Cape Cold Snows",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1948
-    },
-    "Treasure_Fld_Snw_1_3_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_1_3",
-        "Hidden Item": false,
-        "Name": "Eastern Cape Cold Snows",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1949
-    },
     "Treasure_Fld_Snw_2_2_01": {
         "Item": "Diffusing Serum",
         "Region": "Fld_Snw_2_2",
@@ -6065,42 +4345,6 @@
         "Parent": "Winterlands",
         "ItemFileName": "ITM_EQP_ACS_780",
         "ChestID": 1952
-    },
-    "Treasure_Fld_Snw_2_2_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_2_2",
-        "Hidden Item": false,
-        "Name": "Western Winterbloom Snows",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1953
-    },
-    "Treasure_Fld_Snw_2_2_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_2_2",
-        "Hidden Item": false,
-        "Name": "Western Winterbloom Snows",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1954
-    },
-    "Treasure_Fld_Snw_2_2_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_2_2",
-        "Hidden Item": false,
-        "Name": "Western Winterbloom Snows",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1955
-    },
-    "Treasure_Fld_Snw_3_1_01": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Fld_Snw_3_1",
-        "Hidden Item": false,
-        "Name": "Southern Stormhail Snows",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1956
     },
     "Treasure_Fld_Snw_3_1_02": {
         "Item": "Herb of Revival",
@@ -6154,8 +4398,7 @@
         "Name": "Silver Mine",
         "Parent": "Wildlands",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 51,
-        "Notes": "Partitio Chapter 1"
+        "ChestID": 51
     },
     "Treasure_Fld_Wld_1_1_B_01": {
         "Item": "500 L",
@@ -6192,33 +4435,6 @@
         "Parent": "Wildlands",
         "ItemFileName": "ITM_CSM_0040",
         "ChestID": 55
-    },
-    "Treasure_Fld_Wld_1_2_01": {
-        "Item": "Kukri",
-        "Region": "Fld_Wld_1_2",
-        "Hidden Item": false,
-        "Name": "Crackridge Harbor: Anchorage",
-        "Parent": "Wildlands",
-        "ItemFileName": "ITM_EQP_DGR_060",
-        "ChestID": 1856
-    },
-    "Treasure_Fld_Wld_1_2_02": {
-        "Item": "Bottle of Poison Dust",
-        "Region": "Fld_Wld_1_2",
-        "Hidden Item": false,
-        "Name": "Crackridge Harbor: Anchorage",
-        "Parent": "Wildlands",
-        "ItemFileName": "ITM_CSM_0250",
-        "ChestID": 1857
-    },
-    "Treasure_Fld_Wld_1_2_03": {
-        "Item": "Healing Grape (M)",
-        "Region": "Fld_Wld_1_2",
-        "Hidden Item": false,
-        "Name": "Crackridge Harbor: Anchorage",
-        "Parent": "Wildlands",
-        "ItemFileName": "ITM_CSM_0020",
-        "ChestID": 1858
     },
     "Treasure_Fld_Wld_1_3_01": {
         "Item": "Nameless Sword",
@@ -6373,33 +4589,6 @@
         "ItemFileName": "ITM_CSM_0020",
         "ChestID": 1247
     },
-    "Treasure_Fld_Wld_3_1_01": {
-        "Item": "Energizing Pomegranate (M)",
-        "Region": "Fld_Wld_3_1",
-        "Hidden Item": false,
-        "Name": "Path to the Duskruin Shrine",
-        "Parent": "Wildlands",
-        "ItemFileName": "ITM_CSM_0080",
-        "ChestID": 1263
-    },
-    "Treasure_Fld_Wld_3_1_02": {
-        "Item": "Antique Coat",
-        "Region": "Fld_Wld_3_1",
-        "Hidden Item": false,
-        "Name": "Path to the Duskruin Shrine",
-        "Parent": "Wildlands",
-        "ItemFileName": "ITM_EQP_AMR_410",
-        "ChestID": 1264
-    },
-    "Treasure_Fld_Wld_3_1_03": {
-        "Item": "Healing Grape Bunch",
-        "Region": "Fld_Wld_3_1",
-        "Hidden Item": false,
-        "Name": "Path to the Duskruin Shrine",
-        "Parent": "Wildlands",
-        "ItemFileName": "ITM_CSM_0030",
-        "ChestID": 1265
-    },
     "Treasure_Fld_Wld_3_2_01": {
         "Item": "Starsplitter",
         "Region": "Fld_Wld_3_2",
@@ -6463,69 +4652,6 @@
         "ItemFileName": "ITM_CSM_0010",
         "ChestID": 135
     },
-    "Treasure_Twn_Cty_1_1_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_A",
-        "Hidden Item": false,
-        "Name": "New Delsta",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1458
-    },
-    "Treasure_Twn_Cty_1_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_A",
-        "Hidden Item": false,
-        "Name": "New Delsta",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1459
-    },
-    "Treasure_Twn_Cty_1_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_A",
-        "Hidden Item": false,
-        "Name": "New Delsta",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1460
-    },
-    "Treasure_Twn_Cty_1_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_A",
-        "Hidden Item": false,
-        "Name": "New Delsta",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1461
-    },
-    "Treasure_Twn_Cty_1_1_A_AP_050": {
-        "Item": "Refreshing Jam",
-        "Region": "Twn_Cty_1_1_A",
-        "Hidden Item": true,
-        "Name": "New Delsta",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0100",
-        "ChestID": 2060
-    },
-    "Treasure_Twn_Cty_1_1_A_AP_060": {
-        "Item": "Herb of Clarity",
-        "Region": "Twn_Cty_1_1_A",
-        "Hidden Item": true,
-        "Name": "New Delsta",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0180",
-        "ChestID": 2061
-    },
-    "Treasure_Twn_Cty_1_1_A_AP_080": {
-        "Item": "Bottle of Poison Dust",
-        "Region": "Twn_Cty_1_1_A",
-        "Hidden Item": true,
-        "Name": "New Delsta",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0250",
-        "ChestID": 2063
-    },
     "Treasure_Twn_Cty_1_1_B_04": {
         "Item": "Critical Nut",
         "Region": "Twn_Cty_1_1_B",
@@ -6551,53 +4677,7 @@
         "Name": "New Delsta: Backstreets",
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_DGR_040",
-        "ChestID": 1048,
-        "Notes": "Guarded"
-    },
-    "Treasure_Twn_Cty_1_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_B",
-        "Hidden Item": false,
-        "Name": "New Delsta: Backstreets",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1462
-    },
-    "Treasure_Twn_Cty_1_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_B",
-        "Hidden Item": false,
-        "Name": "New Delsta: Backstreets",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1463
-    },
-    "Treasure_Twn_Cty_1_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_B",
-        "Hidden Item": false,
-        "Name": "New Delsta: Backstreets",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1464
-    },
-    "Treasure_Twn_Cty_1_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_B",
-        "Hidden Item": false,
-        "Name": "New Delsta: Backstreets",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1465
-    },
-    "Treasure_Twn_Cty_1_1_B_AP_020": {
-        "Item": "Diffusing Serum",
-        "Region": "Twn_Cty_1_1_B",
-        "Hidden Item": true,
-        "Name": "New Delsta: Backstreets",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_MRL_COM_0010",
-        "ChestID": 2065
+        "ChestID": 1048
     },
     "Treasure_Twn_Cty_1_1_C_01": {
         "Item": "40000 L",
@@ -6606,8 +4686,7 @@
         "Name": "New Delsta: Game Parlor",
         "Parent": "Brightlands",
         "ItemFileName": "None",
-        "ChestID": 88,
-        "Notes": "Guarded"
+        "ChestID": 88
     },
     "Treasure_Twn_Cty_1_1_C_02": {
         "Item": "Physical Belt",
@@ -6616,8 +4695,7 @@
         "Name": "New Delsta: Game Parlor",
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_ACS_220",
-        "ChestID": 89,
-        "Notes": "Guarded"
+        "ChestID": 89
     },
     "Treasure_Twn_Cty_1_1_C_03": {
         "Item": "Forbidden Dagger",
@@ -6626,161 +4704,7 @@
         "Name": "New Delsta: Game Parlor",
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_DGR_270",
-        "ChestID": 90,
-        "Notes": "Guarded"
-    },
-    "Treasure_Twn_Cty_1_1_C_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_C",
-        "Hidden Item": false,
-        "Name": "New Delsta: Game Parlor",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1466
-    },
-    "Treasure_Twn_Cty_1_1_C_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_C",
-        "Hidden Item": false,
-        "Name": "New Delsta: Game Parlor",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1467
-    },
-    "Treasure_Twn_Cty_1_1_C_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_C",
-        "Hidden Item": false,
-        "Name": "New Delsta: Game Parlor",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1468
-    },
-    "Treasure_Twn_Cty_1_1_C_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_C",
-        "Hidden Item": false,
-        "Name": "New Delsta: Game Parlor",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1469
-    },
-    "Treasure_Twn_Cty_1_1_C_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_1_C",
-        "Hidden Item": false,
-        "Name": "New Delsta: Game Parlor",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1470
-    },
-    "Treasure_Twn_Cty_1_1_C_AP_010": {
-        "Item": "Inspiriting Plum",
-        "Region": "Twn_Cty_1_1_C",
-        "Hidden Item": true,
-        "Name": "New Delsta: Game Parlor",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0040",
-        "ChestID": 2068
-    },
-    "Treasure_Twn_Cty_1_2_A_01": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_2_A",
-        "Hidden Item": false,
-        "Name": "Abandoned Village",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1496
-    },
-    "Treasure_Twn_Cty_1_2_A_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_2_A",
-        "Hidden Item": false,
-        "Name": "Abandoned Village",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1497
-    },
-    "Treasure_Twn_Cty_1_2_A_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_2_A",
-        "Hidden Item": false,
-        "Name": "Abandoned Village",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1498
-    },
-    "Treasure_Twn_Cty_1_2_A_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_2_A",
-        "Hidden Item": false,
-        "Name": "Abandoned Village",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1499
-    },
-    "Treasure_Twn_Cty_1_2_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_2_A",
-        "Hidden Item": false,
-        "Name": "Abandoned Village",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1500
-    },
-    "Treasure_Twn_Cty_1_2_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_2_A",
-        "Hidden Item": false,
-        "Name": "Abandoned Village",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1501
-    },
-    "Treasure_Twn_Cty_1_2_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_2_A",
-        "Hidden Item": false,
-        "Name": "Abandoned Village",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1502
-    },
-    "Treasure_Twn_Cty_1_2_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_2_A",
-        "Hidden Item": false,
-        "Name": "Abandoned Village",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1503
-    },
-    "Treasure_Twn_Cty_1_2_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_2_A",
-        "Hidden Item": false,
-        "Name": "Abandoned Village",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1504
-    },
-    "Treasure_Twn_Cty_1_2_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_1_2_A",
-        "Hidden Item": false,
-        "Name": "Abandoned Village",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1505
-    },
-    "Treasure_Twn_Cty_1_2_A_AP_020": {
-        "Item": "Diffusing Serum",
-        "Region": "Twn_Cty_1_2_A",
-        "Hidden Item": true,
-        "Name": "Abandoned Village",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_MRL_COM_0010",
-        "ChestID": 2127
+        "ChestID": 90
     },
     "Treasure_Twn_Cty_2_1_A_02": {
         "Item": "Inspiriting Plum (M)",
@@ -6852,8 +4776,7 @@
         "Name": "Clockbank: Industrial District",
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_LNS_100",
-        "ChestID": 712,
-        "Notes": "Partitio Chapter 2"
+        "ChestID": 712
     },
     "Treasure_Twn_Cty_2_1_B_05": {
         "Item": "Healing Grape Bunch",
@@ -6863,60 +4786,6 @@
         "Parent": "Brightlands",
         "ItemFileName": "ITM_CSM_0030",
         "ChestID": 1523
-    },
-    "Treasure_Twn_Cty_2_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_2_1_B",
-        "Hidden Item": false,
-        "Name": "Clockbank: Industrial District",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1524
-    },
-    "Treasure_Twn_Cty_2_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_2_1_B",
-        "Hidden Item": false,
-        "Name": "Clockbank: Industrial District",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1525
-    },
-    "Treasure_Twn_Cty_2_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_2_1_B",
-        "Hidden Item": false,
-        "Name": "Clockbank: Industrial District",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1526
-    },
-    "Treasure_Twn_Cty_2_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_2_1_B",
-        "Hidden Item": false,
-        "Name": "Clockbank: Industrial District",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1527
-    },
-    "Treasure_Twn_Cty_2_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_2_1_B",
-        "Hidden Item": false,
-        "Name": "Clockbank: Industrial District",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1528
-    },
-    "Treasure_Twn_Cty_2_1_B_AP_040": {
-        "Item": "Shadow Soulstone (L)",
-        "Region": "Twn_Cty_2_1_B",
-        "Hidden Item": true,
-        "Name": "Clockbank: Industrial District",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0460",
-        "ChestID": 2122
     },
     "Treasure_Twn_Cty_3_1_A_03": {
         "Item": "Reinforcing Jam",
@@ -6934,62 +4803,7 @@
         "Name": "Lostseed",
         "Parent": "Brightlands",
         "ItemFileName": "ITM_EQP_HLM_460",
-        "ChestID": 1532,
-        "Notes": "Guarded"
-    },
-    "Treasure_Twn_Cty_3_1_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_3_1_A",
-        "Hidden Item": false,
-        "Name": "Lostseed",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1533
-    },
-    "Treasure_Twn_Cty_3_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_3_1_A",
-        "Hidden Item": false,
-        "Name": "Lostseed",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1534
-    },
-    "Treasure_Twn_Cty_3_1_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_3_1_A",
-        "Hidden Item": false,
-        "Name": "Lostseed",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1535
-    },
-    "Treasure_Twn_Cty_3_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_3_1_A",
-        "Hidden Item": false,
-        "Name": "Lostseed",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1536
-    },
-    "Treasure_Twn_Cty_3_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_3_1_A",
-        "Hidden Item": false,
-        "Name": "Lostseed",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1537
-    },
-    "Treasure_Twn_Cty_3_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Cty_3_1_A",
-        "Hidden Item": false,
-        "Name": "Lostseed",
-        "Parent": "Brightlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1538
+        "ChestID": 1532
     },
     "Treasure_Twn_Dst_1_1_A_01": {
         "Item": "Empowering Lychee",
@@ -6998,90 +4812,7 @@
         "Name": "Ryu",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0220",
-        "ChestID": 20,
-        "Notes": "Not a chest; talk to the Ku Guard along the way during Hikari's Chapter 1"
-    },
-    "Treasure_Twn_Dst_1_1_A_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_1_1_A",
-        "Hidden Item": false,
-        "Name": "Ryu",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1184
-    },
-    "Treasure_Twn_Dst_1_1_A_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_1_1_A",
-        "Hidden Item": false,
-        "Name": "Ryu",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1185
-    },
-    "Treasure_Twn_Dst_1_1_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_1_1_A",
-        "Hidden Item": false,
-        "Name": "Ryu",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1186
-    },
-    "Treasure_Twn_Dst_1_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_1_1_A",
-        "Hidden Item": false,
-        "Name": "Ryu",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1187
-    },
-    "Treasure_Twn_Dst_1_1_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_1_1_A",
-        "Hidden Item": false,
-        "Name": "Ryu",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1188
-    },
-    "Treasure_Twn_Dst_1_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_1_1_A",
-        "Hidden Item": false,
-        "Name": "Ryu",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1189
-    },
-    "Treasure_Twn_Dst_1_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_1_1_A",
-        "Hidden Item": false,
-        "Name": "Ryu",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1190
-    },
-    "Treasure_Twn_Dst_1_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_1_1_A",
-        "Hidden Item": false,
-        "Name": "Ryu",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1191
-    },
-    "Treasure_Twn_Dst_1_1_A_AP_030": {
-        "Item": "Fortifying Nut",
-        "Region": "Twn_Dst_1_1_A",
-        "Hidden Item": true,
-        "Name": "Ryu",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0530",
-        "ChestID": 2073,
-        "Notes": "Hikari's Chapter 1"
+        "ChestID": 20
     },
     "Treasure_Twn_Dst_1_1_A_AP_050": {
         "Item": "Empowering Lychee",
@@ -7090,8 +4821,7 @@
         "Name": "Ryu",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0220",
-        "ChestID": 2075,
-        "Notes": "Not a chest; talk to the Ku Guard along the way during Hikari's Chapter 1"
+        "ChestID": 2075
     },
     "Treasure_Twn_Dst_2_1_A_01": {
         "Item": "Inspiriting Plum (M)",
@@ -7147,16 +4877,6 @@
         "ItemFileName": "ITM_CSM_0050",
         "ChestID": 1157
     },
-    "Treasure_Twn_Dst_2_1_A_AP_050": {
-        "Item": "Herb of Light",
-        "Region": "Twn_Dst_2_1_A",
-        "Hidden Item": true,
-        "Name": "Sai",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0170",
-        "ChestID": 2132,
-        "Notes": "Hikari's Chapter 1"
-    },
     "Treasure_Twn_Dst_2_1_B_01": {
         "Item": "Refined Sword",
         "Region": "Twn_Dst_2_1_B",
@@ -7164,8 +4884,7 @@
         "Name": "Sai: East District",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_SWD_110",
-        "ChestID": 210,
-        "Notes": "requires quest Plans from a Ruined Nation completion"
+        "ChestID": 210
     },
     "Treasure_Twn_Dst_2_1_B_02": {
         "Item": "Battle Hatchet",
@@ -7174,8 +4893,7 @@
         "Name": "Sai: East District",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_AXE_080",
-        "ChestID": 211,
-        "Notes": "requires quest Plans from a Ruined Nation completion"
+        "ChestID": 211
     },
     "Treasure_Twn_Dst_2_1_B_03": {
         "Item": "Herb of Revival",
@@ -7193,8 +4911,7 @@
         "Name": "Sai: East District",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_ACS_140",
-        "ChestID": 213,
-        "Notes": "Guarded"
+        "ChestID": 213
     },
     "Treasure_Twn_Dst_2_1_B_05": {
         "Item": "Tattered Dress",
@@ -7203,71 +4920,7 @@
         "Name": "Sai: East District",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_AMR_050",
-        "ChestID": 214,
-        "Notes": "Guarded"
-    },
-    "Treasure_Twn_Dst_2_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_2_1_B",
-        "Hidden Item": false,
-        "Name": "Sai: East District",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 215
-    },
-    "Treasure_Twn_Dst_2_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_2_1_B",
-        "Hidden Item": false,
-        "Name": "Sai: East District",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 216
-    },
-    "Treasure_Twn_Dst_2_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_2_1_B",
-        "Hidden Item": false,
-        "Name": "Sai: East District",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1158
-    },
-    "Treasure_Twn_Dst_2_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_2_1_B",
-        "Hidden Item": false,
-        "Name": "Sai: East District",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1159
-    },
-    "Treasure_Twn_Dst_2_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_2_1_B",
-        "Hidden Item": false,
-        "Name": "Sai: East District",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1160
-    },
-    "Treasure_Twn_Dst_2_1_B_AP_020": {
-        "Item": "Energizing Pomegranate (L)",
-        "Region": "Twn_Dst_2_1_B",
-        "Hidden Item": true,
-        "Name": "Sai: East District",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0090",
-        "ChestID": 2134
-    },
-    "Treasure_Twn_Dst_2_1_B_AP_050": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_2_1_B",
-        "Hidden Item": true,
-        "Name": "Sai: East District",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2137
+        "ChestID": 214
     },
     "Treasure_Twn_Dst_2_1_B_AP_070": {
         "Item": "Dancer's Journal",
@@ -7276,8 +4929,7 @@
         "Name": "Sai: East District",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_TRE_Oth_01",
-        "ChestID": 2334,
-        "Notes": "not a chest; near previous"
+        "ChestID": 2334
     },
     "Treasure_Twn_Dst_3_1_A_01": {
         "Item": "Inspiriting Plum",
@@ -7286,8 +4938,7 @@
         "Name": "Ku: Castle Town",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0040",
-        "ChestID": 8,
-        "Notes": "Hikari's Chapter 1"
+        "ChestID": 8
     },
     "Treasure_Twn_Dst_3_1_A_02": {
         "Item": "Healing Grape",
@@ -7296,81 +4947,7 @@
         "Name": "Ku: Castle Town",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 9,
-        "Notes": "Hikari's Chapter 1"
-    },
-    "Treasure_Twn_Dst_3_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_A",
-        "Hidden Item": false,
-        "Name": "Ku: Castle Town",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1164
-    },
-    "Treasure_Twn_Dst_3_1_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_A",
-        "Hidden Item": false,
-        "Name": "Ku: Castle Town",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1165
-    },
-    "Treasure_Twn_Dst_3_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_A",
-        "Hidden Item": false,
-        "Name": "Ku: Castle Town",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1166
-    },
-    "Treasure_Twn_Dst_3_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_A",
-        "Hidden Item": false,
-        "Name": "Ku: Castle Town",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1167
-    },
-    "Treasure_Twn_Dst_3_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_A",
-        "Hidden Item": false,
-        "Name": "Ku: Castle Town",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1168
-    },
-    "Treasure_Twn_Dst_3_1_A_AP_010": {
-        "Item": "Olive of Life (L)",
-        "Region": "Twn_Dst_3_1_A",
-        "Hidden Item": true,
-        "Name": "Ku: Castle Town",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0140",
-        "ChestID": 2208
-    },
-    "Treasure_Twn_Dst_3_1_A_AP_050": {
-        "Item": "Slumber Sage",
-        "Region": "Twn_Dst_3_1_A",
-        "Hidden Item": true,
-        "Name": "Ku: Castle Town",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_SLP_0010",
-        "ChestID": 2212
-    },
-    "Treasure_Twn_Dst_3_1_A_AP_090": {
-        "Item": "Herb of Light",
-        "Region": "Twn_Dst_3_1_A",
-        "Hidden Item": true,
-        "Name": "Ku: Castle Town",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0170",
-        "ChestID": 2216,
-        "Notes": "Hikari's Chapter 1"
+        "ChestID": 9
     },
     "Treasure_Twn_Dst_3_1_A_AP_100": {
         "Item": "Healing Grape",
@@ -7379,18 +4956,7 @@
         "Name": "Ku: Castle Town",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 2217,
-        "Notes": "Hikari's Chapter 1"
-    },
-    "Treasure_Twn_Dst_3_1_A_AP_110": {
-        "Item": "Critical Ring",
-        "Region": "Twn_Dst_3_1_A",
-        "Hidden Item": true,
-        "Name": "Ku: Castle Town",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_EQP_ACS_330",
-        "ChestID": 2218,
-        "Notes": "Hikari's Chapter 1"
+        "ChestID": 2217
     },
     "Treasure_Twn_Dst_3_1_B_01": {
         "Item": "Critical Ring",
@@ -7399,8 +4965,7 @@
         "Name": "Castle Ku: Entrance",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_EQP_ACS_330",
-        "ChestID": 13,
-        "Notes": "Hikari's Chapter 1"
+        "ChestID": 13
     },
     "Treasure_Twn_Dst_3_1_B_02": {
         "Item": "1600 L",
@@ -7409,81 +4974,7 @@
         "Name": "Castle Ku: Entrance",
         "Parent": "Hinoeuma",
         "ItemFileName": "None",
-        "ChestID": 14,
-        "Notes": "Hikari's Chapter 1"
-    },
-    "Treasure_Twn_Dst_3_1_B_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_B",
-        "Hidden Item": false,
-        "Name": "Castle Ku: Entrance",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1169
-    },
-    "Treasure_Twn_Dst_3_1_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_B",
-        "Hidden Item": false,
-        "Name": "Castle Ku: Entrance",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1170
-    },
-    "Treasure_Twn_Dst_3_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_B",
-        "Hidden Item": false,
-        "Name": "Castle Ku: Entrance",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1171
-    },
-    "Treasure_Twn_Dst_3_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_B",
-        "Hidden Item": false,
-        "Name": "Castle Ku: Entrance",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1172
-    },
-    "Treasure_Twn_Dst_3_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_B",
-        "Hidden Item": false,
-        "Name": "Castle Ku: Entrance",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1173
-    },
-    "Treasure_Twn_Dst_3_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_B",
-        "Hidden Item": false,
-        "Name": "Castle Ku: Entrance",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1174
-    },
-    "Treasure_Twn_Dst_3_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_B",
-        "Hidden Item": false,
-        "Name": "Castle Ku: Entrance",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1175
-    },
-    "Treasure_Twn_Dst_3_1_B_AP_010": {
-        "Item": "Energizing Pomegranate",
-        "Region": "Twn_Dst_3_1_B",
-        "Hidden Item": true,
-        "Name": "Castle Ku: Entrance",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0070",
-        "ChestID": 2220,
-        "Notes": "Hikari's Chapter 1"
+        "ChestID": 14
     },
     "Treasure_Twn_Dst_3_1_C_01": {
         "Item": "Healing Grape",
@@ -7492,8 +4983,7 @@
         "Name": "Castle Ku",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 16,
-        "Notes": "Hikari's Chapter 1"
+        "ChestID": 16
     },
     "Treasure_Twn_Dst_3_1_C_02": {
         "Item": "Fortifying Nut",
@@ -7502,8 +4992,7 @@
         "Name": "Castle Ku",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0530",
-        "ChestID": 17,
-        "Notes": "Hikari's Chapter 1"
+        "ChestID": 17
     },
     "Treasure_Twn_Dst_3_1_C_03": {
         "Item": "Thunder Soulstone",
@@ -7512,89 +5001,7 @@
         "Name": "Castle Ku",
         "Parent": "Hinoeuma",
         "ItemFileName": "ITM_CSM_0350",
-        "ChestID": 1049,
-        "Notes": "Hikari's Chapter 1"
-    },
-    "Treasure_Twn_Dst_3_1_C_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_C",
-        "Hidden Item": false,
-        "Name": "Castle Ku",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1176
-    },
-    "Treasure_Twn_Dst_3_1_C_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_C",
-        "Hidden Item": false,
-        "Name": "Castle Ku",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1177
-    },
-    "Treasure_Twn_Dst_3_1_C_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_C",
-        "Hidden Item": false,
-        "Name": "Castle Ku",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1178
-    },
-    "Treasure_Twn_Dst_3_1_C_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_C",
-        "Hidden Item": false,
-        "Name": "Castle Ku",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1179
-    },
-    "Treasure_Twn_Dst_3_1_C_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_C",
-        "Hidden Item": false,
-        "Name": "Castle Ku",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1180
-    },
-    "Treasure_Twn_Dst_3_1_C_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_C",
-        "Hidden Item": false,
-        "Name": "Castle Ku",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1181
-    },
-    "Treasure_Twn_Dst_3_1_C_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Dst_3_1_C",
-        "Hidden Item": false,
-        "Name": "Castle Ku",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1182
-    },
-    "Treasure_Twn_Dst_3_1_C_AP_010": {
-        "Item": "Healing Grape Bunch",
-        "Region": "Twn_Dst_3_1_C",
-        "Hidden Item": true,
-        "Name": "Castle Ku",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_CSM_0030",
-        "ChestID": 2229
-    },
-    "Treasure_Twn_Dst_3_1_C_AP_020": {
-        "Item": "Strengthening Serum",
-        "Region": "Twn_Dst_3_1_C",
-        "Hidden Item": true,
-        "Name": "Castle Ku",
-        "Parent": "Hinoeuma",
-        "ItemFileName": "ITM_MRL_COM_0020",
-        "ChestID": 2230
+        "ChestID": 1049
     },
     "Treasure_Twn_Fst_1_1_A_01": {
         "Item": "Healing Grape",
@@ -7614,51 +5021,6 @@
         "ItemFileName": "ITM_CSM_0120",
         "ChestID": 118
     },
-    "Treasure_Twn_Fst_1_1_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_1_1_A",
-        "Hidden Item": false,
-        "Name": "Cropdale",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1940
-    },
-    "Treasure_Twn_Fst_1_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_1_1_A",
-        "Hidden Item": false,
-        "Name": "Cropdale",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1941
-    },
-    "Treasure_Twn_Fst_1_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_1_1_A",
-        "Hidden Item": false,
-        "Name": "Cropdale",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1942
-    },
-    "Treasure_Twn_Fst_1_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_1_1_A",
-        "Hidden Item": false,
-        "Name": "Cropdale",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1943
-    },
-    "Treasure_Twn_Fst_1_1_A_AP_040": {
-        "Item": "Festival Garland",
-        "Region": "Twn_Fst_1_1_A",
-        "Hidden Item": true,
-        "Name": "Cropdale",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_EQP_HLM_050",
-        "ChestID": 2079
-    },
     "Treasure_Twn_Fst_2_1_A_02": {
         "Item": "Soldier's Bow",
         "Region": "Twn_Fst_2_1_A",
@@ -7667,96 +5029,6 @@
         "Parent": "Leaflands",
         "ItemFileName": "ITM_EQP_BOW_120",
         "ChestID": 901
-    },
-    "Treasure_Twn_Fst_2_1_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_2_1_A",
-        "Hidden Item": false,
-        "Name": "Wellgrove",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1687
-    },
-    "Treasure_Twn_Fst_2_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_2_1_A",
-        "Hidden Item": false,
-        "Name": "Wellgrove",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1688
-    },
-    "Treasure_Twn_Fst_2_1_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_2_1_A",
-        "Hidden Item": false,
-        "Name": "Wellgrove",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1689
-    },
-    "Treasure_Twn_Fst_2_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_2_1_A",
-        "Hidden Item": false,
-        "Name": "Wellgrove",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1690
-    },
-    "Treasure_Twn_Fst_2_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_2_1_A",
-        "Hidden Item": false,
-        "Name": "Wellgrove",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1691
-    },
-    "Treasure_Twn_Fst_2_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_2_1_A",
-        "Hidden Item": false,
-        "Name": "Wellgrove",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1692
-    },
-    "Treasure_Twn_Fst_2_1_A_AP_020": {
-        "Item": "Empowering Lychee",
-        "Region": "Twn_Fst_2_1_A",
-        "Hidden Item": true,
-        "Name": "Wellgrove",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0220",
-        "ChestID": 2140
-    },
-    "Treasure_Twn_Fst_2_1_A_AP_040": {
-        "Item": "Wind Soulstone",
-        "Region": "Twn_Fst_2_1_A",
-        "Hidden Item": true,
-        "Name": "Wellgrove",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0380",
-        "ChestID": 2142
-    },
-    "Treasure_Twn_Fst_2_1_A_AP_050": {
-        "Item": "Strengthening Serum",
-        "Region": "Twn_Fst_2_1_A",
-        "Hidden Item": true,
-        "Name": "Wellgrove",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_MRL_COM_0020",
-        "ChestID": 2143
-    },
-    "Treasure_Twn_Fst_2_1_A_AP_060": {
-        "Item": "Slippery Nut",
-        "Region": "Twn_Fst_2_1_A",
-        "Hidden Item": true,
-        "Name": "Wellgrove",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0680",
-        "ChestID": 2144
     },
     "Treasure_Twn_Fst_2_1_B_01": {
         "Item": "Nimble Mantle",
@@ -7776,60 +5048,6 @@
         "ItemFileName": "ITM_CSM_0240",
         "ChestID": 911
     },
-    "Treasure_Twn_Fst_2_1_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_2_1_B",
-        "Hidden Item": false,
-        "Name": "Wellgrove: Alrond's Estate",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1693
-    },
-    "Treasure_Twn_Fst_2_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_2_1_B",
-        "Hidden Item": false,
-        "Name": "Wellgrove: Alrond's Estate",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1694
-    },
-    "Treasure_Twn_Fst_2_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_2_1_B",
-        "Hidden Item": false,
-        "Name": "Wellgrove: Alrond's Estate",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1695
-    },
-    "Treasure_Twn_Fst_2_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_2_1_B",
-        "Hidden Item": false,
-        "Name": "Wellgrove: Alrond's Estate",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1696
-    },
-    "Treasure_Twn_Fst_2_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_2_1_B",
-        "Hidden Item": false,
-        "Name": "Wellgrove: Alrond's Estate",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1697
-    },
-    "Treasure_Twn_Fst_2_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_2_1_B",
-        "Hidden Item": false,
-        "Name": "Wellgrove: Alrond's Estate",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1698
-    },
     "Treasure_Twn_Fst_3_1_A_02": {
         "Item": "Protective Necklace",
         "Region": "Twn_Fst_3_1_A",
@@ -7838,51 +5056,6 @@
         "Parent": "Leaflands",
         "ItemFileName": "ITM_EQP_ACS_090",
         "ChestID": 950
-    },
-    "Treasure_Twn_Fst_3_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_1_A",
-        "Hidden Item": false,
-        "Name": "Timberain",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1650
-    },
-    "Treasure_Twn_Fst_3_1_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_1_A",
-        "Hidden Item": false,
-        "Name": "Timberain",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1651
-    },
-    "Treasure_Twn_Fst_3_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_1_A",
-        "Hidden Item": false,
-        "Name": "Timberain",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1652
-    },
-    "Treasure_Twn_Fst_3_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_1_A",
-        "Hidden Item": false,
-        "Name": "Timberain",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1653
-    },
-    "Treasure_Twn_Fst_3_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_1_A",
-        "Hidden Item": false,
-        "Name": "Timberain",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1654
     },
     "Treasure_Twn_Fst_3_1_B_02": {
         "Item": "Wind Soulstone (L)",
@@ -7902,114 +5075,6 @@
         "ItemFileName": "ITM_TRE_WPM_02",
         "ChestID": 958
     },
-    "Treasure_Twn_Fst_3_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_1_B",
-        "Hidden Item": false,
-        "Name": "Timberain Castle: Town Square",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 960
-    },
-    "Treasure_Twn_Fst_3_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_1_B",
-        "Hidden Item": false,
-        "Name": "Timberain Castle: Town Square",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 961
-    },
-    "Treasure_Twn_Fst_3_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_1_B",
-        "Hidden Item": false,
-        "Name": "Timberain Castle: Town Square",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1655
-    },
-    "Treasure_Twn_Fst_3_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_1_B",
-        "Hidden Item": false,
-        "Name": "Timberain Castle: Town Square",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1656
-    },
-    "Treasure_Twn_Fst_3_2_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_2_A",
-        "Hidden Item": false,
-        "Name": "Mother's Garden: Orphanage",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1657
-    },
-    "Treasure_Twn_Fst_3_2_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_2_A",
-        "Hidden Item": false,
-        "Name": "Mother's Garden: Orphanage",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1658
-    },
-    "Treasure_Twn_Fst_3_2_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_2_A",
-        "Hidden Item": false,
-        "Name": "Mother's Garden: Orphanage",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1659
-    },
-    "Treasure_Twn_Fst_3_2_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_2_A",
-        "Hidden Item": false,
-        "Name": "Mother's Garden: Orphanage",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1660
-    },
-    "Treasure_Twn_Fst_3_2_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_2_A",
-        "Hidden Item": false,
-        "Name": "Mother's Garden: Orphanage",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1661
-    },
-    "Treasure_Twn_Fst_3_2_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Fst_3_2_A",
-        "Hidden Item": false,
-        "Name": "Mother's Garden: Orphanage",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1662
-    },
-    "Treasure_Twn_Fst_3_2_A_AP_020": {
-        "Item": "Bottle of Sleeping Dust",
-        "Region": "Twn_Fst_3_2_A",
-        "Hidden Item": true,
-        "Name": "Mother's Garden: Orphanage",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_CSM_0280",
-        "ChestID": 2200
-    },
-    "Treasure_Twn_Fst_3_2_A_AP_040": {
-        "Item": "Diffusing Serum",
-        "Region": "Twn_Fst_3_2_A",
-        "Hidden Item": true,
-        "Name": "Mother's Garden: Orphanage",
-        "Parent": "Leaflands",
-        "ItemFileName": "ITM_MRL_COM_0010",
-        "ChestID": 2202
-    },
     "Treasure_Twn_Isd_1_1_A_05": {
         "Item": "1800 L",
         "Region": "Twn_Isd_1_1_A",
@@ -8026,8 +5091,7 @@
         "Name": "Beasting Village",
         "Parent": "Totohaha",
         "ItemFileName": "ITM_MEAT_1500",
-        "ChestID": 968,
-        "Notes": "Guarded"
+        "ChestID": 968
     },
     "Treasure_Twn_Isd_1_1_A_07": {
         "Item": "Resistant Nut (L)",
@@ -8036,8 +5100,7 @@
         "Name": "Beasting Village",
         "Parent": "Totohaha",
         "ItemFileName": "ITM_CSM_0640",
-        "ChestID": 1852,
-        "Notes": "Guarded"
+        "ChestID": 1852
     },
     "Treasure_Twn_Isd_1_1_A_08": {
         "Item": "Reinforcing Jam",
@@ -8046,8 +5109,7 @@
         "Name": "Beasting Village",
         "Parent": "Totohaha",
         "ItemFileName": "ITM_CSM_0101",
-        "ChestID": 1853,
-        "Notes": "Guarded"
+        "ChestID": 1853
     },
     "Treasure_Twn_Isd_1_1_A_09": {
         "Item": "Giant Bow",
@@ -8056,8 +5118,7 @@
         "Name": "Beasting Village",
         "Parent": "Totohaha",
         "ItemFileName": "ITM_EQP_BOW_370",
-        "ChestID": 1854,
-        "Notes": "Guarded"
+        "ChestID": 1854
     },
     "Treasure_Twn_Isd_3_1_A_01": {
         "Item": "Mythical Horn",
@@ -8129,8 +5190,7 @@
         "Name": "Flamechurch",
         "Parent": "Crestlands",
         "ItemFileName": "ITM_CSM_0010",
-        "ChestID": 26,
-        "Notes": "Guarded"
+        "ChestID": 26
     },
     "Treasure_Twn_Mnt_1_1_A_03": {
         "Item": "Guard's Shield",
@@ -8139,62 +5199,7 @@
         "Name": "Flamechurch",
         "Parent": "Crestlands",
         "ItemFileName": "ITM_EQP_SLD_100",
-        "ChestID": 27,
-        "Notes": "Guarded"
-    },
-    "Treasure_Twn_Mnt_1_1_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_1_A",
-        "Hidden Item": false,
-        "Name": "Flamechurch",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1192
-    },
-    "Treasure_Twn_Mnt_1_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_1_A",
-        "Hidden Item": false,
-        "Name": "Flamechurch",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1193
-    },
-    "Treasure_Twn_Mnt_1_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_1_A",
-        "Hidden Item": false,
-        "Name": "Flamechurch",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1194
-    },
-    "Treasure_Twn_Mnt_1_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_1_A",
-        "Hidden Item": false,
-        "Name": "Flamechurch",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1195
-    },
-    "Treasure_Twn_Mnt_1_1_A_AP_020": {
-        "Item": "Energizing Pomegranate (M)",
-        "Region": "Twn_Mnt_1_1_A",
-        "Hidden Item": true,
-        "Name": "Flamechurch",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0080",
-        "ChestID": 2088
-    },
-    "Treasure_Twn_Mnt_1_1_A_AP_060": {
-        "Item": "Herb of Clamor",
-        "Region": "Twn_Mnt_1_1_A",
-        "Hidden Item": true,
-        "Name": "Flamechurch",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0160",
-        "ChestID": 2092
+        "ChestID": 27
     },
     "Treasure_Twn_Mnt_1_2_A_01": {
         "Item": "Shadow Soulstone",
@@ -8204,69 +5209,6 @@
         "Parent": "Crestlands",
         "ItemFileName": "ITM_CSM_0440",
         "ChestID": 31
-    },
-    "Treasure_Twn_Mnt_1_2_A_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_A",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1045
-    },
-    "Treasure_Twn_Mnt_1_2_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_A",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1196
-    },
-    "Treasure_Twn_Mnt_1_2_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_A",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1197
-    },
-    "Treasure_Twn_Mnt_1_2_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_A",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1198
-    },
-    "Treasure_Twn_Mnt_1_2_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_A",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1199
-    },
-    "Treasure_Twn_Mnt_1_2_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_A",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1200
-    },
-    "Treasure_Twn_Mnt_1_2_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_A",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1201
     },
     "Treasure_Twn_Mnt_1_2_B_01": {
         "Item": "Olive of Life",
@@ -8284,8 +5226,7 @@
         "Name": "Flamechurch: Cathedral",
         "Parent": "Crestlands",
         "ItemFileName": "ITM_EQP_ACS_770",
-        "ChestID": 35,
-        "Notes": "Temenos and Thron\u00e9 Crossed Path 1"
+        "ChestID": 35
     },
     "Treasure_Twn_Mnt_1_2_B_03": {
         "Item": "Light Soulstone",
@@ -8295,69 +5236,6 @@
         "Parent": "Crestlands",
         "ItemFileName": "ITM_CSM_0410",
         "ChestID": 1046
-    },
-    "Treasure_Twn_Mnt_1_2_B_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_B",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1202
-    },
-    "Treasure_Twn_Mnt_1_2_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_B",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1203
-    },
-    "Treasure_Twn_Mnt_1_2_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_B",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1204
-    },
-    "Treasure_Twn_Mnt_1_2_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_B",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1205
-    },
-    "Treasure_Twn_Mnt_1_2_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_B",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1206
-    },
-    "Treasure_Twn_Mnt_1_2_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_B",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1207
-    },
-    "Treasure_Twn_Mnt_1_2_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_1_2_B",
-        "Hidden Item": false,
-        "Name": "Flamechurch: Cathedral",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1208
     },
     "Treasure_Twn_Mnt_2_1_A_07": {
         "Item": "Feather Mantle",
@@ -8375,26 +5253,7 @@
         "Name": "Montwise",
         "Parent": "Crestlands",
         "ItemFileName": "ITM_EQP_BOW_420",
-        "ChestID": 1128,
-        "Notes": "Guarded"
-    },
-    "Treasure_Twn_Mnt_2_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_2_1_A",
-        "Hidden Item": false,
-        "Name": "Montwise",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1129
-    },
-    "Treasure_Twn_Mnt_2_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_2_1_A",
-        "Hidden Item": false,
-        "Name": "Montwise",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1130
+        "ChestID": 1128
     },
     "Treasure_Twn_Mnt_2_1_B_04": {
         "Item": "Lapis Rod",
@@ -8405,51 +5264,6 @@
         "ItemFileName": "ITM_EQP_ROD_080",
         "ChestID": 931
     },
-    "Treasure_Twn_Mnt_2_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_2_1_B",
-        "Hidden Item": false,
-        "Name": "Montwise: Library",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1131
-    },
-    "Treasure_Twn_Mnt_2_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_2_1_B",
-        "Hidden Item": false,
-        "Name": "Montwise: Library",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1132
-    },
-    "Treasure_Twn_Mnt_2_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_2_1_B",
-        "Hidden Item": false,
-        "Name": "Montwise: Library",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1133
-    },
-    "Treasure_Twn_Mnt_2_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_2_1_B",
-        "Hidden Item": false,
-        "Name": "Montwise: Library",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1134
-    },
-    "Treasure_Twn_Mnt_2_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_2_1_B",
-        "Hidden Item": false,
-        "Name": "Montwise: Library",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1135
-    },
     "Treasure_Twn_Mnt_2_1_C_01": {
         "Item": "Bottle of Blinding Dust",
         "Region": "Twn_Mnt_2_1_C",
@@ -8457,53 +5271,7 @@
         "Name": "Montwise: Underground Arena",
         "Parent": "Crestlands",
         "ItemFileName": "ITM_CSM_0260",
-        "ChestID": 933,
-        "Notes": "During Hikari Ch. 2"
-    },
-    "Treasure_Twn_Mnt_2_1_C_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_2_1_C",
-        "Hidden Item": false,
-        "Name": "Montwise: Underground Arena",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1138
-    },
-    "Treasure_Twn_Mnt_2_1_C_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_2_1_C",
-        "Hidden Item": false,
-        "Name": "Montwise: Underground Arena",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1139
-    },
-    "Treasure_Twn_Mnt_2_1_C_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_2_1_C",
-        "Hidden Item": false,
-        "Name": "Montwise: Underground Arena",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1140
-    },
-    "Treasure_Twn_Mnt_2_1_C_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_2_1_C",
-        "Hidden Item": false,
-        "Name": "Montwise: Underground Arena",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1141
-    },
-    "Treasure_Twn_Mnt_2_1_C_AP_020": {
-        "Item": "Energizing Pomegranate (M)",
-        "Region": "Twn_Mnt_2_1_C",
-        "Hidden Item": true,
-        "Name": "Montwise: Underground Arena",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0080",
-        "ChestID": 2171
+        "ChestID": 933
     },
     "Treasure_Twn_Mnt_3_1_A_01": {
         "Item": "Herb of Clamor",
@@ -8523,60 +5291,6 @@
         "ItemFileName": "ITM_CSM_0240",
         "ChestID": 1114
     },
-    "Treasure_Twn_Mnt_3_1_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_3_1_A",
-        "Hidden Item": false,
-        "Name": "Merry Hills",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1115
-    },
-    "Treasure_Twn_Mnt_3_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_3_1_A",
-        "Hidden Item": false,
-        "Name": "Merry Hills",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1116
-    },
-    "Treasure_Twn_Mnt_3_1_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_3_1_A",
-        "Hidden Item": false,
-        "Name": "Merry Hills",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1117
-    },
-    "Treasure_Twn_Mnt_3_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_3_1_A",
-        "Hidden Item": false,
-        "Name": "Merry Hills",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1118
-    },
-    "Treasure_Twn_Mnt_3_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_3_1_A",
-        "Hidden Item": false,
-        "Name": "Merry Hills",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1119
-    },
-    "Treasure_Twn_Mnt_3_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_3_1_A",
-        "Hidden Item": false,
-        "Name": "Merry Hills",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1120
-    },
     "Treasure_Twn_Mnt_3_1_B_02": {
         "Item": "2700 L",
         "Region": "Twn_Mnt_3_1_B",
@@ -8594,87 +5308,6 @@
         "Parent": "Crestlands",
         "ItemFileName": "ITM_EQP_ACS_070",
         "ChestID": 1121
-    },
-    "Treasure_Twn_Mnt_3_1_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_3_1_B",
-        "Hidden Item": false,
-        "Name": "Merry Hills: Shrine Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1122
-    },
-    "Treasure_Twn_Mnt_3_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_3_1_B",
-        "Hidden Item": false,
-        "Name": "Merry Hills: Shrine Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1123
-    },
-    "Treasure_Twn_Mnt_3_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_3_1_B",
-        "Hidden Item": false,
-        "Name": "Merry Hills: Shrine Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1124
-    },
-    "Treasure_Twn_Mnt_3_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_3_1_B",
-        "Hidden Item": false,
-        "Name": "Merry Hills: Shrine Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1125
-    },
-    "Treasure_Twn_Mnt_3_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_3_1_B",
-        "Hidden Item": false,
-        "Name": "Merry Hills: Shrine Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1126
-    },
-    "Treasure_Twn_Mnt_3_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Mnt_3_1_B",
-        "Hidden Item": false,
-        "Name": "Merry Hills: Shrine Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1127
-    },
-    "Treasure_Twn_Mnt_3_1_B_AP_020": {
-        "Item": "Energizing Pomegranate (L)",
-        "Region": "Twn_Mnt_3_1_B",
-        "Hidden Item": true,
-        "Name": "Merry Hills: Shrine Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0090",
-        "ChestID": 2263
-    },
-    "Treasure_Twn_Mnt_3_1_B_AP_030": {
-        "Item": "Healing Grape (M)",
-        "Region": "Twn_Mnt_3_1_B",
-        "Hidden Item": true,
-        "Name": "Merry Hills: Shrine Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0020",
-        "ChestID": 2264
-    },
-    "Treasure_Twn_Mnt_3_1_B_AP_040": {
-        "Item": "Olive of Life",
-        "Region": "Twn_Mnt_3_1_B",
-        "Hidden Item": true,
-        "Name": "Merry Hills: Shrine Entrance",
-        "Parent": "Crestlands",
-        "ItemFileName": "ITM_CSM_0120",
-        "ChestID": 2265
     },
     "Treasure_Twn_Sea_1_1_A_05": {
         "Item": "Slumber Sage",
@@ -8701,44 +5334,7 @@
         "Name": "Canalbrine",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_EQP_AXE_050",
-        "ChestID": 971,
-        "Notes": "Guarded"
-    },
-    "Treasure_Twn_Sea_1_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_1_1_A",
-        "Hidden Item": false,
-        "Name": "Canalbrine",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1557
-    },
-    "Treasure_Twn_Sea_1_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_1_1_A",
-        "Hidden Item": false,
-        "Name": "Canalbrine",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1558
-    },
-    "Treasure_Twn_Sea_1_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_1_1_A",
-        "Hidden Item": false,
-        "Name": "Canalbrine",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1559
-    },
-    "Treasure_Twn_Sea_1_1_A_AP_010": {
-        "Item": "Grape Leaf",
-        "Region": "Twn_Sea_1_1_A",
-        "Hidden Item": true,
-        "Name": "Canalbrine",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_MRL_REV_0010",
-        "ChestID": 2099
+        "ChestID": 971
     },
     "Treasure_Twn_Sea_1_1_A_AP_020": {
         "Item": "Slumber Sage",
@@ -8749,15 +5345,6 @@
         "ItemFileName": "ITM_SLP_0010",
         "ChestID": 2100
     },
-    "Treasure_Twn_Sea_1_1_A_AP_050": {
-        "Item": "Darkdelion",
-        "Region": "Twn_Sea_1_1_A",
-        "Hidden Item": true,
-        "Name": "Canalbrine",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_MRL_ATK_0030",
-        "ChestID": 2103
-    },
     "Treasure_Twn_Sea_2_1_A_04": {
         "Item": "Blazon of Protection",
         "Region": "Twn_Sea_2_1_A",
@@ -8765,8 +5352,7 @@
         "Name": "Conning Creek",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_EQP_ACS_260",
-        "ChestID": 1564,
-        "Notes": "Guarded"
+        "ChestID": 1564
     },
     "Treasure_Twn_Sea_2_1_A_05": {
         "Item": "Bottle of Befuddling Dust",
@@ -8777,78 +5363,6 @@
         "ItemFileName": "ITM_CSM_0270",
         "ChestID": 1565
     },
-    "Treasure_Twn_Sea_2_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_A",
-        "Hidden Item": false,
-        "Name": "Conning Creek",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1566
-    },
-    "Treasure_Twn_Sea_2_1_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_A",
-        "Hidden Item": false,
-        "Name": "Conning Creek",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1567
-    },
-    "Treasure_Twn_Sea_2_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_A",
-        "Hidden Item": false,
-        "Name": "Conning Creek",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1568
-    },
-    "Treasure_Twn_Sea_2_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_A",
-        "Hidden Item": false,
-        "Name": "Conning Creek",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1569
-    },
-    "Treasure_Twn_Sea_2_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_A",
-        "Hidden Item": false,
-        "Name": "Conning Creek",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1570
-    },
-    "Treasure_Twn_Sea_2_1_A_AP_020": {
-        "Item": "Olive of Life (M)",
-        "Region": "Twn_Sea_2_1_A",
-        "Hidden Item": true,
-        "Name": "Conning Creek",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0130",
-        "ChestID": 2173
-    },
-    "Treasure_Twn_Sea_2_1_A_AP_030": {
-        "Item": "Grape Leaf",
-        "Region": "Twn_Sea_2_1_A",
-        "Hidden Item": true,
-        "Name": "Conning Creek",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_MRL_REV_0010",
-        "ChestID": 2174
-    },
-    "Treasure_Twn_Sea_2_1_A_AP_070": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_A",
-        "Hidden Item": true,
-        "Name": "Conning Creek",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 2178
-    },
     "Treasure_Twn_Sea_2_1_B_01": {
         "Item": "Rainbow Glass Bottle",
         "Region": "Twn_Sea_2_1_B",
@@ -8857,69 +5371,6 @@
         "Parent": "Harborlands",
         "ItemFileName": "ITM_TRE_INV_PARTS_01",
         "ChestID": 810
-    },
-    "Treasure_Twn_Sea_2_1_B_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_B",
-        "Hidden Item": false,
-        "Name": "Conning Creek: Harbor",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 813
-    },
-    "Treasure_Twn_Sea_2_1_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_B",
-        "Hidden Item": false,
-        "Name": "Conning Creek: Harbor",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1571
-    },
-    "Treasure_Twn_Sea_2_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_B",
-        "Hidden Item": false,
-        "Name": "Conning Creek: Harbor",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1572
-    },
-    "Treasure_Twn_Sea_2_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_B",
-        "Hidden Item": false,
-        "Name": "Conning Creek: Harbor",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1573
-    },
-    "Treasure_Twn_Sea_2_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_B",
-        "Hidden Item": false,
-        "Name": "Conning Creek: Harbor",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1574
-    },
-    "Treasure_Twn_Sea_2_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_B",
-        "Hidden Item": false,
-        "Name": "Conning Creek: Harbor",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1575
-    },
-    "Treasure_Twn_Sea_2_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_2_1_B",
-        "Hidden Item": false,
-        "Name": "Conning Creek: Harbor",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1576
     },
     "Treasure_Twn_Sea_2_1_C_01": {
         "Item": "Inspiriting Plum (M)",
@@ -8937,8 +5388,7 @@
         "Name": "Conning Creek: Outskirts",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_CSM_0300",
-        "ChestID": 821,
-        "Notes": "Available after Osvald ch.3"
+        "ChestID": 821
     },
     "Treasure_Twn_Sea_2_1_C_03": {
         "Item": "Inspiriting Plum (M)",
@@ -9037,8 +5487,7 @@
         "Name": "Roque Island",
         "Parent": "Harborlands",
         "ItemFileName": "None",
-        "ChestID": 1597,
-        "Notes": "Guarded"
+        "ChestID": 1597
     },
     "Treasure_Twn_Sea_3_1_A_06": {
         "Item": "Rejuvenating Jam",
@@ -9047,8 +5496,7 @@
         "Name": "Roque Island",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_CSM_0111",
-        "ChestID": 1598,
-        "Notes": "Guarded"
+        "ChestID": 1598
     },
     "Treasure_Twn_Sea_3_1_A_07": {
         "Item": "Rejuvenating Jam",
@@ -9057,8 +5505,7 @@
         "Name": "Roque Island",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_CSM_0111",
-        "ChestID": 1599,
-        "Notes": "Guarded"
+        "ChestID": 1599
     },
     "Treasure_Twn_Sea_3_1_A_08": {
         "Item": "Magic Nut (L)",
@@ -9067,8 +5514,7 @@
         "Name": "Roque Island",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_CSM_0610",
-        "ChestID": 1600,
-        "Notes": "Guarded"
+        "ChestID": 1600
     },
     "Treasure_Twn_Sea_3_1_A_09": {
         "Item": "Rejuvenating Jam",
@@ -9077,8 +5523,7 @@
         "Name": "Roque Island",
         "Parent": "Harborlands",
         "ItemFileName": "ITM_CSM_0111",
-        "ChestID": 1601,
-        "Notes": "Guarded"
+        "ChestID": 1601
     },
     "Treasure_Twn_Sea_3_1_A_10": {
         "Item": "Empowering Lychee (L)",
@@ -9089,15 +5534,6 @@
         "ItemFileName": "ITM_CSM_0240",
         "ChestID": 1602
     },
-    "Treasure_Twn_Sea_3_1_A_AP_050": {
-        "Item": "Empowering Lychee",
-        "Region": "Twn_Sea_3_1_A",
-        "Hidden Item": true,
-        "Name": "Roque Island",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0220",
-        "ChestID": 2274
-    },
     "Treasure_Twn_Sea_3_1_B_01": {
         "Item": "Critical Bracelet",
         "Region": "Twn_Sea_3_1_B",
@@ -9106,87 +5542,6 @@
         "Parent": "Harborlands",
         "ItemFileName": "ITM_EQP_ACS_210",
         "ChestID": 840
-    },
-    "Treasure_Twn_Sea_3_1_B_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_3_1_B",
-        "Hidden Item": false,
-        "Name": "Roque Island: Headquarters",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1603
-    },
-    "Treasure_Twn_Sea_3_1_B_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_3_1_B",
-        "Hidden Item": false,
-        "Name": "Roque Island: Headquarters",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1604
-    },
-    "Treasure_Twn_Sea_3_1_B_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_3_1_B",
-        "Hidden Item": false,
-        "Name": "Roque Island: Headquarters",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1605
-    },
-    "Treasure_Twn_Sea_3_1_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_3_1_B",
-        "Hidden Item": false,
-        "Name": "Roque Island: Headquarters",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1606
-    },
-    "Treasure_Twn_Sea_3_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_3_1_B",
-        "Hidden Item": false,
-        "Name": "Roque Island: Headquarters",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1607
-    },
-    "Treasure_Twn_Sea_3_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_3_1_B",
-        "Hidden Item": false,
-        "Name": "Roque Island: Headquarters",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1608
-    },
-    "Treasure_Twn_Sea_3_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_3_1_B",
-        "Hidden Item": false,
-        "Name": "Roque Island: Headquarters",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1609
-    },
-    "Treasure_Twn_Sea_3_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_3_1_B",
-        "Hidden Item": false,
-        "Name": "Roque Island: Headquarters",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1610
-    },
-    "Treasure_Twn_Sea_3_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Sea_3_1_B",
-        "Hidden Item": false,
-        "Name": "Roque Island: Headquarters",
-        "Parent": "Harborlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1611
     },
     "Treasure_Twn_Snw_1_1_A_01": {
         "Item": "Inspiriting Plum",
@@ -9206,159 +5561,6 @@
         "ItemFileName": "ITM_CSM_0260",
         "ChestID": 62
     },
-    "Treasure_Twn_Snw_1_1_A_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Prison",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1293
-    },
-    "Treasure_Twn_Snw_1_1_A_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Prison",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1294
-    },
-    "Treasure_Twn_Snw_1_1_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Prison",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1295
-    },
-    "Treasure_Twn_Snw_1_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Prison",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1296
-    },
-    "Treasure_Twn_Snw_1_1_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Prison",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1297
-    },
-    "Treasure_Twn_Snw_1_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Prison",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1298
-    },
-    "Treasure_Twn_Snw_1_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Prison",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1299
-    },
-    "Treasure_Twn_Snw_1_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_A",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Prison",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1300
-    },
-    "Treasure_Twn_Snw_1_1_B_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_B",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Yard",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1301
-    },
-    "Treasure_Twn_Snw_1_1_B_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_B",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Yard",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1302
-    },
-    "Treasure_Twn_Snw_1_1_B_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_B",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Yard",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1303
-    },
-    "Treasure_Twn_Snw_1_1_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_B",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Yard",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1304
-    },
-    "Treasure_Twn_Snw_1_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_B",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Yard",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1305
-    },
-    "Treasure_Twn_Snw_1_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_B",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Yard",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1306
-    },
-    "Treasure_Twn_Snw_1_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_B",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Yard",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1307
-    },
-    "Treasure_Twn_Snw_1_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_B",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Yard",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1308
-    },
-    "Treasure_Twn_Snw_1_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_1_B",
-        "Hidden Item": false,
-        "Name": "Frigit Isle: Yard",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1309
-    },
     "Treasure_Twn_Snw_1_2_A_04": {
         "Item": "Energizing Pomegranate",
         "Region": "Twn_Snw_1_2_A",
@@ -9377,51 +5579,6 @@
         "ItemFileName": "None",
         "ChestID": 1322
     },
-    "Treasure_Twn_Snw_1_2_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_2_A",
-        "Hidden Item": false,
-        "Name": "Cape Cold",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1323
-    },
-    "Treasure_Twn_Snw_1_2_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_2_A",
-        "Hidden Item": false,
-        "Name": "Cape Cold",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1324
-    },
-    "Treasure_Twn_Snw_1_2_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_2_A",
-        "Hidden Item": false,
-        "Name": "Cape Cold",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1325
-    },
-    "Treasure_Twn_Snw_1_2_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_2_A",
-        "Hidden Item": false,
-        "Name": "Cape Cold",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1326
-    },
-    "Treasure_Twn_Snw_1_2_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_1_2_A",
-        "Hidden Item": false,
-        "Name": "Cape Cold",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1327
-    },
     "Treasure_Twn_Snw_1_2_A_AP_010": {
         "Item": "Energizing Pomegranate",
         "Region": "Twn_Snw_1_2_A",
@@ -9430,15 +5587,6 @@
         "Parent": "Winterlands",
         "ItemFileName": "ITM_CSM_0070",
         "ChestID": 2105
-    },
-    "Treasure_Twn_Snw_1_2_A_AP_030": {
-        "Item": "Magic Nut",
-        "Region": "Twn_Snw_1_2_A",
-        "Hidden Item": true,
-        "Name": "Cape Cold",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0590",
-        "ChestID": 2107
     },
     "Treasure_Twn_Snw_2_1_A_02": {
         "Item": "Ice Soulstone (M)",
@@ -9465,8 +5613,7 @@
         "Name": "Winterbloom",
         "Parent": "Winterlands",
         "ItemFileName": "None",
-        "ChestID": 941,
-        "Notes": "Guarded"
+        "ChestID": 941
     },
     "Treasure_Twn_Snw_2_1_A_06": {
         "Item": "Healing Grape",
@@ -9484,117 +5631,7 @@
         "Name": "Winterbloom",
         "Parent": "Winterlands",
         "ItemFileName": "ITM_EQP_AMR_560",
-        "ChestID": 1328,
-        "Notes": "Guarded"
-    },
-    "Treasure_Twn_Snw_2_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_2_1_A",
-        "Hidden Item": false,
-        "Name": "Winterbloom",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1329
-    },
-    "Treasure_Twn_Snw_2_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_2_1_A",
-        "Hidden Item": false,
-        "Name": "Winterbloom",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1330
-    },
-    "Treasure_Twn_Snw_2_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_2_1_A",
-        "Hidden Item": false,
-        "Name": "Winterbloom",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1331
-    },
-    "Treasure_Twn_Snw_2_1_A_AP_020": {
-        "Item": "Stone",
-        "Region": "Twn_Snw_2_1_A",
-        "Hidden Item": true,
-        "Name": "Winterbloom",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_FLV_0250",
-        "ChestID": 2182,
-        "Notes": "Missable"
-    },
-    "Treasure_Twn_Snw_2_1_B_01": {
-        "Item": "Empowering Lychee (M)",
-        "Region": "Twn_Snw_2_1_B",
-        "Hidden Item": false,
-        "Name": "Winterbloom: Thieves' Quarter",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0230",
-        "ChestID": 943
-    },
-    "Treasure_Twn_Snw_2_1_B_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_2_1_B",
-        "Hidden Item": false,
-        "Name": "Winterbloom: Thieves' Quarter",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1332
-    },
-    "Treasure_Twn_Snw_2_1_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_2_1_B",
-        "Hidden Item": false,
-        "Name": "Winterbloom: Thieves' Quarter",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1333
-    },
-    "Treasure_Twn_Snw_2_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_2_1_B",
-        "Hidden Item": false,
-        "Name": "Winterbloom: Thieves' Quarter",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1334
-    },
-    "Treasure_Twn_Snw_2_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_2_1_B",
-        "Hidden Item": false,
-        "Name": "Winterbloom: Thieves' Quarter",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1335
-    },
-    "Treasure_Twn_Snw_2_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_2_1_B",
-        "Hidden Item": false,
-        "Name": "Winterbloom: Thieves' Quarter",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1336
-    },
-    "Treasure_Twn_Snw_2_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_2_1_B",
-        "Hidden Item": false,
-        "Name": "Winterbloom: Thieves' Quarter",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1337
-    },
-    "Treasure_Twn_Snw_2_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_2_1_B",
-        "Hidden Item": false,
-        "Name": "Winterbloom: Thieves' Quarter",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1338
+        "ChestID": 1328
     },
     "Treasure_Twn_Snw_3_1_A_03": {
         "Item": "Knight's Armor",
@@ -9614,69 +5651,6 @@
         "ItemFileName": "ITM_CSM_0060",
         "ChestID": 1345
     },
-    "Treasure_Twn_Snw_3_1_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_A",
-        "Hidden Item": false,
-        "Name": "Stormhail",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1346
-    },
-    "Treasure_Twn_Snw_3_1_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_A",
-        "Hidden Item": false,
-        "Name": "Stormhail",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1347
-    },
-    "Treasure_Twn_Snw_3_1_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_A",
-        "Hidden Item": false,
-        "Name": "Stormhail",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1348
-    },
-    "Treasure_Twn_Snw_3_1_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_A",
-        "Hidden Item": false,
-        "Name": "Stormhail",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1349
-    },
-    "Treasure_Twn_Snw_3_1_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_A",
-        "Hidden Item": false,
-        "Name": "Stormhail",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1350
-    },
-    "Treasure_Twn_Snw_3_1_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_A",
-        "Hidden Item": false,
-        "Name": "Stormhail",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1351
-    },
-    "Treasure_Twn_Snw_3_1_A_AP_040": {
-        "Item": "Inspiriting Plum",
-        "Region": "Twn_Snw_3_1_A",
-        "Hidden Item": true,
-        "Name": "Stormhail",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0040",
-        "ChestID": 2282
-    },
     "Treasure_Twn_Snw_3_1_A_AP_070": {
         "Item": "Knight's Armor",
         "Region": "Twn_Snw_3_1_A",
@@ -9693,8 +5667,7 @@
         "Name": "Stormhail: Sacred Guard Headquarters",
         "Parent": "Winterlands",
         "ItemFileName": "ITM_EQP_AXE_430",
-        "ChestID": 520,
-        "Notes": "Guarded"
+        "ChestID": 520
     },
     "Treasure_Twn_Snw_3_1_B_02": {
         "Item": "Energizing Pomegranate",
@@ -9714,159 +5687,6 @@
         "ItemFileName": "ITM_CSM_0430",
         "ChestID": 522
     },
-    "Treasure_Twn_Snw_3_1_B_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_B",
-        "Hidden Item": false,
-        "Name": "Stormhail: Sacred Guard Headquarters",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1352
-    },
-    "Treasure_Twn_Snw_3_1_B_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_B",
-        "Hidden Item": false,
-        "Name": "Stormhail: Sacred Guard Headquarters",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1353
-    },
-    "Treasure_Twn_Snw_3_1_B_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_B",
-        "Hidden Item": false,
-        "Name": "Stormhail: Sacred Guard Headquarters",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1354
-    },
-    "Treasure_Twn_Snw_3_1_B_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_B",
-        "Hidden Item": false,
-        "Name": "Stormhail: Sacred Guard Headquarters",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1355
-    },
-    "Treasure_Twn_Snw_3_1_B_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_B",
-        "Hidden Item": false,
-        "Name": "Stormhail: Sacred Guard Headquarters",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1356
-    },
-    "Treasure_Twn_Snw_3_1_B_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_B",
-        "Hidden Item": false,
-        "Name": "Stormhail: Sacred Guard Headquarters",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1357
-    },
-    "Treasure_Twn_Snw_3_1_B_AP_010": {
-        "Item": "Strengthening Serum",
-        "Region": "Twn_Snw_3_1_B",
-        "Hidden Item": true,
-        "Name": "Stormhail: Sacred Guard Headquarters",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_MRL_COM_0020",
-        "ChestID": 2286
-    },
-    "Treasure_Twn_Snw_3_1_C_01": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_C",
-        "Hidden Item": false,
-        "Name": "Stormhail: Bridge",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1358
-    },
-    "Treasure_Twn_Snw_3_1_C_02": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_C",
-        "Hidden Item": false,
-        "Name": "Stormhail: Bridge",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1359
-    },
-    "Treasure_Twn_Snw_3_1_C_03": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_C",
-        "Hidden Item": false,
-        "Name": "Stormhail: Bridge",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1360
-    },
-    "Treasure_Twn_Snw_3_1_C_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_C",
-        "Hidden Item": false,
-        "Name": "Stormhail: Bridge",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1361
-    },
-    "Treasure_Twn_Snw_3_1_C_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_C",
-        "Hidden Item": false,
-        "Name": "Stormhail: Bridge",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1362
-    },
-    "Treasure_Twn_Snw_3_1_C_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_C",
-        "Hidden Item": false,
-        "Name": "Stormhail: Bridge",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1363
-    },
-    "Treasure_Twn_Snw_3_1_C_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_C",
-        "Hidden Item": false,
-        "Name": "Stormhail: Bridge",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1364
-    },
-    "Treasure_Twn_Snw_3_1_C_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_C",
-        "Hidden Item": false,
-        "Name": "Stormhail: Bridge",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1365
-    },
-    "Treasure_Twn_Snw_3_1_C_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_C",
-        "Hidden Item": false,
-        "Name": "Stormhail: Bridge",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1366
-    },
-    "Treasure_Twn_Snw_3_1_C_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_1_C",
-        "Hidden Item": false,
-        "Name": "Stormhail: Bridge",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1367
-    },
     "Treasure_Twn_Snw_3_2_A_02": {
         "Item": "Thunder Soulstone (M)",
         "Region": "Twn_Snw_3_2_A",
@@ -9884,69 +5704,6 @@
         "Parent": "Winterlands",
         "ItemFileName": "None",
         "ChestID": 532
-    },
-    "Treasure_Twn_Snw_3_2_A_04": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_2_A",
-        "Hidden Item": false,
-        "Name": "Stormhail: Castle Mei",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1368
-    },
-    "Treasure_Twn_Snw_3_2_A_05": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_2_A",
-        "Hidden Item": false,
-        "Name": "Stormhail: Castle Mei",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1369
-    },
-    "Treasure_Twn_Snw_3_2_A_06": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_2_A",
-        "Hidden Item": false,
-        "Name": "Stormhail: Castle Mei",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1370
-    },
-    "Treasure_Twn_Snw_3_2_A_07": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_2_A",
-        "Hidden Item": false,
-        "Name": "Stormhail: Castle Mei",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1371
-    },
-    "Treasure_Twn_Snw_3_2_A_08": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_2_A",
-        "Hidden Item": false,
-        "Name": "Stormhail: Castle Mei",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1372
-    },
-    "Treasure_Twn_Snw_3_2_A_09": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_2_A",
-        "Hidden Item": false,
-        "Name": "Stormhail: Castle Mei",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1373
-    },
-    "Treasure_Twn_Snw_3_2_A_10": {
-        "Item": "Inspiriting Plum (M)",
-        "Region": "Twn_Snw_3_2_A",
-        "Hidden Item": false,
-        "Name": "Stormhail: Castle Mei",
-        "Parent": "Winterlands",
-        "ItemFileName": "ITM_CSM_0050",
-        "ChestID": 1374
     },
     "Treasure_Twn_Wld_1_1_C_01": {
         "Item": "Light Nut",
@@ -9966,15 +5723,6 @@
         "ItemFileName": "ITM_FLV_0110",
         "ChestID": 1043
     },
-    "Treasure_Twn_Wld_1_1_C_AP_010": {
-        "Item": "Olive of Life",
-        "Region": "Twn_Wld_1_1_C",
-        "Hidden Item": true,
-        "Name": "Oresrush",
-        "Parent": "Wildlands",
-        "ItemFileName": "ITM_CSM_0120",
-        "ChestID": 2109
-    },
     "Treasure_Twn_Wld_1_2_B_01": {
         "Item": "Stocked Goods",
         "Region": "Twn_Wld_1_2_B",
@@ -9982,8 +5730,7 @@
         "Name": "Oresrush: Foundry",
         "Parent": "Wildlands",
         "ItemFileName": "ITM_TRE_SS_TW11_0100_0010",
-        "ChestID": 1224,
-        "Notes": "Guarded"
+        "ChestID": 1224
     },
     "Treasure_Twn_Wld_2_1_A_02": {
         "Item": "Olive of Life (M)",
@@ -10002,23 +5749,5 @@
         "Parent": "Wildlands",
         "ItemFileName": "ITM_EQP_SLD_290",
         "ChestID": 411
-    },
-    "Treasure_Twn_Wld_3_1_A_AP_010": {
-        "Item": "Empowering Lychee (L)",
-        "Region": "Twn_Wld_3_1_A",
-        "Hidden Item": true,
-        "Name": "Gravell",
-        "Parent": "Wildlands",
-        "ItemFileName": "ITM_CSM_0240",
-        "ChestID": 2291
-    },
-    "Treasure_Twn_Wld_3_1_A_AP_040": {
-        "Item": "Herb of Valor",
-        "Region": "Twn_Wld_3_1_A",
-        "Hidden Item": true,
-        "Name": "Gravell",
-        "Parent": "Wildlands",
-        "ItemFileName": "ITM_CSM_0200",
-        "ChestID": 2294
     }
 }
