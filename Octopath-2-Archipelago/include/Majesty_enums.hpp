@@ -1,5 +1,6 @@
 using namespace RC;
 using namespace RC::Unreal;
+namespace Majesty{
 enum class EABILITY_COST_TYPE {
     eNONE = 0,
     eMP = 1,
@@ -9275,3 +9276,4 @@ struct FPlayerParty
     uint8 Dir;                                                                        // 0x0040 (size: 0x1)
 
 }; // Size: 0x48
+}
