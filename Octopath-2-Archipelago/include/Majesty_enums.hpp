@@ -1,3 +1,32 @@
+/*#include <stdio.h>
+#include <Mod/CppUserModBase.hpp>
+#include <DynamicOutput/DynamicOutput.hpp>
+#include <Unreal/UObjectGlobals.hpp>
+#include <Unreal/UObject.hpp>
+#include <Unreal/UFunction.hpp>
+#include <Unreal/AActor.hpp>
+#include <Unreal/UClass.hpp>
+#include <Unreal/World.hpp>
+#include <vector>
+#include <windows.h>
+#include <Unreal/Property/FNumericProperty.hpp>
+#include <Unreal/UStruct.hpp>
+#include <Unreal/UScriptStruct.hpp>
+#include <Unreal/FText.hpp>
+#include <Unreal/FString.hpp>
+#include <Unreal/ITextData.hpp>
+//#include <Unreal/TArray.hpp>
+#include <Unreal/FProperty.hpp>
+#include <Unreal/Property/FTextProperty.hpp>
+#include <Unreal/Property/FArrayProperty.hpp>
+#include <Unreal/BPMacros.hpp>
+#include <Unreal/UObject.hpp>
+#include <Unreal/UObjectGlobals.hpp>
+//#include <Unreal/FTa>
+//#include <StructsAndStuff.hpp>
+//#include <BattleManager.hpp>
+//#include <src/StoryManager.cpp>
+//#include "include/Majesty_enums.hpp"
 using namespace RC;
 using namespace RC::Unreal;
 namespace Majesty{
@@ -471,12 +500,12 @@ enum class EBATTLE_CAMERA_SEQUENCE {
     eCAMERA_SEQUENCE_MAX = 5,
 };
 
-enum class EBATTLE_CAMERA_TYPE {
-    NEAR = 0,
-    FAR = 1,
-    EIGHT_BATTLE = 2,
-    EBATTLE_CAMERA_MAX = 3,
-};
+//enum class EBATTLE_CAMERA_TYPE {
+//    NEAR = 0,
+//    FAR = 1,
+//    EIGHT_BATTLE = 2,
+//    EBATTLE_CAMERA_MAX = 3,
+//};
 
 enum class EBATTLE_CHARA_POSITION_RESET_TYPE {
     eRESET_NONE = 0,
@@ -9276,4 +9305,4 @@ struct FPlayerParty
     uint8 Dir;                                                                        // 0x0040 (size: 0x1)
 
 }; // Size: 0x48
-}
+}*/
