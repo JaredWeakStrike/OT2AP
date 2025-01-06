@@ -19,15 +19,8 @@
 using namespace RC;
 using namespace RC::Unreal;
 
-FText PopupText;
-FText OkText;
 
 
-//
-//class temp {
-//public:
-//    static auto process_function_post_watch__(Unreal::UnrealScriptFunctionCallableContext& context, void* yas) -> void;
-//};
 //using namespace Majesty;
 //
 //static void SetCompletedPrologueReminiscence(EPlayableCharacterID PlayerCharaId, bool bCompleted)
@@ -41,94 +34,7 @@ FText OkText;
 //}
 
 
-//static void OpenDialogThing()
-//{
-//    FString TestHUDString = FString(STR("This is my test FString."));
-//    FText ShowText;
-//    UE_BEGIN_NATIVE_FUNCTION_BODY("/Game/UserInterface/Common/BP/Dialog/UICommonDialogItemBP.UICommonDialogItemBP_C:SetText")
-//    UE_SET_STATIC_SELF("/Game/UserInterface/Common/BP/Dialog/UICommonDialogItemBP.Default__UICommonDialogItemBP_C")
-//    UE_COPY_PROPERTY(ShowText, FText)
-//    UE_CALL_STATIC_FUNCTION()
-//}
-void OpenDefaultChest() {
-    UE_BEGIN_NATIVE_FUNCTION_BODY("/Game/Environment/BP/Object/TreasureBoxBP.TreasureBoxBP_C:Open")
-    UE_SET_STATIC_SELF("/Game/Environment/BP/Object/TreasureBoxBP.Default__TreasureBoxBP_C")
-    PopupText.SetString(std::move(FString(STR("Yas"))));
-    UE_CALL_STATIC_FUNCTION()
-}
-//auto process_function_post_watch__(UnrealScriptFunctionCallableContext& context, void* yas) -> void {
-//    Output::send<LogLevel::Warning>(STR("we ran2\n"));
-//    auto function = context.TheStack.Node();
-//    Output::send<LogLevel::Warning>(STR("we ran3\n"));
-//    // CallFunc_CreateDefaultParam_ReturnValue
-//    auto property = function->GetPropertyByNameInChain(STR("CallFunc_GetGameText_OutText"));
-//    //FString TestHUDString = FString(STR("This is my test FString."));
-//    //FText GetGameText_OutText;
-//    //GetGameText_OutText.SetString(std::move(TestHUDString));
-//    PopupText = OkText;
-//    *property->ContainerPtrToValuePtr<FText>(context.TheStack.Locals()) = PopupText;
-//
-//}
 
-void SetChestText() {
-    //Function /Game/Environment/BP/Object/TreasureBoxBP.TreasureBoxBP_C:GetOpenText
-    //UE_BEGIN_SCRIPT_FUNCTION_BODY("/Game/Environment/BP/Object/TreasureBoxBP.TreasureBoxBP_C:Open")
-    OkText.SetString(std::move(FString(STR("Okay"))));
-    //auto functionThing = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Game/Environment/BP/Object/TreasureBoxBP.TreasureBoxBP_C:Open"));
-    Output::send<LogLevel::Warning>(STR("we\n"));
-    auto functionThing = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Game/UserInterface/Common/BP/Dialog/UICommonDialogItemBP.UICommonDialogItemBP_C:SetText"));
-    // prehook changes the text but posthook doesnt
-    // Function /Game/Environment/BP/Object/TreasureBoxBP.TreasureBoxBP_C:OpenDialog This only runs if not on default
-    auto hookedFunction = UObjectGlobals::RegisterHook(static_cast<UFunction*>(functionThing),
-        &SetTextHookFunction,
-        &PostSetTextHookFunction,
-        nullptr);
-    //if (!functionThing)return;
-    //Output::send<LogLevel::Warning>(STR("we ran\n"));
-    ////UE_SET_STATIC_SELF("/Script/Majesty.Default__TreasureBoxBP_C")
-    //FString TestHUDString = FString(STR("This is my test FString."));
-    //FText GetGameText_OutText;
-    //
-    //GetGameText_OutText.SetString(std::move(TestHUDString));
-    
-    //FTextProperty a;
-    ////put somme text into a
-    //UE_COPY_PROPERTY(GetGameText_OutText, FText)
-    //auto hookedFunction = UObjectGlobals::RegisterHook(static_cast<UFunction*>(functionThing),
-    //    [](...) {},
-    //    &process_function_post_watch__,
-    //    nullptr);
-   //auto hookedFunction = UObjectGlobals::RegisterHook(static_cast<UFunction*>(functionThing),
-   //    &process_function_post_watch__,
-   //    &process_function_post_watch__,
-   //    nullptr);
-   //OpenDialogThing();
-   //GetChestInfo();
-    
-}
-auto SetTextHookFunction(UnrealScriptFunctionCallableContext& context, void* yas) -> void {
-
-    Output::send<LogLevel::Warning>(STR("we ran2\n"));
-    auto function = context.TheStack.Node();
-    Output::send<LogLevel::Warning>(STR("we ran3\n"));
-    // CallFunc_CreateDefaultParam_ReturnValue
-    auto property = function->GetPropertyByNameInChain(STR("ShowText"));
-    FString TestHUDString = FString(STR("This is my test FString."));
-    //FText GetGameText_OutText;
-    //GetGameText_OutText.SetString(std::move(TestHUDString));
-    if (PopupText.ToString() == STR("")) {
-        Output::send<LogLevel::Warning>(STR("No string just return this knuckle sandwhich\n"));
-        return;
-    }
-    //PopupText = OkText;
-    *property->ContainerPtrToValuePtr<FText>(context.TheStack.Locals()) = PopupText;
-}
-
-auto PostSetTextHookFunction(UnrealScriptFunctionCallableContext& context, void* yas) -> void {
-    //static FText PopupText;
-    PopupText.SetString(std::move(FString(STR(""))));
-    //PopupText = OkText;
-}
 
 void GetChestInfo() {
     

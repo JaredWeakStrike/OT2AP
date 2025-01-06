@@ -24,11 +24,11 @@
 #include <Unreal/UObjectGlobals.hpp>
 
 #include <include/TimeManagement_enums.hpp>
+// function prototypes
+#include <include/RecieveProtos.hpp>
+#include <include/SendProtos.hpp>
+#include <include/StoryProtos.hpp>
 
-#include <iostream>
-#include <thread>
-#include <future>
-#include <conio.h>
 //#include <Unreal/FTa>
 //#include <StructsAndStuff.hpp>
 //#include <BattleManager.hpp>
@@ -64,13 +64,19 @@ public:
     auto is_default_chest_open() -> void{
 
     }
+    bool openDefault = false;
     auto is_chest_open() -> void
     {
-        std::vector<UObject*> YasQueen;
-        UObjectGlobals::FindAllOf(STR("TreasureBoxBP_C"), YasQueen);
-
-        for (UObject* chest : YasQueen)
-        {
+        //std::vector<UObject*> YasQueen;
+        //UObjectGlobals::FindAllOf(STR("TreasureBoxBP_C"), YasQueen);
+        //
+        //for (UObject* chest : YasQueen)
+        //{
+        
+            auto chest = UObjectGlobals::StaticFindObject<UObject*>(nullptr, nullptr, STR("/Game/Environment/BP/Object/TreasureBoxBP.Default__TreasureBoxBP_C"));
+            if (!chest) {
+                return;
+            }
             bool chest_is_open = chest->GetPropertyByName(STR("IsOpenFlag"));
             if (chest_is_open) {
                 const Unreal::TCHAR* PropertyName = STR("ID");
@@ -108,22 +114,25 @@ public:
                 //    return;
                 //}
                 if (chest_text == FName(STR("ITM_CSM_0030"))) {
-                    Output::send<LogLevel::Warning>(STR("we r\n"));
-                    SetChestText();
+                    Output::send<LogLevel::Warning>(STR("ITM_CSM_0030 thing\n"));
+                    
                     *ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer)=FName(STR("ITM_CSM_0010"));
-                    break;
+                    SetChestText();
+                    openDefault = true;
+                    return;
                 }
-                if (chest_text == FName(STR("ITM_CSM_0020"))) {
-                    Output::send<LogLevel::Warning>(STR("we r\n"));
+                if (openDefault) {
+                    Output::send<LogLevel::Warning>(STR("ITM_CSM_0020 thing\n"));
+                    openDefault = false;
+                    //*ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer) = FName(STR("ITM_CSM_0010"));
                     OpenDefaultChest();
-                    *ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer) = FName(STR("ITM_CSM_0010"));
-                    break;
+                    return;
                 }
                 //*PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer) = 2;
                 //*ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer) = FName(STR("ITM_CSM_0030"));
                 //Output::send<LogLevel::Warning>(STR("[{}]\n"), *PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer));
             }
-        }
+        //}
     }
     auto on_update() -> void override
     {
