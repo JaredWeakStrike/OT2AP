@@ -1,3 +1,7 @@
 [submodule "RE-UE4SS"]
 	path = RE-UE4SS
 	url = https://github.com/UE4SS-RE/RE-UE4SS
+[submodule "Archipelago"]
+	path = Archipelago
+	url = https://github.com/JaredWeakStrike/Archipelago.git
+	branch = Octopath2
