@@ -117,7 +117,7 @@ public:
                     Output::send<LogLevel::Warning>(STR("ITM_CSM_0030 thing\n"));
                     
                     *ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer)=FName(STR("ITM_CSM_0010"));
-                    SetChestText();
+                    SetNextZone();
                     openDefault = true;
                     return;
                 }
@@ -125,7 +125,8 @@ public:
                     Output::send<LogLevel::Warning>(STR("ITM_CSM_0020 thing\n"));
                     openDefault = false;
                     //*ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer) = FName(STR("ITM_CSM_0010"));
-                    OpenDefaultChest();
+                    //OpenDefaultChest();
+                    //SetNextZone();
                     return;
                 }
                 //*PropertyWithinStruct->ContainerPtrToValuePtr<int>(StructDataPointer) = 2;

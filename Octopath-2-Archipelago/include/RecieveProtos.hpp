@@ -13,3 +13,6 @@ void OpenDefaultChest();
 void SetChestText();
 void GetChestInfo();
 void GivePlayerItem(wstring ItemLabel, int32 Num);
+
+void SetNextZone();
+auto PreLoadLevelFunction(Unreal::UnrealScriptFunctionCallableContext& context, void*) -> void;

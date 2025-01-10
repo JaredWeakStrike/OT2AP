@@ -78,9 +78,6 @@ auto lock_time() -> void
     //if (!has_ran) {
     Function2->ProcessEvent(Function2, &true_var);
 }
-//auto process_function_pre_watch(UnrealScriptFunctionCallableContext& context, void*) {
-//
-//}
 //auto StartChapterOne(int32 charater) -> bool {
 //    //get fproperty of the propertystruct
 //    //cast that to struct property
