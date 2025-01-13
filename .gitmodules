@@ -5,3 +5,6 @@
 	path = Archipelago
 	url = https://github.com/JaredWeakStrike/Archipelago.git
 	branch = Octopath2
+[submodule "Octopath-2-Archipelago/depen/json"]
+	path = Octopath-2-Archipelago/depen/json
+	url = https://github.com/nlohmann/json.git
