@@ -8,3 +8,12 @@
 [submodule "Octopath-2-Archipelago/depen/json"]
 	path = Octopath-2-Archipelago/depen/json
 	url = https://github.com/nlohmann/json.git
+[submodule "Octopath-2-Archipelago/depen/apclientpp"]
+	path = Octopath-2-Archipelago/depen/apclientpp
+	url = https://github.com/black-sliver/apclientpp.git
+[submodule "Octopath-2-Archipelago/depen/validjson"]
+	path = Octopath-2-Archipelago/depen/validjson
+	url = https://github.com/tristanpenman/valijson.git
+[submodule "Octopath-2-Archipelago/depen/wswrap"]
+	path = Octopath-2-Archipelago/depen/wswrap
+	url = https://github.com/black-sliver/wswrap.git
