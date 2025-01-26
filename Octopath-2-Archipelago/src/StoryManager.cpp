@@ -16,6 +16,7 @@
 #include <Unreal/Property/FStructProperty.hpp>
 #include <include/TimeManagement_enums.hpp>
 //#include <Function/Function.hpp>
+#include <include/StoryProtos.hpp>
 using namespace RC;
 using namespace RC::Unreal;
 
@@ -32,9 +33,33 @@ using namespace RC::Unreal;
 //        UE_COPY_PROPERTY(bCompleted, bool)
 //        UE_CALL_STATIC_FUNCTION()
 //}
+void StoryManager::SetNextZone() {
+    //Function /Game/Level/BP/BPC_MJLevelManager.BPC_MJLevelManager_C:RequestLoadFieldLevel
+    Output::send<LogLevel::Warning>(STR("Hooking BPC_MJLevelManager_C:RequestLoadFieldLevel\n"));
+    auto functionThing = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Game/Level/BP/BPC_MJLevelManager.BPC_MJLevelManager_C:RequestLoadFieldLevel"));
+    // prehook changes the text but posthook doesnt so we change the global text variable in post
+    // Function /Game/Environment/BP/Object/TreasureBoxBP.TreasureBoxBP_C:OpenDialog This only runs if not on default
+    if (functionThing == NULL) {
+        Output::send<LogLevel::Warning>(STR("RequestLoadFieldLevel not found\n"));
+        return;
+    }
+    auto hookedFunction = UObjectGlobals::RegisterHook(static_cast<UFunction*>(functionThing),
+        &StoryManager::PreLoadLevelFunction,
+        &StoryManager::PreLoadLevelFunction,
+        nullptr);
+    Output::send<LogLevel::Warning>(STR("Hooked BPC_MJLevelManager_C:RequestLoadFieldLevel\n"));
+}
 
+auto StoryManager::PreLoadLevelFunction(UnrealScriptFunctionCallableContext& context, void* yas) -> void {
 
+    Output::send<LogLevel::Warning>(STR("Seting MAP in LoadLevel Function\n"));
+    // write logic for how to check if you are allowed to go here 
+    auto function = context.TheStack.Node();
+    auto property = function->GetPropertyByNameInChain(STR("Map"));
 
+    *property->ContainerPtrToValuePtr<FName>(context.TheStack.Locals()) = FName(STR("Dng_Fst_2_2_A"));
+    Output::send<LogLevel::Warning>(STR("Set MAP in LoadLevel Function\n"));
+}
 
 void GetChestInfo() {
     

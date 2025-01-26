@@ -29,6 +29,9 @@
 #include <include/SendProtos.hpp>
 #include <include/StoryProtos.hpp>
 
+
+#include <LuaMadeSimple/LuaMadeSimple.hpp>
+//#include "UE4SS/src/Mod/LuaMod.cpp"
 //#include <Unreal/FTa>
 //#include <StructsAndStuff.hpp>
 //#include <BattleManager.hpp>
@@ -117,7 +120,7 @@ public:
                     Output::send<LogLevel::Warning>(STR("ITM_CSM_0030 thing\n"));
                     
                     *ChestText->ContainerPtrToValuePtr<FName>(StructDataPointer)=FName(STR("ITM_CSM_0010"));
-                    SetNextZone();
+                    StoryManager::SetNextZone();
                     openDefault = true;
                     return;
                 }
@@ -156,6 +159,32 @@ public:
         //        // Post-hook callback
         //        }, nullptr); // This nullptr is custom data, cast to void*, cast back to your real type in the hook callback.
         
+    }
+    auto on_lua_start(
+        LuaMadeSimple::Lua& lua,
+        LuaMadeSimple::Lua& main_lua,
+        LuaMadeSimple::Lua& async_lua,
+        std::vector<LuaMadeSimple::Lua*>& hook_luas) -> void override
+    {
+        Output::send<LogLevel::Warning>(STR("we are son in here\n"));
+
+        lua.register_function("GivePlayerItem", [](const LuaMadeSimple::Lua& lua) {
+            auto Item = ensure_str(lua.get_string());
+            RecieveItemManager::GivePlayerItem(Item,5);
+            return 0;
+            });
+
+        lua.register_function("OpenDefaultChest", [](const LuaMadeSimple::Lua& lua) {
+            auto ItemName = ensure_str(lua.get_string());
+            RecieveItemManager::OpenDefaultChest(ItemName);
+            return 0;
+            });
+        lua.register_function("SetTextHooks", [](const LuaMadeSimple::Lua& lua) {
+            RecieveItemManager::SetChestText();
+            return 0;
+            });
+
+      
     }
 };
 

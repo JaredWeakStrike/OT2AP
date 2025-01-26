@@ -25,16 +25,18 @@ using namespace RC::Unreal;
 
 static FText PopupText;
 
-void OpenDefaultChest() {
+
+
+void RecieveItemManager::OpenDefaultChest(wstring ItemName) {
     UE_BEGIN_NATIVE_FUNCTION_BODY("/Game/Environment/BP/Object/TreasureBoxBP.TreasureBoxBP_C:Open")
     UE_SET_STATIC_SELF("/Game/Environment/BP/Object/TreasureBoxBP.Default__TreasureBoxBP_C")
     //item message from the client would go here
-    GivePlayerItem(L"Olive of Life (M)", 1);
-    PopupText.SetString(std::move(FString(STR("Olive of Life (M)"))));
+    //GivePlayerItem(L"Olive of Life (M)", 999);
+    PopupText.SetString(std::move(FString(ItemName.c_str())));
     UE_CALL_STATIC_FUNCTION()
 }
 
-void GivePlayerItem(wstring Item,int32 Num) {
+void RecieveItemManager::GivePlayerItem(wstring Item, int32 Num) {
     //KSSaveDataManagerBP_C 
     //bool AddItemToBackpack(FName ItemLabel, int32 Num);
     FName ItemLabel = FName(GameData::ItemNameMap[Item].c_str());
@@ -51,37 +53,11 @@ void GivePlayerItem(wstring Item,int32 Num) {
     params.ItemLabel = ItemLabel;
     params.Num = Num;
 
-    SaveDataManager->ProcessEvent(AddItemToBackpack,&params);
-}
-void SetNextZone() {
-    //Function /Game/Level/BP/BPC_MJLevelManager.BPC_MJLevelManager_C:RequestLoadFieldLevel
-    Output::send<LogLevel::Warning>(STR("Hooking BPC_MJLevelManager_C:RequestLoadFieldLevel\n"));
-    auto functionThing = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Game/Level/BP/BPC_MJLevelManager.BPC_MJLevelManager_C:RequestLoadFieldLevel"));
-    // prehook changes the text but posthook doesnt so we change the global text variable in post
-    // Function /Game/Environment/BP/Object/TreasureBoxBP.TreasureBoxBP_C:OpenDialog This only runs if not on default
-    if (functionThing == NULL) {
-        Output::send<LogLevel::Warning>(STR("RequestLoadFieldLevel not found\n"));
-        return;
-    }
-    auto hookedFunction = UObjectGlobals::RegisterHook(static_cast<UFunction*>(functionThing),
-        &PreLoadLevelFunction,
-        &PreLoadLevelFunction,
-        nullptr);
-    Output::send<LogLevel::Warning>(STR("Hooked BPC_MJLevelManager_C:RequestLoadFieldLevel\n"));
+    SaveDataManager->ProcessEvent(AddItemToBackpack, &params);
 }
 
-auto PreLoadLevelFunction(UnrealScriptFunctionCallableContext& context, void* yas) -> void {
 
-    Output::send<LogLevel::Warning>(STR("Seting MAP in LoadLevel Function\n"));
-    // write logic for how to check if you are allowed to go here 
-    auto function = context.TheStack.Node();
-    auto property = function->GetPropertyByNameInChain(STR("Map"));
-
-    *property->ContainerPtrToValuePtr<FName>(context.TheStack.Locals()) = FName(STR("Dng_Fst_2_2_A"));
-    Output::send<LogLevel::Warning>(STR("Set MAP in LoadLevel Function\n"));
-}
-
-void SetChestText() {
+void RecieveItemManager::SetChestText() {
     Output::send<LogLevel::Warning>(STR("Hooking UICommonDialogItemBP_C:SetText\n"));
     auto functionThing = UObjectGlobals::StaticFindObject<UFunction*>(nullptr, nullptr, STR("/Game/UserInterface/Common/BP/Dialog/UICommonDialogItemBP.UICommonDialogItemBP_C:SetText"));
     // prehook changes the text but posthook doesnt so we change the global text variable in post
@@ -93,7 +69,7 @@ void SetChestText() {
     Output::send<LogLevel::Warning>(STR("Hooked UICommonDialogItemBP_C:SetText\n"));
 }
 
-auto PreTextHookFunction(UnrealScriptFunctionCallableContext& context, void* yas) -> void {
+auto RecieveItemManager::PreTextHookFunction(UnrealScriptFunctionCallableContext& context, void* yas) -> void {
 
     Output::send<LogLevel::Warning>(STR("Seting Text in SetText Function\n"));
     if (PopupText.ToString() == STR("")) {
@@ -102,15 +78,13 @@ auto PreTextHookFunction(UnrealScriptFunctionCallableContext& context, void* yas
     }
     auto function = context.TheStack.Node();
     auto property = function->GetPropertyByNameInChain(STR("ShowText"));
-    
+
     *property->ContainerPtrToValuePtr<FText>(context.TheStack.Locals()) = PopupText;
     Output::send<LogLevel::Warning>(STR("Set Text in SetText Function\n"));
 }
 
-auto PostSetTextHookFunction(UnrealScriptFunctionCallableContext& context, void* yas) -> void {
+auto RecieveItemManager::PostSetTextHookFunction(UnrealScriptFunctionCallableContext& context, void* yas) -> void {
     //static FText PopupText;
     // set to nothing so the prehook doesnt change the text if its not on the default chest
     PopupText.SetString(std::move(FString(STR(""))));
 }
-
-

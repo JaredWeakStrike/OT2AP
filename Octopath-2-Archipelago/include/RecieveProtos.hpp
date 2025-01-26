@@ -7,12 +7,12 @@ using std::wstring;
 using namespace RC;
 using namespace RC::Unreal;
 //function prototypes 
-auto PreTextHookFunction(Unreal::UnrealScriptFunctionCallableContext& context, void*) -> void;
-auto PostSetTextHookFunction(Unreal::UnrealScriptFunctionCallableContext& context, void*) -> void;
-void OpenDefaultChest();
-void SetChestText();
-void GetChestInfo();
-void GivePlayerItem(wstring ItemLabel, int32 Num);
 
-void SetNextZone();
-auto PreLoadLevelFunction(Unreal::UnrealScriptFunctionCallableContext& context, void*) -> void;
+namespace RecieveItemManager {
+	auto PreTextHookFunction(Unreal::UnrealScriptFunctionCallableContext& context, void*) -> void;
+	auto PostSetTextHookFunction(Unreal::UnrealScriptFunctionCallableContext& context, void*) -> void;
+	void OpenDefaultChest(wstring);
+	void SetChestText();
+	//void GetChestInfo();
+	void GivePlayerItem(wstring ItemLabel, int32 Num);
+}
