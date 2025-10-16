@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.18)
+
+set(TARGET OT2AP)
+project(${TARGET})
+
+# Gather all .cpp and .h files from src/
+file(GLOB SRC_FILES
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h"
+)
+
+add_library(${TARGET} SHARED ${SRC_FILES} "dllmain.cpp")
+
+# Include directories
+target_include_directories(${TARGET}
+    PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/src"   # your code
+        "${CMAKE_CURRENT_SOURCE_DIR}"       # current dir
+    SYSTEM PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/include"  # hide from External Dependencies
+)
+
+# Make all source and header files appear under one filter ("Source Files")
+source_group("Source Files" FILES ${SRC_FILES} "dllmain.cpp")
+
+# Link libraries
+target_link_libraries(${TARGET} PUBLIC UE4SS)

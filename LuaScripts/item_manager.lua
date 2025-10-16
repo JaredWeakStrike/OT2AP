@@ -23,9 +23,22 @@ function PreTextHook(self,text)
    print(ShowTextArgument2:ToString())
     
 end
+function OpenDefaultChest(text)
+    -- todo: make this a global thing
+    local DeafaultChest = StaticFindObject("/Game/Environment/BP/Object/TreasureBoxBP.Default__TreasureBoxBP_C")
+    local foo = StaticFindObject("/Script/Majesty.Default__TextDataUtility")
+    local TextRows = foo:GetGameTextDB(1) -- GameTextEN
+    local TreasureBoxRow = TextRows:FindRow("eTHIEF_TREASUREBOX")
+    TreasureBoxRow.Text = FText(text)
+    TextRows:RemoveRow("eTHIEF_TREASUREBOX")
+    TextRows:AddRow("eTHIEF_TREASUREBOX",TreasureBoxRow)
+    DeafaultChest:Open()
+end   
+
 function SetChestText()
     -- might have to make this pre and post function hook
-    RegisterHook("/Game/UserInterface/Common/BP/Dialog/UICommonDialogItemBP.UICommonDialogItemBP_C:SetText",PreTextHook,PostTextHook) 
+    --RegisterHook("/Game/UserInterface/Common/BP/Dialog/UICommonDialogItemBP.UICommonDialogItemBP_C:SetText",PreTextHook,PostTextHook) 
+
 end
 
 

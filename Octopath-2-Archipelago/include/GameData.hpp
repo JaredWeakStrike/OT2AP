@@ -1003,7 +1003,7 @@ namespace GameData {
 		{L"Breezy Beef Stew",L"ITM_MEAT_1380"},
 		{L"Grilled Chicken",L"ITM_MEAT_1390"},
 		{L"Beast Liver",L"ITM_MEAT_1400"},
-		{L"Creamy Sauté",L"ITM_MEAT_1410"},
+		{L"Creamy Saute",L"ITM_MEAT_1410"},
 		{L"Salted Seafood",L"ITM_MEAT_1420"},
 		{L"Bone",L"ITM_MEAT_1430"},
 		{L"Metal Medley",L"ITM_MEAT_1440"},
