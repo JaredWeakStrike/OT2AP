@@ -1,5 +1,6 @@
 local AP = require "lua-apclientpp"
 require "item_manager"
+require "StaticObjectGetters"
 
 -- global to this mod
 local game_name = "Octopath Traveler 2"
@@ -167,11 +168,31 @@ RegisterKeyBind(Key.B,function()
     print("we opening chest")
     end
 end)
-RegisterKeyBind(Key.C,function()
-    SetTextHooks()
+RegisterKeyBind(Key.Y,function()
+    OpenDefaultChest("as")
 end)
 RegisterKeyBind(Key.V,function()
-    OpenDefaultChest("This is your father luke")
+    --OpenDefaultChest("This is your father luke")
+    print("setting fps to 1")
+    --local LibDialog = StaticFindObject("/Script/Majesty.Default__LibDialog")
+    --local object
+    --output2 = {false}
+    --LibDialog:IsDialogRunning(output2)
+    --for index, value in ipairs(output2) do
+    --    print("index: "..tostring(index))
+    --    print("value: "..tostring(value))
+    --end
+    --print(output2)
+    --local DialogManager = FindFirstOf("BPC_DialogManager_C")
+    --print(DialogManager:IsDialogRunning())
+    OnItemRecieve("Iron Sword")
+    --give_player_item("Iron Sword")
+    --ChestPopupLoop()
+    --local AllChests = GetAllChests()
+    --for index, value in ipairs(AllChests) do
+    --    value:OpenDialog({false})
+    --    print()
+    --end
 end)
 item_table={}
 temp_ui = StaticFindObject("/Engine/Transient.GameEngine_2147482620:KSGameInstanceBP_C_2147482612.UICommonDialogBP_C_2147482495")
