@@ -1,52 +1,54 @@
 require "StaticObjectGetters"
+require "DatabaseInfo"
 local UEHelpers = require("UEHelpers")
 popup_text = FText("")
 ChestItemQueue={}
- local pc = UEHelpers:GetPlayerController()
-function OnItemRecieve(ItemName)
-    local FItemName = FName("Iron Sword")
+local pc = UEHelpers:GetPlayerController()
+local __WorldContext = pc:GetWorld()
+function OnItemRecieve(ItemName, PlayerName)
+    --local FItemName = FName("Iron Sword")
     local ItemFunction = GetItemFunction()
-    Args = {}
-    Args.ItemId = FName("ITM_CSM_0220")
-    Args.AddNum = 20
-    Args.__WorldContext = pc:GetWorld()
-    Args.success = false
-    print(Args.__WorldContext)
     local LibDialog = StaticFindObject("/Script/Majesty.Default__LibDialog")
-    output = {}
-    LibDialog:IsDialogRunning(output)
-    local Chest = FindFirstOf("TreasureBoxBP_C")
+    --local Chest = FindFirstOf("TreasureBoxBP_C")
     --local tempFunction = ItemFunction.AddBackpackItem
-    print("adding backpack item")
-    -- get item function
-    -- item id is the filename of for the item ITM_CSM_0220 is empowing lychee
-    -- world context is an objcet but the world world works great
-    -- true is the bool success but we dont care about that rn
-    ItemFunction:AddBackpackItem(Args.ItemId,Args.AddNum,Args.__WorldContext,{true})
-    print(output.isRunning)
-    --FName ItemId, int32 AddNum, class UObject* __WorldContext, bool& success)
-    --GivePlayerItem("Iron Sword")
-    table.insert(ChestItemQueue,FItemName)
+    --print("adding backpack item")
+    ItemNameLabel = ItemNameToItemLabel[ItemName]
+    if(ItemNameLabel == nil)then
+        print(ItemName.." is not a valid itemname")
+    else
+        -- get item function
+        -- item id is the filename of for the item ITM_CSM_0220 is empowing lychee
+        -- world context is an objcet but the world world works great
+        -- true is the bool success but we dont care about that rn
+        --FName ItemId, int32 AddNum, class UObject* __WorldContext, bool& success)
+        ItemFunction:AddBackpackItem(FName(ItemNameToItemLabel[ItemName]),1, __WorldContext, {true})
+        table.insert(ChestItemQueue,ItemName.." from "..PlayerName)
+    end
+end
+
+function SendLocation()
+    local AllLodadedChests = GetAllChests()
+    for k,v in ipairs(AllLodadedChests) do
+        
+    end
+end
+
+function foo()
+    
 end
 function ChestPopupLoop()
-    local DialogManager = GetDialogManager()
-    if(DialogManager:IsDialogRunning() == false and next(ChestItemQueue)~=nil)then
+    local LibDialog = GetLibDialog()
+    output = {}
+    --void IsDialogRunning(bool& IsRunning);
+    -- if IsRunning == false then no dialog is running thus able to call chest popup
+    if(LibDialog~=nil)then
+        LibDialog:IsDialogRunning(output)
+    end
+
+    if(output.IsRunning==false and next(ChestItemQueue))then
         OpenDefaultChest(ChestItemQueue[1])
         table.remove(ChestItemQueue,1)
     end
-end
-function give_player_item(player_item)
-    --local player_item_name = FName(item_id_to_item_name[player_item])
-    local SaveDataManager = FindFirstOf("KSSaveDataManagerBP_C")
-    local default_chest = StaticFindObject("/Game/Environment/BP/Object/TreasureBoxBP.Default__TreasureBoxBP_C")
-
-    -- FName,int32
-    --popup_text = FText(item_id_to_item_name[player_item])
-    popup_text = FText("kmaoi")
-    player_item_name = FName("Olive of Life")
-    SaveDataManager:AddItemToBackpack(player_item_name,1)
-    
-    default_chest:Open()
 end
 
 function PreTextHook(self,text)
@@ -88,3 +90,4 @@ function PostTextHook()
     --    FunctionContext.ShowText = popup_text
     --end
 end
+

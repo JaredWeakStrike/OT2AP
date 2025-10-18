@@ -9,7 +9,8 @@ DialogManager = nil
 TextUtil = nil
 ItemFunction = nil
 GameTextDB = nil
-
+ItemDataUtil = nil
+LibDialog = nil
 -- TreasureBoxBP.hpp
 -- Returns the default Chest Object
 -- ATreasureBoxBP_C::AKSObjectBP_C
@@ -39,6 +40,12 @@ function GetItemFunction()
     end
     return ItemFunction
 end
+function GetItemDataUtility()
+    if(ItemDataUtil == nil)then
+        ItemDataUtil= StaticFindObject("/Script/Majesty.Default__ItemDataUtility")
+    end
+    return ItemDataUtil
+end
 -- Majesty.hpp
 -- Returns SaveDataManager
 -- AKSSaveDataManager::AAcqManagerBase
@@ -62,17 +69,23 @@ function GetDialogManager()
     if(DialogManager==nil)then
         DialogManager = FindFirstOf("BPC_DialogManager_C")
     end
+    return DialogManager
 end
 -- Majesty.hpp
 -- Returns default TextDataUtil
 -- UTextDataUtility::UDataTableUtilityBase
 function GetTextUtils()
     if(TextUtil==nil) then
-        StaticFindObject("/Script/Majesty.Default__TextDataUtility")
+        TextUtil = StaticFindObject("/Script/Majesty.Default__TextDataUtility")
     end
     return TextUtil
 end
-
+function GetLibDialog()
+    if(LibDialog == nil)then
+        LibDialog = StaticFindObject("/Script/Majesty.Default__LibDialog")
+    end
+    return LibDialog
+end
 -- GameTextDB
 -- Rows of: FGameTextInfoData
 -- int32 ID;   

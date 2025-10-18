@@ -1,10 +1,14 @@
-local AP = require "lua-apclientpp"
 require "item_manager"
 require "StaticObjectGetters"
+require "DatabaseInfo"
+
+
+local AP = require "lua-apclientpp"
 
 -- global to this mod
 local game_name = "Octopath Traveler 2"
 local items_handling = 7  -- full remote
+local client_version = {0, 5, 1}  -- optional, defaults to lib version
 local message_format = AP.RenderFormat.TEXT
 ---@type APClient
 local ap = nil
@@ -31,7 +35,7 @@ function connect(server, slot, password)
 
     function on_room_info()
         print("Room info")
-        ap:ConnectSlot(slot, password, items_handling, {"Lua-APClientPP"}, {0, 4, 9})
+        ap:ConnectSlot(slot, password, items_handling, {"Lua-APClientPP"}, client_version)
     end
 
     function on_slot_connected(slot_data)
@@ -159,6 +163,18 @@ function connect(server, slot, password)
     ap:set_set_reply_handler(on_set_reply)
 end
 
+
+connect(host, slot, password)
+
+print("Will run for 10 seconds ...")
+local t0 = os.clock()
+while os.clock() - t0 < 10 do
+    ap:poll()  -- call this e.g. once per frame
+end
+print("shutting down...");
+ap = nil
+collectgarbage("collect")
+
 --GivePlayerItem("a")
 --connect(host, slot, password)
 RegisterKeyBind(Key.B,function()
@@ -185,7 +201,11 @@ RegisterKeyBind(Key.V,function()
     --print(output2)
     --local DialogManager = FindFirstOf("BPC_DialogManager_C")
     --print(DialogManager:IsDialogRunning())
-    OnItemRecieve("Iron Sword")
+    OnItemRecieve("Shady Inspiriting Plum","Player1")
+    OnItemRecieve("Desert Spear","Player1")
+    OnItemRecieve("Frost Axe","Player2")
+    OnItemRecieve("Vest of Joy","Player3")
+
     --give_player_item("Iron Sword")
     --ChestPopupLoop()
     --local AllChests = GetAllChests()
@@ -251,3 +271,8 @@ function tablelength(T)
 --print("shutting down...");
 --ap = nil
 --collectgarbage("collect")
+
+LoopAsync(16, function()
+   ChestPopupLoop()
+end)
+
