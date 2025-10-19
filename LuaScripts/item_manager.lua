@@ -29,13 +29,34 @@ end
 function SendLocation()
     local AllLodadedChests = GetAllChests()
     for k,v in ipairs(AllLodadedChests) do
-        
+        if(v.IsOpen==false)then
+            table.insert(ChestItemQueue,"You have opend chest ID ")
+        end
+    end
+end
+function OpenAllChets()
+    local ItemDataUtility = GetItemDataUtility()
+    local AllLodadedChests = GetAllChests()
+    if(AllLodadedChests~=nil)then
+        for k,v in ipairs(AllLodadedChests) do
+
+            if(v.IsOpenFlag==false)then
+                v:Open()
+                local ItemLabelID = ItemDataUtility:ItemLabelToID(v.ObjectData.HaveItemLabel)
+                local ItemIDToFName = ItemDataUtility:ItemIDToLabel(ItemLabelID)
+                local ItemName = ItemLabelToName[ItemIDToFName:ToString()]
+                if (ItemName~=nil) then
+                     table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..ItemName)
+                else 
+                    table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..ItemIDToFName:ToString())
+                end
+                --table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..)
+               -- ChestPopupLoop()
+            end
+        end    
     end
 end
 
-function foo()
-    
-end
 function ChestPopupLoop()
     local LibDialog = GetLibDialog()
     output = {}

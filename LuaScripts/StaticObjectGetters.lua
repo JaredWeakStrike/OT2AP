@@ -1,24 +1,24 @@
 ---@diagnostic disable: undefined-global
 -- only get it once, lazy instantiation
 -- These variables should only be used in this file use the respective Get function instead
-DefaultTreasureBox = nil
-SaveGame = nil
-SaveDataManager = nil
-LevelManager = nil
-DialogManager = nil
-TextUtil = nil
-ItemFunction = nil
-GameTextDB = nil
-ItemDataUtil = nil
-LibDialog = nil
+DefaultTreasureBox_ = nil
+SaveGame_ = nil
+SaveDataManager_ = nil
+LevelManager_ = nil
+DialogManager_ = nil
+TextUtil_ = nil
+ItemFunction_ = nil
+GameTextDB_ = nil
+ItemDataUtil_ = nil
+LibDialog_ = nil
 -- TreasureBoxBP.hpp
 -- Returns the default Chest Object
 -- ATreasureBoxBP_C::AKSObjectBP_C
 function GetDefaultChest()
-    if(DefaultTreasureBox==nil)then
-        DefaultTreasureBox = StaticFindObject("/Game/Environment/BP/Object/TreasureBoxBP.Default__TreasureBoxBP_C")
+    if(DefaultTreasureBox_==nil)then
+        DefaultTreasureBox_ = StaticFindObject("/Game/Environment/BP/Object/TreasureBoxBP.Default__TreasureBoxBP_C")
     end
-    return DefaultTreasureBox
+    return DefaultTreasureBox_
 end
 -- Returns all Chests that are loaded
 function GetAllChests()
@@ -29,62 +29,62 @@ end
 -- Returns SaveGame Object
 -- UMJSaveData:::SaveGame
 function GetSaveGame()
-    if(SaveGame==nil)then
-        SaveGame = FindFirstOf("KSSaveGameBP_C")
+    if(SaveGame_==nil)then
+        SaveGame_ = FindFirstOf("KSSaveGameBP_C")
     end
-    return SaveGame
+    return SaveGame_
 end
 function GetItemFunction()
-    if(ItemFunction==nil)then
-        ItemFunction = StaticFindObject("/Game/Item/BP/ItemFunction.Default__ItemFunction_C")
+    if(ItemFunction_==nil)then
+        ItemFunction_ = StaticFindObject("/Game/Item/BP/ItemFunction.Default__ItemFunction_C")
     end
-    return ItemFunction
+    return ItemFunction_
 end
 function GetItemDataUtility()
-    if(ItemDataUtil == nil)then
-        ItemDataUtil= StaticFindObject("/Script/Majesty.Default__ItemDataUtility")
+    if(ItemDataUtil_ == nil)then
+        ItemDataUtil_= StaticFindObject("/Script/Majesty.Default__ItemDataUtility")
     end
-    return ItemDataUtil
+    return ItemDataUtil_
 end
 -- Majesty.hpp
 -- Returns SaveDataManager
 -- AKSSaveDataManager::AAcqManagerBase
 function GetSaveManager()
     -- theres only one loaded but has different object name on runtime
-    if(SaveDataManager==nil)then
-        SaveDataManager = FindFirstOf("KSSaveDataManagerBP_C")
+    if(SaveDataManager_==nil)then
+        SaveDataManager_ = FindFirstOf("KSSaveDataManagerBP_C")
     end
-    return SaveDataManager
+    return SaveDataManager_
 end
 -- Majest.hpp
 -- Returns LevelManager_Others
 -- ALevelManager_Others::AActor
 function GetLevelManager()
-    if(LevelManager==nil) then 
-        LevelManager = FindFirstOf("LevelManager_Others_C")
+    if(LevelManager_==nil) then 
+        LevelManager_ = FindFirstOf("LevelManager_Others_C")
     end
-    return LevelManager
+    return LevelManager_
 end
 function GetDialogManager()
-    if(DialogManager==nil)then
-        DialogManager = FindFirstOf("BPC_DialogManager_C")
+    if(DialogManager_==nil)then
+        DialogManager_ = FindFirstOf("BPC_DialogManager_C")
     end
-    return DialogManager
+    return DialogManager_
 end
 -- Majesty.hpp
 -- Returns default TextDataUtil
 -- UTextDataUtility::UDataTableUtilityBase
 function GetTextUtils()
-    if(TextUtil==nil) then
-        TextUtil = StaticFindObject("/Script/Majesty.Default__TextDataUtility")
+    if(TextUtil_==nil) then
+        TextUtil_ = StaticFindObject("/Script/Majesty.Default__TextDataUtility")
     end
-    return TextUtil
+    return TextUtil_
 end
 function GetLibDialog()
-    if(LibDialog == nil)then
-        LibDialog = StaticFindObject("/Script/Majesty.Default__LibDialog")
+    if(LibDialog_ == nil)then
+        LibDialog_ = StaticFindObject("/Script/Majesty.Default__LibDialog")
     end
-    return LibDialog
+    return LibDialog_
 end
 -- GameTextDB
 -- Rows of: FGameTextInfoData
@@ -92,8 +92,8 @@ end
 -- FText Text;
 function GetGameTextDB()
     local TextUtils = GetTextUtils()
-    if(GameTextDB==nil and TextUtils~=nil) then
-        GameTextDB = TextUtils:GetGameTextDB(1) -- EKSLanguage:eEN = 1
+    if(GameTextDB_==nil and TextUtils~=nil) then
+        GameTextDB_ = TextUtils:GetGameTextDB(1) -- EKSLanguage:eEN = 1
     end
-    return GameTextDB
+    return GameTextDB_
 end
