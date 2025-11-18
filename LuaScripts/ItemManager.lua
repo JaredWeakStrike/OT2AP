@@ -21,6 +21,7 @@ function OnItemRecieve(ItemName, PlayerName)
         -- world context is an objcet but the world world works great
         -- true is the bool success but we dont care about that rn
         --FName ItemId, int32 AddNum, class UObject* __WorldContext, bool& success)
+        print("giving item "..ItemNameLabel)
         ItemFunction:AddBackpackItem(FName(ItemNameToItemLabel[ItemName]),1, __WorldContext, {true})
         table.insert(ChestItemQueue,ItemName.." from "..PlayerName)
     end

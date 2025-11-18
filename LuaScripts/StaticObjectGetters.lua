@@ -10,6 +10,9 @@ TextUtil_ = nil
 ItemFunction_ = nil
 GameTextDB_ = nil
 ItemDataUtil_ = nil
+SaveDataUtil_ = nil
+StoryDataUtil_ = nil
+SaveStoryUtil_ = nil
 LibDialog_ = nil
 -- TreasureBoxBP.hpp
 -- Returns the default Chest Object
@@ -46,6 +49,8 @@ function GetItemDataUtility()
     end
     return ItemDataUtil_
 end
+
+
 -- Majesty.hpp
 -- Returns SaveDataManager
 -- AKSSaveDataManager::AAcqManagerBase
@@ -65,6 +70,28 @@ function GetLevelManager()
     end
     return LevelManager_
 end
+
+function GetSaveDataUtil() 
+    if(SaveDataUtil_==nil)then
+        SaveDataUtil_ = StaticFindObject("/Script/Majesty.Default__LevelSaveDataUtil")
+    end
+    return SaveDataUtil_
+end
+
+function GetStoryDataUtil() 
+    if(StoryDataUtil_==nil)then
+        StoryDataUtil_ = StaticFindObject("/Script/Majesty.Default__StoryDataUtility")
+    end
+    return StoryDataUtil_
+end
+
+function GetSaveStoryDataUtil() 
+    if(SaveStoryUtil_==nil)then
+        SaveStoryUtil_ = StaticFindObject("/Script/Majesty.Default__StorySaveDataUtil")
+    end
+    return SaveStoryUtil_
+end
+
 function GetDialogManager()
     if(DialogManager_==nil)then
         DialogManager_ = FindFirstOf("BPC_DialogManager_C")

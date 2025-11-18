@@ -1,4 +1,4 @@
-require "item_manager"
+require "ItemManager"
 require "StaticObjectGetters"
 require "DatabaseInfo"
 
