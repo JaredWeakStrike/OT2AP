@@ -3,7 +3,7 @@ require "StaticObjectGetters"
 require "DatabaseInfo"
 require "QOL"
 require "archipelago"
-local DEBUG_KEYBIND = false
+local DEBUG_KEYBIND = true
 
 if DEBUG_KEYBIND then 
     RegisterKeyBind(Key.V,function()
@@ -49,6 +49,10 @@ if DEBUG_KEYBIND then
         StartStoryFlag()
         print("we have started story flag")
     end)
+    RegisterKeyBind(Key.H, function()
+        print("we are running")
+    end)
+
 end
 
 
