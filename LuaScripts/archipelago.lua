@@ -6,7 +6,7 @@ require "DatabaseInfo"
 local AP = require "lua-apclientpp"
 
 -- global to this mod
-local game_name = "Secret of Evermore"
+local game_name = "Kingdom Hearts 2"
 local items_handling = 7  -- full remote
 local client_version = {0, 5, 1}  -- optional, defaults to lib version
 local message_format = AP.RenderFormat.TEXT
@@ -21,6 +21,7 @@ local password = ""
 
 
 function connect(server, slot, password)
+    print("we are calling archipelago.lua connect")
     function on_socket_connected()
         print("Socket connected")
     end
