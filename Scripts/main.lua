@@ -32,12 +32,12 @@ if DEBUG_KEYBIND then
 
 
     RegisterKeyBind(Key.K, function ()
-        --KillAllEnemy()
-        RegisterConsoleCommandHandler("Connect", function(FullCommand)
-            print("RegisterConsoleCommandHandler:\n")
-
-            print(string.format("Command: %s\n", FullCommand))
-        end)
+        KillAllEnemy()
+        --RegisterConsoleCommandHandler("Connect", function(FullCommand)
+        --    print("RegisterConsoleCommandHandler:\n")
+--
+        --    print(string.format("Command: %s\n", FullCommand))
+        --end)
         print("we ran this stuff")
     end)
 
