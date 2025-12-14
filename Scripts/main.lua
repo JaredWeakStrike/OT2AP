@@ -3,6 +3,7 @@ require "StaticObjectGetters"
 require "DatabaseInfo"
 require "QOL"
 require "archipelago"
+
 local DEBUG_KEYBIND = true
 
 if DEBUG_KEYBIND then 
@@ -81,14 +82,22 @@ RegisterConsoleCommandHandler("/Connect", function(FullCommand,userInput)
 end)
 
 function Connect(commandName,userInput) 
+    if #userInput < 2 then 
+        print("Error trying to connect. Correct input: connect <host> <slot> [password]")
+        return
+    end
+    local host = userInput[1]
+    local slot = userInput[2]
+    local password = ""
+
+    if #userInput >=3 then 
+        password = userInput[3]
+    end
+
     print("trying to connect to "..userInput[1])    
     print("we tried but have failed")
 
-    connect(userInput[1],userInput[2])
+    connectToAp(host, slot, password)
+    
 end
-
---LoopAsync(16, function()
---   OpenAllChets()
---   ChestPopupLoop()
---end)
 

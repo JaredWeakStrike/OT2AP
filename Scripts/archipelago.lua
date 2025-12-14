@@ -6,7 +6,7 @@ require "DatabaseInfo"
 local AP = require "lua-apclientpp"
 
 -- global to this mod
-local game_name = "Kingdom Hearts 2"
+local game_name = "Octopath Traveler 2"
 local items_handling = 7  -- full remote
 local client_version = {0, 5, 1}  -- optional, defaults to lib version
 local message_format = AP.RenderFormat.TEXT
@@ -146,7 +146,7 @@ function connect(server, slot, password)
 
     local uuid = ""
     ap = AP(uuid, game_name, server);
-
+    print("Connecting to " .. server .. " ...")
     ap:set_socket_connected_handler(on_socket_connected)
     ap:set_socket_error_handler(on_socket_error)
     ap:set_socket_disconnected_handler(on_socket_disconnected)
@@ -164,15 +164,26 @@ function connect(server, slot, password)
     ap:set_set_reply_handler(on_set_reply)
 end
 
+function connectToAp(host, slot, password)
+    ExecuteAsync(function ()
+    connect(host, slot, password)
 
---connect(host, slot, password)
---
+
+    while ap do
+        ap:poll()
+    end
+
+
+    end)
+end
+
+----
 --print("Will run for 10 seconds ...")
 --local t0 = os.clock()
 --while os.clock() - t0 < 10 do
 --    ap:poll()  -- call this e.g. once per frame
 --end
---print("shutting down...");
+----print("shutting down...");
 --ap = nil
 --collectgarbage("collect")
 
