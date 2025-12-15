@@ -40,36 +40,11 @@ function connect(server, slot, password)
     end
 
     function on_slot_connected(slot_data)
-        assert(not pcall(function() ap:get_item_name(64055) end)) -- not valid anymore, need 2nd arg
-        assert(ap:get_item_name(64055, nil) == ap:get_item_name(64055, ap:get_game()))
-        assert(not pcall(function() ap:get_location_name(64000) end)) -- not valid anymore, need 2nd arg
-        assert(ap:get_location_name(64000, nil) == ap:get_location_name(64000, ap:get_game()))
-
-        if ap:get_game() == "Secret of Evermore" then
-            assert(ap:get_item_name(64055, nil) == "Bronze Axe")
-            assert(ap:get_item_name(64055, "Timespinner") ~= "Bronze Axe")
-            assert(ap:get_location_name(64000, "Secret of Evermore") == "Acid Rain")
-            assert(ap:get_location_name(64000, "Timespinner") ~= "Acid Rain")
-        end
-
         print("Slot connected")
-        print(slot_data)
-        print("missing locations: " .. table.concat(ap.missing_locations, ", "))
-        print("checked locations: " .. table.concat(ap.checked_locations, ", "))
         ap:Say("Hello World!")
         ap:Bounce({name="test"}, {game_name})
-        local extra = {nonce = 123}  -- optional extra data will be in the server reply
-        ap:Get({"counter"}, extra)
-        ap:Set("counter", 0, true, {{"add", 1}}, extra)
-        ap:Set("empty_array", nil, true, {{"replace", AP.EMPTY_ARRAY}})
-        ap:ConnectUpdate(nil, {"Lua-APClientPP", "DeathLink"})
-        ap:LocationChecks({64000, 64001, 64002})
-        print("Players:")
-        local players = ap:get_players()
-        for _, player in ipairs(players) do
-            print("  " .. tostring(player.slot) .. ": " .. player.name ..
-                  " playing " .. ap:get_player_game(player.slot))
-        end
+        ap:ConnectUpdate(nil, {"Lua-APClientPP"})
+        ap:LocationChecks({0x88888888})  
     end
 
 
@@ -90,8 +65,9 @@ function connect(server, slot, password)
             print(item.item)
         end
     end
-
+    
     function on_location_checked(locations)
+        print("calling location checked")
         print("Locations checked:" .. table.concat(locations, ", "))
         print("Checked locations: " .. table.concat(ap.checked_locations, ", "))
     end
@@ -166,7 +142,7 @@ end
 
 function connectToAp(host, slot, password)
     ExecuteAsync(function ()
-    connect(host, slot, password)
+    connect(host, slot, "")
 
 
     while ap do
@@ -177,15 +153,15 @@ function connectToAp(host, slot, password)
     end)
 end
 
-----
---print("Will run for 10 seconds ...")
---local t0 = os.clock()
---while os.clock() - t0 < 10 do
---    ap:poll()  -- call this e.g. once per frame
---end
+function SendLocation(locationID)
+    if ap == nil then
+        print("AP client not connected, cannot send location")
+        return
+    end
+    print("Sending location ID: "..locationID)
+    ap:LocationChecks({tonumber(locationID)})
+end
+
 ----print("shutting down...");
 --ap = nil
 --collectgarbage("collect")
-
---GivePlayerItem("a")
---connect(host, slot, password)

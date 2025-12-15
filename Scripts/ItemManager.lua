@@ -1,77 +1,32 @@
+---@diagnostic disable: undefined-global
+---@diagnostic disable: undefined-field
+
 require "StaticObjectGetters"
 require "DatabaseInfo"
+
 local UEHelpers = require("UEHelpers")
 popup_text = FText("")
 ChestItemQueue={}
-local pc = UEHelpers:GetPlayerController()
-local __WorldContext = pc:GetWorld()
+
+local pc = UEHelpers:GetPlayerController() -- required for getting world context
+local __WorldContext = pc:GetWorld() -- required for some functions.
+
 function OnItemRecieve(ItemName, PlayerName)
-    --local FItemName = FName("Iron Sword")
     local ItemFunction = GetItemFunction()
     local LibDialog = StaticFindObject("/Script/Majesty.Default__LibDialog")
-    --local Chest = FindFirstOf("TreasureBoxBP_C")
-    --local tempFunction = ItemFunction.AddBackpackItem
-    --print("adding backpack item")
+
     ItemNameLabel = ItemNameToItemLabel[ItemName]
     if(ItemNameLabel == nil)then
         print(ItemName.." is not a valid itemname")
     else
-        -- get item function
-        -- item id is the filename of for the item ITM_CSM_0220 is empowing lychee
-        -- world context is an objcet but the world world works great
-        -- true is the bool success but we dont care about that rn
-        --FName ItemId, int32 AddNum, class UObject* __WorldContext, bool& success)
+        
         print("giving item "..ItemNameLabel)
+        -- FName ItemId, int32 AddNum, class UObject* __WorldContext, bool& success)
         ItemFunction:AddBackpackItem(FName(ItemNameToItemLabel[ItemName]),1, __WorldContext, {true})
         table.insert(ChestItemQueue,ItemName.." from "..PlayerName)
     end
 end
 
-function SendLocation()
-    local AllLodadedChests = GetAllChests()
-    for k,v in ipairs(AllLodadedChests) do
-        if(v.IsOpen==false)then
-            table.insert(ChestItemQueue,"You have opend chest ID ")
-        end
-    end
-end
-function OpenAllChets()
-    local ItemDataUtility = GetItemDataUtility()
-    local AllLodadedChests = GetAllChests()
-    if(AllLodadedChests~=nil)then
-        for k,v in ipairs(AllLodadedChests) do
-
-            if(v.IsOpenFlag==false)then
-                v:Open()
-                local ItemLabelID = ItemDataUtility:ItemLabelToID(v.ObjectData.HaveItemLabel)
-                local ItemIDToFName = ItemDataUtility:ItemIDToLabel(ItemLabelID)
-                local ItemName = ItemLabelToName[ItemIDToFName:ToString()]
-                if (ItemName~=nil) then
-                     table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..ItemName)
-                else 
-                    table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..ItemIDToFName:ToString())
-                end
-                --table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..)
-               -- ChestPopupLoop()
-            end
-        end    
-    end
-end
-
-function ChestPopupLoop()
-    local LibDialog = GetLibDialog()
-    output = {}
-    --void IsDialogRunning(bool& IsRunning);
-    -- if IsRunning == false then no dialog is running thus able to call chest popup
-    if(LibDialog~=nil)then
-        LibDialog:IsDialogRunning(output)
-    end
-
-    if(output.IsRunning==false and next(ChestItemQueue))then
-        OpenDefaultChest(ChestItemQueue[1])
-        table.remove(ChestItemQueue,1)
-    end
-end
 
 function PreTextHook(self,text)
     print("we ran")
@@ -82,17 +37,8 @@ function PreTextHook(self,text)
    print(ShowTextArgument2:ToString())
     
 end
-function OpenDefaultChest(text)
-    -- todo: make this a global thing
-    local DeafaultChest = GetDefaultChest()
-    local foo = StaticFindObject("/Script/Majesty.Default__TextDataUtility")
-    local TextRows = foo:GetGameTextDB(1) -- GameTextEN
-    local TreasureBoxRow = TextRows:FindRow("eTHIEF_TREASUREBOX")
-    TreasureBoxRow.Text = FText(text)
-    TextRows:RemoveRow("eTHIEF_TREASUREBOX")
-    TextRows:AddRow("eTHIEF_TREASUREBOX",TreasureBoxRow)
-    DeafaultChest:Open()
-end   
+
+
 
 function SetChestText()
     -- might have to make this pre and post function hook

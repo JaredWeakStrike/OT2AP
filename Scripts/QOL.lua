@@ -1,4 +1,7 @@
 ---@diagnostic disable: undefined-global
+---@diagnostic disable: undefined-field
+---@diagnostic disable: inject-field
+
 require "StaticObjectGetters"
 
 function GoZoom()
@@ -11,6 +14,7 @@ function GoZoom()
         SaveGame.BattleSpeedStep = 400
     end
 end
+
 function MaxLevel()
     local SaveGame = GetSaveGame()
     if(SaveGame~=nil)then
@@ -24,6 +28,7 @@ function MaxLevel()
         SaveGame.PlayerMember[8].Exp =9999999
     end
 end
+
 function UnlockAllWarps()
     local SaveUtil = GetSaveDataUtil()
     local StoryUtil = GetStoryDataUtil()
@@ -33,6 +38,7 @@ function UnlockAllWarps()
         --StoryUtil:GetSaveStoryDataUtil(i)
     end
 end
+
 function GoNormalSpeed()
     local PlayerCharacter = FindFirstOf("KSPlayerCharacter_C")
     if(PlayerCharacter~=nil)then
@@ -44,6 +50,7 @@ function GoNormalSpeed()
         SaveGame.BattleSpeedStep = 2
     end
 end
+
 function KillAllEnemy()
     local BattleSequence = FindFirstOf("BattleSequenceDirectorBP_C")
     if(BattleSequence~=nil)then

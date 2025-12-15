@@ -1,0 +1,62 @@
+---@diagnostic disable: undefined-global
+---@diagnostic disable: undefined-field
+
+function SendLocation()
+    local AllLodadedChests = GetAllChests()
+    for k,v in ipairs(AllLodadedChests) do
+        if(v.IsOpen==false)then
+            table.insert(ChestItemQueue,"You have opend chest ID ")
+        end
+    end
+end
+
+function ChestPopupLoop()
+    local LibDialog = GetLibDialog()
+    output = {}
+    --void IsDialogRunning(bool& IsRunning);
+    -- if IsRunning == false then no dialog is running thus able to call chest popup
+    if(LibDialog~=nil)then
+        LibDialog:IsDialogRunning(output)
+    end
+
+    if(output.IsRunning==false and next(ChestItemQueue))then
+        OpenDefaultChest(ChestItemQueue[1])
+        table.remove(ChestItemQueue,1)
+    end
+end
+
+function OpenDefaultChest(text)
+    -- todo: make this a global thing
+    local DeafaultChest = GetDefaultChest()
+    local foo = StaticFindObject("/Script/Majesty.Default__TextDataUtility")
+    local TextRows = foo:GetGameTextDB(1) -- GameTextEN
+    local TreasureBoxRow = TextRows:FindRow("eTHIEF_TREASUREBOX")
+    TreasureBoxRow.Text = FText(text)
+    TextRows:RemoveRow("eTHIEF_TREASUREBOX")
+    TextRows:AddRow("eTHIEF_TREASUREBOX",TreasureBoxRow)
+    DeafaultChest:Open()
+end   
+
+
+function OpenAllChets()
+    local ItemDataUtility = GetItemDataUtility()
+    local AllLodadedChests = GetAllChests()
+    if(AllLodadedChests~=nil)then
+        for k,v in ipairs(AllLodadedChests) do
+
+            if(v.IsOpenFlag==false)then
+                v:Open()
+                local ItemLabelID = ItemDataUtility:ItemLabelToID(v.ObjectData.HaveItemLabel)
+                local ItemIDToFName = ItemDataUtility:ItemIDToLabel(ItemLabelID)
+                local ItemName = ItemLabelToName[ItemIDToFName:ToString()]
+                if (ItemName~=nil) then
+                     table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..ItemName)
+                else 
+                    table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..ItemIDToFName:ToString())
+                end
+                --table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..)
+               -- ChestPopupLoop()
+            end
+        end    
+    end
+end

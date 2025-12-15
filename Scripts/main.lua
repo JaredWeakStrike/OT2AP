@@ -1,4 +1,5 @@
 require "ItemManager"
+require "LocationManager"
 require "StaticObjectGetters"
 require "DatabaseInfo"
 require "QOL"
@@ -81,6 +82,14 @@ RegisterConsoleCommandHandler("/Connect", function(FullCommand,userInput)
     return true
 end)
 
+RegisterConsoleCommandHandler("Send", function(FullCommand,userInput)
+    print("Calling SendLocation")
+    SendLocation(userInput[1])
+    return true
+end)
+
+
+
 function Connect(commandName,userInput) 
     if #userInput < 2 then 
         print("Error trying to connect. Correct input: connect <host> <slot> [password]")
@@ -94,8 +103,8 @@ function Connect(commandName,userInput)
         password = userInput[3]
     end
 
-    print("trying to connect to "..userInput[1])    
-    print("we tried but have failed")
+    print("trying to connect to "..userInput[1].." with slot "..userInput[2].." and password "..password)    
+    --print("we tried but have failed")
 
     connectToAp(host, slot, password)
     

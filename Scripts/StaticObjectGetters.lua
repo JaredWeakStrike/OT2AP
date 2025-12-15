@@ -1,4 +1,5 @@
 ---@diagnostic disable: undefined-global
+---@diagnostic disable: undefined-field
 -- only get it once, lazy instantiation
 -- These variables should only be used in this file use the respective Get function instead
 DefaultTreasureBox_ = nil

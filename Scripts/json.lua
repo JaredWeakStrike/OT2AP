@@ -1,3 +1,7 @@
+---@diagnostic disable: undefined-global
+---@diagnostic disable: undefined-field
+---@diagnostic disable: undefined-doc-class
+---@diagnostic disable: need-check-nil
 -- This file is huge and Noita doesn't have real requires, so
 -- manually guard against multiple dofiles
 if JSON then return end
