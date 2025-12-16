@@ -1,7 +1,9 @@
+---@diagnostic disable: lowercase-global
+
 require "ItemManager"
 require "StaticObjectGetters"
 require "DatabaseInfo"
-
+require "ArchipelagoLists"
 
 local AP = require "lua-apclientpp"
 
@@ -144,13 +146,24 @@ function connectToAp(host, slot, password)
     ExecuteAsync(function ()
     connect(host, slot, "")
 
+    PopupQueue = {}
 
     while ap do
         ap:poll()
+        CheckedLocations = CheckChests()
+        if #CheckedLocations>0 then
+            ap:LocationChecks(CheckedLocations)
+        end
+
     end
 
-
     end)
+end
+
+function disconnect()
+---@diagnostic disable-next-line: cast-local-type
+    ap = nil
+    collectgarbage("collect")
 end
 
 function SendLocation(locationID)
@@ -160,6 +173,55 @@ function SendLocation(locationID)
     end
     print("Sending location ID: "..locationID)
     ap:LocationChecks({tonumber(locationID)})
+end
+
+function SendLocationFromName(locationName)
+    local locationID = GetAPLocationIDfromName(locationName)
+    if ap == nil then
+        print("AP client not connected, cannot send location")
+        return
+    end
+
+    if locationID == nil then
+        print("Location name:"..locationName.."Is not valid.")
+        return
+    end
+    print("Sending location name: "..locationName)
+
+    ap:LocationChecks({tonumber(locationID)})
+end
+
+
+function GetAPLocationIDfromName(locationName)
+    return LocationNameToAPId[locationName]
+end
+
+function GetAPNamefromLocationID(locationID)
+    return APLocationIdToName[locationID]
+end
+
+function GetAPItemIDfromName(itemName)
+    return ItemNameToAPId[itemName]
+end
+
+function GetItemNamefromAPItemID(itemID)
+    return APItemIdToName[itemID]
+end
+
+function ChestNamefromID(ChestID)
+    return ChestIDToName[ChestID]
+end
+
+function ChestFilenameFromChestID(ChestID)
+    return ChestIDToFilename[ChestID]
+end
+
+function GetAPCheckedLocations()
+    return ap.checked_locations
+end
+
+function GetAPMissingLocations()
+    return ap.missing_locations
 end
 
 ----print("shutting down...");

@@ -1,4 +1,4 @@
-ItemNameToId = {
+ItemNameToAPId = {
     ["Healing Grape"] = 0x88888888,
     ["Healing Grape (M)"] = 0x88888889,
     ["Healing Grape Bunch"] = 0x8888888a,
@@ -837,7 +837,7 @@ ItemNameToId = {
     ["The Grand Terry"] = 0x88888bcb,
 }
 
-ItemIdToName = {
+APItemIdToName = {
     [0x88888888] = "Healing Grape",
     [0x88888889] = "Healing Grape (M)",
     [0x8888888a] = "Healing Grape Bunch",
@@ -1676,7 +1676,7 @@ ItemIdToName = {
     [0x88888bcb] = "The Grand Terry",
 }
 
-LocationNameToId = {
+LocationNameToAPId = {
     ["Beasting Village: 1800 L"] = 0x88888888,
     ["Beasting Village: Giant Bow"] = 0x88888889,
     ["Beasting Village: Resistant Nut (L)"] = 0x8888888a,
@@ -2314,7 +2314,8 @@ LocationNameToId = {
     ["Game Start Region"] = 0x88888b02,
 
 }
-LocationIdToName = {
+
+APLocationIdToName = {
     [0x88888888] = "Beasting Village: 1800 L",
     [0x88888889] = "Beasting Village: Giant Bow",
     [0x8888888a] = "Beasting Village: Resistant Nut (L)",

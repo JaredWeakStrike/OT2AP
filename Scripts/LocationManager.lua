@@ -1,5 +1,6 @@
 ---@diagnostic disable: undefined-global
 ---@diagnostic disable: undefined-field
+require "archipelago"
 
 function SendLocation()
     local AllLodadedChests = GetAllChests()
@@ -9,6 +10,60 @@ function SendLocation()
         end
     end
 end
+
+function CheckChests()
+    local output = {}
+    print("we are checking chests")
+    local AllLodadedChests = GetAllChests()
+    if(AllLodadedChests==nil)then
+        return output
+    end 
+    for k,v in ipairs(AllLodadedChests) do
+        local ChestName = ChestNamefromID(v.ObjectData.ID)
+        if(ChestName == nil) then
+            print(v.ObjectData.ID.." is invalid for id")
+            return output
+        end
+
+        local APID = GetAPLocationIDfromName(ChestName)
+        if (APID == nil)then
+            print(ChestName.." Has no APID")
+            return output
+        end
+        for k2,v2 in ipairs(GetAPMissingLocations()) do
+            --print(string.format("%x",v2))
+            --
+        end
+        print(GetAPMissingLocations()[APID])
+        --print(GetAPMissingLocations())
+        if(v.IsOpenFlag == true and GetAPMissingLocations()[APID] ~= nil) then
+            print("we have inserted the apid to the output")
+            table.insert(output, APID)
+        end
+    end
+
+    return output
+end
+
+function IsLocationChecked(locationID)
+    local MissingLocations = GetAPMissingLocations()
+    local CheckedLocations = GetAPCheckedLocations()
+    if #MissingLocations > #CheckedLocations then
+        for _, v in ipairs(CheckedLocations) do
+            if (v==locationID) then
+                return true
+            end
+        end
+    else -- checked locations > missing locations
+        for _, v in ipairs(MissingLocations) do
+            if (v==locationID) then
+                return false
+            end
+        end
+    end
+    return nil
+end
+
 
 function ChestPopupLoop()
     local LibDialog = GetLibDialog()
@@ -57,6 +112,6 @@ function OpenAllChets()
                 --table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..)
                -- ChestPopupLoop()
             end
-        end    
+        end
     end
 end

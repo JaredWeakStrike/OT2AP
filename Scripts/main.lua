@@ -5,7 +5,7 @@ require "DatabaseInfo"
 require "QOL"
 require "archipelago"
 
-local DEBUG_KEYBIND = true
+local DEBUG_KEYBIND = false
 
 if DEBUG_KEYBIND then 
     RegisterKeyBind(Key.V,function()
@@ -88,7 +88,18 @@ RegisterConsoleCommandHandler("Send", function(FullCommand,userInput)
     return true
 end)
 
+RegisterConsoleCommandHandler("Sendname", function(FullCommand,userInput)
+    print("Calling Sendname")
+    local locationID = GetAPLocationIDfromName(userInput[1])
+    SendLocation(userInput[1])
+    return true
+end)
 
+RegisterConsoleCommandHandler("disconnect", function(FullCommand,userInput)
+    print("Calling disconnect")
+    disconnect()
+    return true
+end)
 
 function Connect(commandName,userInput) 
     if #userInput < 2 then 
