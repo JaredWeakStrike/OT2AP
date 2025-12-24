@@ -14,7 +14,7 @@ local client_version = {0, 5, 1}  -- optional, defaults to lib version
 local message_format = AP.RenderFormat.TEXT
 ---@type APClient
 local ap = nil
-
+local checked_locations = {}
 
 -- TODO: user input
 local host = "localhost"
@@ -72,6 +72,9 @@ function connect(server, slot, password)
         print("calling location checked")
         print("Locations checked:" .. table.concat(locations, ", "))
         print("Checked locations: " .. table.concat(ap.checked_locations, ", "))
+        for index, value in ipairs(locations) do
+            checked_locations[value] = true
+        end
     end
 
     function on_data_package_changed(data_package)
@@ -153,6 +156,9 @@ function connectToAp(host, slot, password)
         CheckedLocations = CheckChests()
         if #CheckedLocations>0 then
             ap:LocationChecks(CheckedLocations)
+            for _, APID in ipairs(CheckedLocations) do
+                checked_locations[APID] = true
+            end
         end
 
     end
@@ -162,6 +168,7 @@ end
 
 function disconnect()
 ---@diagnostic disable-next-line: cast-local-type
+    checked_locations = {}
     ap = nil
     collectgarbage("collect")
 end
@@ -173,6 +180,13 @@ function SendLocation(locationID)
     end
     print("Sending location ID: "..locationID)
     ap:LocationChecks({tonumber(locationID)})
+end
+
+function IsLocationChecked(locationID)
+    if checked_locations==nil then
+        return nil
+    end
+    return checked_locations[locationID] ~= nil
 end
 
 function SendLocationFromName(locationName)

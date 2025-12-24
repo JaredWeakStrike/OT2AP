@@ -13,7 +13,7 @@ end
 
 function CheckChests()
     local output = {}
-    print("we are checking chests")
+    --print("we are checking chests")
     local AllLodadedChests = GetAllChests()
     if(AllLodadedChests==nil)then
         return output
@@ -26,17 +26,12 @@ function CheckChests()
         end
 
         local APID = GetAPLocationIDfromName(ChestName)
-        if (APID == nil)then
+        if (APID == nil) then
             print(ChestName.." Has no APID")
             return output
         end
-        for k2,v2 in ipairs(GetAPMissingLocations()) do
-            --print(string.format("%x",v2))
-            --
-        end
-        print(GetAPMissingLocations()[APID])
-        --print(GetAPMissingLocations())
-        if(v.IsOpenFlag == true and GetAPMissingLocations()[APID] ~= nil) then
+        --print(IsLocationChecked(APID))
+        if(v.IsOpenFlag == true and IsLocationChecked(APID)==false) then
             print("we have inserted the apid to the output")
             table.insert(output, APID)
         end
@@ -45,36 +40,17 @@ function CheckChests()
     return output
 end
 
-function IsLocationChecked(locationID)
-    local MissingLocations = GetAPMissingLocations()
-    local CheckedLocations = GetAPCheckedLocations()
-    if #MissingLocations > #CheckedLocations then
-        for _, v in ipairs(CheckedLocations) do
-            if (v==locationID) then
-                return true
-            end
-        end
-    else -- checked locations > missing locations
-        for _, v in ipairs(MissingLocations) do
-            if (v==locationID) then
-                return false
-            end
-        end
-    end
-    return nil
-end
-
 
 function ChestPopupLoop()
     local LibDialog = GetLibDialog()
-    output = {}
+    IsRunningReturn = {}
     --void IsDialogRunning(bool& IsRunning);
     -- if IsRunning == false then no dialog is running thus able to call chest popup
-    if(LibDialog~=nil)then
-        LibDialog:IsDialogRunning(output)
+    if(LibDialog~=nil) then
+        LibDialog:IsDialogRunning(IsRunningReturn)
     end
 
-    if(output.IsRunning==false and next(ChestItemQueue))then
+    if(IsRunningReturn.IsRunning==false and next(ChestItemQueue))then
         OpenDefaultChest(ChestItemQueue[1])
         table.remove(ChestItemQueue,1)
     end
