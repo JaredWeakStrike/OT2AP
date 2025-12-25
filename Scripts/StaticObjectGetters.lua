@@ -15,6 +15,10 @@ SaveDataUtil_ = nil
 StoryDataUtil_ = nil
 SaveStoryUtil_ = nil
 LibDialog_ = nil
+
+DatabaseManager_ = nil
+ItemDB_ = nil
+
 -- TreasureBoxBP.hpp
 -- Returns the default Chest Object
 -- ATreasureBoxBP_C::AKSObjectBP_C
@@ -62,7 +66,7 @@ function GetSaveManager()
     end
     return SaveDataManager_
 end
--- Majest.hpp
+-- Majesty.hpp
 -- Returns LevelManager_Others
 -- ALevelManager_Others::AActor
 function GetLevelManager()
@@ -124,4 +128,19 @@ function GetGameTextDB()
         GameTextDB_ = TextUtils:GetGameTextDB(1) -- EKSLanguage:eEN = 1
     end
     return GameTextDB_
+end
+
+
+function GetManagerDB()
+    if(DatabaseManager_==nil)then
+        DatabaseManager_ = FindFirstOf("DatabaseManager")
+    end
+    return DatabaseManager_
+end
+
+function GetItemDB()
+    if(ItemDB_==nil)then
+        ItemDB_ = GetManagerDB().m_DatabaseTable[FName("ITEM_DATA")]
+    end
+    return ItemDB_
 end

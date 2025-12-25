@@ -100,6 +100,12 @@ RegisterConsoleCommandHandler("disconnect", function(FullCommand,userInput)
     disconnect()
     return true
 end)
+-- so when I accidently add a space in the command it doesnt crash the game
+RegisterConsoleCommandHandler("disconnect ", function(FullCommand,userInput)
+    print("Calling disconnect")
+    disconnect()
+    return true
+end)
 
 function Connect(commandName,userInput) 
     if #userInput < 2 then 
@@ -116,7 +122,13 @@ function Connect(commandName,userInput)
 
     print("trying to connect to "..userInput[1].." with slot "..userInput[2].." and password "..password)    
     --print("we tried but have failed")
-
+    local ItemDB = GetItemDB()
+    if(ItemDB~=nil)then
+        print("we got itemdb babyyy")
+        --11080 
+        TempItem = ItemDB:FindRow("ITM_INF_Twn_Wld_3_1_A_030")
+        TempItem.ID = 11081
+    end
     connectToAp(host, slot, password)
     
 end

@@ -1,6 +1,7 @@
 ---@diagnostic disable: undefined-global
 ---@diagnostic disable: undefined-field
 require "archipelago"
+local NoChestName = {}
 
 function SendLocation()
     local AllLodadedChests = GetAllChests()
@@ -13,7 +14,7 @@ end
 
 function CheckChests()
     local output = {}
-    --print("we are checking chests")
+
     local AllLodadedChests = GetAllChests()
     if(AllLodadedChests==nil)then
         return output
@@ -21,16 +22,22 @@ function CheckChests()
     for k,v in ipairs(AllLodadedChests) do
         local ChestName = ChestNamefromID(v.ObjectData.ID)
         if(ChestName == nil) then
-            print(v.ObjectData.ID.." is invalid for id")
+            if(NoChestName[v.ObjectData.ID]==nil) then
+                print(v.ObjectData.ID.." is invalid for id")
+                NoChestName[v.ObjectData.ID] = true
+            end
             return output
         end
 
         local APID = GetAPLocationIDfromName(ChestName)
         if (APID == nil) then
-            print(ChestName.." Has no APID")
+            if NoChestName[ChestName]==nil then
+                NoChestName[ChestName]=true
+                print(ChestName.." Has no APID")
+            end
             return output
         end
-        --print(IsLocationChecked(APID))
+
         if(v.IsOpenFlag == true and IsLocationChecked(APID)==false) then
             print("we have inserted the apid to the output")
             table.insert(output, APID)
