@@ -131,16 +131,17 @@ function GetGameTextDB()
 end
 
 
-function GetManagerDB()
-    if(DatabaseManager_==nil)then
-        DatabaseManager_ = FindFirstOf("DatabaseManager")
-    end
-    return DatabaseManager_
-end
+--function GetManagerDB()
+--    print("getting database manager")
+--    if(DatabaseManager_==nil)then
+--        DatabaseManager_ = FindFirstOf("DatabaseManager")
+--    end
+--    return DatabaseManager_
+--end
 
 function GetItemDB()
     if(ItemDB_==nil)then
-        ItemDB_ = GetManagerDB().m_DatabaseTable[FName("ITEM_DATA")]
+        ItemDB_ = StaticFindObject("/Game/Item/Database/ItemDB.ItemDB")
     end
     return ItemDB_
 end

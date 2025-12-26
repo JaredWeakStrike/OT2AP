@@ -122,12 +122,22 @@ function Connect(commandName,userInput)
 
     print("trying to connect to "..userInput[1].." with slot "..userInput[2].." and password "..password)    
     --print("we tried but have failed")
+    -- FItemData
     local ItemDB = GetItemDB()
-    if(ItemDB~=nil)then
+    local TextDB = GetGameTextDB()
+    if(ItemDB~=nil and TextDB~=nil)then
         print("we got itemdb babyyy")
         --11080 
-        TempItem = ItemDB:FindRow("ITM_INF_Twn_Wld_3_1_A_030")
-        TempItem.ID = 11081
+        TextTemplate = TextDB:FindRow("eMUSIC_PLAYER_FOOTER_PLAY")
+        ItemTemplate = ItemDB:FindRow("ITM_INF_Twn_Wld_3_1_A_030")
+        TextTemplate.Text = FText(" ")
+        local BaseID = 11080
+        for i = 1,10 do
+            TextDB:AddRow("APItemText"..i,TextTemplate)
+            ItemTemplate.ID = BaseID+i
+            ItemTemplate.ItemNameID = FName("APItemText"..i)
+            ItemDB:AddRow("APItem"..i,ItemTemplate)
+        end
     end
     connectToAp(host, slot, password)
     

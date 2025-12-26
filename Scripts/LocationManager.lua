@@ -2,6 +2,7 @@
 ---@diagnostic disable: undefined-field
 require "archipelago"
 local NoChestName = {}
+ScoutedLocations = {}
 
 function SendLocation()
     local AllLodadedChests = GetAllChests()
@@ -14,7 +15,7 @@ end
 
 function CheckChests()
     local output = {}
-
+    local ChestIDs = {}
     local AllLodadedChests = GetAllChests()
     if(AllLodadedChests==nil)then
         return output
@@ -42,11 +43,31 @@ function CheckChests()
             print("we have inserted the apid to the output")
             table.insert(output, APID)
         end
-    end
 
+        if(ScoutedLocations[APID]==nil)then
+            table.insert(ChestIDs,APID)
+        end
+
+    end
+    ScoutLocations(ChestIDs)
     return output
 end
 
+function PlaceScoutedItems(ScoutedLocation,APItemCount)
+    local AllLodadedChests = GetAllChests()
+    local TextDB = GetGameTextDB()
+    for k, v in ipairs(AllLodadedChests)do
+        if(v.IsOpenFlag==false and GetAPNamefromLocationID(ScoutedLocation.location) == ChestNameFromID(v.ObjectData.ID))then
+            v.ObjectData.HaveItemLabel = FName("APItem"..APItemCount)
+
+            RowTemplate = TextDB:FindRow("APItemText"..APItemCount)
+            RowTemplate.Text = FText(""..ScoutedLocation.item) -- get item name and person sending it to
+            TextDB:RemoveRow("APItemText"..APItemCount)
+            TextDB:AddRow("APItemText"..APItemCount,RowTemplate)
+            ScoutedLocations[ScoutedLocation.location] = true
+        end
+    end
+end
 
 function ChestPopupLoop()
     local LibDialog = GetLibDialog()

@@ -64,7 +64,7 @@ function connect(server, slot, password)
     function on_location_info(items)
         print("Locations scouted:")
         for _, item in ipairs(items) do
-            print(item.item)
+            PlaceScoutedItems(item,_)
         end
     end
     
@@ -238,6 +238,11 @@ function GetAPMissingLocations()
     return ap.missing_locations
 end
 
+function ScoutLocations(ScoutLocations)
+    if #ScoutLocations>0 then
+        ap:LocationScouts(ScoutLocations,0)
+    end
+end
 ----print("shutting down...");
 --ap = nil
 --collectgarbage("collect")
