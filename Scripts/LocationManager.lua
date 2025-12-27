@@ -39,7 +39,7 @@ function CheckChests()
             return output
         end
 
-        if(v.IsOpenFlag == true and IsLocationChecked(APID)==false) then
+        if(Chest.IsOpenFlag == true and IsLocationChecked(APID)==false) then
             print("we have inserted the apid to the output")
             table.insert(output, APID)
         end

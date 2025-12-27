@@ -19,6 +19,58 @@ local message_format = AP.RenderFormat.TEXT
 local ap = nil
 local checked_locations = {}
 ScoutedLocations = {}
+ChapterUnlocks = {
+        ["Hikari Chapter1 Unlock"]                          = false, --"Hikari1",
+		["Hikari Chapter2 Unlock"]                          = false, --"Hikari2",
+		["Hikari Chapter3 Unlock"]                          = false, --"Hikari3",
+		["Hikari Chapter4 Unlock"]                          = false, --"Hikari4",
+		["Hikari Chapter5 Unlock"]                          = false, --"Hikari5",
+		["Ochette Chapter1 Unlock"]                         = false, --"Ochette1",
+		["Ochette Chapter2 Acta Unlock"]                    = false, --"Ochette2A",
+		["Ochette Chapter2 Tera Unlock"]                    = false, --"Ochette2T",
+		["Ochette Chapter2 Glacis Unlock"]                  = false, --"Ochette2G",
+		["Ochette Chapter3 Unlock"]                         = false, --"Ochette3",
+		["Castti Chapter1 Unlock"]                          = false, --"Castti1",
+		["Castti Chapter2 Sai Unlock"]                      = false, --"Castti2S",
+		["Castti Chapter2 Winterbloom Unlock"]              = false, --"Castti2W",
+		["Castti Chapter3 Unlock"]                          = false, --"Castti3",
+		["Castti Chapter4 Unlock"]                          = false, --"Castti4",
+		["Partitio Chapter1 Unlock"]                        = false, --"Partitio1",
+		["Partitio Chapter2 Unlock"]                        = false, --"Partitio2",
+		["Partitio Chapter3 Unlock"]                        = false, --"Partitio3",
+		["Partitio Toto'haha Grand Terry Quest Unlock"]     = false, --"PartitioTGT",
+		["Partitio Winterbloom Gramophone Quest Unlock"]    = false, --"PartitioWBG",
+		["Partitio Sai Archives Quest Unlock"]              = false, --"PartitioSAQ",
+		["Temenos Chapter1 Unlock"]                         = false, --"Temenos1",
+		["Temenos Chapter2 Unlock"]                         = false, --"Temenos2",
+		["Temenos Chapter3 Stormhail"]                      = false, --"Temenos3S",
+		["Temenos Chapter3 Crackridge Unlock"]              = false, --"Temenos3C",
+		["Temenos Chapter4 Unlock"]                         = false, --"Temenos4",
+		["Osvald Chapter1 Unlock"]                          = false, --"Osvald1",
+		["Osvald Chapter3 Unlock"]                          = false, --"Osvald3",
+		["Osvald Chapter4 Unlock"]                          = false, --"Osvald4",
+		["Osvald Chapter5 Unlock"]                          = false, --"Osvald5",
+		["Throne Chapter1 Unlock"]                          = false, --"Throne1",
+		["Throne Chapter2 Mother Unlock"]                   = false, --"Throne2M",
+		["Throne Chapter2 Father Unlock"]                   = false, --"Throne2F",
+		["Throne Chapter3 Mother Unlock"]                   = false, --"Throne3M",
+		["Throne Chapter3 Father Unlock"]                   = false, --"Throne3F",
+		["Throne Chapter4 Unlock"]                          = false, --"Throne4",
+		["Agnea Chapter1 Unlock"]                           = false, --"Agnea1",
+		["Agnea Chapter2 Unlock"]                           = false, --"Agnea2",
+		["Agnea Chapter3 Unlock"]                           = false, --"Agnea3",
+		["Agnea Chapter4 Unlock"]                           = false, --"Agnea4",
+		["Agnea Chapter5 Unlock"]                           = false, --"Agnea5",
+		["Osvald and Partitio Chapter 1 Unlock"]            = false, --"OsvaldPartitio1",
+		["Osvald and Partitio Chapter 2 Unlock"]            = false, --"OsvaldPartitio2",
+		["Castti and Ochette Chapter 1 Unlock"]             = false, --"CasttiOchette1",
+		["Castti and Ochette Chapter 2 Unlock"]             = false, --"CasttiOchette2",
+		["Hikari and Agnea Chapter 1 Unlock"]               = false, --"HikariAgnea1",
+		["Hikari and Agnea Chapter 2 Unlock"]               = false, --"HikariAgnea2",
+		["Temenos and Throne Chapter 1 Unlock"]             = false, --"TemenosThrone1",
+		["Temenos and Throne Chapter 2 Unlock"]             = false, --"TemenosThrone2",
+		["Finale"]                                          = false
+}
 -- TODO: user input
 local host = "localhost"
 local slot = "Player1"
@@ -61,8 +113,14 @@ function connect(server, slot, password)
         print("Items received:")
         for _, item in ipairs(items) do
             if item.index > GetIndex() then
+                ApItemName = APItemIdToName[item.item]
                 print(APItemIdToName[item.item].." from "..ap:get_player_alias(item.player))
-                OnItemRecieve(APItemIdToName[item.item],ap:get_player_alias(item.player))
+                if ChapterUnlocks[ApItemName] == false then
+                    ChapterUnlocks[ApItemName] = true
+                else
+                    OnItemRecieve(ApItemName,ap:get_player_alias(item.player))
+                end
+
                 SetIndex(item.index)
             end
         end
