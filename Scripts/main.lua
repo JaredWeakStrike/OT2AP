@@ -107,6 +107,19 @@ RegisterConsoleCommandHandler("disconnect ", function(FullCommand,userInput)
     return true
 end)
 
+RegisterConsoleCommandHandler("openchest", function(FullCommand,userInput)
+    print("Calling open chest")
+    OpenDefaultChest(userInput[1])
+    return true
+end)
+
+RegisterConsoleCommandHandler("updateindex", function(FullCommand,userInput)
+    print("Calling open chest")
+    local saveData = GetSaveGame()
+    saveData.PlayerMember[40].RawHP = userInput[1]
+    return true
+end)
+
 function Connect(commandName,userInput) 
     if #userInput < 2 then 
         print("Error trying to connect. Correct input: connect <host> <slot> [password]")
@@ -127,17 +140,31 @@ function Connect(commandName,userInput)
     local TextDB = GetGameTextDB()
     if(ItemDB~=nil and TextDB~=nil)then
         print("we got itemdb babyyy")
-        --11080 
-        TextTemplate = TextDB:FindRow("eMUSIC_PLAYER_FOOTER_PLAY")
-        ItemTemplate = ItemDB:FindRow("ITM_INF_Twn_Wld_3_1_A_030")
+        --11080
+        
+        local TextTemplate = TextDB:FindRow("eMUSIC_PLAYER_FOOTER_PLAY")
+        local ItemTemplate = ItemDB:FindRow("ITM_INF_Twn_Wld_3_1_A_030") -- unused item that doesnt showup in inventory
+        local KeyItemTempalte = ItemDB:FindRow("ITM_EQP_JOB_0005") --dancer licsense
+        local BackupText = TextTemplate.Text
+        local BackupItemName = ItemTemplate.ItemNameID
+        local BackupItemTempID = ItemTemplate.ID
         TextTemplate.Text = FText(" ")
+        
         local BaseID = 11080
         for i = 1,10 do
+            BaseID = BaseID + 1
             TextDB:AddRow("APItemText"..i,TextTemplate)
-            ItemTemplate.ID = BaseID+i
+            ItemTemplate.ID = BaseID
             ItemTemplate.ItemNameID = FName("APItemText"..i)
             ItemDB:AddRow("APItem"..i,ItemTemplate)
         end
+
+
+
+        -- restore the references back to what they were before modifying the references
+        TextTemplate.Text = BackupText
+        ItemTemplate.ID = BackupItemTempID
+        ItemTemplate.ItemNameID = BackupItemName
     end
     connectToAp(host, slot, password)
     

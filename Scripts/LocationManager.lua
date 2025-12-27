@@ -2,12 +2,12 @@
 ---@diagnostic disable: undefined-field
 require "archipelago"
 local NoChestName = {}
-ScoutedLocations = {}
+
 
 function SendLocation()
     local AllLodadedChests = GetAllChests()
-    for k,v in ipairs(AllLodadedChests) do
-        if(v.IsOpen==false)then
+    for _,Chest in ipairs(AllLodadedChests) do
+        if(Chest.IsOpen==false)then
             table.insert(ChestItemQueue,"You have opend chest ID ")
         end
     end
@@ -20,12 +20,12 @@ function CheckChests()
     if(AllLodadedChests==nil)then
         return output
     end 
-    for k,v in ipairs(AllLodadedChests) do
-        local ChestName = ChestNamefromID(v.ObjectData.ID)
+    for _,Chest in pairs(AllLodadedChests) do
+        local ChestName = ChestNamefromID(Chest.ObjectData.ID)
         if(ChestName == nil) then
-            if(NoChestName[v.ObjectData.ID]==nil) then
-                print(v.ObjectData.ID.." is invalid for id")
-                NoChestName[v.ObjectData.ID] = true
+            if(NoChestName[Chest.ObjectData.ID]==nil) then
+                print(Chest.ObjectData.ID.." is invalid for id")
+                NoChestName[Chest.ObjectData.ID] = true
             end
             return output
         end
@@ -53,21 +53,7 @@ function CheckChests()
     return output
 end
 
-function PlaceScoutedItems(ScoutedLocation,APItemCount)
-    local AllLodadedChests = GetAllChests()
-    local TextDB = GetGameTextDB()
-    for k, v in ipairs(AllLodadedChests)do
-        if(v.IsOpenFlag==false and GetAPNamefromLocationID(ScoutedLocation.location) == ChestNameFromID(v.ObjectData.ID))then
-            v.ObjectData.HaveItemLabel = FName("APItem"..APItemCount)
 
-            RowTemplate = TextDB:FindRow("APItemText"..APItemCount)
-            RowTemplate.Text = FText(""..ScoutedLocation.item) -- get item name and person sending it to
-            TextDB:RemoveRow("APItemText"..APItemCount)
-            TextDB:AddRow("APItemText"..APItemCount,RowTemplate)
-            ScoutedLocations[ScoutedLocation.location] = true
-        end
-    end
-end
 
 function ChestPopupLoop()
     local LibDialog = GetLibDialog()
@@ -89,10 +75,7 @@ function OpenDefaultChest(text)
     local DeafaultChest = GetDefaultChest()
     local foo = StaticFindObject("/Script/Majesty.Default__TextDataUtility")
     local TextRows = foo:GetGameTextDB(1) -- GameTextEN
-    local TreasureBoxRow = TextRows:FindRow("eTHIEF_TREASUREBOX")
-    TreasureBoxRow.Text = FText(text)
-    TextRows:RemoveRow("eTHIEF_TREASUREBOX")
-    TextRows:AddRow("eTHIEF_TREASUREBOX",TreasureBoxRow)
+    TextRows:FindRow("eTHIEF_TREASUREBOX").Text = FText(text)
     DeafaultChest:Open()
 end   
 
@@ -101,17 +84,17 @@ function OpenAllChets()
     local ItemDataUtility = GetItemDataUtility()
     local AllLodadedChests = GetAllChests()
     if(AllLodadedChests~=nil)then
-        for k,v in ipairs(AllLodadedChests) do
+        for _,Chest in ipairs(AllLodadedChests) do
 
-            if(v.IsOpenFlag==false)then
-                v:Open()
-                local ItemLabelID = ItemDataUtility:ItemLabelToID(v.ObjectData.HaveItemLabel)
+            if(Chest.IsOpenFlag==false)then
+                Chest:Open()
+                local ItemLabelID = ItemDataUtility:ItemLabelToID(Chest.ObjectData.HaveItemLabel)
                 local ItemIDToFName = ItemDataUtility:ItemIDToLabel(ItemLabelID)
                 local ItemName = ItemLabelToName[ItemIDToFName:ToString()]
                 if (ItemName~=nil) then
-                     table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..ItemName)
+                     table.insert(ChestItemQueue,"You have opend chest ID "..Chest.ObjectData.ID.." That contains "..ItemName)
                 else 
-                    table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..ItemIDToFName:ToString())
+                    table.insert(ChestItemQueue,"You have opend chest ID "..Chest.ObjectData.ID.." That contains "..ItemIDToFName:ToString())
                 end
                 --table.insert(ChestItemQueue,"You have opend chest ID "..v.ObjectData.ID.." That contains "..)
                -- ChestPopupLoop()

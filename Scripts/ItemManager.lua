@@ -18,13 +18,12 @@ function OnItemRecieve(ItemName, PlayerName)
     ItemNameLabel = ItemNameToItemLabel[ItemName]
     if(ItemNameLabel == nil)then
         print(ItemName.." is not a valid itemname")
-    else
-        
-        print("giving item "..ItemNameLabel)
-        -- FName ItemId, int32 AddNum, class UObject* __WorldContext, bool& success)
-        ItemFunction:AddBackpackItem(FName(ItemNameToItemLabel[ItemName]),1, __WorldContext, {true})
-        table.insert(ChestItemQueue,ItemName.." from "..PlayerName)
+        return
     end
+    print("giving item "..ItemNameLabel)
+    -- FName ItemId, int32 AddNum, class UObject* __WorldContext, bool& success)
+    ItemFunction:AddBackpackItem(FName(ItemNameToItemLabel[ItemName]),1, __WorldContext, {true})
+    table.insert(ChestItemQueue,ItemName.." from "..PlayerName)
 end
 
 

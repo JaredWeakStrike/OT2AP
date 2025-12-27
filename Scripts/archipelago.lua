@@ -1,4 +1,7 @@
 ---@diagnostic disable: lowercase-global
+---@diagnostic disable: undefined-global
+---@diagnostic disable: undefined-field
+
 
 require "ItemManager"
 require "StaticObjectGetters"
@@ -15,7 +18,7 @@ local message_format = AP.RenderFormat.TEXT
 ---@type APClient
 local ap = nil
 local checked_locations = {}
-
+ScoutedLocations = {}
 -- TODO: user input
 local host = "localhost"
 local slot = "Player1"
@@ -57,14 +60,21 @@ function connect(server, slot, password)
     function on_items_received(items)
         print("Items received:")
         for _, item in ipairs(items) do
-            print(item.item)
+            if item.index > GetIndex() then
+                print(APItemIdToName[item.item].." from "..ap:get_player_alias(item.player))
+                OnItemRecieve(APItemIdToName[item.item],ap:get_player_alias(item.player))
+                SetIndex(item.index)
+            end
         end
     end
 
     function on_location_info(items)
         print("Locations scouted:")
         for _, item in ipairs(items) do
-            PlaceScoutedItems(item,_)
+            if ScoutedLocations[item.location]==nil then
+                print("placing item "..item.item.." in location"..item.location)
+                PlaceScoutedItems(item,_)
+            end
         end
     end
     
@@ -72,8 +82,8 @@ function connect(server, slot, password)
         print("calling location checked")
         print("Locations checked:" .. table.concat(locations, ", "))
         print("Checked locations: " .. table.concat(ap.checked_locations, ", "))
-        for index, value in ipairs(locations) do
-            checked_locations[value] = true
+        for _, LocationID in ipairs(locations) do
+            checked_locations[LocationID] = true
         end
     end
 
@@ -241,6 +251,41 @@ end
 function ScoutLocations(ScoutLocations)
     if #ScoutLocations>0 then
         ap:LocationScouts(ScoutLocations,0)
+    end
+end
+
+function PlaceScoutedItems(ScoutedLocation,APItemCount)
+    AllLodadedChests = GetAllChests()
+    TextDB = GetGameTextDB()
+    local playerName = ap:get_player_alias(ScoutedLocation.player)
+    local itemName = ap:get_item_name(ScoutedLocation.item,ap:get_player_game(ScoutedLocation.player))
+    for _, Chest in ipairs(AllLodadedChests)do
+        print("Chest ID "..Chest.ObjectData.ID)
+        local ChestName = ChestIDToName[Chest.ObjectData.ID]
+        
+        if(ChestName~=nil and Chest.IsOpenFlag==false and GetAPNamefromLocationID(ScoutedLocation.location) == ChestName)then
+            Chest.ObjectData.HaveItemLabel = FName("APItem"..APItemCount)
+            RowTemplate = TextDB:FindRow("APItemText"..APItemCount)
+            RowTemplate.Text = FText(itemName.." for "..playerName) -- get item name and person sending it this
+            ScoutedLocations[ScoutedLocation.location] = true
+            return
+        end
+    end
+end
+
+function GetIndex()
+    local SaveGame = GetSaveGame()
+    if SaveGame~=nil then
+        return SaveGame.PlayerMember[40].RawHP
+    end
+    return nil
+end
+
+function SetIndex(newIndex)
+    local SaveGame = GetSaveGame()
+    print("Setting Index: "..newIndex)
+    if SaveGame~=nil then
+        SaveGame.PlayerMember[40].RawHP = newIndex
     end
 end
 ----print("shutting down...");
