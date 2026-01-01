@@ -2750,7 +2750,6 @@ ChestIDToName ={
 	[401] = "Crackridge: Olive of Life (M)",
 	[411] = "Gravell: Quartz Shield",
 }
-
 ChestIDToFilename ={
 	[95] = "Treasure_Dng_Cty_1_1_01",
 	[96] = "Treasure_Dng_Cty_1_1_02",

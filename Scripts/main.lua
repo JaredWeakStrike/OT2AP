@@ -131,6 +131,13 @@ RegisterConsoleCommandHandler("getiteminback", function(FullCommand,userInput)
     return true
 end)
 
+RegisterConsoleCommandHandler("getmp", function(FullCommand,userInput)
+    local HP = GetCharcterSaveDataUtil()
+    --print(HP:GetRawHP_FromSaveCharacterData(userInput[1]))
+    GiveCharacter(userInput[1])
+    return true
+end)
+
 function Connect(commandName,userInput) 
     if #userInput < 2 then 
         print("Error trying to connect. Correct input: connect <host> <slot> [password]")

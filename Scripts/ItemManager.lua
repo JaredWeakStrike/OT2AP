@@ -36,8 +36,67 @@ function PreTextHook(self,text)
    print(ShowTextArgument2:ToString())
     
 end
+local EPlayableCharacterID = {
+    ["eNONE"] = 0,
+    ["Hikari"] = 1, --eFENCER
+    ["Ochette"] = 2,  -- eHunter
+    ["Castii"] = 3, -- eALCHEMIST
+    ["Partitio"] = 4, --eMERCHANT
+    ["Temenos"] = 5, --ePRIEST
+    ["Osvald"] = 6, --ePROFESSOR
+    ["Throne"] = 7, --eTHIEF
+    ["Agnea"] = 8, --eDANCER
+    ["eGUEST_000"] = 9,
+    ["eGUEST_001"] = 10,
+    ["eGUEST_002"] = 11,
+    ["eGUEST_003"] = 12,
+    ["eGUEST_004"] = 13,
+    ["eGUEST_005"] = 14,
+    ["eGUEST_006"] = 15,
+    ["eGUEST_007"] = 16,
+    ["eGUEST_008"] = 17,
+    ["eGUEST_009"] = 18,
+    ["eGUEST_010"] = 19,
+    ["eGUEST_011"] = 20,
+    ["eGUEST_012"] = 21,
+    ["eGUEST_013"] = 22,
+    ["eGUEST_014"] = 23,
+    ["eGUEST_015"] = 24,
+    ["eGUEST_016"] = 25,
+    ["eGUEST_017"] = 26,
+    ["eGUEST_018"] = 27,
+    ["eGUEST_019"] = 28,
+    ["eGUEST_020"] = 29,
+    ["eGUEST_021"] = 30,
+    ["eGUEST_022"] = 31,
+    ["eGUEST_023"] = 32,
+    ["eGUEST_024"] = 33,
+    ["eGUEST_025"] = 34,
+    ["eMAX"] = 35,
+    ["EPlayableCharacterID_MAX"] = 36,
+}
+CharacterIDToStartingStats ={
+    ["Hikari"]   = {["HP"] = 325,["MP"] = 40}, --eFENCER
+    ["Ochette"]  = {["HP"] = 250,["MP"] = 40},  -- eHunter
+    ["Castii"]   = {["HP"] = 300,["MP"] = 50}, -- eALCHEMIST
+    ["Partitio"] = {["HP"] = 275,["MP"] = 50}, --eMERCHANT
+    ["Temenos"]  = {["HP"] = 225,["MP"] = 65}, --ePRIEST
+    ["Osvald"]   = {["HP"] = 200,["MP"] = 60}, --ePROFESSOR
+    ["Throne"]   = {["HP"] = 250,["MP"] = 40}, --eTHIEF
+    ["Agnea"]    = {["HP"] = 225,["MP"] = 50}, --eDANCER
+}
 
-
+function GiveCharacter(characterName)
+    local SaveGame = GetSaveGame()
+    --local SaveDataUtil = GetSaveDataUtil()
+    local CharSaveDataUtil = GetCharcterSaveDataUtil() 
+    local OutResult = {} --bool
+    local outIsAddMainMember = {} --bool
+    
+    SaveGame:JoinPlayerCharacterToParty(EPlayableCharacterID[characterName],OutResult,outIsAddMainMember)
+    CharSaveDataUtil:SetCharacterRawHP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["HP"])
+    CharSaveDataUtil:SetCharacterRawMP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["MP"])
+end
 
 function SetChestText()
     -- might have to make this pre and post function hook

@@ -14,6 +14,7 @@ ItemDataUtil_ = nil
 SaveDataUtil_ = nil
 StoryDataUtil_ = nil
 SaveStoryUtil_ = nil
+CharacterSaveDataUtil_ = nil
 LibDialog_ = nil
 
 DatabaseManager_ = nil
@@ -54,8 +55,12 @@ function GetItemDataUtility()
     end
     return ItemDataUtil_
 end
-
-
+function GetCharcterSaveDataUtil()
+    if (CharacterSaveDataUtil_ == nil) then
+        CharacterSaveDataUtil_  = StaticFindObject("/Script/Majesty.Default__CharacterSaveDataUtil")
+    end
+    return CharacterSaveDataUtil_
+end
 -- Majesty.hpp
 -- Returns SaveDataManager
 -- AKSSaveDataManager::AAcqManagerBase
