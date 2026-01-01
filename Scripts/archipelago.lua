@@ -362,18 +362,18 @@ function SetIndex(newIndex)
 end
 
 function VerifyCharacters()
-    local SaveGame = GetSaveGame()
     for CharName,CharBool in pairs(Characters) do
-        HasCharReturn = HasCharacter(CharName)
+        local HasCharReturn = HasCharacter(CharName)
         if CharBool~=HasCharReturn["HasCharacter"] then
             if CharBool then
                 GiveCharacter(CharName)
             else 
-
+                RemoveCharacter(HasCharReturn["PartyType"],HasCharReturn["Index"])
             end
         end
     end
 end
+
 function HasCharacter(CharacterName)
     local CharacterID = EPlayableCharacterID[CharacterName]
     local SaveGame = GetSaveGame()
@@ -392,6 +392,3 @@ function HasCharacter(CharacterName)
     return {["HasCharacter"] = false}
 
 end
-----print("shutting down...");
---ap = nil
---collectgarbage("collect")
