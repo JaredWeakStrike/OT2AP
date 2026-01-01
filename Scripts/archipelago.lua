@@ -71,6 +71,18 @@ ChapterUnlocks = {
 		["Temenos and Throne Chapter 2 Unlock"]             = false, --"TemenosThrone2",
 		["Finale"]                                          = false
 }
+Characters = {
+    ["Hikari"]   = false, --eFENCER
+    ["Ochette"]  = false, --eHunter
+    ["Castii"]   = false, --eALCHEMIST
+    ["Partitio"] = false, --eMERCHANT
+    ["Temenos"]  = false, --ePRIEST
+    ["Osvald"]   = false, --ePROFESSOR
+    ["Throne"]   = false, --eTHIEF
+    ["Agnea"]    = false, --eDANCER
+}
+StartingCharacter = nil
+Goal = nil
 -- TODO: user input
 local host = "localhost"
 local slot = "Player1"
@@ -101,7 +113,9 @@ function connect(server, slot, password)
         ap:Say("Hello World!")
         ap:Bounce({name="test"}, {game_name})
         ap:ConnectUpdate(nil, {"Lua-APClientPP"})
-        ap:LocationChecks({0x88888888})  
+        --ap:LocationChecks({0x88888888})  
+        StartingCharacter = slot_data["StartingCharacter"]
+        Goal              = slot_data["Goal"]
     end
 
 
@@ -345,6 +359,38 @@ function SetIndex(newIndex)
     if SaveGame~=nil then
         SaveGame.PlayerMember[40].RawHP = newIndex
     end
+end
+
+function VerifyCharacters()
+    local SaveGame = GetSaveGame()
+    for CharName,CharBool in pairs(Characters) do
+        HasCharReturn = HasCharacter(CharName)
+        if CharBool~=HasCharReturn["HasCharacter"] then
+            if CharBool then
+                GiveCharacter(CharName)
+            else 
+
+            end
+        end
+    end
+end
+function HasCharacter(CharacterName)
+    local CharacterID = EPlayableCharacterID[CharacterName]
+    local SaveGame = GetSaveGame()
+    local PlayerParty = SaveGame.PlayerParty
+    --local SubPlayerParty = SaveGame.SubMemberID
+    for i = 1,4 do
+        if PlayerParty.MainMemberID[i] == CharacterID then
+            return {["HasCharacter"] = true,["Index"] = i,["PartyType"]="MainMember"}
+        end
+    end
+    for i = 1,8 do
+        if PlayerParty.SubMemberID[i] == CharacterID then
+            return {["HasCharacter"] = true,["Index"] = i,["PartyType"]="SubMember"}
+        end
+    end
+    return {["HasCharacter"] = false}
+
 end
 ----print("shutting down...");
 --ap = nil

@@ -135,6 +135,7 @@ RegisterConsoleCommandHandler("getmp", function(FullCommand,userInput)
     local HP = GetCharcterSaveDataUtil()
     --print(HP:GetRawHP_FromSaveCharacterData(userInput[1]))
     GiveCharacter(userInput[1])
+    HasCharacter("Hikari")
     return true
 end)
 

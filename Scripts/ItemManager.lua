@@ -36,7 +36,7 @@ function PreTextHook(self,text)
    print(ShowTextArgument2:ToString())
     
 end
-local EPlayableCharacterID = {
+EPlayableCharacterID = {
     ["eNONE"] = 0,
     ["Hikari"] = 1, --eFENCER
     ["Ochette"] = 2,  -- eHunter
@@ -75,7 +75,7 @@ local EPlayableCharacterID = {
     ["eMAX"] = 35,
     ["EPlayableCharacterID_MAX"] = 36,
 }
-CharacterIDToStartingStats ={
+local CharacterIDToStartingStats ={
     ["Hikari"]   = {["HP"] = 325,["MP"] = 40}, --eFENCER
     ["Ochette"]  = {["HP"] = 250,["MP"] = 40},  -- eHunter
     ["Castii"]   = {["HP"] = 300,["MP"] = 50}, -- eALCHEMIST
@@ -92,10 +92,20 @@ function GiveCharacter(characterName)
     local CharSaveDataUtil = GetCharcterSaveDataUtil() 
     local OutResult = {} --bool
     local outIsAddMainMember = {} --bool
-    
+    print("Giving Character"..EPlayableCharacterID[characterName])
     SaveGame:JoinPlayerCharacterToParty(EPlayableCharacterID[characterName],OutResult,outIsAddMainMember)
     CharSaveDataUtil:SetCharacterRawHP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["HP"])
     CharSaveDataUtil:SetCharacterRawMP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["MP"])
+end
+
+function RemoveCharacter(partyType,index)
+    --local characterID = EPlayableCharacterID[characterName]
+    local PlayerParty = GetSaveGame().PlayerParty
+    if partyType == "MainMember" then
+       PlayerParty.MainMember[index] = -1
+    else
+       PlayerParty.SubMemberID[index] = -1
+    end
 end
 
 function SetChestText()
