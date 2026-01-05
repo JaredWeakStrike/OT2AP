@@ -72,17 +72,26 @@ ChapterUnlocks = {
 		["Finale"]                                          = false
 }
 Characters = {
-    ["Hikari"]   = false, --eFENCER
+    ["Hikari"]   = true, --eFENCER
     ["Ochette"]  = false, --eHunter
     ["Castii"]   = false, --eALCHEMIST
     ["Partitio"] = false, --eMERCHANT
-    ["Temenos"]  = false, --ePRIEST
+    ["Temenos"]  = true, --ePRIEST
     ["Osvald"]   = false, --ePROFESSOR
     ["Throne"]   = false, --eTHIEF
     ["Agnea"]    = false, --eDANCER
 }
 StartingCharacter = nil
 Goal = nil
+APNameToChestID = {}
+print("filling APName to Chest")
+for ChestID, APName in pairs(ChestIDToName) do
+    if APNameToChestID[APName]~=nil then
+        print(APName)
+    else
+        APNameToChestID[APName] = ChestID
+    end
+end
 -- TODO: user input
 local host = "localhost"
 local slot = "Player1"
@@ -116,6 +125,15 @@ function connect(server, slot, password)
         --ap:LocationChecks({0x88888888})  
         StartingCharacter = slot_data["StartingCharacter"]
         Goal              = slot_data["Goal"]
+        local StartingCharacterToName = {
+            "Osvald","Castii","Temenos","Ochette","Partitio","Agnea","Hikari"
+        }
+        Characters[StartingCharacterToName[StartingCharacter]] = true
+        local locations_to_scout = {}
+        for locationName, locationID in pairs(LocationNameToAPId) do
+            table.insert(locations_to_scout,locationID)
+        end
+        ap:LocationScouts(locations_to_scout, false)
     end
 
 
@@ -144,8 +162,17 @@ function connect(server, slot, password)
         print("Locations scouted:")
         for _, item in ipairs(items) do
             if ScoutedLocations[item.location]==nil then
-                print("placing item "..item.item.." in location"..item.location)
-                PlaceScoutedItems(item,_)
+                print("placing item "..ap:get_item_name(item.item,ap:get_player_game(item.player)).." in location"..item.location)
+                print("apnamelength "..#APNameToChestID)
+                local APLocationName = APLocationIdToName[item.location]
+                if APLocationName == nil then
+                    print("we sajdklajskl")
+                end
+                local chestID = APNameToChestID[APLocationName]
+                if chestID~=nil then
+                    print("we have messed up")
+                end
+                ScoutedLocations[chestID] = {["ItemName"] = ap:get_item_name(item.item,ap:get_player_game(item.player)),["PlayerName"] = ap:get_player_alias(item.player)}
             end
         end
     end
@@ -242,6 +269,8 @@ function connectToAp(host, slot, password)
                 checked_locations[APID] = true
             end
         end
+        VerifyCharacters()
+        pcall(FillScoutedLocations)
 
     end
 
@@ -326,21 +355,44 @@ function ScoutLocations(ScoutLocations)
     end
 end
 
-function PlaceScoutedItems(ScoutedLocation,APItemCount)
-    AllLodadedChests = GetAllChests()
-    TextDB = GetGameTextDB()
-    local playerName = ap:get_player_alias(ScoutedLocation.player)
-    local itemName = ap:get_item_name(ScoutedLocation.item,ap:get_player_game(ScoutedLocation.player))
-    for _, Chest in ipairs(AllLodadedChests)do
-        print("Chest ID "..Chest.ObjectData.ID)
-        local ChestName = ChestIDToName[Chest.ObjectData.ID]
-        
-        if(ChestName~=nil and Chest.IsOpenFlag==false and GetAPNamefromLocationID(ScoutedLocation.location) == ChestName)then
-            Chest.ObjectData.HaveItemLabel = FName("APItem"..APItemCount)
-            RowTemplate = TextDB:FindRow("APItemText"..APItemCount)
-            RowTemplate.Text = FText(itemName.." for "..playerName) -- get item name and person sending it this
-            ScoutedLocations[ScoutedLocation.location] = true
-            return
+--function PlaceScoutedItems(ScoutedLocation,APItemCount)
+--    AllLodadedChests = GetAllChests()
+--    TextDB = GetGameTextDB()
+--    local playerName = ap:get_player_alias(ScoutedLocation.player)
+--    local itemName = ap:get_item_name(ScoutedLocation.item,ap:get_player_game(ScoutedLocation.player))
+--    for _, Chest in ipairs(AllLodadedChests)do
+--        print("Chest ID "..Chest.ObjectData.ID)
+--        local ChestName = ChestIDToName[Chest.ObjectData.ID]
+--        
+--        if(ChestName~=nil and Chest.IsOpenFlag==false and GetAPNamefromLocationID(ScoutedLocation.location) == ChestName)then
+--            Chest.ObjectData.HaveItemLabel = FName("APItem"..APItemCount)
+--            RowTemplate = TextDB:FindRow("APItemText"..APItemCount)
+--            RowTemplate.Text = FText(itemName.." for "..playerName) -- get item name and person sending it this
+--            ScoutedLocations[ScoutedLocation.location] = true
+--            return
+--        elseif(ChestName~=nil and Chest.IsOpenFlag==true and GetAPNamefromLocationID(ScoutedLocation.location) == ChestName)  then
+--            ScoutedLocations[ScoutedLocation.location] = true
+--            return
+--        end
+--    end
+--end
+
+function FillScoutedLocations()
+    local AllLodadedChests = GetAllChests()
+    local TextDB = GetGameTextDB()
+    for _, Chest in ipairs(AllLodadedChests) do
+        --print(Chest)
+        --print(Chest.ObjectData.HaveItemLabel:ToString())
+        if ScoutedLocations[Chest.ObjectData.ID] ~= nil and Chest.ObjectData.HaveItemLabel:ToString() ~= "APItem".._ and Chest.IsOpenFlag == false then
+            if Chest.ObjectData.IsMoney == true then
+                Chest.ObjectData.IsMoney = false
+            end
+            local ScoutedLocationV = ScoutedLocations[Chest.ObjectData.ID]
+            print(ScoutedLocationV["ItemName"].." for "..ScoutedLocationV["PlayerName"])
+            
+            Chest.ObjectData.HaveItemLabel = FName("APItem".._)
+            TextDB:FindRow("APItemText".._).Text = FText(ScoutedLocationV["ItemName"].." for "..ScoutedLocationV["PlayerName"])
+
         end
     end
 end
@@ -362,9 +414,17 @@ function SetIndex(newIndex)
 end
 
 function VerifyCharacters()
-    for CharName,CharBool in pairs(Characters) do
+    if StartingCharacter==nil then
+        return
+    end
+
+    for CharName, CharBool in pairs(Characters) do
+        --print("charname "..CharName)
         local HasCharReturn = HasCharacter(CharName)
         if CharBool~=HasCharReturn["HasCharacter"] then
+            print("giving character "..CharName)
+            print("HasCharReturn ")
+            print(HasCharReturn["HasCharacter"])
             if CharBool then
                 GiveCharacter(CharName)
             else 
@@ -375,7 +435,8 @@ function VerifyCharacters()
 end
 
 function HasCharacter(CharacterName)
-    local CharacterID = EPlayableCharacterID[CharacterName]
+    --print("charactername: " ..CharacterName)
+    local CharacterID = EPlayableCharacterID[CharacterName] - 1
     local SaveGame = GetSaveGame()
     local PlayerParty = SaveGame.PlayerParty
     --local SubPlayerParty = SaveGame.SubMemberID

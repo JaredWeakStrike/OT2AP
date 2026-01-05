@@ -20,7 +20,8 @@ function CheckChests()
     if(AllLodadedChests==nil)then
         return output
     end 
-    for _,Chest in pairs(AllLodadedChests) do
+
+    for _, Chest in pairs(AllLodadedChests) do
         local ChestName = ChestNamefromID(Chest.ObjectData.ID)
         if(ChestName == nil) then
             if(NoChestName[Chest.ObjectData.ID]==nil) then
@@ -49,7 +50,7 @@ function CheckChests()
         end
 
     end
-    ScoutLocations(ChestIDs)
+    --ScoutLocations(ChestIDs)
     return output
 end
 
@@ -57,14 +58,14 @@ end
 
 function ChestPopupLoop()
     local LibDialog = GetLibDialog()
-    IsRunningReturn = {}
+    IsRunningReturn = false
     --void IsDialogRunning(bool& IsRunning);
     -- if IsRunning == false then no dialog is running thus able to call chest popup
     if(LibDialog~=nil) then
         LibDialog:IsDialogRunning(IsRunningReturn)
     end
 
-    if(IsRunningReturn.IsRunning==false and next(ChestItemQueue))then
+    if(IsRunningReturn==false and next(ChestItemQueue))then
         OpenDefaultChest(ChestItemQueue[1])
         table.remove(ChestItemQueue,1)
     end

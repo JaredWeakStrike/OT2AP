@@ -139,6 +139,15 @@ RegisterConsoleCommandHandler("getmp", function(FullCommand,userInput)
     return true
 end)
 
+RegisterConsoleCommandHandler("startstory", function(FullCommand,userInput)
+    local SaveGame = GetSaveGame()
+    SaveGame.MainStoryData[27].StoryID = userInput[1]
+    SaveGame.MainStoryData[27].CurrentTaskID=1
+    SaveGame.MainStoryData[27].State = 1
+    SaveGame.MainStoryData[27].ConfirmedFlag = true
+    return true
+end)
+
 function Connect(commandName,userInput) 
     if #userInput < 2 then 
         print("Error trying to connect. Correct input: connect <host> <slot> [password]")

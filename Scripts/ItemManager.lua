@@ -92,7 +92,7 @@ function GiveCharacter(characterName)
     local CharSaveDataUtil = GetCharcterSaveDataUtil() 
     local OutResult = {} --bool
     local outIsAddMainMember = {} --bool
-    print("Giving Character"..EPlayableCharacterID[characterName])
+    --print("Giving Character"..EPlayableCharacterID[characterName])
     SaveGame:JoinPlayerCharacterToParty(EPlayableCharacterID[characterName],OutResult,outIsAddMainMember)
     CharSaveDataUtil:SetCharacterRawHP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["HP"])
     CharSaveDataUtil:SetCharacterRawMP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["MP"])
@@ -102,7 +102,7 @@ function RemoveCharacter(partyType,index)
     --local characterID = EPlayableCharacterID[characterName]
     local PlayerParty = GetSaveGame().PlayerParty
     if partyType == "MainMember" then
-       PlayerParty.MainMember[index] = -1
+       PlayerParty.MainMemberID[index] = -1
     else
        PlayerParty.SubMemberID[index] = -1
     end

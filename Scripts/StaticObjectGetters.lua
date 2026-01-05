@@ -3,21 +3,32 @@
 -- only get it once, lazy instantiation
 -- These variables should only be used in this file use the respective Get function instead
 DefaultTreasureBox_ = nil
+---@class UMJSaveData
 SaveGame_ = nil
+---@class AKSSaveDataManager
 SaveDataManager_ = nil
+---@class ALevelManager_Others
 LevelManager_ = nil
+---@class ADialogManager
 DialogManager_ = nil
+---@class UTextDataUtility
 TextUtil_ = nil
+---@class UItemFunction_C
 ItemFunction_ = nil
 GameTextDB_ = nil
+---@class UItemDataUtility
 ItemDataUtil_ = nil
+---@class ULevelSaveDataUtil
 SaveDataUtil_ = nil
+---@class UStoryDataUtility
 StoryDataUtil_ = nil
+---@class UStorySaveDataUtil
 SaveStoryUtil_ = nil
+---@class UCharacterSaveDataUtil
 CharacterSaveDataUtil_ = nil
+---@class ULibDialog
 LibDialog_ = nil
-
-DatabaseManager_ = nil
+---@class FItemData
 ItemDB_ = nil
 
 -- TreasureBoxBP.hpp
@@ -30,8 +41,11 @@ function GetDefaultChest()
     return DefaultTreasureBox_
 end
 -- Returns all Chests that are loaded
+---@return ATreasureBoxBP_C[]
 function GetAllChests()
-    return FindAllOf("TreasureBoxBP_C")
+    local stuff = FindAllOf("TreasureBoxBP_C")
+    ---@class ATreasureBoxBP_C[]
+    return stuff
 end
 
 -- Majesty.hpp
