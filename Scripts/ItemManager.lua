@@ -17,7 +17,7 @@ function OnItemRecieve(ItemName, PlayerName)
 
     ItemNameLabel = ItemNameToItemLabel[ItemName]
     if(ItemNameLabel == nil)then
-        print(ItemName.." is not a valid itemname")
+        print(ItemName.." is not a valid itemname to add into backpack")
         return
     end
     print("giving item "..ItemNameLabel)
@@ -88,11 +88,13 @@ local CharacterIDToStartingStats ={
 
 function GiveCharacter(characterName)
     local SaveGame = GetSaveGame()
-    --local SaveDataUtil = GetSaveDataUtil()
+
     local CharSaveDataUtil = GetCharcterSaveDataUtil() 
-    local OutResult = {} --bool
-    local outIsAddMainMember = {} --bool
-    --print("Giving Character"..EPlayableCharacterID[characterName])
+    local OutResult --bool
+    local outIsAddMainMember = true --bool
+    if IsMainPartyFull() then
+        outIsAddMainMember = false
+    end
     SaveGame:JoinPlayerCharacterToParty(EPlayableCharacterID[characterName],OutResult,outIsAddMainMember)
     CharSaveDataUtil:SetCharacterRawHP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["HP"])
     CharSaveDataUtil:SetCharacterRawMP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["MP"])
@@ -108,6 +110,15 @@ function RemoveCharacter(partyType,index)
     end
 end
 
+function IsMainPartyFull()
+    local PlayerParty = GetSaveGame().PlayerParty
+    for i=1,4 do
+        if PlayerParty[i] == -1 then
+            return false
+        end
+    end
+    return true
+end
 function SetChestText()
     -- might have to make this pre and post function hook
     --RegisterHook("/Game/UserInterface/Common/BP/Dialog/UICommonDialogItemBP.UICommonDialogItemBP_C:SetText",PreTextHook,PostTextHook) 

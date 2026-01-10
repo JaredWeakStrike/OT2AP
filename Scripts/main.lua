@@ -25,6 +25,7 @@ if DEBUG_KEYBIND then
        --OnItemRecieve("Frost Axe","Player2")
        --OnItemRecieve("Vest of Joy","Player3")
         UnlockAllWarps()
+        print("unlocking all warps")
 
     end)
     RegisterKeyBind(Key.P, function()
@@ -141,10 +142,32 @@ end)
 
 RegisterConsoleCommandHandler("startstory", function(FullCommand,userInput)
     local SaveGame = GetSaveGame()
-    SaveGame.MainStoryData[27].StoryID = userInput[1]
-    SaveGame.MainStoryData[27].CurrentTaskID=1
-    SaveGame.MainStoryData[27].State = 1
-    SaveGame.MainStoryData[27].ConfirmedFlag = true
+    for name,storyID in pairs(CharacterChapterToStoryID) do
+        SaveGame.MainStoryData[storyID["index"]].StoryID = storyID["storyID"]
+        SaveGame.MainStoryData[storyID["index"]].CurrentTaskID = 0
+        SaveGame.MainStoryData[storyID["index"]].State = 1
+        SaveGame.MainStoryData[storyID["index"]].ConfirmedFlag = false
+    end
+        SaveGame.MainStoryData[51].StoryID = 601
+        SaveGame.MainStoryData[51].CurrentTaskID = 0
+        SaveGame.MainStoryData[51].State = 1
+        SaveGame.MainStoryData[51].ConfirmedFlag = false
+    return true
+end)
+
+RegisterConsoleCommandHandler("endstory", function(FullCommand,userInput)
+    local SaveGame = GetSaveGame()
+    for name,storyID in pairs(CharacterChapterToStoryID) do
+        SaveGame.MainStoryData[storyID["index"]].StoryID = storyID["storyID"]
+        SaveGame.MainStoryData[storyID["index"]].CurrentTaskID = 0
+        SaveGame.MainStoryData[storyID["index"]].State = 7
+        SaveGame.MainStoryData[storyID["index"]].ConfirmedFlag = false
+    end
+    return true
+end)
+
+RegisterConsoleCommandHandler("kill", function(FullCommand,userInput)
+    KillAllEnemy()
     return true
 end)
 

@@ -134,6 +134,7 @@ function connect(server, slot, password)
             table.insert(locations_to_scout,locationID)
         end
         ap:LocationScouts(locations_to_scout, false)
+        SetInterruptedStoryFlags()
     end
 
 
@@ -154,6 +155,8 @@ function connect(server, slot, password)
                 end
 
                 SetIndex(item.index)
+            else
+                print("item is out of index")
             end
         end
     end
@@ -169,7 +172,7 @@ function connect(server, slot, password)
                     print("we sajdklajskl")
                 end
                 local chestID = APNameToChestID[APLocationName]
-                if chestID~=nil then
+                if chestID==nil then
                     print("we have messed up")
                 end
                 ScoutedLocations[chestID] = {["ItemName"] = ap:get_item_name(item.item,ap:get_player_game(item.player)),["PlayerName"] = ap:get_player_alias(item.player)}
@@ -270,6 +273,7 @@ function connectToAp(host, slot, password)
             end
         end
         VerifyCharacters()
+        VerifyStoryFlags()
         pcall(FillScoutedLocations)
 
     end
@@ -355,34 +359,12 @@ function ScoutLocations(ScoutLocations)
     end
 end
 
---function PlaceScoutedItems(ScoutedLocation,APItemCount)
---    AllLodadedChests = GetAllChests()
---    TextDB = GetGameTextDB()
---    local playerName = ap:get_player_alias(ScoutedLocation.player)
---    local itemName = ap:get_item_name(ScoutedLocation.item,ap:get_player_game(ScoutedLocation.player))
---    for _, Chest in ipairs(AllLodadedChests)do
---        print("Chest ID "..Chest.ObjectData.ID)
---        local ChestName = ChestIDToName[Chest.ObjectData.ID]
---        
---        if(ChestName~=nil and Chest.IsOpenFlag==false and GetAPNamefromLocationID(ScoutedLocation.location) == ChestName)then
---            Chest.ObjectData.HaveItemLabel = FName("APItem"..APItemCount)
---            RowTemplate = TextDB:FindRow("APItemText"..APItemCount)
---            RowTemplate.Text = FText(itemName.." for "..playerName) -- get item name and person sending it this
---            ScoutedLocations[ScoutedLocation.location] = true
---            return
---        elseif(ChestName~=nil and Chest.IsOpenFlag==true and GetAPNamefromLocationID(ScoutedLocation.location) == ChestName)  then
---            ScoutedLocations[ScoutedLocation.location] = true
---            return
---        end
---    end
---end
+
 
 function FillScoutedLocations()
     local AllLodadedChests = GetAllChests()
     local TextDB = GetGameTextDB()
     for _, Chest in ipairs(AllLodadedChests) do
-        --print(Chest)
-        --print(Chest.ObjectData.HaveItemLabel:ToString())
         if ScoutedLocations[Chest.ObjectData.ID] ~= nil and Chest.ObjectData.HaveItemLabel:ToString() ~= "APItem".._ and Chest.IsOpenFlag == false then
             if Chest.ObjectData.IsMoney == true then
                 Chest.ObjectData.IsMoney = false
@@ -451,5 +433,48 @@ function HasCharacter(CharacterName)
         end
     end
     return {["HasCharacter"] = false}
+end
+
+function VerifyStoryFlags()
+    if StartingCharacter==nil then
+        return
+    end
+
+
+    local SaveGame = GetSaveGame()
+    for ChapterName, StoryInfo in pairs(CharacterChapterToStoryID) do
+        if ChapterUnlocks[ChapterName] == true then
+            if SaveGame.MainStoryData[StoryInfo["index"]].StoryID == StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State == 7 then
+                SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
+                SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
+                SaveGame.MainStoryData[StoryInfo["index"]].State = 1
+                SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
+            end  
+        else --ChapterUnlocks[ChapterName] == false
+            if SaveGame.MainStoryData[StoryInfo["index"]].StoryID == StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State ~= 7 then
+                SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
+                SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
+                SaveGame.MainStoryData[StoryInfo["index"]].State = 7
+                SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
+            end  
+        end
+    end
+end 
+
+function SetInterruptedStoryFlags()
+    if StartingCharacter==nil then
+        return
+    end
+
+
+    local SaveGame = GetSaveGame()
+    for ChapterName, StoryInfo in pairs(CharacterChapterToStoryID) do
+        if SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State ~= 7 then
+            SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
+            SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
+            SaveGame.MainStoryData[StoryInfo["index"]].State = 7
+            SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
+        end 
+    end
 
 end
