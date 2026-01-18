@@ -72,11 +72,11 @@ ChapterUnlocks = {
 		["Finale"]                                          = false
 }
 Characters = {
-    ["Hikari"]   = true, --eFENCER
+    ["Hikari"]   = false, --eFENCER
     ["Ochette"]  = false, --eHunter
-    ["Castii"]   = false, --eALCHEMIST
+    ["Castii"]   = true, --eALCHEMIST
     ["Partitio"] = false, --eMERCHANT
-    ["Temenos"]  = true, --ePRIEST
+    ["Temenos"]  = false, --ePRIEST
     ["Osvald"]   = false, --ePROFESSOR
     ["Throne"]   = false, --eTHIEF
     ["Agnea"]    = false, --eDANCER
@@ -364,6 +364,10 @@ end
 function FillScoutedLocations()
     local AllLodadedChests = GetAllChests()
     local TextDB = GetGameTextDB()
+    if AllLodadedChests==nil or TextDB==nil then
+        return
+    end
+
     for _, Chest in ipairs(AllLodadedChests) do
         if ScoutedLocations[Chest.ObjectData.ID] ~= nil and Chest.ObjectData.HaveItemLabel:ToString() ~= "APItem".._ and Chest.IsOpenFlag == false then
             if Chest.ObjectData.IsMoney == true then
@@ -420,7 +424,11 @@ function HasCharacter(CharacterName)
     --print("charactername: " ..CharacterName)
     local CharacterID = EPlayableCharacterID[CharacterName] - 1
     local SaveGame = GetSaveGame()
+    if SaveGame==nil then
+        return {["HasCharacter"] = false}
+    end
     local PlayerParty = SaveGame.PlayerParty
+
     --local SubPlayerParty = SaveGame.SubMemberID
     for i = 1,4 do
         if PlayerParty.MainMemberID[i] == CharacterID then
@@ -432,6 +440,7 @@ function HasCharacter(CharacterName)
             return {["HasCharacter"] = true,["Index"] = i,["PartyType"]="SubMember"}
         end
     end
+
     return {["HasCharacter"] = false}
 end
 
@@ -439,9 +448,11 @@ function VerifyStoryFlags()
     if StartingCharacter==nil then
         return
     end
-
-
     local SaveGame = GetSaveGame()
+    if SaveGame==nil then
+        return
+    end
+    
     for ChapterName, StoryInfo in pairs(CharacterChapterToStoryID) do
         if ChapterUnlocks[ChapterName] == true then
             if SaveGame.MainStoryData[StoryInfo["index"]].StoryID == StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State == 7 then
@@ -452,6 +463,7 @@ function VerifyStoryFlags()
             end  
         else --ChapterUnlocks[ChapterName] == false
             if SaveGame.MainStoryData[StoryInfo["index"]].StoryID == StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State ~= 7 then
+                print("removing story flag "..StoryInfo["storyID"])
                 SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
                 SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
                 SaveGame.MainStoryData[StoryInfo["index"]].State = 7
@@ -465,9 +477,12 @@ function SetInterruptedStoryFlags()
     if StartingCharacter==nil then
         return
     end
-
-
     local SaveGame = GetSaveGame()
+    if SaveGame==nil then
+        return
+    end
+
+    
     for ChapterName, StoryInfo in pairs(CharacterChapterToStoryID) do
         if SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State ~= 7 then
             SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]

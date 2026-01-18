@@ -30,6 +30,12 @@ CharacterSaveDataUtil_ = nil
 LibDialog_ = nil
 ---@class FItemData
 ItemDB_ = nil
+PRINT_DEBUG_FLAG = true
+function print_debug(text) 
+    if PRINT_DEBUG_FLAG == true then
+        print(text)
+    end
+end
 
 -- TreasureBoxBP.hpp
 -- Returns the default Chest Object

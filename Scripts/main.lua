@@ -115,7 +115,7 @@ RegisterConsoleCommandHandler("openchest", function(FullCommand,userInput)
 end)
 
 RegisterConsoleCommandHandler("updateindex", function(FullCommand,userInput)
-    print("Calling open chest")
+    print("Updating index")
     local saveData = GetSaveGame()
     saveData.PlayerMember[40].RawHP = userInput[1]
     return true

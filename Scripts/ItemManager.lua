@@ -7,35 +7,6 @@ require "DatabaseInfo"
 local UEHelpers = require("UEHelpers")
 popup_text = FText("")
 ChestItemQueue={}
-
-local pc = UEHelpers:GetPlayerController() -- required for getting world context
-local __WorldContext = pc:GetWorld() -- required for some functions.
-
-function OnItemRecieve(ItemName, PlayerName)
-    local ItemFunction = GetItemFunction()
-    local LibDialog = StaticFindObject("/Script/Majesty.Default__LibDialog")
-
-    ItemNameLabel = ItemNameToItemLabel[ItemName]
-    if(ItemNameLabel == nil)then
-        print(ItemName.." is not a valid itemname to add into backpack")
-        return
-    end
-    print("giving item "..ItemNameLabel)
-    -- FName ItemId, int32 AddNum, class UObject* __WorldContext, bool& success)
-    ItemFunction:AddBackpackItem(FName(ItemNameToItemLabel[ItemName]),1, __WorldContext, {true})
-    table.insert(ChestItemQueue,ItemName.." from "..PlayerName)
-end
-
-
-function PreTextHook(self,text)
-    print("we ran")
-   local ShowTextArgument = text:get()
-   local Context = self:get()
-   ShowTextArgument=FText("This is the local ShowText Variable")
-   local ShowTextArgumen2 = text:get()
-   print(ShowTextArgument2:ToString())
-    
-end
 EPlayableCharacterID = {
     ["eNONE"] = 0,
     ["Hikari"] = 1, --eFENCER
@@ -86,10 +57,54 @@ local CharacterIDToStartingStats ={
     ["Agnea"]    = {["HP"] = 225,["MP"] = 50}, --eDANCER
 }
 
+
+
+local pc = UEHelpers:GetPlayerController() -- required for getting world context
+local __WorldContext = pc:GetWorld() -- required for some functions.
+
+function OnItemRecieve(ItemName, PlayerName)
+    local ItemFunction = GetItemFunction()
+    --local LibDialog = StaticFindObject("/Script/Majesty.Default__LibDialog")
+    if (ItemFunction==nil) then
+        return
+    end
+
+
+    ItemNameLabel = ItemNameToItemLabel[ItemName]
+
+    if(ItemNameLabel == nil)then
+        print(ItemName.." is not a valid itemname to add into backpack")
+        return
+    end
+
+    print("giving item "..ItemNameLabel)
+    -- FName ItemId, int32 AddNum, class UObject* __WorldContext, bool& success)
+    ItemFunction:AddBackpackItem(FName(ItemNameToItemLabel[ItemName]),1, __WorldContext, {true})
+    table.insert(ChestItemQueue,ItemName.." from "..PlayerName)
+end
+
+
+function PreTextHook(self,text)
+    print("we ran")
+   local ShowTextArgument = text:get()
+   local Context = self:get()
+   ShowTextArgument=FText("This is the local ShowText Variable")
+   local ShowTextArgumen2 = text:get()
+   print(ShowTextArgument2:ToString())
+    
+end
+
+
 function GiveCharacter(characterName)
     local SaveGame = GetSaveGame()
-
+    print("calling give character")
     local CharSaveDataUtil = GetCharcterSaveDataUtil() 
+
+    if SaveGame==nil or CharSaveDataUtil == nil then
+        print_debug("SaveGame or CharacterSaveDataUtil is nil in GiveCharacter")
+        return
+    end
+
     local OutResult --bool
     local outIsAddMainMember = true --bool
     if IsMainPartyFull() then
@@ -102,7 +117,16 @@ end
 
 function RemoveCharacter(partyType,index)
     --local characterID = EPlayableCharacterID[characterName]
-    local PlayerParty = GetSaveGame().PlayerParty
+    local SaveGame = GetSaveGame()
+    if SaveGame==nil then 
+        return
+    end
+
+    local PlayerParty = SaveGame.PlayerParty
+    if PlayerParty==nil then
+        return
+    end
+
     if partyType == "MainMember" then
        PlayerParty.MainMemberID[index] = -1
     else
@@ -111,12 +135,26 @@ function RemoveCharacter(partyType,index)
 end
 
 function IsMainPartyFull()
-    local PlayerParty = GetSaveGame().PlayerParty
+    print_debug("Calling is main party full")
+    local SaveGame = GetSaveGame()
+    if SaveGame==nil then 
+        print_debug("Savegame is nil in IsMainPartyFull")
+        return
+    end
+
+    local PlayerParty = SaveGame.PlayerParty
+    if PlayerParty==nil then
+        print_debug("PlayerParty is nil in IsMainPartyFull")
+        return
+    end
+
     for i=1,4 do
         if PlayerParty[i] == -1 then
+            print_debug("returning false in IsMainPartyFull")
             return false
         end
     end
+    print_debug("returning true in IsMainPartyFull")
     return true
 end
 function SetChestText()
