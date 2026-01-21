@@ -5,6 +5,8 @@
 DefaultTreasureBox_ = nil
 ---@class UMJSaveData
 SaveGame_ = nil
+---@class UMJSaveData[]
+SaveGames_ = nil
 ---@class AKSSaveDataManager
 SaveDataManager_ = nil
 ---@class ALevelManager_Others
@@ -30,7 +32,12 @@ CharacterSaveDataUtil_ = nil
 LibDialog_ = nil
 ---@class FItemData
 ItemDB_ = nil
+---@class UWBP_3DPlayerSelectWidget_C
+PlayerSelectWidgets_ = nil
+
 PRINT_DEBUG_FLAG = true
+
+
 function print_debug(text) 
     if PRINT_DEBUG_FLAG == true then
         print(text)
@@ -62,6 +69,12 @@ function GetSaveGame()
         SaveGame_ = FindFirstOf("KSSaveGameBP_C")
     end
     return SaveGame_
+end
+function GetSaveGames()
+    if(SaveGames_==nil)then
+        SaveGames_ = FindAllOf("KSSaveGameBP_C")
+    end
+    return SaveGames_
 end
 function GetItemFunction()
     if(ItemFunction_==nil)then
@@ -169,4 +182,11 @@ function GetItemDB()
         ItemDB_ = StaticFindObject("/Game/Item/Database/ItemDB.ItemDB")
     end
     return ItemDB_
+end
+
+function GetTitlePlayerIcons()
+    if(PlayerSelectWidgets_==nil)then
+        PlayerSelectWidgets_ = FindAllOf("WBP_3DPlayerSelectIcon_C")
+    end
+    return PlayerSelectWidgets_
 end

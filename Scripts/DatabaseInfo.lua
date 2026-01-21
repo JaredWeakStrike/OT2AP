@@ -57,6 +57,7 @@ ItemNameToItemLabel = {
 		["Ancient Cursed Talisman"] = "ITM_CSM_0476",
 		["Decaying Dragon's Essence"] = "ITM_CSM_0477",
 		["Herb-of-Grace Bud"] = "ITM_FLV_0290",
+		["Tree Nut"] = "ITM_FLV_0090",
 		["Wriggling Root"] = "ITM_CSM_0478",
 		["Grail of Life"] = "ITM_CSM_0479",
 		["Nourishing Nut"] = "ITM_CSM_0470",

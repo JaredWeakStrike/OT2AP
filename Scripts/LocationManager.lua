@@ -23,7 +23,7 @@ function CheckChests()
     local ChestIDs = {}
     local AllLodadedChests = GetAllChests()
     if(AllLodadedChests==nil) then
-        print_debug("AllloadedChests is nil in ChestChests")
+        --print_debug("AllloadedChests is nil in ChestChests")
         return output
     end 
 

@@ -74,7 +74,7 @@ ChapterUnlocks = {
 Characters = {
     ["Hikari"]   = false, --eFENCER
     ["Ochette"]  = false, --eHunter
-    ["Castii"]   = true, --eALCHEMIST
+    ["Castti"]   = false, --eALCHEMIST
     ["Partitio"] = false, --eMERCHANT
     ["Temenos"]  = false, --ePRIEST
     ["Osvald"]   = false, --ePROFESSOR
@@ -82,6 +82,20 @@ Characters = {
     ["Agnea"]    = false, --eDANCER
 }
 StartingCharacter = nil
+StartingChapter = nil
+FinshsedStartingChapter = false
+ChangeStartingCharIcon = false
+CharNameToMap = {
+    ["Agnea"] =     "eMAP_Twn_Fst_1_1",
+    ["Throne"] =    "eMAP_Twn_Cty_1_1",
+    ["Ochette"] =   "eMAP_Twn_Isd_1_1",
+    ["Hikari"] =    "eMAP_Twn_Dst_3_1",
+    ["Temenos"] =   "eMAP_Twn_Mnt_1_1",
+    ["Osvald"] =    "eMAP_Twn_Snw_1_1",
+    ["Castti"] =    "eMAP_Twn_Sea_1_1",
+    ["Partitio"] =  "eMAP_Twn_Wld_1_1",
+}
+
 Goal = nil
 APNameToChestID = {}
 print("filling APName to Chest")
@@ -122,19 +136,22 @@ function connect(server, slot, password)
         ap:Say("Hello World!")
         ap:Bounce({name="test"}, {game_name})
         ap:ConnectUpdate(nil, {"Lua-APClientPP"})
-        --ap:LocationChecks({0x88888888})  
-        StartingCharacter = slot_data["StartingCharacter"]
-        Goal              = slot_data["Goal"]
+        --ap:LocationChecks({0x88888888})
         local StartingCharacterToName = {
-            "Osvald","Castii","Temenos","Ochette","Partitio","Agnea","Hikari"
+            "Osvald","Castti","Temenos","Ochette","Partitio","Agnea","Hikari"
         }
-        Characters[StartingCharacterToName[StartingCharacter]] = true
+        StartingCharacter = StartingCharacterToName[slot_data["StartingCharacter"]]
+        StartingChapter = StartingCharacter.." Chapter1 Unlock"
+        Goal              = slot_data["Goal"]
+        
+        Characters[StartingCharacter] = true
         local locations_to_scout = {}
         for locationName, locationID in pairs(LocationNameToAPId) do
             table.insert(locations_to_scout,locationID)
         end
         ap:LocationScouts(locations_to_scout, false)
         SetInterruptedStoryFlags()
+        SetStartingCharacterIcons()
     end
 
 
@@ -150,6 +167,8 @@ function connect(server, slot, password)
                 print(APItemIdToName[item.item].." from "..ap:get_player_alias(item.player))
                 if ChapterUnlocks[ApItemName] == false then
                     ChapterUnlocks[ApItemName] = true
+                elseif Characters[ApItemName]==false then
+                    Characters[ApItemName] = true
                 else
                     OnItemRecieve(ApItemName,ap:get_player_alias(item.player))
                 end
@@ -174,6 +193,7 @@ function connect(server, slot, password)
                 local chestID = APNameToChestID[APLocationName]
                 if chestID==nil then
                     print("we have messed up")
+                    break
                 end
                 ScoutedLocations[chestID] = {["ItemName"] = ap:get_item_name(item.item,ap:get_player_game(item.player)),["PlayerName"] = ap:get_player_alias(item.player)}
             end
@@ -262,7 +282,10 @@ function connectToAp(host, slot, password)
     connect(host, slot, "")
 
     PopupQueue = {}
-
+    --RegisterHook( function(Context)
+    --    Conext.PlayerCharaId = 1
+    --
+    --end)
     while ap do
         ap:poll()
         CheckedLocations = CheckChests()
@@ -272,10 +295,10 @@ function connectToAp(host, slot, password)
                 checked_locations[APID] = true
             end
         end
-        VerifyCharacters()
+        --VerifyCharacters()
         VerifyStoryFlags()
-        pcall(FillScoutedLocations)
-
+        FillScoutedLocations()
+        
     end
 
     end)
@@ -284,6 +307,7 @@ end
 function disconnect()
 ---@diagnostic disable-next-line: cast-local-type
     checked_locations = {}
+---@diagnostic disable-next-line: cast-local-type
     ap = nil
     collectgarbage("collect")
 end
@@ -371,6 +395,7 @@ function FillScoutedLocations()
     for _, Chest in ipairs(AllLodadedChests) do
         if ScoutedLocations[Chest.ObjectData.ID] ~= nil and Chest.ObjectData.HaveItemLabel:ToString() ~= "APItem".._ and Chest.IsOpenFlag == false then
             if Chest.ObjectData.IsMoney == true then
+            ---@diagnostic disable-next-line: inject-field
                 Chest.ObjectData.IsMoney = false
             end
             local ScoutedLocationV = ScoutedLocations[Chest.ObjectData.ID]
@@ -386,7 +411,8 @@ end
 function GetIndex()
     local SaveGame = GetSaveGame()
     if SaveGame~=nil then
-        return SaveGame.PlayerMember[40].RawHP
+        print_debug("getting index rawhp")
+        return SaveGame.PlayerMember[35].RawHP
     end
     return nil
 end
@@ -395,7 +421,7 @@ function SetIndex(newIndex)
     local SaveGame = GetSaveGame()
     print("Setting Index: "..newIndex)
     if SaveGame~=nil then
-        SaveGame.PlayerMember[40].RawHP = newIndex
+        SaveGame.PlayerMember[35].RawHP = newIndex
     end
 end
 
@@ -403,10 +429,14 @@ function VerifyCharacters()
     if StartingCharacter==nil then
         return
     end
-
+    --print_debug("calling verifty character")
     for CharName, CharBool in pairs(Characters) do
-        --print("charname "..CharName)
+        print("charname "..CharName)
         local HasCharReturn = HasCharacter(CharName)
+        if HasCharReturn==nil then
+            return
+        end
+        print("has char return is not nil")
         if CharBool~=HasCharReturn["HasCharacter"] then
             print("giving character "..CharName)
             print("HasCharReturn ")
@@ -420,22 +450,45 @@ function VerifyCharacters()
     end
 end
 
+function TitleScreenObjection()
+    local TitleScrrenPlayerSelect = GetTitlePlayerSelect()
+    if TitleScrrenPlayerSelect==nil then
+        print_debug("")
+        return
+    end
+    local SaveGames = GetSaveGames()
+    for _, SaveGame in ipairs(SaveGames) do
+        if SaveGame.FirstSelectCharacterID==0 then
+            print_debug("SaveGame.FirstSelectCharacterID==0 setting PlayerCharaID to be 1")
+            TitleScrrenPlayerSelect.SelectingCharacter = 1
+        end
+    end
+end
+
 function HasCharacter(CharacterName)
+    --print_debug("calling HasCharacter")
     --print("charactername: " ..CharacterName)
     local CharacterID = EPlayableCharacterID[CharacterName] - 1
+    print("CharacterID is "..CharacterID)
     local SaveGame = GetSaveGame()
     if SaveGame==nil then
-        return {["HasCharacter"] = false}
+        return nil
     end
     local PlayerParty = SaveGame.PlayerParty
-
+    if PlayerParty==nil then
+        print("player party is nil")
+        return nil
+    end
+    print("player party is brokenm?")
     --local SubPlayerParty = SaveGame.SubMemberID
     for i = 1,4 do
+        print("has character i "..tostring(i))
         if PlayerParty.MainMemberID[i] == CharacterID then
             return {["HasCharacter"] = true,["Index"] = i,["PartyType"]="MainMember"}
         end
     end
     for i = 1,8 do
+        print("has character2 i "..tostring(i))
         if PlayerParty.SubMemberID[i] == CharacterID then
             return {["HasCharacter"] = true,["Index"] = i,["PartyType"]="SubMember"}
         end
@@ -445,11 +498,14 @@ function HasCharacter(CharacterName)
 end
 
 function VerifyStoryFlags()
+    --print_debug("calling Verify Story Flags")
     if StartingCharacter==nil then
+        print_debug("StartingCharacter is nil in Verify Story Flags")
         return
     end
     local SaveGame = GetSaveGame()
     if SaveGame==nil then
+        print_debug("SaveGame is nil in Verify Story Flags")
         return
     end
     
@@ -484,12 +540,39 @@ function SetInterruptedStoryFlags()
 
     
     for ChapterName, StoryInfo in pairs(CharacterChapterToStoryID) do
-        if SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State ~= 7 then
+        if ChapterName~=CharacterChapterFNameToAPName[StartingCharacter..1] and SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State ~= 7 then
+            print("setting no story data for "..ChapterName)
             SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
             SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
             SaveGame.MainStoryData[StoryInfo["index"]].State = 7
             SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
         end 
+    end
+
+end
+
+function SetStartingCharacterIcons()
+    if ChangeStartingCharIcon == false and StartingCharacter~=nil then
+        local CharacterIcons = GetTitlePlayerIcons()
+        for _, CharacterIcon in ipairs(CharacterIcons) do
+            if CharacterIcon.m_WorldMapDataLabel:ToString() ~= CharNameToMap[StartingCharacter] then
+                CharacterIcon:SetWorldMapData(FName(CharNameToMap[StartingCharacter]))
+            end
+        end
+        ChangeStartingCharIcon = true
+    end
+end
+
+function IsChapterFinshed(Chapter,index)
+    if Chapter==StartingChapter and FinshsedStartingChapter==false then 
+        index = 1
+    end
+    local SaveGame = GetSaveGame()
+    if SaveGame==nil then
+        return nil
+    end
+    if SaveGame.MainStoryData[index].State == 5 then
+        -- finished first chapter update all story flags and remove/give characters
     end
 
 end

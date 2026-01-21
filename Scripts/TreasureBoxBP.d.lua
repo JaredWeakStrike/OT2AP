@@ -39,7 +39,7 @@ function ATreasureBoxBP_C:OpenMaxItemNumDialog(ItemLabel) end
 ---@param Item_Num int32
 function ATreasureBoxBP_C:LotteryItem(Item_Label, Item_Num) end
 ---@param return boolean
-function ATreasureBoxBP_C:IsRandomItem(return) end
+function ATreasureBoxBP_C:IsRandomItem(Result) end
 ---@param ItemLabel FName
 ---@param ItemCount int32
 function ATreasureBoxBP_C:PickItem(ItemLabel, ItemCount) end

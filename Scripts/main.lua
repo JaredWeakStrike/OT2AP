@@ -114,15 +114,21 @@ RegisterConsoleCommandHandler("openchest", function(FullCommand,userInput)
     return true
 end)
 
-RegisterConsoleCommandHandler("updateindex", function(FullCommand,userInput)
+RegisterConsoleCommandHandler("setindex", function(FullCommand,userInput)
     print("Updating index")
     local saveData = GetSaveGame()
-    saveData.PlayerMember[40].RawHP = userInput[1]
+    saveData.PlayerMember[35].RawHP = userInput[1]
+    return true
+end)
+RegisterConsoleCommandHandler("getindex", function(FullCommand,userInput)
+    local saveData = GetSaveGame()
+    print(saveData.PlayerMember[35].RawHP)
     return true
 end)
 
 RegisterConsoleCommandHandler("giveplayer", function(FullCommand,userInput)
-    OnItemRecieve("Hikari Chapter1 Unlock"," ")
+    GiveCharacter(userInput[1])
+    --HasCharacter("Hikari")
     return true
 end)
 
@@ -136,7 +142,7 @@ RegisterConsoleCommandHandler("getmp", function(FullCommand,userInput)
     local HP = GetCharcterSaveDataUtil()
     --print(HP:GetRawHP_FromSaveCharacterData(userInput[1]))
     GiveCharacter(userInput[1])
-    HasCharacter("Hikari")
+    --HasCharacter("Hikari")
     return true
 end)
 
@@ -168,6 +174,31 @@ end)
 
 RegisterConsoleCommandHandler("kill", function(FullCommand,userInput)
     KillAllEnemy()
+    return true
+end)
+
+RegisterConsoleCommandHandler("startgame", function(FullCommand,userInput)
+    local TitlePlayer = GetTitlePlayerSelect()
+    TitlePlayer:SetupNewGame(userInput[1],{true})
+    TitlePlayer:SetupFirstSaveData()
+    TitlePlayer:StartMainStory({1})
+    
+    return true
+end)
+
+RegisterConsoleCommandHandler("startgame2", function(FullCommand,userInput)
+    --local TitlePlayer = GetTitlePlayerSelect()
+    --RegisterHook("/Game/UserInterface/Title/BP/Scene/TitlePlayerSelect.TitlePlayerSelect_C:OnFocusPlayer",function(Context,IsSelect)
+    --    print("calling on focus player"..tostring(IsSelect:Get()))
+    --    --ContextStuff.IsSelect = false
+    --    IsSelect:Set(false)
+    --end)
+    --TitlePlayer:SetupFirstSaveData()
+    --TitlePlayer:StartMainStory({1})
+    local CharacterIcons = GetTitlePlayerIcons()
+        for _, CharacterIcon in ipairs(CharacterIcons) do
+            CharacterIcon:SetWorldMapData(FName(CharNameToMap["Hikari"]))
+        end
     return true
 end)
 

@@ -11,7 +11,7 @@ EPlayableCharacterID = {
     ["eNONE"] = 0,
     ["Hikari"] = 1, --eFENCER
     ["Ochette"] = 2,  -- eHunter
-    ["Castii"] = 3, -- eALCHEMIST
+    ["Castti"] = 3, -- eALCHEMIST
     ["Partitio"] = 4, --eMERCHANT
     ["Temenos"] = 5, --ePRIEST
     ["Osvald"] = 6, --ePROFESSOR
@@ -49,7 +49,7 @@ EPlayableCharacterID = {
 local CharacterIDToStartingStats ={
     ["Hikari"]   = {["HP"] = 325,["MP"] = 40}, --eFENCER
     ["Ochette"]  = {["HP"] = 250,["MP"] = 40},  -- eHunter
-    ["Castii"]   = {["HP"] = 300,["MP"] = 50}, -- eALCHEMIST
+    ["Castti"]   = {["HP"] = 300,["MP"] = 50}, -- eALCHEMIST
     ["Partitio"] = {["HP"] = 275,["MP"] = 50}, --eMERCHANT
     ["Temenos"]  = {["HP"] = 225,["MP"] = 65}, --ePRIEST
     ["Osvald"]   = {["HP"] = 200,["MP"] = 60}, --ePROFESSOR
@@ -105,10 +105,10 @@ function GiveCharacter(characterName)
         return
     end
 
-    local OutResult --bool
-    local outIsAddMainMember = true --bool
+    local OutResult = {true} --bool
+    local outIsAddMainMember = {true} --bool
     if IsMainPartyFull() then
-        outIsAddMainMember = false
+        outIsAddMainMember = {true} 
     end
     SaveGame:JoinPlayerCharacterToParty(EPlayableCharacterID[characterName],OutResult,outIsAddMainMember)
     CharSaveDataUtil:SetCharacterRawHP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["HP"])
@@ -149,7 +149,7 @@ function IsMainPartyFull()
     end
 
     for i=1,4 do
-        if PlayerParty[i] == -1 then
+        if PlayerParty.MainMemberID[i] == -1 then
             print_debug("returning false in IsMainPartyFull")
             return false
         end
