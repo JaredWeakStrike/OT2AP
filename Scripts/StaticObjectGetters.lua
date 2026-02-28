@@ -37,6 +37,7 @@ PlayerSelectWidgets_ = nil
 
 PRINT_DEBUG_FLAG = true
 
+LevelSaveDataUtil_ = nil
 
 function print_debug(text) 
     if PRINT_DEBUG_FLAG == true then
@@ -189,4 +190,11 @@ function GetTitlePlayerIcons()
         PlayerSelectWidgets_ = FindAllOf("WBP_3DPlayerSelectIcon_C")
     end
     return PlayerSelectWidgets_
+end
+
+function GetLevelSaveDataUtil()
+    if(LevelSaveDataUtil_==nil)then
+        LevelSaveDataUtil_ = StaticFindObject("/Script/Majesty.Default__LevelSaveDataUtil")
+    end
+    return LevelSaveDataUtil_
 end

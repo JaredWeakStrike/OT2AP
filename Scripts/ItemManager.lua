@@ -97,7 +97,6 @@ end
 
 function GiveCharacter(characterName)
     local SaveGame = GetSaveGame()
-    print("calling give character")
     local CharSaveDataUtil = GetCharcterSaveDataUtil() 
 
     if SaveGame==nil or CharSaveDataUtil == nil then
@@ -135,7 +134,7 @@ function RemoveCharacter(partyType,index)
 end
 
 function IsMainPartyFull()
-    print_debug("Calling is main party full")
+    --print_debug("Calling is main party full")
     local SaveGame = GetSaveGame()
     if SaveGame==nil then 
         print_debug("Savegame is nil in IsMainPartyFull")

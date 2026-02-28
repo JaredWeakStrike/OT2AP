@@ -150,7 +150,7 @@ function connect(server, slot, password)
             table.insert(locations_to_scout,locationID)
         end
         ap:LocationScouts(locations_to_scout, false)
-        SetInterruptedStoryFlags()
+        --SetInterruptedStoryFlags()
         SetStartingCharacterIcons()
     end
 
@@ -295,8 +295,12 @@ function connectToAp(host, slot, password)
                 checked_locations[APID] = true
             end
         end
-        --VerifyCharacters()
-        VerifyStoryFlags()
+        if IsStartingChapterFinished() == true then
+            print("verifying stuff")
+            VerifyCharacters()
+            VerifyStoryFlags() 
+        end
+        --
         FillScoutedLocations()
         
     end
@@ -469,7 +473,6 @@ function HasCharacter(CharacterName)
     --print_debug("calling HasCharacter")
     --print("charactername: " ..CharacterName)
     local CharacterID = EPlayableCharacterID[CharacterName] - 1
-    print("CharacterID is "..CharacterID)
     local SaveGame = GetSaveGame()
     if SaveGame==nil then
         return nil
@@ -479,16 +482,15 @@ function HasCharacter(CharacterName)
         print("player party is nil")
         return nil
     end
-    print("player party is brokenm?")
     --local SubPlayerParty = SaveGame.SubMemberID
     for i = 1,4 do
-        print("has character i "..tostring(i))
+        --print("has character i "..tostring(i))
         if PlayerParty.MainMemberID[i] == CharacterID then
             return {["HasCharacter"] = true,["Index"] = i,["PartyType"]="MainMember"}
         end
     end
     for i = 1,8 do
-        print("has character2 i "..tostring(i))
+        --print("has character2 i "..tostring(i))
         if PlayerParty.SubMemberID[i] == CharacterID then
             return {["HasCharacter"] = true,["Index"] = i,["PartyType"]="SubMember"}
         end
@@ -510,7 +512,14 @@ function VerifyStoryFlags()
     end
     
     for ChapterName, StoryInfo in pairs(CharacterChapterToStoryID) do
-        if ChapterUnlocks[ChapterName] == true then
+        if SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["StoryID"] then
+            SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
+            SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
+            SaveGame.MainStoryData[StoryInfo["index"]].State = 7
+            SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
+        end
+
+        if ChapterUnlocks[ChapterName] == true and ChapterName ~= StartingChapter then
             if SaveGame.MainStoryData[StoryInfo["index"]].StoryID == StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State == 7 then
                 SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
                 SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
@@ -554,6 +563,12 @@ end
 function SetStartingCharacterIcons()
     if ChangeStartingCharIcon == false and StartingCharacter~=nil then
         local CharacterIcons = GetTitlePlayerIcons()
+        if CharacterIcons==nil then
+            if #GetSaveGames()==1 then
+                ChangeStartingCharIcon = true    
+            end
+            return
+        end
         for _, CharacterIcon in ipairs(CharacterIcons) do
             if CharacterIcon.m_WorldMapDataLabel:ToString() ~= CharNameToMap[StartingCharacter] then
                 CharacterIcon:SetWorldMapData(FName(CharNameToMap[StartingCharacter]))
@@ -563,16 +578,35 @@ function SetStartingCharacterIcons()
     end
 end
 
-function IsChapterFinshed(Chapter,index)
-    if Chapter==StartingChapter and FinshsedStartingChapter==false then 
-        index = 1
-    end
+function IsChapterFinshed(index)
     local SaveGame = GetSaveGame()
     if SaveGame==nil then
         return nil
     end
     if SaveGame.MainStoryData[index].State == 5 then
         -- finished first chapter update all story flags and remove/give characters
+        return true
     end
+        return false
 
+end
+
+function IsStartingChapterFinished()
+    -- on the title screen there are 2 dummy save games while in game there is only 1
+    if FinshsedStartingChapter==false and #GetSaveGames()==1 then
+        local SaveGame = GetSaveGame()
+        if SaveGame==nil then
+            return false
+        end
+
+        if SaveGame.PlayerMember[35].RawMP == 1 then
+            return true
+        end
+
+        if SaveGame.MainStoryData[1].StoryID % 100 == 0 and SaveGame.MainStoryData[1].State == 5 then
+            FinshsedStartingChapter = true
+            SaveGame.PlayerMember[35].RawMP = 1
+        end
+    end
+    return FinshsedStartingChapter
 end

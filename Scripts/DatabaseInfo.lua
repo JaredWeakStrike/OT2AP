@@ -1767,7 +1767,7 @@ ItemLabelToName = {
 	["ITM_TRE_RECORD_003"] = "3. Cait's Theme Violin Version",
 	["ITM_TRE_RECORD_007"] = "4. Ochette, the Hunter",
 	["ITM_TRE_RECORD_005"] = "5. Castti, the Apothecary",
-	["ITM_TRE_RECORD_006"] = "6. Thron�, the Thief",
+	["ITM_TRE_RECORD_006"] = "6. Throne, the Thief",
 	["ITM_TRE_RECORD_004"] = "7. Osvald, the Scholar",
 	["ITM_TRE_RECORD_008"] = "8. Partitio, the Merchant",
 	["ITM_TRE_RECORD_009"] = "9. Agnea, the Dancer",
@@ -1978,8 +1978,8 @@ ItemLabelToName = {
 
 
 CharacterChapterToStoryID = {
-	["Hikari Chapter1 Unlock"] = { ["storyID"] = 100, ["index"] = 1 },
-	["Hikari Chapter2 Unlock"] = { ["storyID"] = 101, ["index"] = 2 },
+	["Hikari Chapter1 Unlock"] = { ["storyID"] = 100, ["index"] = 2 },--swapping these index for easy checking if the first index of the list is a starting chapter
+	["Hikari Chapter2 Unlock"] = { ["storyID"] = 101, ["index"] = 1 },
 	["Hikari Chapter3 Unlock"] = { ["storyID"] = 102, ["index"] = 3 },
 	["Hikari Chapter4 Unlock"] = { ["storyID"] = 103, ["index"] = 4 },
 	["Hikari Chapter5 Unlock"] = { ["storyID"] = 104, ["index"] = 5 },

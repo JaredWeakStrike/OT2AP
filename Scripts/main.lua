@@ -4,7 +4,7 @@ require "StaticObjectGetters"
 require "DatabaseInfo"
 require "QOL"
 require "archipelago"
-
+local UEHelpers = require("UEHelpers")
 local DEBUG_KEYBIND = false
 
 if DEBUG_KEYBIND then 
@@ -126,6 +126,18 @@ RegisterConsoleCommandHandler("getindex", function(FullCommand,userInput)
     return true
 end)
 
+RegisterConsoleCommandHandler("setindex2", function(FullCommand,userInput)
+    print("Updating index")
+    local saveData = GetSaveGame()
+    saveData.PlayerMember[35].RawHP = userInput[1]
+    return true
+end)
+RegisterConsoleCommandHandler("getindex2", function(FullCommand,userInput)
+    local saveData = GetSaveGame()
+    print(saveData.PlayerMember[35].RawHP)
+    return true
+end)
+
 RegisterConsoleCommandHandler("giveplayer", function(FullCommand,userInput)
     GiveCharacter(userInput[1])
     --HasCharacter("Hikari")
@@ -138,10 +150,25 @@ RegisterConsoleCommandHandler("getiteminback", function(FullCommand,userInput)
     return true
 end)
 
+RegisterConsoleCommandHandler("giveiteminback", function(FullCommand,userInput)
+    local ItemFunction = GetItemFunction()
+    local pc = UEHelpers:GetPlayerController() -- required for getting world context
+    local __WorldContext = pc:GetWorld() -- required for some functions.
+    local ItemDB = GetItemDB()
+    --local nut = ItemDB:FindRow("ITM_FLV_0090")
+    --if nut==nil then
+    --    print("no nut")
+    --end
+    --nut.MaxNum = 300
+    ItemFunction:AddBackpackItem(FName(userInput[1]),300, __WorldContext, {true})
+    return true
+end)
+
 RegisterConsoleCommandHandler("getmp", function(FullCommand,userInput)
     local HP = GetCharcterSaveDataUtil()
     --print(HP:GetRawHP_FromSaveCharacterData(userInput[1]))
     GiveCharacter(userInput[1])
+    
     --HasCharacter("Hikari")
     return true
 end)
@@ -172,8 +199,28 @@ RegisterConsoleCommandHandler("endstory", function(FullCommand,userInput)
     return true
 end)
 
+RegisterConsoleCommandHandler("finishstory", function(FullCommand,userInput)
+    local SaveGame = GetSaveGame()
+    for name, storyID in pairs(CharacterChapterToStoryID) do
+        SaveGame.MainStoryData[storyID["index"]].StoryID = storyID["storyID"]
+        SaveGame.MainStoryData[storyID["index"]].CurrentTaskID = 0
+        SaveGame.MainStoryData[storyID["index"]].State = 5
+        SaveGame.MainStoryData[storyID["index"]].ConfirmedFlag = false
+    end
+    return true
+end)
+
 RegisterConsoleCommandHandler("kill", function(FullCommand,userInput)
     KillAllEnemy()
+    return true
+end)
+
+RegisterConsoleCommandHandler("killPlayer", function(FullCommand,userInput)
+    local GameOver = StaticFindObject("/Game/Level/Persistent.Persistent:PersistentLevel.BPC_LevelManager_Others_C_2147482499")
+    if GameOver==nil then
+        print("we nil")
+    end
+    GameOver:OnStartGameOver()
     return true
 end)
 
@@ -199,6 +246,20 @@ RegisterConsoleCommandHandler("startgame2", function(FullCommand,userInput)
         for _, CharacterIcon in ipairs(CharacterIcons) do
             CharacterIcon:SetWorldMapData(FName(CharNameToMap["Hikari"]))
         end
+    return true
+end)
+
+RegisterConsoleCommandHandler("giveboat", function(FullCommand,userInput)
+    local SaveGame = GetSaveGame()
+    SaveGame.BitFlag[7] = SaveGame.BitFlag[7]+1
+    SaveGame.BitFlag[7] = SaveGame.BitFlag[7]|6400 -- boat 6400
+    SaveGame.BitFlag[5] = 0
+    SaveGame.BitFlag[6] = 0
+    local SaveDataUtil = GetLevelSaveDataUtil()
+    for i = 1,65300 do
+        SaveDataUtil:SetVisitedMap(true,i)
+        SaveDataUtil:SetShowMapIcon(true,i)
+    end 
     return true
 end)
 
