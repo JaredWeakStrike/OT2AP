@@ -160,7 +160,8 @@ RegisterConsoleCommandHandler("giveiteminback", function(FullCommand,userInput)
     --    print("no nut")
     --end
     --nut.MaxNum = 300
-    ItemFunction:AddBackpackItem(FName(userInput[1]),300, __WorldContext, {true})
+    
+    ItemFunction:AddBackpackItem(FName(userInput[1]),9999999, __WorldContext, {true})
     return true
 end)
 
@@ -301,14 +302,23 @@ function Connect(commandName,userInput)
             TextDB:AddRow("APItemText"..i,TextTemplate)
             ItemTemplate.ID = BaseID
             ItemTemplate.ItemNameID = FName("APItemText"..i)
+            ItemTemplate.MaxNum = 9999999
             ItemDB:AddRow("APItem"..i,ItemTemplate)
         end
         --ItemDB:FindRow("ITM_EQP_JOB_0005").MaxNum = 99
-
+        TextTemplate.Text = FText("APItemIndex")
+        TextDB:AddRow("APItemIndexText",TextTemplate)
+        --ItemTemplate.ID = BaseID + 1
+        --ItemTemplate.ItemNameID = FName"APItemIndexText")
+        --ItemTemplate.ItemCategory = 2
+        --ItemDB:AddRow("APItemIndex",ItemTemplate)
+        
         -- restore the references back to what they were before modifying them
         TextTemplate.Text = BackupText
         ItemTemplate.ID = BackupItemTempID
-        ItemTemplate.ItemNameID = BackupItemName
+        ItemTemplate.ItemNameID = FName("APItemIndexText")
+        ItemTemplate.ItemCategory = 2
+        ItemTemplate.MaxNum = 9999999
     end
     connectToAp(host, slot, password)
     

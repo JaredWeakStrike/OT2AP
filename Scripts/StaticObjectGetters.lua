@@ -34,6 +34,8 @@ LibDialog_ = nil
 ItemDB_ = nil
 ---@class UWBP_3DPlayerSelectWidget_C
 PlayerSelectWidgets_ = nil
+---@class UItemSaveDataUtil
+ItemSaveDataUtil_ = nil
 
 PRINT_DEBUG_FLAG = true
 
@@ -134,6 +136,13 @@ function GetSaveStoryDataUtil()
         SaveStoryUtil_ = StaticFindObject("/Script/Majesty.Default__StorySaveDataUtil")
     end
     return SaveStoryUtil_
+end
+
+function GetItemSaveDataUtil()
+    if (ItemSaveDataUtil_ == nil) then
+        ItemSaveDataUtil_ = StaticFindObject("/Script/Majesty.Default__ItemSaveDataUtil")
+    end
+    return ItemSaveDataUtil_
 end
 
 function GetDialogManager()

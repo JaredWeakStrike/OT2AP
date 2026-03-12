@@ -7,9 +7,11 @@ require "ItemManager"
 require "StaticObjectGetters"
 require "DatabaseInfo"
 require "ArchipelagoLists"
-
+local UEHelpers = require("UEHelpers")
+local pc = UEHelpers:GetPlayerController() -- required for getting world context
+local __WorldContext = pc:GetWorld() -- required for some functions.
 local AP = require "lua-apclientpp"
-
+ItemIndexFNAME = FName("ITM_INF_Twn_Wld_3_1_A_030")
 -- global to this mod
 local game_name = "Octopath Traveler 2"
 local items_handling = 7  -- full remote
@@ -19,6 +21,9 @@ local message_format = AP.RenderFormat.TEXT
 local ap = nil
 local checked_locations = {}
 ScoutedLocations = {}
+local inventory = {} -- dict of index to item sent from the server
+local CurrentIndexFromServer = 0
+
 ChapterUnlocks = {
         ["Hikari Chapter1 Unlock"]                          = false, --"Hikari1",
 		["Hikari Chapter2 Unlock"]                          = false, --"Hikari2",
@@ -162,7 +167,12 @@ function connect(server, slot, password)
     function on_items_received(items)
         print("Items received:")
         for _, item in ipairs(items) do
-            if item.index > GetIndex() then
+            print("index ".._.."for item "..item.item)
+            if inventory[item.index]==nil then 
+                inventory[item.index] = APItemIdToName[item.item] 
+                CurrentIndexFromServer = item.index
+            end
+            if item.index >GetIndex() then
                 ApItemName = APItemIdToName[item.item]
                 print(APItemIdToName[item.item].." from "..ap:get_player_alias(item.player))
                 if ChapterUnlocks[ApItemName] == false then
@@ -282,10 +292,7 @@ function connectToAp(host, slot, password)
     connect(host, slot, "")
 
     PopupQueue = {}
-    --RegisterHook( function(Context)
-    --    Conext.PlayerCharaId = 1
-    --
-    --end)
+
     while ap do
         ap:poll()
         CheckedLocations = CheckChests()
@@ -296,13 +303,13 @@ function connectToAp(host, slot, password)
             end
         end
         if IsStartingChapterFinished() == true then
-            print("verifying stuff")
-            VerifyCharacters()
+            --print("verifying stuff")
+            --VerifyCharacters()
             VerifyStoryFlags() 
         end
         --
         FillScoutedLocations()
-        
+        VerifyInventory()
     end
 
     end)
@@ -413,45 +420,50 @@ function FillScoutedLocations()
 end
 
 function GetIndex()
-    local SaveGame = GetSaveGame()
-    if SaveGame~=nil then
-        print_debug("getting index rawhp")
-        return SaveGame.PlayerMember[35].RawHP
-    end
-    return nil
+    return 50
+    --GetSaveManager use this to get the temp backpack to get the current backpack
+    --local ItemSaveDataUtil = GetItemSaveDataUtil()
+    --print("getting index ")
+    --if ItemSaveDataUtil == nil then
+    --    print("ItemSaveDataUtil is nil in GetIndex")
+    --    return
+    --end
+    --return ItemSaveDataUtil:GetItemNumInBackpackByLabel(ItemIndexFNAME)
 end
 
 function SetIndex(newIndex)
-    local SaveGame = GetSaveGame()
+    local ItemFunction = GetItemFunction()
     print("Setting Index: "..newIndex)
-    if SaveGame~=nil then
-        SaveGame.PlayerMember[35].RawHP = newIndex
-    end
-end
-
-function VerifyCharacters()
-    if StartingCharacter==nil then
+    if ItemFunction==nil then
+        print("Itemfunction is nil in increment index")
         return
     end
-    --print_debug("calling verifty character")
-    for CharName, CharBool in pairs(Characters) do
-        print("charname "..CharName)
-        local HasCharReturn = HasCharacter(CharName)
-        if HasCharReturn==nil then
-            return
-        end
-        print("has char return is not nil")
-        if CharBool~=HasCharReturn["HasCharacter"] then
-            print("giving character "..CharName)
-            print("HasCharReturn ")
-            print(HasCharReturn["HasCharacter"])
-            if CharBool then
-                GiveCharacter(CharName)
-            else 
-                RemoveCharacter(HasCharReturn["PartyType"],HasCharReturn["Index"])
-            end
-        end
+    if __WorldContext == nil then
+        print("world context is nil in Increment Index")
+        return
     end
+    local index = GetIndex()
+    if index==nil then
+        print("GetIndex is nil in SetIndex")
+        return
+    end
+    ItemFunction:SubBackpackItem(ItemIndexFNAME,index, __WorldContext)
+    ItemFunction:AddBackpackItem(ItemIndexFNAME,newIndex, __WorldContext, {true})
+end
+
+function IncrementIndex()
+    local ItemFunction = GetItemFunction()
+    print("Incrementing Index: "..GetIndex().." to "..GetIndex()+1)
+    if ItemFunction==nil then
+        print("Itemfunction is nil in increment index")
+        return
+    end
+    if __WorldContext == nil then
+        print("world context is nil in Increment Index")
+        return
+    end
+    ItemFunction:AddBackpackItem(ItemIndexFNAME,1, __WorldContext, {true})
+    print("incremented")
 end
 
 function TitleScreenObjection()
@@ -497,6 +509,49 @@ function HasCharacter(CharacterName)
     end
 
     return {["HasCharacter"] = false}
+end
+
+function VerifyCharacters()
+    if StartingCharacter==nil then
+        return
+    end
+    print_debug("calling verifty character")
+    for CharName, CharBool in pairs(Characters) do
+        local HasCharReturn = HasCharacter(CharName)
+        if HasCharReturn==nil then
+            return
+        end
+        if CharBool~=HasCharReturn["HasCharacter"] then
+            if CharBool then
+                GiveCharacter(CharName)
+            else 
+                RemoveCharacter(HasCharReturn["PartyType"],HasCharReturn["Index"])
+            end
+        end
+    end
+end
+
+function VerifyInventory()
+    if GetIndex()== nil then
+        return
+    end
+    while GetIndex() < CurrentIndexFromServer do
+        --local ItemName = inventory[GetIndex()+1]
+        --if ItemName == nil then
+        --    print("APItemname is nil in verify invo")
+        --    return
+        --end
+--
+        --if ChapterUnlocks[ItemName] == false then
+        --    ChapterUnlocks[ItemName] = true
+        --elseif Characters[ItemName]==false then
+        --    Characters[ItemName] = true
+        --else
+        --    GiveItem(ItemName)
+        --end
+
+        IncrementIndex()
+    end
 end
 
 function VerifyStoryFlags()
