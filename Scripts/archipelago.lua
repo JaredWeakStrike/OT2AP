@@ -304,7 +304,7 @@ function connectToAp(host, slot, password)
         end
         if IsStartingChapterFinished() == true then
             --print("verifying stuff")
-            --VerifyCharacters()
+            VerifyCharacters()
             VerifyStoryFlags() 
         end
         --
@@ -420,15 +420,14 @@ function FillScoutedLocations()
 end
 
 function GetIndex()
-    return 50
-    --GetSaveManager use this to get the temp backpack to get the current backpack
-    --local ItemSaveDataUtil = GetItemSaveDataUtil()
-    --print("getting index ")
-    --if ItemSaveDataUtil == nil then
-    --    print("ItemSaveDataUtil is nil in GetIndex")
-    --    return
-    --end
-    --return ItemSaveDataUtil:GetItemNumInBackpackByLabel(ItemIndexFNAME)
+    --10774
+    local SaveManager = GetSaveManager()
+    if SaveManager.m_TemporaryBackpackItemList:Contains(10774) == false then
+        IncrementIndex()
+    end
+
+    return SaveManager.m_TemporaryBackpackItemList:Find(10774):get()
+
 end
 
 function SetIndex(newIndex)
@@ -453,7 +452,7 @@ end
 
 function IncrementIndex()
     local ItemFunction = GetItemFunction()
-    print("Incrementing Index: "..GetIndex().." to "..GetIndex()+1)
+    --print("Incrementing Index: "..GetIndex().." to "..GetIndex()+1)
     if ItemFunction==nil then
         print("Itemfunction is nil in increment index")
         return

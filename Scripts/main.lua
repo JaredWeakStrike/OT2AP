@@ -147,6 +147,8 @@ end)
 RegisterConsoleCommandHandler("getiteminback", function(FullCommand,userInput)
     local ItemSaveDataUtil = StaticFindObject("/Script/Majesty.Default__ItemSaveDataUtil")
     print(ItemSaveDataUtil:GetItemNumInBackpackByLabel(FName(userInput[1])))
+    local SaveManager = GetSaveManager()
+    print(SaveManager.m_TemporaryBackpackItemList:Find(10774):get())
     return true
 end)
 
