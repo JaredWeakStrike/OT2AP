@@ -226,6 +226,13 @@ RegisterConsoleCommandHandler("killPlayer", function(FullCommand,userInput)
     GameOver:OnStartGameOver()
     return true
 end)
+RegisterConsoleCommandHandler("killPlayerCombat", function(FullCommand,userInput)
+    local Characters = FindAllOf("BattlePlayerBP_C")
+    for _,Characters in ipairs(Characters) do
+        Characters.IsDead = true
+    end
+    return true
+end)
 
 RegisterConsoleCommandHandler("startgame", function(FullCommand,userInput)
     local TitlePlayer = GetTitlePlayerSelect()
@@ -292,7 +299,7 @@ function Connect(commandName,userInput)
         local ItemTemplate = ItemDB:FindRow("ITM_INF_Twn_Wld_3_1_A_030") -- unused item that doesnt showup in inventory
 
         local BackupText = TextTemplate.Text
-        local BackupItemName = ItemTemplate.ItemNameID
+        --local BackupItemName = ItemTemplate.ItemNameID
         local BackupItemTempID = ItemTemplate.ID
 
 

@@ -64,7 +64,7 @@ end
 
 function ChestPopupLoop()
     local LibDialog = GetLibDialog()
-    IsRunningReturn = false
+    output = {}
     --void IsDialogRunning(bool& IsRunning);
     -- if IsRunning == false then no dialog is running thus able to call chest popup
     if(LibDialog==nil) then
@@ -72,8 +72,8 @@ function ChestPopupLoop()
         return
     end
 
-    LibDialog:IsDialogRunning(IsRunningReturn)
-    if(IsRunningReturn==false and next(ChestItemQueue))then
+    LibDialog:IsDialogRunning(output)
+    if(output.IsRunning==false and IsGameOverPlaying() == false and next(ChestItemQueue))then
         OpenDefaultChest(ChestItemQueue[1])
         table.remove(ChestItemQueue,1)
     end
@@ -88,7 +88,7 @@ function OpenDefaultChest(text)
         print_debug("TextDataUtil is nil in OpenDefaultChest")
         return
     end
-    local TextRows = fTextDataUtiloo:GetGameTextDB(1) -- GameTextEN
+    local TextRows = TextDataUtil:GetGameTextDB(1) -- GameTextEN
 
     if DefaultChest==nil or TextRows==nil then
         print_debug("Default chest or text rows is nil in OpenDefaultChest")

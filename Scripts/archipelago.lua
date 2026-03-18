@@ -286,16 +286,17 @@ function connect(server, slot, password)
     ap:set_retrieved_handler(on_retrieved)
     ap:set_set_reply_handler(on_set_reply)
 end
-
+local GameOverTimer = 0
+local VerifyCharFlag = 0
 function connectToAp(host, slot, password)
     ExecuteAsync(function ()
     connect(host, slot, "")
 
     PopupQueue = {}
-
+    
     while ap do
         ap:poll()
-        CheckedLocations = CheckChests()
+        status,CheckedLocations = pcall(CheckChests)
         if #CheckedLocations>0 then
             ap:LocationChecks(CheckedLocations)
             for _, APID in ipairs(CheckedLocations) do
@@ -304,12 +305,30 @@ function connectToAp(host, slot, password)
         end
         if IsStartingChapterFinished() == true then
             --print("verifying stuff")
-            VerifyCharacters()
             VerifyStoryFlags() 
         end
-        --
-        FillScoutedLocations()
-        VerifyInventory()
+        --print(IsGameOverPlaying())
+        local PlayerController = GetPlayerController()
+        if IsGameOverPlaying() == true then
+            GameOverTimer = 1
+        elseif GameOverTimer>0 then
+            -- see if I can recache GetSaveGame here 
+            print("decrementing GameOverTimer "..GameOverTimer)
+            
+            if PlayerController~=nil and PlayerController.InputMode==0 then
+                VerifyInventory()
+                GameOverTimer = 0
+            end
+        end
+
+        VerifyCharacters()
+        ChestPopupLoop()
+        pcall(FillScoutedLocations)
+        --if GameOverTimer==0 then
+        --    VerifyInventory()
+        --end
+        
+
     end
 
     end)
@@ -423,7 +442,8 @@ function GetIndex()
     --10774
     local SaveManager = GetSaveManager()
     if SaveManager.m_TemporaryBackpackItemList:Contains(10774) == false then
-        IncrementIndex()
+        print("get m_TemporaryBackpackItemList is nil")
+        return 0
     end
 
     return SaveManager.m_TemporaryBackpackItemList:Find(10774):get()
@@ -484,7 +504,8 @@ function HasCharacter(CharacterName)
     --print_debug("calling HasCharacter")
     --print("charactername: " ..CharacterName)
     local CharacterID = EPlayableCharacterID[CharacterName] - 1
-    local SaveGame = GetSaveGame()
+    -- neeed to cache it again since after loading a save it is useing the old one
+    local SaveGame = FindFirstOf("KSSaveGameBP_C")
     if SaveGame==nil then
         return nil
     end
@@ -514,40 +535,54 @@ function VerifyCharacters()
     if StartingCharacter==nil then
         return
     end
-    print_debug("calling verifty character")
+    if GameOverTimer>0 then
+        return
+    end
+    --local LevelManager = GetLevelManager()
+    --if LevelManager == nil or LevelManager.m_IsGameOverPlaying == true then
+    --    print("game over is playing")
+    --    return
+    --end
+    --local PlayerController = GetPlayerController()
+    --if PlayerController==nil or PlayerController.InputMode~=1 then
+    --    return
+    --end
+    --print_debug("calling verifty character")
     for CharName, CharBool in pairs(Characters) do
         local HasCharReturn = HasCharacter(CharName)
         if HasCharReturn==nil then
             return
         end
-        if CharBool~=HasCharReturn["HasCharacter"] then
-            if CharBool then
-                GiveCharacter(CharName)
-            else 
-                RemoveCharacter(HasCharReturn["PartyType"],HasCharReturn["Index"])
-            end
+        if CharBool~=HasCharReturn["HasCharacter"] and CharBool then
+            GiveCharacter(CharName)
         end
     end
 end
 
 function VerifyInventory()
-    if GetIndex()== nil then
+    local index = GetIndex()
+    if index == nil then
         return
     end
+    local PlayerController = GetPlayerController()
+    --if PlayerController==nil or PlayerController.InputMode~=0 then
+    --    return
+    --end
     while GetIndex() < CurrentIndexFromServer do
-        --local ItemName = inventory[GetIndex()+1]
-        --if ItemName == nil then
-        --    print("APItemname is nil in verify invo")
-        --    return
-        --end
+        local ItemName = inventory[index +1]
+        if ItemName == nil then
+            print("APItemname is nil in verify invo")
+            return
+        end
 --
-        --if ChapterUnlocks[ItemName] == false then
-        --    ChapterUnlocks[ItemName] = true
-        --elseif Characters[ItemName]==false then
-        --    Characters[ItemName] = true
-        --else
-        --    GiveItem(ItemName)
-        --end
+        if ChapterUnlocks[ItemName] == false then
+            --ChapterUnlocks[ItemName] = true
+        elseif Characters[ItemName]~=nil and ItemName~=StartingCharacter then
+            --Characters[ItemName] = true
+            --table.insert(ChestItemQueue,ItemName)
+        else
+          GiveItem(ItemName)
+        end
 
         IncrementIndex()
     end
@@ -663,4 +698,13 @@ function IsStartingChapterFinished()
         end
     end
     return FinshsedStartingChapter
+end
+
+function IsGameOverPlaying()
+    local LevelManager = GetLevelManager()
+    if LevelManager == nil then
+        print("game over is playing")
+        return nil
+    end
+    return LevelManager.m_IsGameOverPlaying
 end

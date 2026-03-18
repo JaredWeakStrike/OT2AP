@@ -36,6 +36,8 @@ ItemDB_ = nil
 PlayerSelectWidgets_ = nil
 ---@class UItemSaveDataUtil
 ItemSaveDataUtil_ = nil
+---@class KSPlayerControllerBP_C
+PlayerController_ = nil
 
 PRINT_DEBUG_FLAG = true
 
@@ -73,6 +75,7 @@ function GetSaveGame()
     end
     return SaveGame_
 end
+
 function GetSaveGames()
     if(SaveGames_==nil)then
         SaveGames_ = FindAllOf("KSSaveGameBP_C")
@@ -112,11 +115,11 @@ end
 -- ALevelManager_Others::AActor
 function GetLevelManager()
     if(LevelManager_==nil) then 
-        LevelManager_ = FindFirstOf("LevelManager_Others_C")
+        LevelManager_ = FindFirstOf("BPC_LevelManager_Others_C")
     end
     return LevelManager_
 end
-
+--BPC_LevelManager_Others_C /Game/Level/Persistent.Persistent:PersistentLevel.BPC_LevelManager_Others_C_2147482499
 function GetSaveDataUtil() 
     if(SaveDataUtil_==nil)then
         SaveDataUtil_ = StaticFindObject("/Script/Majesty.Default__LevelSaveDataUtil")
@@ -160,6 +163,7 @@ function GetTextUtils()
     end
     return TextUtil_
 end
+
 function GetLibDialog()
     if(LibDialog_ == nil)then
         LibDialog_ = StaticFindObject("/Script/Majesty.Default__LibDialog")
@@ -206,4 +210,11 @@ function GetLevelSaveDataUtil()
         LevelSaveDataUtil_ = StaticFindObject("/Script/Majesty.Default__LevelSaveDataUtil")
     end
     return LevelSaveDataUtil_
+end
+
+function GetPlayerController()
+    if(PlayerController_ == nil) then
+        PlayerController_ = FindFirstOf("KSPlayerControllerBP_C")
+    end
+    return PlayerController_
 end

@@ -86,6 +86,9 @@ end
 function GiveItem(ItemName)
     local ItemFunction = GetItemFunction()
     local ItemNameLabel = ItemNameToItemLabel[ItemName]
+    if (ItemFunction==nil) then
+        return
+    end
     if(ItemNameLabel == nil)then
         print(ItemName.." is not a valid itemname to add into backpack")
         return
@@ -108,22 +111,44 @@ end
 
 
 function GiveCharacter(characterName)
-    local SaveGame = GetSaveGame()
+    local SaveGame = FindFirstOf("KSSaveGameBP_C")
     local CharSaveDataUtil = GetCharcterSaveDataUtil() 
 
     if SaveGame==nil or CharSaveDataUtil == nil then
         print_debug("SaveGame or CharacterSaveDataUtil is nil in GiveCharacter")
         return
     end
-
-    local OutResult = {true} --bool
-    local outIsAddMainMember = {true} --bool
-    if IsMainPartyFull() then
-        outIsAddMainMember = {true} 
+    if characterName==StartingCharacter then
+        return
     end
-    SaveGame:JoinPlayerCharacterToParty(EPlayableCharacterID[characterName],OutResult,outIsAddMainMember)
-    CharSaveDataUtil:SetCharacterRawHP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["HP"])
-    CharSaveDataUtil:SetCharacterRawMP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["MP"])
+    local PlayerPartyMainMember = SaveGame.PlayerParty.MainMemberID
+    if PlayerPartyMainMember==nil then 
+        return
+    end
+    print("giving "..characterName)
+    for i = 1,4 do
+        if PlayerPartyMainMember[i] == -1 then
+            PlayerPartyMainMember[i] = EPlayableCharacterID[characterName]-1
+            return
+        end
+    end
+
+    local  PlayerPartySubMember = SaveGame.PlayerParty.SubMemberID
+    for i = 1,4 do
+        if PlayerPartySubMember[i] == -1 then
+            PlayerPartySubMember[i] = EPlayableCharacterID[characterName]-1
+        end
+    end
+    --local OutResult = {true} --bool
+    --local outIsAddMainMember = {true} --bool
+    --if IsMainPartyFull() then
+    --    outIsAddMainMember = {false} 
+    --end
+    --print("giving "..characterName)
+--
+    --SaveGame:JoinPlayerCharacterToParty(EPlayableCharacterID[characterName],OutResult,outIsAddMainMember)
+    --CharSaveDataUtil:SetCharacterRawHP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["HP"])
+    --CharSaveDataUtil:SetCharacterRawMP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["MP"])
 end
 
 function RemoveCharacter(partyType,index)
