@@ -296,6 +296,7 @@ function connectToAp(host, slot, password)
     
     while ap do
         ap:poll()
+        --RefreshSaveGame()
         status,CheckedLocations = pcall(CheckChests)
         if #CheckedLocations>0 then
             ap:LocationChecks(CheckedLocations)
@@ -311,17 +312,27 @@ function connectToAp(host, slot, password)
         local PlayerController = GetPlayerController()
         if IsGameOverPlaying() == true then
             GameOverTimer = 1
-        elseif GameOverTimer>0 then
+            VerifyCharFlag = 1
+        elseif GameOverTimer == 1 then
             -- see if I can recache GetSaveGame here 
             print("decrementing GameOverTimer "..GameOverTimer)
-            
             if PlayerController~=nil and PlayerController.InputMode==0 then
                 VerifyInventory()
                 GameOverTimer = 0
             end
         end
 
-        VerifyCharacters()
+        if VerifyCharFlag == 1 and GameOverTimer == 0 and PlayerController.Character.NowActionID ~= 0 then
+            --print("refreshing save game")
+            RefreshSaveGame()
+            VerifyCharFlag=0
+        end
+
+        if VerifyCharFlag==0 then
+            VerifyCharacters()
+        end
+
+        
         ChestPopupLoop()
         pcall(FillScoutedLocations)
         --if GameOverTimer==0 then
@@ -504,8 +515,7 @@ function HasCharacter(CharacterName)
     --print_debug("calling HasCharacter")
     --print("charactername: " ..CharacterName)
     local CharacterID = EPlayableCharacterID[CharacterName] - 1
-    -- neeed to cache it again since after loading a save it is useing the old one
-    local SaveGame = FindFirstOf("KSSaveGameBP_C")
+    local SaveGame = GetSaveGame()
     if SaveGame==nil then
         return nil
     end
@@ -518,17 +528,17 @@ function HasCharacter(CharacterName)
     for i = 1,4 do
         --print("has character i "..tostring(i))
         if PlayerParty.MainMemberID[i] == CharacterID then
-            return {["HasCharacter"] = true,["Index"] = i,["PartyType"]="MainMember"}
+            return true
         end
     end
     for i = 1,8 do
         --print("has character2 i "..tostring(i))
         if PlayerParty.SubMemberID[i] == CharacterID then
-            return {["HasCharacter"] = true,["Index"] = i,["PartyType"]="SubMember"}
+            return true
         end
     end
 
-    return {["HasCharacter"] = false}
+    return false
 end
 
 function VerifyCharacters()
@@ -548,12 +558,17 @@ function VerifyCharacters()
     --    return
     --end
     --print_debug("calling verifty character")
+    local SaveGame = GetSaveGame()
+    --if SaveGame.PlayerParty.MainMemberID[1] == nil then 
+    --    print("refreshing save game")
+    --    RefreshSaveGame()
+    --end
     for CharName, CharBool in pairs(Characters) do
         local HasCharReturn = HasCharacter(CharName)
         if HasCharReturn==nil then
             return
         end
-        if CharBool~=HasCharReturn["HasCharacter"] and CharBool then
+        if CharBool~=HasCharReturn and CharBool then
             GiveCharacter(CharName)
         end
     end

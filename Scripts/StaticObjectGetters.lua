@@ -76,6 +76,10 @@ function GetSaveGame()
     return SaveGame_
 end
 
+function RefreshSaveGame()
+    SaveGame_ = FindFirstOf("KSSaveGameBP_C")
+    return SaveGame_
+end
 function GetSaveGames()
     if(SaveGames_==nil)then
         SaveGames_ = FindAllOf("KSSaveGameBP_C")

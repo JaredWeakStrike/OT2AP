@@ -111,6 +111,7 @@ end
 
 
 function GiveCharacter(characterName)
+    --local SaveGame = RefreshSaveGame()
     local SaveGame = FindFirstOf("KSSaveGameBP_C")
     local CharSaveDataUtil = GetCharcterSaveDataUtil() 
 
@@ -129,6 +130,8 @@ function GiveCharacter(characterName)
     for i = 1,4 do
         if PlayerPartyMainMember[i] == -1 then
             PlayerPartyMainMember[i] = EPlayableCharacterID[characterName]-1
+            CharSaveDataUtil:SetCharacterRawHP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["HP"])
+            CharSaveDataUtil:SetCharacterRawMP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["MP"])
             return
         end
     end
@@ -137,6 +140,8 @@ function GiveCharacter(characterName)
     for i = 1,4 do
         if PlayerPartySubMember[i] == -1 then
             PlayerPartySubMember[i] = EPlayableCharacterID[characterName]-1
+            CharSaveDataUtil:SetCharacterRawHP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["HP"])
+            CharSaveDataUtil:SetCharacterRawMP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["MP"])
         end
     end
     --local OutResult = {true} --bool
@@ -147,8 +152,7 @@ function GiveCharacter(characterName)
     --print("giving "..characterName)
 --
     --SaveGame:JoinPlayerCharacterToParty(EPlayableCharacterID[characterName],OutResult,outIsAddMainMember)
-    --CharSaveDataUtil:SetCharacterRawHP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["HP"])
-    --CharSaveDataUtil:SetCharacterRawMP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["MP"])
+    
 end
 
 function RemoveCharacter(partyType,index)
