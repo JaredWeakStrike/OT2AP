@@ -181,6 +181,8 @@ function connect(server, slot, password)
                     Characters[ApItemName] = true
                 else
                     OnItemRecieve(ApItemName,ap:get_player_alias(item.player))
+                    VerifyStoryFlags()
+                    VerifyCharacters()
                 end
 
                 SetIndex(item.index)
@@ -287,7 +289,7 @@ function connect(server, slot, password)
     ap:set_set_reply_handler(on_set_reply)
 end
 local GameOverTimer = 0
-local VerifyCharFlag = 0
+local VerifyStuffCounter = 0
 function connectToAp(host, slot, password)
     ExecuteAsync(function ()
     connect(host, slot, "")
@@ -296,7 +298,7 @@ function connectToAp(host, slot, password)
     
     while ap do
         ap:poll()
-        --RefreshSaveGame()
+        -- could optimize some of this to be the chest the player is looking at with the player controller
         status,CheckedLocations = pcall(CheckChests)
         if #CheckedLocations>0 then
             ap:LocationChecks(CheckedLocations)
@@ -304,44 +306,19 @@ function connectToAp(host, slot, password)
                 checked_locations[APID] = true
             end
         end
-        if IsStartingChapterFinished() == true then
-            --print("verifying stuff")
-            VerifyStoryFlags() 
-        end
-        --print(IsGameOverPlaying())
-        local PlayerController = GetPlayerController()
-        if IsGameOverPlaying() == true then
-            GameOverTimer = 1
-            VerifyCharFlag = 1
-        elseif GameOverTimer == 1 then
-            -- see if I can recache GetSaveGame here 
-            print("decrementing GameOverTimer "..GameOverTimer)
-            if PlayerController~=nil and PlayerController.InputMode==0 then
-                VerifyInventory()
-                GameOverTimer = 0
-            end
-        end
 
-        if VerifyCharFlag == 1 and GameOverTimer == 0 and PlayerController.Character.NowActionID ~= 0 then
-            --print("refreshing save game")
-            RefreshSaveGame()
-            VerifyCharFlag=0
-        end
-
-        if VerifyCharFlag==0 then
-            VerifyCharacters()
-        end
-
-        
         ChestPopupLoop()
         pcall(FillScoutedLocations)
-        --if GameOverTimer==0 then
-        --    VerifyInventory()
-        --end
         
-
+        VerifyStuffCounter = VerifyStuffCounter+1
+        -- run every 30 frames
+        if VerifyStuffCounter==30 then
+            VerifyInventory()
+            VerifyCharacters()
+            VerifyStoryFlags()
+            VerifyStuffCounter = 0
+        end
     end
-
     end)
 end
 
@@ -615,6 +592,7 @@ function VerifyStoryFlags()
         return
     end
     
+    end
     for ChapterName, StoryInfo in pairs(CharacterChapterToStoryID) do
         if SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["StoryID"] then
             SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
@@ -698,13 +676,11 @@ end
 function IsStartingChapterFinished()
     -- on the title screen there are 2 dummy save games while in game there is only 1
     if FinshsedStartingChapter==false and #GetSaveGames()==1 then
+    if FinshsedStartingChapter==false then
         local SaveGame = GetSaveGame()
         if SaveGame==nil then
+            print("save game is nil in starting chapter")
             return false
-        end
-
-        if SaveGame.PlayerMember[35].RawMP == 1 then
-            return true
         end
 
         if SaveGame.MainStoryData[1].StoryID % 100 == 0 and SaveGame.MainStoryData[1].State == 5 then

@@ -1976,6 +1976,16 @@ ItemLabelToName = {
     ["Finale"] = "Finale"
 }
 
+CharacterNameToStartingChapter = {
+    ["Hikari"] = 100,
+    ["Ochette"] = 200,
+    ["Castti"] = 300,
+    ["Partitio"] = 400,
+    ["Temenos"] = 500,
+    ["Osvald"] = 600,
+    ["Throne"] = 700,
+    ["Agnea"] = 800
+}
 
 CharacterChapterToStoryID = {
 	["Hikari Chapter1 Unlock"] = { ["storyID"] = 100, ["index"] = 2 },--swapping these index for easy checking if the first index of the list is a starting chapter

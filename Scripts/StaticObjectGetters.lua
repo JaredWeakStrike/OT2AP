@@ -70,10 +70,11 @@ end
 -- Returns SaveGame Object
 -- UMJSaveData:::SaveGame
 function GetSaveGame()
-    if(SaveGame_==nil)then
-        SaveGame_ = FindFirstOf("KSSaveGameBP_C")
-    end
-    return SaveGame_
+    --if(SaveGame_==nil)then
+    --    SaveGame_ = FindFirstOf("KSSaveGameBP_C")
+    --end
+    --return SaveGame_
+    return GetSaveManager().SaveData
 end
 
 function RefreshSaveGame()

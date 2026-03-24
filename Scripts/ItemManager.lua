@@ -126,7 +126,7 @@ function GiveCharacter(characterName)
     if PlayerPartyMainMember==nil then 
         return
     end
-    print("giving "..characterName)
+    --print("giving "..characterName)
     for i = 1,4 do
         if PlayerPartyMainMember[i] == -1 then
             PlayerPartyMainMember[i] = EPlayableCharacterID[characterName]-1
