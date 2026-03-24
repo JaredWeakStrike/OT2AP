@@ -591,8 +591,11 @@ function VerifyStoryFlags()
         print_debug("SaveGame is nil in Verify Story Flags")
         return
     end
-    
+    if IsStartingChapterFinished() == false then
+        print_debug("starting chapter is not done yet")
+        return
     end
+    
     for ChapterName, StoryInfo in pairs(CharacterChapterToStoryID) do
         if SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["StoryID"] then
             SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
@@ -674,8 +677,6 @@ function IsChapterFinshed(index)
 end
 
 function IsStartingChapterFinished()
-    -- on the title screen there are 2 dummy save games while in game there is only 1
-    if FinshsedStartingChapter==false and #GetSaveGames()==1 then
     if FinshsedStartingChapter==false then
         local SaveGame = GetSaveGame()
         if SaveGame==nil then
