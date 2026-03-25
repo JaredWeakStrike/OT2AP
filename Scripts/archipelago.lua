@@ -146,8 +146,9 @@ function connect(server, slot, password)
             "Osvald","Castti","Temenos","Ochette","Partitio","Agnea","Hikari"
         }
         StartingCharacter = StartingCharacterToName[slot_data["StartingCharacter"]]
-        StartingChapter = StartingCharacter.." Chapter1 Unlock"
+        StartingChapter   = StartingCharacter.." Chapter1 Unlock"
         Goal              = slot_data["Goal"]
+        RequiredChapters  = slot_data["RequiredChapters"]
         
         Characters[StartingCharacter] = true
         local locations_to_scout = {}
@@ -290,6 +291,9 @@ function connect(server, slot, password)
 end
 local GameOverTimer = 0
 local VerifyStuffCounter = 0
+local VerifyTitleScreen = 0
+local VictoryReached = false
+
 function connectToAp(host, slot, password)
     ExecuteAsync(function ()
     connect(host, slot, "")
@@ -311,12 +315,24 @@ function connectToAp(host, slot, password)
         pcall(FillScoutedLocations)
         
         VerifyStuffCounter = VerifyStuffCounter+1
+        VerifyTitleScreen = VerifyTitleScreen+1
         -- run every 30 frames
         if VerifyStuffCounter==30 then
             VerifyInventory()
             VerifyCharacters()
             VerifyStoryFlags()
+            -- if goal is chapter count
+            if FinishedChapterCount() >= RequiredChapters and VictoryReached==false then
+                APClient:StatusUpdate(30) -- send wincon to server
+            end
+            
             VerifyStuffCounter = 0
+        end
+
+        -- runs every 120 frames, 
+        if VerifyTitleScreen==120 then
+            SetStartingCharacterIcons()
+            VerifyTitleScreen=0
         end
     end
     end)
@@ -525,21 +541,6 @@ function VerifyCharacters()
     if GameOverTimer>0 then
         return
     end
-    --local LevelManager = GetLevelManager()
-    --if LevelManager == nil or LevelManager.m_IsGameOverPlaying == true then
-    --    print("game over is playing")
-    --    return
-    --end
-    --local PlayerController = GetPlayerController()
-    --if PlayerController==nil or PlayerController.InputMode~=1 then
-    --    return
-    --end
-    --print_debug("calling verifty character")
-    local SaveGame = GetSaveGame()
-    --if SaveGame.PlayerParty.MainMemberID[1] == nil then 
-    --    print("refreshing save game")
-    --    RefreshSaveGame()
-    --end
     for CharName, CharBool in pairs(Characters) do
         local HasCharReturn = HasCharacter(CharName)
         if HasCharReturn==nil then
@@ -556,10 +557,6 @@ function VerifyInventory()
     if index == nil then
         return
     end
-    local PlayerController = GetPlayerController()
-    --if PlayerController==nil or PlayerController.InputMode~=0 then
-    --    return
-    --end
     while GetIndex() < CurrentIndexFromServer do
         local ItemName = inventory[index +1]
         if ItemName == nil then
@@ -646,12 +643,9 @@ function SetInterruptedStoryFlags()
 end
 
 function SetStartingCharacterIcons()
-    if ChangeStartingCharIcon == false and StartingCharacter~=nil then
+    if StartingCharacter~=nil then
         local CharacterIcons = GetTitlePlayerIcons()
         if CharacterIcons==nil then
-            if #GetSaveGames()==1 then
-                ChangeStartingCharIcon = true    
-            end
             return
         end
         for _, CharacterIcon in ipairs(CharacterIcons) do
@@ -659,7 +653,6 @@ function SetStartingCharacterIcons()
                 CharacterIcon:SetWorldMapData(FName(CharNameToMap[StartingCharacter]))
             end
         end
-        ChangeStartingCharIcon = true
     end
 end
 
@@ -674,6 +667,17 @@ function IsChapterFinshed(index)
     end
         return false
 
+end
+
+function FinishedChapterCount()
+    ChapterCount = 0
+    -- will have to check here because of some lua index stuff
+    for i=1,51 do
+        if IsChapterFinshed(i) then
+            ChapterCount=ChapterCount+1
+        end
+    end
+    return ChapterCount
 end
 
 function IsStartingChapterFinished()
@@ -699,4 +703,18 @@ function IsGameOverPlaying()
         return nil
     end
     return LevelManager.m_IsGameOverPlaying
+end
+local BitFlagDict = {
+    ["Boat"] = {["Recieved"] = false, ["Index"]=6,["Bitflag"] = 6400}
+
+}
+
+function VerifyBitflags()
+    local SaveGame = GetSaveGame()
+    local BitFlags = SaveGame.Bitflag
+    for i, Flag in ipairs(BitFlagDict) do
+        if Flag["Recieved"] and BitFlags[Flag["Index"]] | 6400 then
+            
+        end
+    end
 end
