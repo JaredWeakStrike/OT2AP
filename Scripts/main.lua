@@ -273,6 +273,109 @@ RegisterConsoleCommandHandler("giveboat", function(FullCommand,userInput)
     return true
 end)
 
+RegisterConsoleCommandHandler("unlockmap", function(FullCommand,userInput)
+    local SaveDataUtil = GetLevelSaveDataUtil()
+    for i = 1,65300 do
+        SaveDataUtil:SetVisitedMap(true,i)
+        SaveDataUtil:SetShowMapIcon(true,i)
+    end 
+    return true
+end)
+
+RegisterConsoleCommandHandler("maxmoney", function(FullCommand,userInput)
+    local CharcterSaveDataUtil = GetCharcterSaveDataUtil()
+    CharcterSaveDataUtil:SetPlayerMoney(9999999)
+    return true
+end)
+
+RegisterConsoleCommandHandler("maxlevel", function(FullCommand,userInput)
+    local CharcterSaveDataUtil = GetCharcterSaveDataUtil()
+    for i=0,7 do
+        CharcterSaveDataUtil:SetCharacterLevelAndExp(i,99,9999)
+    end
+    return true
+end)
+
+RegisterConsoleCommandHandler("giverib", function(FullCommand,userInput)
+    local ItemFunction = GetItemFunction()
+    local pc = UEHelpers:GetPlayerController() -- required for getting world context
+    local __WorldContext = pc:GetWorld() -- required for some functions.
+    local ItemDB = GetItemDB()
+    --local nut = ItemDB:FindRow("ITM_FLV_0090")
+    --if nut==nil then
+    --    print("no nut")
+    --end
+    --nut.MaxNum = 300
+    
+    ItemFunction:AddBackpackItem(FName("ITM_EQP_ACS_031"),99, __WorldContext, {true})
+    return true
+end)
+--DataTable /Game/Placement/Database/PlacementData.PlacementData
+
+RegisterConsoleCommandHandler("spawnshop", function(FullCommand,userInput)
+    local PlaceDataTable = StaticFindObject("/Game/Placement/Database/PlacementData.PlacementData")
+    local shop1 = PlaceDataTable:FindRow("NPC_Fld_Dst_3_1_B_SHOP01")
+    local shop2 = PlaceDataTable:FindRow("NPC_Fld_Dst_3_1_B_SHOP02")
+    local shop3 = PlaceDataTable:FindRow("NPC_SYS_BARTENDER_Fld_Dst_3_1_B_0000")
+    local shop4 = PlaceDataTable:FindRow("NPC_Fld_Dst_3_1_B_SHOP04")
+    shop1.SpawnStartFlag = 0
+    shop2.SpawnStartFlag = 0
+    shop3.SpawnStartFlag = 0
+    shop4.SpawnStartFlag = 0
+    --local nut = ItemDB:FindRow("ITM_FLV_0090")
+    --if nut==nil then
+    --    print("no nut")
+    --end
+    --nut.MaxNum = 300
+    
+    --ItemFunction:AddBackpackItem(FName("ITM_EQP_ACS_031"),99, __WorldContext, {true})
+    return true
+end)
+
+RegisterConsoleCommandHandler("BitFlagMax", function(FullCommand,userInput)
+    local SaveGame = GetSaveGame()
+    --1060 1065 2147483647
+    --for i=30,2008 do
+    --    print("setting bitflag index "..i)
+    --    SaveGame.BitFlag[i] = 0 
+    --end
+    SaveGame.BitFlag[1065] = SaveGame.BitFlag[1065] | 262144
+    --MF_KEN_50_0600
+    --SaveGame.BitFlag[1065] = 262144
+    --SaveGame.BitFlag[7] = SaveGame.BitFlag[7]+1
+    --SaveGame.BitFlag[7] = SaveGame.BitFlag[7]|6400 -- boat 6400
+    --SaveGame.BitFlag[5] = 0
+    --SaveGame.BitFlag[6] = 0
+    --local SaveDataUtil = GetLevelSaveDataUtil()
+    --for i = 1,65300 do
+    --    SaveDataUtil:SetVisitedMap(true,i)
+    --    SaveDataUtil:SetShowMapIcon(true,i)
+    --end 
+    return true
+end)
+
+RegisterConsoleCommandHandler("FixChap3", function(FullCommand,userInput)
+    local stuff = StaticFindObject("/Game/Character/Database/PlayableCharacterDB.PlayableCharacterDB")
+    local stuff2 = stuff:FindRow("eFENCER")
+    stuff2.SecondPotentialityActionFlag = 0
+    print(stuff2.SecondPotentialityActionFlag)
+    --stuff2.SecondPotentialityActionLabel = stuff2.PotentialityActionLabel
+    return true
+end)
+
+RegisterConsoleCommandHandler("GiveCharacter", function(FullCommand,userInput)
+    local SaveGame = GetSaveGame()
+    SaveGame.PlayerParty.SubMemberID[1] = 3
+    return true
+end)
+
+local PlacementDataAPFixes = {
+    ["NPC_Fld_Dst_3_1_B_SHOP01"] = 0,
+    ["NPC_Fld_Dst_3_1_B_SHOP02"] = 0,
+    ["NPC_SYS_BARTENDER_Fld_Dst_3_1_B_0000"] = 0, -- spawn shops for hikari chapter 5
+    ["NPC_Fld_Dst_3_1_B_SHOP04"] = 0
+}
+
 function Connect(commandName,userInput) 
     if #userInput < 2 then 
         print("Error trying to connect. Correct input: connect <host> <slot> [password]")
@@ -291,6 +394,10 @@ function Connect(commandName,userInput)
     -- FItemData
     local ItemDB = GetItemDB()
     local TextDB = GetGameTextDB()
+    local PlacementData = GetPlacementDB()
+    for name,flag in pairs(PlacementDataAPFixes) do
+        PlacementData:FindRow(name).SpawnStartFlag = flag
+    end
     if(ItemDB~=nil and TextDB~=nil)then
         print("we got itemdb babyyy")
         --11080

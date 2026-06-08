@@ -142,6 +142,7 @@ function GiveCharacter(characterName)
             PlayerPartySubMember[i] = EPlayableCharacterID[characterName]-1
             CharSaveDataUtil:SetCharacterRawHP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["HP"])
             CharSaveDataUtil:SetCharacterRawMP(EPlayableCharacterID[characterName],CharacterIDToStartingStats[characterName]["MP"])
+            return
         end
     end
     --local OutResult = {true} --bool

@@ -7,6 +7,7 @@ require "ItemManager"
 require "StaticObjectGetters"
 require "DatabaseInfo"
 require "ArchipelagoLists"
+
 local UEHelpers = require("UEHelpers")
 local pc = UEHelpers:GetPlayerController() -- required for getting world context
 local __WorldContext = pc:GetWorld() -- required for some functions.
@@ -101,6 +102,13 @@ CharNameToMap = {
     ["Partitio"] =  "eMAP_Twn_Wld_1_1",
 }
 
+local BitFlagDict = {
+    --["RELEASE_MERCHANT_SHIP "] = {["Recieved"]=false, ["Index"]=7, ["Bitflag"]=256},
+    ["The Grand Terry"]        = {["Recieved"] =false, ["Index"]=7,    ["Bitflag"]=256}, -- 6400    Unlock the grand terry
+    ["Hikari Chapter5 Unlock"] = {["Recieved"] =false, ["Index"]=1065, ["Bitflag"]=262144}, -- OBJ_ONOFF_0660
+
+}
+
 Goal = nil
 APNameToChestID = {}
 print("filling APName to Chest")
@@ -115,7 +123,7 @@ end
 local host = "localhost"
 local slot = "Player1"
 local password = ""
-
+local VictoryReached = false
 
 function connect(server, slot, password)
     print("we are calling archipelago.lua connect")
@@ -149,7 +157,14 @@ function connect(server, slot, password)
         StartingChapter   = StartingCharacter.." Chapter1 Unlock"
         Goal              = slot_data["Goal"]
         RequiredChapters  = slot_data["RequiredChapters"]
-        
+        if CharacterChapterToStoryID[StartingChapter]["index"]~=1 then
+            for ChapterName,Info in pairs(CharacterChapterToStoryID) do
+                Info["index"] = Info["index"]+1
+                print(ChapterName.." "..Info["index"].."\n")
+            end
+            CharacterChapterToStoryID[StartingChapter]["index"]=1
+        end
+        print()
         Characters[StartingCharacter] = true
         local locations_to_scout = {}
         for locationName, locationID in pairs(LocationNameToAPId) do
@@ -167,38 +182,57 @@ function connect(server, slot, password)
 
     function on_items_received(items)
         print("Items received:")
-        for _, item in ipairs(items) do
-            print("index ".._.."for item "..item.item)
-            if inventory[item.index]==nil then 
-                inventory[item.index] = APItemIdToName[item.item] 
-                CurrentIndexFromServer = item.index
+        
+        for i, item in ipairs(items) do
+            local itemName = APItemIdToName[item.item]
+            local playerName = ap:get_player_alias(item.player)
+            local index = item.index
+        
+            print("index " .. i .. " for item " .. item.item)
+        
+            -- store in inventory if new
+            if inventory[index] == nil then 
+                inventory[index] = itemName
+                CurrentIndexFromServer = index
             end
-            if item.index >GetIndex() then
-                ApItemName = APItemIdToName[item.item]
-                print(APItemIdToName[item.item].." from "..ap:get_player_alias(item.player))
-                if ChapterUnlocks[ApItemName] == false then
-                    ChapterUnlocks[ApItemName] = true
-                elseif Characters[ApItemName]==false then
-                    Characters[ApItemName] = true
-                else
-                    OnItemRecieve(ApItemName,ap:get_player_alias(item.player))
-                    VerifyStoryFlags()
-                    VerifyCharacters()
-                end
-
-                SetIndex(item.index)
-            else
+        
+            -- ignore old items
+            if index <= GetIndex() then
                 print("item is out of index")
+                goto continue
             end
+        
+            print(itemName .. " from " .. playerName)
+        
+            -- handle item type
+            if ChapterUnlocks[itemName] == false then
+                ChapterUnlocks[itemName] = true
+            
+            elseif Characters[itemName] == false then
+                Characters[itemName] = true
+            
+            elseif BitFlagDict[itemName] ~= nil then
+                print("setting bitflag item as received")
+                BitFlagDict[itemName]["Recieved"] = true
+            
+            else
+                OnItemRecieve(itemName, playerName)
+            end
+            
+            SetIndex(index)
+        
+            ::continue::
         end
+        VerifyStoryFlags()
+        VerifyCharacters()
     end
 
     function on_location_info(items)
         print("Locations scouted:")
         for _, item in ipairs(items) do
             if ScoutedLocations[item.location]==nil then
-                print("placing item "..ap:get_item_name(item.item,ap:get_player_game(item.player)).." in location"..item.location)
-                print("apnamelength "..#APNameToChestID)
+               -- print("placing item "..ap:get_item_name(item.item,ap:get_player_game(item.player)).." in location"..item.location)
+               -- print("apnamelength "..#APNameToChestID)
                 local APLocationName = APLocationIdToName[item.location]
                 if APLocationName == nil then
                     print("we sajdklajskl")
@@ -247,7 +281,13 @@ function connect(server, slot, password)
         print("Retrieved:")
         -- since lua tables won't contain nil values, we can use keys array
         for _, key in ipairs(keys) do
-            print("  " .. key .. ": " .. tostring(map[key]))
+           print("  " .. key .. ": " .. tostring(map[key]))
+           --print(tostring(map[key])=="30")
+           -- this is probably not going to be good for other get stuff but it works for rn
+            if VictoryReached==false and tostring(map[key])=="30" then
+                print("making victoryreaced true")
+                VictoryReached = true
+            end
         end
         -- extra will include extra fields from Get
         print("Extra:")
@@ -292,7 +332,7 @@ end
 local GameOverTimer = 0
 local VerifyStuffCounter = 0
 local VerifyTitleScreen = 0
-local VictoryReached = false
+
 
 function connectToAp(host, slot, password)
     ExecuteAsync(function ()
@@ -316,21 +356,28 @@ function connectToAp(host, slot, password)
         
         VerifyStuffCounter = VerifyStuffCounter+1
         VerifyTitleScreen = VerifyTitleScreen+1
+
         -- run every 30 frames
         if VerifyStuffCounter==30 then
+           -- print("verifying stuff")
             VerifyInventory()
             VerifyCharacters()
             VerifyStoryFlags()
+            VerifyBitflags()
             -- if goal is chapter count
-            if FinishedChapterCount() >= RequiredChapters and VictoryReached==false then
-                APClient:StatusUpdate(30) -- send wincon to server
+            if RequiredChapters and FinishedChapterCount() >= RequiredChapters and VictoryReached==false then
+                ap:StatusUpdate(30) -- send wincon to server
+                ap:Get({"_read_client_status_"..ap:get_team_number().."_"..ap:get_player_number()})
+                
             end
             
             VerifyStuffCounter = 0
+            --print("verifying stuff2")
         end
 
         -- runs every 120 frames, 
         if VerifyTitleScreen==120 then
+            --print("verifying titlescreen")
             SetStartingCharacterIcons()
             VerifyTitleScreen=0
         end
@@ -525,12 +572,11 @@ function HasCharacter(CharacterName)
         end
     end
     for i = 1,8 do
-        --print("has character2 i "..tostring(i))
         if PlayerParty.SubMemberID[i] == CharacterID then
             return true
         end
     end
-
+    print("has character returning false")
     return false
 end
 
@@ -542,12 +588,14 @@ function VerifyCharacters()
         return
     end
     for CharName, CharBool in pairs(Characters) do
-        local HasCharReturn = HasCharacter(CharName)
-        if HasCharReturn==nil then
-            return
-        end
-        if CharBool~=HasCharReturn and CharBool then
-            GiveCharacter(CharName)
+        if CharBool then
+            local HasCharReturn = HasCharacter(CharName)
+            if HasCharReturn==nil then
+                return
+            end
+            if HasCharReturn == false then
+                GiveCharacter(CharName)
+            end
         end
     end
 end
@@ -594,6 +642,10 @@ function VerifyStoryFlags()
     end
     
     for ChapterName, StoryInfo in pairs(CharacterChapterToStoryID) do
+        if StoryInfo["index"]==1 then
+            goto continue
+        end
+
         if SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["StoryID"] then
             SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
             SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
@@ -617,6 +669,9 @@ function VerifyStoryFlags()
                 SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
             end  
         end
+
+
+        ::continue::
     end
 end 
 
@@ -644,7 +699,7 @@ end
 
 function SetStartingCharacterIcons()
     if StartingCharacter~=nil then
-        local CharacterIcons = GetTitlePlayerIcons()
+        local CharacterIcons = FindAllOf("WBP_3DPlayerSelectIcon_C")
         if CharacterIcons==nil then
             return
         end
@@ -659,7 +714,7 @@ end
 function IsChapterFinshed(index)
     local SaveGame = GetSaveGame()
     if SaveGame==nil then
-        return nil
+        return 0
     end
     if SaveGame.MainStoryData[index].State == 5 then
         -- finished first chapter update all story flags and remove/give characters
@@ -688,7 +743,7 @@ function IsStartingChapterFinished()
             return false
         end
 
-        if SaveGame.MainStoryData[1].StoryID % 100 == 0 and SaveGame.MainStoryData[1].State == 5 then
+        if SaveGame.MainStoryData[1].State == 5 or SaveGame.PlayerMember[35].RawMP == 1 then
             FinshsedStartingChapter = true
             SaveGame.PlayerMember[35].RawMP = 1
         end
@@ -704,17 +759,44 @@ function IsGameOverPlaying()
     end
     return LevelManager.m_IsGameOverPlaying
 end
-local BitFlagDict = {
-    ["Boat"] = {["Recieved"] = false, ["Index"]=6,["Bitflag"] = 6400}
 
-}
+-- check if a bit is set
+function HasFlag(value, bitflag)
+    return (value & bitflag) ~= 0
+end
+
+-- add/set a bit
+function SetFlag(value, bitflag)
+    return value | bitflag
+end
+
+-- remove/clear a bit
+function ClearFlag(value, bitflag)
+    return value & (~bitflag)
+end
+
+
+
 
 function VerifyBitflags()
     local SaveGame = GetSaveGame()
     local BitFlags = SaveGame.Bitflag
-    for i, Flag in ipairs(BitFlagDict) do
-        if Flag["Recieved"] and BitFlags[Flag["Index"]] | 6400 then
-            
+
+    for name, Flag in pairs(BitFlagDict) do
+        local index = Flag["Index"]
+        local bitflag = Flag["Bitflag"]
+        local value = BitFlags[index]
+
+        if Flag["Recieved"] then
+            if HasFlag(value, bitflag) == false then
+                print(name .. " missing bitflag...fixing")
+                BitFlags[index] = SetFlag(value, bitflag)
+            end
+        else
+            if HasFlag(value, bitflag) == true then
+                print(name .. " should not have bitflag...removing")
+                BitFlags[index] = ClearFlag(value, bitflag)
+            end
         end
     end
 end

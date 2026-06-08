@@ -39,6 +39,8 @@ ItemSaveDataUtil_ = nil
 ---@class KSPlayerControllerBP_C
 PlayerController_ = nil
 
+PlacementDataDB_ = nil
+
 PRINT_DEBUG_FLAG = true
 
 LevelSaveDataUtil_ = nil
@@ -187,6 +189,12 @@ function GetGameTextDB()
     return GameTextDB_
 end
 
+function GetPlacementDB()
+    if (PlacementDataDB_==nil)then
+        PlacementDataDB_ = StaticFindObject("/Game/Placement/Database/PlacementData.PlacementData")
+    end
+    return PlacementDataDB_
+end
 
 --function GetManagerDB()
 --    print("getting database manager")
