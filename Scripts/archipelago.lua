@@ -104,8 +104,9 @@ CharNameToMap = {
 
 local BitFlagDict = {
     --["RELEASE_MERCHANT_SHIP "] = {["Recieved"]=false, ["Index"]=7, ["Bitflag"]=256},
-    ["The Grand Terry"]        = {["Recieved"] =false, ["Index"]=7,    ["Bitflag"]=256}, -- 6400    Unlock the grand terry
-    ["Hikari Chapter5 Unlock"] = {["Recieved"] =false, ["Index"]=1065, ["Bitflag"]=262144}, -- OBJ_ONOFF_0660
+    ["The Grand Terry"]        = {["Recieved"] =false, ["Index"]=7,    ["Bitflag"]=256,   ["Operation"]="BitOr"}, -- 6400    Unlock the grand terry
+    ["Hikari Chapter5 Unlock"] = {["Recieved"] =false, ["Index"]=1065, ["Bitflag"]=262144,["Operation"]="BitOr"}, -- OBJ_ONOFF_0660
+    ["Temenos Chapter2 Unlock"] ={["Recieved"] =false, ["Index"]=796,  ["Bitflag"]=64,    ["Operation"]="BitNot"} -- MF_SHO_30_1100???
 
 }
 
@@ -647,6 +648,7 @@ function VerifyStoryFlags()
         end
 
         if SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["StoryID"] then
+            print("setting "..StoryInfo["index"].." to 7")
             SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
             SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
             SaveGame.MainStoryData[StoryInfo["index"]].State = 7
@@ -655,19 +657,20 @@ function VerifyStoryFlags()
 
         if ChapterUnlocks[ChapterName] == true and ChapterName ~= StartingChapter then
             if SaveGame.MainStoryData[StoryInfo["index"]].StoryID == StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State == 7 then
+                print("setting "..ChapterName.."to be first state")
                 SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
                 SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
                 SaveGame.MainStoryData[StoryInfo["index"]].State = 1
                 SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
             end  
-        else --ChapterUnlocks[ChapterName] == false
-            if SaveGame.MainStoryData[StoryInfo["index"]].StoryID == StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State ~= 7 then
-                print("removing story flag "..StoryInfo["storyID"])
-                SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
-                SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
-                SaveGame.MainStoryData[StoryInfo["index"]].State = 7
-                SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
-            end  
+        --else --ChapterUnlocks[ChapterName] == false
+        --    if SaveGame.MainStoryData[StoryInfo["index"]].StoryID == StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State ~= 7 then
+        --        print("removing story flag "..StoryInfo["storyID"])
+        --        SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
+        --        SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
+        --        SaveGame.MainStoryData[StoryInfo["index"]].State = 7
+        --        SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
+        --    end  
         end
 
 
@@ -675,27 +678,27 @@ function VerifyStoryFlags()
     end
 end 
 
-function SetInterruptedStoryFlags()
-    if StartingCharacter==nil then
-        return
-    end
-    local SaveGame = GetSaveGame()
-    if SaveGame==nil then
-        return
-    end
-
-    
-    for ChapterName, StoryInfo in pairs(CharacterChapterToStoryID) do
-        if ChapterName~=CharacterChapterFNameToAPName[StartingCharacter..1] and SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State ~= 7 then
-            print("setting no story data for "..ChapterName)
-            SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
-            SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
-            SaveGame.MainStoryData[StoryInfo["index"]].State = 7
-            SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
-        end 
-    end
-
-end
+--function SetInterruptedStoryFlags()
+--    if StartingCharacter==nil then
+--        return
+--    end
+--    local SaveGame = GetSaveGame()
+--    if SaveGame==nil then
+--        return
+--    end
+--
+--    
+--    for ChapterName, StoryInfo in pairs(CharacterChapterToStoryID) do
+--        if ChapterName~=CharacterChapterFNameToAPName[StartingCharacter..1] and SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State ~= 7 then
+--            print("setting no story data for "..ChapterName)
+--            SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
+--            SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
+--            SaveGame.MainStoryData[StoryInfo["index"]].State = 7
+--            SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
+--        end 
+--    end
+--
+--end
 
 function SetStartingCharacterIcons()
     if StartingCharacter~=nil then
@@ -760,17 +763,14 @@ function IsGameOverPlaying()
     return LevelManager.m_IsGameOverPlaying
 end
 
--- check if a bit is set
 function HasFlag(value, bitflag)
     return (value & bitflag) ~= 0
 end
 
--- add/set a bit
 function SetFlag(value, bitflag)
     return value | bitflag
 end
 
--- remove/clear a bit
 function ClearFlag(value, bitflag)
     return value & (~bitflag)
 end
@@ -786,15 +786,21 @@ function VerifyBitflags()
         local index = Flag["Index"]
         local bitflag = Flag["Bitflag"]
         local value = BitFlags[index]
+        local operation = Flag["Operation"]
+        local HasFlag = HasFlag(value,bitflag)
 
         if Flag["Recieved"] then
-            if HasFlag(value, bitflag) == false then
-                print(name .. " missing bitflag...fixing")
+            if operation=="BitOr" and HasFlag == false then
+                print(name .. " missing bitflag")
                 BitFlags[index] = SetFlag(value, bitflag)
             end
+            if operation=="BitNot" and HasFlag == True then
+                print(name .. " has bitflag")
+                BitFlags[index] = ClearFlag(value, bitflag)
+            end
         else
-            if HasFlag(value, bitflag) == true then
-                print(name .. " should not have bitflag...removing")
+            if HasFlag == true then
+                print(name .. " should not have bitflag")
                 BitFlags[index] = ClearFlag(value, bitflag)
             end
         end

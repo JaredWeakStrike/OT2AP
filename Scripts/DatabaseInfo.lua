@@ -1988,8 +1988,8 @@ CharacterNameToStartingChapter = {
 }
 
 CharacterChapterToStoryID = {
-	["Hikari Chapter1 Unlock"] = { ["storyID"] = 100, ["index"] = 2 },--swapping these index for easy checking if the first index of the list is a starting chapter
-	["Hikari Chapter2 Unlock"] = { ["storyID"] = 101, ["index"] = 1 },
+	["Hikari Chapter1 Unlock"] = { ["storyID"] = 100, ["index"] = 1 },--swapping these index for easy checking if the first index of the list is a starting chapter
+	["Hikari Chapter2 Unlock"] = { ["storyID"] = 101, ["index"] = 2 },
 	["Hikari Chapter3 Unlock"] = { ["storyID"] = 102, ["index"] = 3 },
 	["Hikari Chapter4 Unlock"] = { ["storyID"] = 103, ["index"] = 4 },
 	["Hikari Chapter5 Unlock"] = { ["storyID"] = 104, ["index"] = 5 },
@@ -2011,7 +2011,7 @@ CharacterChapterToStoryID = {
 	["Partitio Sai Archives Quest Unlock"] = { ["storyID"] = 412, ["index"] = 21 },
 	["Temenos Chapter1 Unlock"] = { ["storyID"] = 500, ["index"] = 22 },
 	["Temenos Chapter2 Unlock"] = { ["storyID"] = 501, ["index"] = 23 },
-	["Temenos Chapter3 Stormhail"] = { ["storyID"] = 502, ["index"] = 24 },
+	["Temenos Chapter3 Stormhail Unlock"] = { ["storyID"] = 502, ["index"] = 24 },
 	["Temenos Chapter3 Crackridge Unlock"] = { ["storyID"] = 503, ["index"] = 25 },
 	["Temenos Chapter4 Unlock"] = { ["storyID"] = 504, ["index"] = 26 },
 	["Osvald Chapter1 Unlock"] = { ["storyID"] = 600, ["index"] = 27 },

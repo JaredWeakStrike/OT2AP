@@ -76,3 +76,10 @@ function StartStoryFlag(StoryFlag)
     SaveStoryUtil.GetAllPlayingMainStoryIDs(stuffs)
     
 end
+
+function BreakEnemy()
+    local Enemies = FindAllOf("BattleEnemyBP_C")
+    for i,enemy in ipairs(Enemies) do
+        enemy:SetBreakPoint(0)
+    end
+end

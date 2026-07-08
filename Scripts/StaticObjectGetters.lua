@@ -45,6 +45,10 @@ PRINT_DEBUG_FLAG = true
 
 LevelSaveDataUtil_ = nil
 
+MainStoryDB_ = nil
+
+EventManager_ = nil
+
 function print_debug(text) 
     if PRINT_DEBUG_FLAG == true then
         print(text)
@@ -196,6 +200,12 @@ function GetPlacementDB()
     return PlacementDataDB_
 end
 
+function GetMainStoryDB()
+    if (MainStoryDB_==nil)then
+        MainStoryDB_ = StaticFindObject("/Game/Story/Database/MainStory.MainStory")
+    end
+    return MainStoryDB_
+end
 --function GetManagerDB()
 --    print("getting database manager")
 --    if(DatabaseManager_==nil)then
@@ -203,6 +213,13 @@ end
 --    end
 --    return DatabaseManager_
 --end
+
+function GetEventManager()
+    if EventManager_==nil then
+        EventManager_ = FindFirstOf("EventManagerBP_C")
+    end
+    return EventManager_
+end
 
 function GetItemDB()
     if(ItemDB_==nil)then

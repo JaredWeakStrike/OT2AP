@@ -214,6 +214,7 @@ RegisterConsoleCommandHandler("finishstory", function(FullCommand,userInput)
 end)
 
 RegisterConsoleCommandHandler("kill", function(FullCommand,userInput)
+    BreakEnemy()
     KillAllEnemy()
     return true
 end)
@@ -335,11 +336,85 @@ end)
 RegisterConsoleCommandHandler("BitFlagMax", function(FullCommand,userInput)
     local SaveGame = GetSaveGame()
     --1060 1065 2147483647
-    --for i=30,2008 do
+    --1 , 500
+    -- 173,175
+    --for i=173,175 do
     --    print("setting bitflag index "..i)
     --    SaveGame.BitFlag[i] = 0 
     --end
-    SaveGame.BitFlag[1065] = SaveGame.BitFlag[1065] | 262144
+    --print(SaveGame.BitFlag[174])
+    --16384 
+    --32768
+    --65536
+    --131072
+    --262144 2^18
+    -- 2^19
+    --print(__len(SaveGame.MainStoryTaskData))
+    --print(SaveGame.MainStoryTaskData:__len())
+    --for i,FMainStoryTaskSaveData in pairs(SaveGame.MainStoryTaskData) do
+    --    print(FMainStoryTaskSaveData.Flag)
+    --end  
+    shipIsThere = {
+       --[33] = 210110598,
+       --[34] = 16811280,
+       --[43] = 139526344,
+       --[176] = 0,
+       --[177] = 0,
+       --[594] = 0,
+       --[793] = 0,
+       [796] = 64, --2
+
+
+
+        --[797] = 268435456,
+        --[1065] = 805830656,
+        --[1066] = 4096
+
+    }
+    for k,v in pairs(shipIsThere) do
+        SaveGame.BitFlag[k] = v
+    end
+    for i=1,2047 do
+        print("\"index"..i.."\":"..SaveGame.BitFlag[i]..", \n")
+    end
+    --print(type(SaveGame.MainStoryTaskData))
+    --SaveGame.MainStoryTaskData:ForEach(function(key, value)
+    --    print("Key:", key:get())
+--
+    --    local task = value:get()
+    --    print("Flag:", task.Flag)
+    --    print("State:", task.State)
+    --    print("PlayedTimeZone:", task.PlayedTimeZone)
+--
+    --    --for i, flag in ipairs(task.EventFlagList) do
+    --    --    print("EventFlag", i, flag)
+    --    --end
+    --end)
+    --print(SaveGame.MainStoryTaskData)
+    --local keys = SaveGame.MainStoryTaskData:GetKeys()
+    --for i, key in ipairs(keys) do
+    --    local value = SaveGame.MainStoryTaskData[key]
+    --    print(key, value.State)
+    --end
+    --SaveGame.BitFlag[174] = SaveGame.BitFlag[174] | 67108864
+    --SaveGame.BitFlag[174] = 0
+    stuff = {
+    ["LF_MS_SIN_20_001 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=1024},
+    ["LF_MS_SIN_20_002 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=2048},
+    ["LF_MS_SIN_20_003 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=4096},
+    ["LF_MS_SIN_20_004 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=8192},
+    ["LF_MS_SIN_20_005 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=16384},
+    ["LF_MS_SIN_20_006 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=32768},
+    ["LF_MS_SIN_20_007 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=65536},
+    }
+    --local SaveGame = GetSaveGame()
+    --local BitFlags = SaveGame.Bitflag
+    --for name, Flag in pairs(stuff) do
+    --    local index = Flag["Index"]
+    --    local bitflag = Flag["Bitflag"]
+    --    BitFlags[index] = 0 --BitFlags[index] | bitflag
+    --end
+    --SaveGame.BitFlag[1065] = SaveGame.BitFlag[1065] | 262144
     --MF_KEN_50_0600
     --SaveGame.BitFlag[1065] = 262144
     --SaveGame.BitFlag[7] = SaveGame.BitFlag[7]+1
@@ -353,6 +428,15 @@ RegisterConsoleCommandHandler("BitFlagMax", function(FullCommand,userInput)
     --end 
     return true
 end)
+RegisterConsoleCommandHandler("GoFast", function(FullCommand,userInput)
+    print("Going Fast")
+    local EventManager = GetEventManager()
+    EventManager:SetMaxSkipInputTime(0.00001)
+    local SaveGame = GetSaveGame()
+    SaveGame.BattleSpeedStep = 400
+    return true
+end)
+
 
 RegisterConsoleCommandHandler("FixChap3", function(FullCommand,userInput)
     local stuff = StaticFindObject("/Game/Character/Database/PlayableCharacterDB.PlayableCharacterDB")
@@ -373,8 +457,73 @@ local PlacementDataAPFixes = {
     ["NPC_Fld_Dst_3_1_B_SHOP01"] = 0,
     ["NPC_Fld_Dst_3_1_B_SHOP02"] = 0,
     ["NPC_SYS_BARTENDER_Fld_Dst_3_1_B_0000"] = 0, -- spawn shops for hikari chapter 5
-    ["NPC_Fld_Dst_3_1_B_SHOP04"] = 0
+    ["NPC_Fld_Dst_3_1_B_SHOP04"] = 0, -- TODO figure out which one of these is the invisable wall
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0100_D000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0100_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0200_D000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0200_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0300_D000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0300_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0400_D000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0400_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0500_D000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0500_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0600_D000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0600_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0700_D000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0700_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1100_D000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1100_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1200_D000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1200_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1300_D000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1300_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1400_D000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1400_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1500_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1600_D000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1600_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_2100_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_2200_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_2300_N000"] = 0,
+    ["NPC_SIN_20_00_Twn_Sea_1_1_A_2400_N000"] = 0
 }
+
+local MainStoryFixes = {
+    ["MS_SIN_3A_0000"] = 0
+}
+
+RegisterConsoleCommandHandler("PlacementDataFix", function(FullCommand,userInput)
+    local PlacementData = GetPlacementDB()
+    for name,flag in pairs(PlacementDataAPFixes) do
+        PlacementData:FindRow(name).SpawnStartFlag = flag
+    end
+    return true
+end)
+
+RegisterConsoleCommandHandler("MainStoryFix", function(FullCommand,userInput)
+    local MainStoryDB = GetMainStoryDB()
+    --for name,flag in pairs(MainStoryFixes) do
+        print(MainStoryDB:GetRowMap())
+        
+    local rowMap = MainStoryDB:GetRowMap()
+
+    for rowName, rowData in pairs(rowMap) do
+        print("Row:", rowName)
+
+        -- If the row data is a Lua table
+        if type(rowData) == "table" then
+            for fieldName, fieldValue in pairs(rowData) do
+                print("    ", fieldName, tostring(fieldValue))
+            end
+        else
+            -- If it's a UScriptStruct
+            print("    ", tostring(rowData))
+        end
+    end
+    print(MainStoryDB:FindRow("MS_SIN_03"))
+    return true
+end)
 
 function Connect(commandName,userInput) 
     if #userInput < 2 then 
