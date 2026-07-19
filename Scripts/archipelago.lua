@@ -49,7 +49,7 @@ ChapterUnlocks = {
 		["Partitio Sai Archives Quest Unlock"]              = false, --"PartitioSAQ",
 		["Temenos Chapter1 Unlock"]                         = false, --"Temenos1",
 		["Temenos Chapter2 Unlock"]                         = false, --"Temenos2",
-		["Temenos Chapter3 Stormhail"]                      = false, --"Temenos3S",
+		["Temenos Chapter3 Stormhail Unlock"]               = false, --"Temenos3S",
 		["Temenos Chapter3 Crackridge Unlock"]              = false, --"Temenos3C",
 		["Temenos Chapter4 Unlock"]                         = false, --"Temenos4",
 		["Osvald Chapter1 Unlock"]                          = false, --"Osvald1",
@@ -75,7 +75,8 @@ ChapterUnlocks = {
 		["Hikari and Agnea Chapter 2 Unlock"]               = false, --"HikariAgnea2",
 		["Temenos and Throne Chapter 1 Unlock"]             = false, --"TemenosThrone1",
 		["Temenos and Throne Chapter 2 Unlock"]             = false, --"TemenosThrone2",
-		["Finale"]                                          = false
+		["Vide"]                                            = false, -- Finale
+        ["Galdera"]                                         = false  -- Gate of finis
 }
 Characters = {
     ["Hikari"]   = false, --eFENCER
@@ -100,6 +101,10 @@ CharNameToMap = {
     ["Osvald"] =    "eMAP_Twn_Snw_1_1",
     ["Castti"] =    "eMAP_Twn_Sea_1_1",
     ["Partitio"] =  "eMAP_Twn_Wld_1_1",
+}
+-- list 1:osvald 2:castti etc, used for slot data 
+local StartingCharacterToName = {
+    "Osvald","Castti","Temenos","Ochette","Partitio","Agnea","Hikari"
 }
 
 local BitFlagDict = {
@@ -147,17 +152,16 @@ function connect(server, slot, password)
 
     function on_slot_connected(slot_data)
         print("Slot connected")
-        ap:Say("Hello World!")
-        ap:Bounce({name="test"}, {game_name})
         ap:ConnectUpdate(nil, {"Lua-APClientPP"})
-        --ap:LocationChecks({0x88888888})
-        local StartingCharacterToName = {
-            "Osvald","Castti","Temenos","Ochette","Partitio","Agnea","Hikari"
-        }
+        
+
         StartingCharacter = StartingCharacterToName[slot_data["StartingCharacter"]]
         StartingChapter   = StartingCharacter.." Chapter1 Unlock"
-        Goal              = slot_data["Goal"]
+        Goal              = slot_data["Goal"] -- 0:Chapters, 1:Embers(McGuffins)
+        FinalBoss         = slot_data["FinalBoss"] -- 0:None, 1:Vide, 2:Galdera
         RequiredChapters  = slot_data["RequiredChapters"]
+        RequiredEmbers    = slot_data["SacredEmbersHuntRequired"]
+
         if CharacterChapterToStoryID[StartingChapter]["index"]~=1 then
             for ChapterName,Info in pairs(CharacterChapterToStoryID) do
                 Info["index"] = Info["index"]+1
@@ -165,14 +169,14 @@ function connect(server, slot, password)
             end
             CharacterChapterToStoryID[StartingChapter]["index"]=1
         end
-        print()
+
         Characters[StartingCharacter] = true
         local locations_to_scout = {}
         for locationName, locationID in pairs(LocationNameToAPId) do
             table.insert(locations_to_scout,locationID)
         end
         ap:LocationScouts(locations_to_scout, false)
-        --SetInterruptedStoryFlags()
+
         SetStartingCharacterIcons()
     end
 
@@ -366,7 +370,7 @@ function connectToAp(host, slot, password)
             VerifyStoryFlags()
             VerifyBitflags()
             -- if goal is chapter count
-            if RequiredChapters and FinishedChapterCount() >= RequiredChapters and VictoryReached==false then
+            if CheckGoal() == true and VictoryReached==false then
                 ap:StatusUpdate(30) -- send wincon to server
                 ap:Get({"_read_client_status_"..ap:get_team_number().."_"..ap:get_player_number()})
                 
@@ -465,7 +469,43 @@ function ScoutLocations(ScoutLocations)
     end
 end
 
+function SetGoMode()
+    ChapterUnlocks["Vide"] = true
+end
 
+function CheckGoal()
+    --if VictoryReached == true then
+    --    return True
+    --end
+--
+--
+--
+    --if Goal == 0 then -- chapters
+    --    CheckChapterGoal()
+--
+    --elseif Goal == 1 then -- Mcguffin
+    --    CheckMcguffin()
+    --end
+    --SetGoMode()
+    return True
+end
+
+function CheckChapterGoal()
+    return FinishedChapterCount() >= RequiredChapters 
+end
+
+function CheckMcguffin()
+    -- to do make get from inventory
+    return GetfromInventory("Sacred Embers") >= RequiredEmbers
+end
+
+function CheckVide()
+
+end
+
+function CheckGaldera()
+
+end
 
 function FillScoutedLocations()
     local AllLodadedChests = GetAllChests()
@@ -647,8 +687,7 @@ function VerifyStoryFlags()
             goto continue
         end
 
-        if SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["StoryID"] then
-            print("setting "..StoryInfo["index"].." to 7")
+        if SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["storyID"] then
             SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
             SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
             SaveGame.MainStoryData[StoryInfo["index"]].State = 7
@@ -663,42 +702,11 @@ function VerifyStoryFlags()
                 SaveGame.MainStoryData[StoryInfo["index"]].State = 1
                 SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
             end  
-        --else --ChapterUnlocks[ChapterName] == false
-        --    if SaveGame.MainStoryData[StoryInfo["index"]].StoryID == StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State ~= 7 then
-        --        print("removing story flag "..StoryInfo["storyID"])
-        --        SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
-        --        SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
-        --        SaveGame.MainStoryData[StoryInfo["index"]].State = 7
-        --        SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
-        --    end  
         end
-
-
         ::continue::
     end
 end 
 
---function SetInterruptedStoryFlags()
---    if StartingCharacter==nil then
---        return
---    end
---    local SaveGame = GetSaveGame()
---    if SaveGame==nil then
---        return
---    end
---
---    
---    for ChapterName, StoryInfo in pairs(CharacterChapterToStoryID) do
---        if ChapterName~=CharacterChapterFNameToAPName[StartingCharacter..1] and SaveGame.MainStoryData[StoryInfo["index"]].StoryID ~= StoryInfo["storyID"] and SaveGame.MainStoryData[StoryInfo["index"]].State ~= 7 then
---            print("setting no story data for "..ChapterName)
---            SaveGame.MainStoryData[StoryInfo["index"]].StoryID = StoryInfo["storyID"]
---            SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
---            SaveGame.MainStoryData[StoryInfo["index"]].State = 7
---            SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
---        end 
---    end
---
---end
 
 function SetStartingCharacterIcons()
     if StartingCharacter~=nil then
@@ -798,7 +806,7 @@ function VerifyBitflags()
                 print(name .. " has bitflag")
                 BitFlags[index] = ClearFlag(value, bitflag)
             end
-        else
+        else -- if not recieved and has the flag remove
             if HasFlag == true then
                 print(name .. " should not have bitflag")
                 BitFlags[index] = ClearFlag(value, bitflag)

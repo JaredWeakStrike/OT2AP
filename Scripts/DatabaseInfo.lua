@@ -2037,7 +2037,7 @@ CharacterChapterToStoryID = {
 	["Hikari and Agnea Chapter 2 Unlock"] = { ["storyID"] = 1101, ["index"] = 47 },
 	["Temenos and Throne Chapter 1 Unlock"] = { ["storyID"] = 1200, ["index"] = 48 },
 	["Temenos and Throne Chapter 2 Unlock"] = { ["storyID"] = 1201, ["index"] = 49 },
-	["Finale"] = { ["storyID"] = 1300, ["index"] = 50 }
+	["Vide"] = { ["storyID"] = 1300, ["index"] = 50 }
 }
 
 

@@ -453,6 +453,14 @@ RegisterConsoleCommandHandler("GiveCharacter", function(FullCommand,userInput)
     return true
 end)
 
+RegisterConsoleCommandHandler("StartVide", function(FullCommand,userInput)
+    local SaveGame = GetSaveGame()
+    --todo look into mainstorytask stuff
+    SaveGame.MainStoryData[51].StoryID=1303
+    SaveGame.MainStoryData[51].State=1
+    return true
+end)
+
 local PlacementDataAPFixes = {
     ["NPC_Fld_Dst_3_1_B_SHOP01"] = 0,
     ["NPC_Fld_Dst_3_1_B_SHOP02"] = 0,
