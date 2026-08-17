@@ -159,18 +159,18 @@ function connect(server, slot, password)
         StartingChapter   = StartingCharacter.." Chapter1 Unlock"
         Goal              = slot_data["Goal"] -- 0:Chapters, 1:Embers(McGuffins)
         FinalBoss         = slot_data["FinalBoss"] -- 0:None, 1:Vide, 2:Galdera
-        RequiredChapters  = slot_data["RequiredChapters"]
-        RequiredEmbers    = slot_data["SacredEmbersHuntRequired"]
+        RequiredChapters  = slot_data["RequiredChapters"] --amount of required chapters for go mode
+        RequiredEmbers    = slot_data["SacredEmbersHuntRequired"]-- amount of mcguffins required for go mode
 
-        if CharacterChapterToStoryID[StartingChapter]["index"]~=1 then
+        if CharacterChapterToStoryID[StartingChapter]["index"]~=1 then -- if list isnt already correct
             for ChapterName,Info in pairs(CharacterChapterToStoryID) do
-                Info["index"] = Info["index"]+1
+                Info["index"] = Info["index"]+1 -- make room to move the starting chapter to the beginning of the list
                 print(ChapterName.." "..Info["index"].."\n")
             end
-            CharacterChapterToStoryID[StartingChapter]["index"]=1
+            CharacterChapterToStoryID[StartingChapter]["index"]=1 -- move the beginning chapter to the start of the list so it doesnt break/duplicate story flags
         end
 
-        Characters[StartingCharacter] = true
+        Characters[StartingCharacter] = true -- give player the starting character
         local locations_to_scout = {}
         for locationName, locationID in pairs(LocationNameToAPId) do
             table.insert(locations_to_scout,locationID)
@@ -218,7 +218,7 @@ function connect(server, slot, password)
             
             elseif BitFlagDict[itemName] ~= nil then
                 print("setting bitflag item as received")
-                BitFlagDict[itemName]["Recieved"] = true
+                BitFlagDict[itemName]["Recieved"] = true --look into this not working if reconnecting
             
             else
                 OnItemRecieve(itemName, playerName)
@@ -469,28 +469,47 @@ function ScoutLocations(ScoutLocations)
     end
 end
 
-function SetGoMode()
+function SetGoModeVide()
+    local SaveGame = GetSaveGame()
+    local LevelManagerUtil = GetLevelManagerUtil()
+    local EventManager = GetEventManager()
     ChapterUnlocks["Vide"] = true
+    local VideStoryInfo = CharacterChapterToStoryID["Vide"]
+    -- if Vide is in  the main story data and they are in vidania
+    if SaveGame.MainStoryData[VideStoryInfo["index"]].State == 1 and LevelManagerUtil:GetNowLevelName()==FName("Dng_Atl_3_1") then
+        print("Playing Event")
+        EventManager:PlayEvent(FString("MS_END_30_0500"),nil) --play event to start the fight against vide
+        print("Played Event")
+    end
 end
 
 function CheckGoal()
-    --if VictoryReached == true then
-    --    return True
-    --end
---
---
---
-    --if Goal == 0 then -- chapters
-    --    CheckChapterGoal()
---
-    --elseif Goal == 1 then -- Mcguffin
-    --    CheckMcguffin()
-    --end
-    --SetGoMode()
-    return True
+    if VictoryReached == true then
+        return True
+    end
+    local GoalReached = false
+
+
+    if Goal == 0 and CheckChapterGoal() then -- chapters
+        GoalReached=true
+    elseif Goal == 1 and CheckMcguffin()then -- Mcguffin
+        GoalReached=true
+    end
+    if GoalReached then  -- no boss is required so return true
+        if FinalBoss==0 then
+            return True
+        elseif FinalBoss==1 then --if goal is to beat vide
+            SetGoModeVide()
+            return CheckVide()
+        elseif FinalBoss==2 and CheckGaldera() then
+            return True
+        end
+    end
+    return False
 end
 
 function CheckChapterGoal()
+    --print(FinishedChapterCount() >= RequiredChapters)
     return FinishedChapterCount() >= RequiredChapters 
 end
 
@@ -500,7 +519,8 @@ function CheckMcguffin()
 end
 
 function CheckVide()
-
+    local SaveGame = GetSaveGame()
+    return SaveGame.MainStoryData[CharacterChapterToStoryID["Vide"]["index"]].State == 5
 end
 
 function CheckGaldera()
@@ -602,7 +622,7 @@ function HasCharacter(CharacterName)
     end
     local PlayerParty = SaveGame.PlayerParty
     if PlayerParty==nil then
-        print("player party is nil")
+        --print("player party is nil")
         return nil
     end
     --local SubPlayerParty = SaveGame.SubMemberID
@@ -617,7 +637,7 @@ function HasCharacter(CharacterName)
             return true
         end
     end
-    print("has character returning false")
+    --print("has character returning false")
     return false
 end
 
@@ -626,6 +646,10 @@ function VerifyCharacters()
         return
     end
     if GameOverTimer>0 then
+        return
+    end
+    local ReminiscenceUtil = GetReminiscenceUtility()
+    if ReminiscenceUtil:IsPlayingReminiscence() then
         return
     end
     for CharName, CharBool in pairs(Characters) do

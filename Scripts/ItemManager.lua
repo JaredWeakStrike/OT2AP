@@ -80,7 +80,7 @@ function OnItemRecieve(ItemName, PlayerName)
     print("giving item "..ItemNameLabel)
     -- FName ItemId, int32 AddNum, class UObject* __WorldContext, bool& success)
     ItemFunction:AddBackpackItem(FName(ItemNameToItemLabel[ItemName]),1, __WorldContext, {true})
-    table.insert(ChestItemQueue,ItemName.." from "..PlayerName)
+   -- table.insert(ChestItemQueue,ItemName.." from "..PlayerName)
 end
 
 function GiveItem(ItemName)

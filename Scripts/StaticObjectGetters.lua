@@ -41,14 +41,19 @@ PlayerController_ = nil
 
 PlacementDataDB_ = nil
 
-PRINT_DEBUG_FLAG = true
-
 LevelSaveDataUtil_ = nil
 
 MainStoryDB_ = nil
 
 EventManager_ = nil
 
+LevelManager_util_ = nil
+
+LevelTriggerTable_ = nil
+
+ReminiscenceUtility_ = nil
+
+PRINT_DEBUG_FLAG = false
 function print_debug(text) 
     if PRINT_DEBUG_FLAG == true then
         print(text)
@@ -242,9 +247,30 @@ function GetLevelSaveDataUtil()
     return LevelSaveDataUtil_
 end
 
+function GetLevelManagerUtil()
+    if (LevelManager_util_==nil) then
+        LevelManager_util_ = StaticFindObject("/Script/Majesty.Default__LevelManagerUtility")
+    end
+    return LevelManager_util_
+end
+
+function GetReminiscenceUtility()
+    if (ReminiscenceUtility_==nil) then
+        ReminiscenceUtility_ = StaticFindObject("/Script/Majesty.Default__ReminiscenceUtility")
+    end
+    return ReminiscenceUtility_
+end
+
 function GetPlayerController()
     if(PlayerController_ == nil) then
         PlayerController_ = FindFirstOf("KSPlayerControllerBP_C")
     end
     return PlayerController_
 end
+
+function GetLevelTriggerTable()
+    if LevelTriggerTable_==nil then
+        LevelTriggerTable_ = StaticFindObject("/Game/Level/Database/LevelTriggerTable.LevelTriggerTable")
+    end
+    return LevelTriggerTable_
+end 

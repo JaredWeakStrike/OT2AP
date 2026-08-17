@@ -2037,7 +2037,12 @@ CharacterChapterToStoryID = {
 	["Hikari and Agnea Chapter 2 Unlock"] = { ["storyID"] = 1101, ["index"] = 47 },
 	["Temenos and Throne Chapter 1 Unlock"] = { ["storyID"] = 1200, ["index"] = 48 },
 	["Temenos and Throne Chapter 2 Unlock"] = { ["storyID"] = 1201, ["index"] = 49 },
-	["Vide"] = { ["storyID"] = 1300, ["index"] = 50 }
+	["Extra Stories"] = { ["storyID"] = 1300, ["index"] = 50 },
+	["First Flame"]   = { ["storyID"] = 1301, ["index"] = 51 },
+	["Second Flame"]  = { ["storyID"] = 1302, ["index"] = 52 },
+	["Third Flame"]   = { ["storyID"] = 1303, ["index"] = 53 },
+	["Fourth Flame"]  = { ["storyID"] = 1304, ["index"] = 54 },
+	["Vide"] 		  = { ["storyID"] = 1305, ["index"] = 55 }
 }
 
 

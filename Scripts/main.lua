@@ -290,10 +290,12 @@ RegisterConsoleCommandHandler("maxmoney", function(FullCommand,userInput)
 end)
 
 RegisterConsoleCommandHandler("maxlevel", function(FullCommand,userInput)
+    local SaveGame = GetSaveGame()
     local CharcterSaveDataUtil = GetCharcterSaveDataUtil()
     for i=0,7 do
         CharcterSaveDataUtil:SetCharacterLevelAndExp(i,99,9999)
     end
+    SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^19
     return true
 end)
 
@@ -319,6 +321,7 @@ RegisterConsoleCommandHandler("spawnshop", function(FullCommand,userInput)
     local shop2 = PlaceDataTable:FindRow("NPC_Fld_Dst_3_1_B_SHOP02")
     local shop3 = PlaceDataTable:FindRow("NPC_SYS_BARTENDER_Fld_Dst_3_1_B_0000")
     local shop4 = PlaceDataTable:FindRow("NPC_Fld_Dst_3_1_B_SHOP04")
+    
     shop1.SpawnStartFlag = 0
     shop2.SpawnStartFlag = 0
     shop3.SpawnStartFlag = 0
@@ -335,99 +338,127 @@ end)
 
 RegisterConsoleCommandHandler("BitFlagMax", function(FullCommand,userInput)
     local SaveGame = GetSaveGame()
-    --1060 1065 2147483647
-    --1 , 500
-    -- 173,175
-    --for i=173,175 do
-    --    print("setting bitflag index "..i)
-    --    SaveGame.BitFlag[i] = 0 
-    --end
-    --print(SaveGame.BitFlag[174])
-    --16384 
-    --32768
-    --65536
-    --131072
-    --262144 2^18
-    -- 2^19
-    --print(__len(SaveGame.MainStoryTaskData))
-    --print(SaveGame.MainStoryTaskData:__len())
-    --for i,FMainStoryTaskSaveData in pairs(SaveGame.MainStoryTaskData) do
-    --    print(FMainStoryTaskSaveData.Flag)
-    --end  
-    shipIsThere = {
-       --[33] = 210110598,
-       --[34] = 16811280,
-       --[43] = 139526344,
-       --[176] = 0,
-       --[177] = 0,
-       --[594] = 0,
-       --[793] = 0,
-       [796] = 64, --2
-
-
-
-        --[797] = 268435456,
-        --[1065] = 805830656,
-        --[1066] = 4096
-
-    }
-    for k,v in pairs(shipIsThere) do
-        SaveGame.BitFlag[k] = v
-    end
-    for i=1,2047 do
-        print("\"index"..i.."\":"..SaveGame.BitFlag[i]..", \n")
-    end
-    --print(type(SaveGame.MainStoryTaskData))
-    --SaveGame.MainStoryTaskData:ForEach(function(key, value)
-    --    print("Key:", key:get())
+    local PlaceDataTable = StaticFindObject("/Game/Placement/Database/PlacementData.PlacementData")
+    local LevelTriggerTable = StaticFindObject("/Game/Level/Database/LevelTriggerTable.LevelTriggerTable")
+    --shipIsThere = {
+    --   [5] = 2147483647,
+    --   [6] =  2147483647,
+    --   [7]=  2147483647,
+    --   [8]= 2147483647,
+    --   [9]= 2147483647,
+    --   [10]= 2147483647,
+    --   [11]= 2147483647,
+    --   --[796] = 64, --2
 --
-    --    local task = value:get()
-    --    print("Flag:", task.Flag)
-    --    print("State:", task.State)
-    --    print("PlayedTimeZone:", task.PlayedTimeZone)
+    --1065
+    --for i=1,1065 do
+    --    SaveGame.BitFlag[i] = 2147483647
+    --end
+    SaveGame.BitFlag[1066]=0
+    --for i=15,20 do
+    --    SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^i
+    --end
+    --SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^15
+    --SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^16
+    --SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^17
+    --SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^18
+    SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^19
+    --for i=1,100 do
+    --    if SaveGame.MainStoryData[i].StoryID==1300 then
+    --        SaveGame.MainStoryData[i].CurrentTaskID=0
+    --        SaveGame.MainStoryData[i].State = 5
 --
-    --    --for i, flag in ipairs(task.EventFlagList) do
-    --    --    print("EventFlag", i, flag)
-    --    --end
-    --end)
-    --print(SaveGame.MainStoryTaskData)
-    --local keys = SaveGame.MainStoryTaskData:GetKeys()
-    --for i, key in ipairs(keys) do
-    --    local value = SaveGame.MainStoryTaskData[key]
-    --    print(key, value.State)
+    --        SaveGame.MainStoryData[i+1].StoryID=1301
+    --        SaveGame.MainStoryData[i+1].State = 5
+    --        SaveGame.MainStoryData[i+1].CurrentTaskID=0
+    --        SaveGame.MainStoryData[i+1].ConfirmedFlag = true
+--
+    --        SaveGame.MainStoryData[i+2].StoryID=1302
+    --        SaveGame.MainStoryData[i+2].CurrentTaskID=0
+    --        SaveGame.MainStoryData[i+2].State = 5
+    --        SaveGame.MainStoryData[i+2].ConfirmedFlag = true
+--
+    --        SaveGame.MainStoryData[i+3].StoryID=1303
+    --        SaveGame.MainStoryData[i+3].CurrentTaskID=0
+    --        SaveGame.MainStoryData[i+3].State = 5
+    --        SaveGame.MainStoryData[i+3].ConfirmedFlag = true
+--
+    --        SaveGame.MainStoryData[i+4].StoryID=1304
+    --        SaveGame.MainStoryData[i+4].CurrentTaskID=0
+    --        SaveGame.MainStoryData[i+4].State = 5
+    --        SaveGame.MainStoryData[i+4].ConfirmedFlag = true
+--
+    --        SaveGame.MainStoryData[i+5].StoryID=1305
+    --        SaveGame.MainStoryData[i+5].CurrentTaskID=0
+    --        SaveGame.MainStoryData[i+5].State = 1
+    --        SaveGame.MainStoryData[i+5].ConfirmedFlag = false
+    --        break
+    --    end
     --end
-    --SaveGame.BitFlag[174] = SaveGame.BitFlag[174] | 67108864
-    --SaveGame.BitFlag[174] = 0
-    stuff = {
-    ["LF_MS_SIN_20_001 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=1024},
-    ["LF_MS_SIN_20_002 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=2048},
-    ["LF_MS_SIN_20_003 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=4096},
-    ["LF_MS_SIN_20_004 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=8192},
-    ["LF_MS_SIN_20_005 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=16384},
-    ["LF_MS_SIN_20_006 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=32768},
-    ["LF_MS_SIN_20_007 "] = {["Recieved"]=false, ["Index"]=787, ["Bitflag"]=65536},
-    }
-    --local SaveGame = GetSaveGame()
-    --local BitFlags = SaveGame.Bitflag
-    --for name, Flag in pairs(stuff) do
-    --    local index = Flag["Index"]
-    --    local bitflag = Flag["Bitflag"]
-    --    BitFlags[index] = 0 --BitFlags[index] | bitflag
+   --local WorldMapData = StaticFindObject("/Game/Level/Database/WorldMapTable.WorldMapTable")
+   LevelTriggerTable:ForEachRow(function(rowName, rowData)
+       print("we can fast travel")
+       if rowData.ID == 8006 then
+            for i=1,30 do
+                if rowData.FlagList[i]~=0 then
+                    rowData.FlagList[i]=0
+                end
+            end
+            return true
+       end
+       --rowData.VisibleFlag = 1
+   end)
+    --SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^20
+    --SaveGame.BitFlag[1066] = 1
+    --for k,v in pairs(shipIsThere) do
+    --    SaveGame.BitFlag[k] = v
     --end
-    --SaveGame.BitFlag[1065] = SaveGame.BitFlag[1065] | 262144
-    --MF_KEN_50_0600
-    --SaveGame.BitFlag[1065] = 262144
-    --SaveGame.BitFlag[7] = SaveGame.BitFlag[7]+1
-    --SaveGame.BitFlag[7] = SaveGame.BitFlag[7]|6400 -- boat 6400
-    --SaveGame.BitFlag[5] = 0
-    --SaveGame.BitFlag[6] = 0
-    --local SaveDataUtil = GetLevelSaveDataUtil()
-    --for i = 1,65300 do
-    --    SaveDataUtil:SetVisitedMap(true,i)
-    --    SaveDataUtil:SetShowMapIcon(true,i)
-    --end 
+    --print(SaveGame.BitFlag[1066])
+    --for i=1,2047 do
+    --    print("\"index"..i.."\":"..SaveGame.BitFlag[i]..", \n")
+    --end
+    --for i=250,350 do
+    --     SaveGame.BitFlag[305] =2147483647
+    --end
+    --SaveGame.BitFlag[305] = 12582912 -- allow to disembark?
+    --SaveGame.BitFlag[306] = 2097152
+
     return true
 end)
+
+RegisterConsoleCommandHandler("PlayEvent", function(FullCommand,userInput)
+    local SaveGame = GetSaveGame()
+    local EventManager = GetEventManager()
+    local LevelManagerUtil = GetLevelManagerUtil()
+    --EventManager:PlayEvent(FString("MS_END_30_0500"),nil)
+    print(LevelManagerUtil:GetNowLevelName():ToString())
+    return true
+end)
+
+RegisterConsoleCommandHandler("Vide", function(FullCommand,userInput)
+    local SaveGame = GetSaveGame()
+
+    --SaveGame.MainStoryData[57].StoryID = StoryInfo["storyID"]
+    --SaveGame.MainStoryData[57].CurrentTaskID = 1097
+    --SaveGame.MainStoryData[57].State = 2
+    --SaveGame.MainStoryData[57].ConfirmedFlag = false
+    --SaveGame.BitFlag[305] = 12582912
+    --EventManagerBP = FindFirstOf("EventManagerBP_C")
+    --EventManagerBP:PlayEvent(FName("MS_END_30_0200"),nil)
+    for i=1,2000 do
+        SaveGame.BitFlag[i] = 2147483647
+    end
+    for i=1,100 do
+        if SaveGame.MainStoryData[i].StoryID==1305 then
+            print("we changing this thing")
+            SaveGame.MainStoryData[i].CurrentTaskID=1097
+            SaveGame.MainStoryData[i].State = 2
+            SaveGame.MainStoryData[i].ConfirmedFlag = false
+        end
+    end
+    return true
+end)
+
 RegisterConsoleCommandHandler("GoFast", function(FullCommand,userInput)
     print("Going Fast")
     local EventManager = GetEventManager()
@@ -456,46 +487,30 @@ end)
 RegisterConsoleCommandHandler("StartVide", function(FullCommand,userInput)
     local SaveGame = GetSaveGame()
     --todo look into mainstorytask stuff
-    SaveGame.MainStoryData[51].StoryID=1303
-    SaveGame.MainStoryData[51].State=1
+    local LevelTriggerTable = StaticFindObject("/Game/Level/Database/LevelTriggerTable.LevelTriggerTable")
+    print(LevelTriggerTable)
+    LevelTriggerTable:ForEachRow(function(rowName, rowData)
+       print("we can fast travel")
+       print(rowName)
+       if rowData.ID == 8006 then
+            for i=1,30 do
+                if rowData.FlagList[i]~=0 then
+                    rowData.FlagList[i]=0
+                end
+            end
+            return true
+       end
+   end)
     return true
 end)
 
 local PlacementDataAPFixes = {
     ["NPC_Fld_Dst_3_1_B_SHOP01"] = 0,
     ["NPC_Fld_Dst_3_1_B_SHOP02"] = 0,
-    ["NPC_SYS_BARTENDER_Fld_Dst_3_1_B_0000"] = 0, -- spawn shops for hikari chapter 5
-    ["NPC_Fld_Dst_3_1_B_SHOP04"] = 0, -- TODO figure out which one of these is the invisable wall
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0100_D000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0100_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0200_D000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0200_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0300_D000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0300_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0400_D000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0400_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0500_D000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0500_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0600_D000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0600_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0700_D000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_0700_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1100_D000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1100_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1200_D000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1200_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1300_D000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1300_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1400_D000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1400_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1500_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1600_D000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_1600_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_2100_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_2200_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_2300_N000"] = 0,
-    ["NPC_SIN_20_00_Twn_Sea_1_1_A_2400_N000"] = 0
+    ["NPC_SYS_BARTENDER_Fld_Dst_3_1_B_0000"] = 0 -- spawn shops for hikari chapter 5
 }
+
+
 
 local MainStoryFixes = {
     ["MS_SIN_3A_0000"] = 0
@@ -533,6 +548,7 @@ RegisterConsoleCommandHandler("MainStoryFix", function(FullCommand,userInput)
     return true
 end)
 
+
 function Connect(commandName,userInput) 
     if #userInput < 2 then 
         print("Error trying to connect. Correct input: connect <host> <slot> [password]")
@@ -552,6 +568,19 @@ function Connect(commandName,userInput)
     local ItemDB = GetItemDB()
     local TextDB = GetGameTextDB()
     local PlacementData = GetPlacementDB()
+    local LevelTriggerTable = StaticFindObject("/Game/Level/Database/LevelTriggerTable.LevelTriggerTable")
+--    --print(LevelTriggerTable)
+    LevelTriggerTable:ForEachRow(function(rowName, rowData)
+       if rowData.ID == 8006 then
+            for i=1,30 do
+                if rowData.FlagList[i]~=0 then
+                    rowData.FlagList[i]=0
+                end
+            end
+            return true
+       end
+   end)
+   
     for name,flag in pairs(PlacementDataAPFixes) do
         PlacementData:FindRow(name).SpawnStartFlag = flag
     end
@@ -561,12 +590,12 @@ function Connect(commandName,userInput)
         
         local TextTemplate = TextDB:FindRow("eMUSIC_PLAYER_FOOTER_PLAY")
         local ItemTemplate = ItemDB:FindRow("ITM_INF_Twn_Wld_3_1_A_030") -- unused item that doesnt showup in inventory
-
+--
         local BackupText = TextTemplate.Text
         --local BackupItemName = ItemTemplate.ItemNameID
         local BackupItemTempID = ItemTemplate.ID
-
-
+--
+--
         TextTemplate.Text = FText(" ")
         
         local BaseID = 21080

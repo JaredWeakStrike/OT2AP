@@ -33,6 +33,11 @@ function UnlockAllWarps()
     local SaveUtil = GetSaveDataUtil()
     local StoryUtil = GetStoryDataUtil()
     local SaveStoryUtil = GetSaveStoryDataUtil()
+    local WorldMapData = StaticFindObject("/Game/Level/Database/WorldMapTable.WorldMapTable")
+    WorldMapData:ForEachRow(function(rowName, rowData)
+        print("we can fast travel")
+        rowData.CanFastTravel = true
+    end)
     for i = 0,255,1 do 
         SaveUtil:SetVisitedMap(true,i)
         --StoryUtil:GetSaveStoryDataUtil(i)
