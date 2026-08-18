@@ -104,7 +104,7 @@ CharNameToMap = {
 }
 -- list 1:osvald 2:castti etc, used for slot data 
 local StartingCharacterToName = {
-    "Osvald","Castti","Temenos","Ochette","Partitio","Agnea","Hikari"
+    "Osvald","Castti","Temenos","Ochette","Partitio","Agnea","Throne","Hikari"
 }
 
 local BitFlagDict = {
