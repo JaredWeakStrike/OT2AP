@@ -80,7 +80,7 @@ function OnItemRecieve(ItemName, PlayerName)
     print("giving item "..ItemNameLabel)
     -- FName ItemId, int32 AddNum, class UObject* __WorldContext, bool& success)
     ItemFunction:AddBackpackItem(FName(ItemNameToItemLabel[ItemName]),1, __WorldContext, {true})
-   -- table.insert(ChestItemQueue,ItemName.." from "..PlayerName)
+    table.insert(ChestItemQueue,ItemName.." from "..PlayerName)
 end
 
 function GiveItem(ItemName)
@@ -145,15 +145,6 @@ function GiveCharacter(characterName)
             return
         end
     end
-    --local OutResult = {true} --bool
-    --local outIsAddMainMember = {true} --bool
-    --if IsMainPartyFull() then
-    --    outIsAddMainMember = {false} 
-    --end
-    --print("giving "..characterName)
---
-    --SaveGame:JoinPlayerCharacterToParty(EPlayableCharacterID[characterName],OutResult,outIsAddMainMember)
-    
 end
 
 function RemoveCharacter(partyType,index)
@@ -198,22 +189,5 @@ function IsMainPartyFull()
     print_debug("returning true in IsMainPartyFull")
     return true
 end
-function SetChestText()
-    -- might have to make this pre and post function hook
-    --RegisterHook("/Game/UserInterface/Common/BP/Dialog/UICommonDialogItemBP.UICommonDialogItemBP_C:SetText",PreTextHook,PostTextHook) 
 
-end
-
-
-
-function PostTextHook()
-    print("we doing this3")
-   --print(self:get())
-   --FunctionContext = self:get()
-   --self:set(FText("YA")) 
-   --FunctionContext.ShowText =FText("YAAA")
-    --if popup_text~=FText("") then
-    --    FunctionContext.ShowText = popup_text
-    --end
-end
 
