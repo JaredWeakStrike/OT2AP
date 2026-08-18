@@ -717,7 +717,7 @@ function VerifyStoryFlags()
             SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID = 0
             SaveGame.MainStoryData[StoryInfo["index"]].State = 7
             SaveGame.MainStoryData[StoryInfo["index"]].ConfirmedFlag = false
-        elseif SaveGame.MainStoryData[StoryInfo["index"]].StoryID==100 and StoryInfo["index"]==2 and SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID == 0 then
+        elseif SaveGame.MainStoryData[StoryInfo["index"]].StoryID==100 and StoryInfo["index"]==2 and SaveGame.MainStoryData[StoryInfo["index"]].CurrentTaskID == 0 and ChapterUnlocks[ChapterName] == false then
             SaveGame.MainStoryData[StoryInfo["index"]].State = 7 --interupt hikari's chapter 1
         end
 
