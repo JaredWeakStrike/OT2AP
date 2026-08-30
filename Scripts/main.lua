@@ -157,11 +157,6 @@ RegisterConsoleCommandHandler("giveiteminback", function(FullCommand,userInput)
     local pc = UEHelpers:GetPlayerController() -- required for getting world context
     local __WorldContext = pc:GetWorld() -- required for some functions.
     local ItemDB = GetItemDB()
-    --local nut = ItemDB:FindRow("ITM_FLV_0090")
-    --if nut==nil then
-    --    print("no nut")
-    --end
-    --nut.MaxNum = 300
     
     ItemFunction:AddBackpackItem(FName(userInput[1]),9999999, __WorldContext, {true})
     return true
@@ -235,31 +230,6 @@ RegisterConsoleCommandHandler("killPlayerCombat", function(FullCommand,userInput
     return true
 end)
 
-RegisterConsoleCommandHandler("startgame", function(FullCommand,userInput)
-    local TitlePlayer = GetTitlePlayerSelect()
-    TitlePlayer:SetupNewGame(userInput[1],{true})
-    TitlePlayer:SetupFirstSaveData()
-    TitlePlayer:StartMainStory({1})
-    
-    return true
-end)
-
-RegisterConsoleCommandHandler("startgame2", function(FullCommand,userInput)
-    --local TitlePlayer = GetTitlePlayerSelect()
-    --RegisterHook("/Game/UserInterface/Title/BP/Scene/TitlePlayerSelect.TitlePlayerSelect_C:OnFocusPlayer",function(Context,IsSelect)
-    --    print("calling on focus player"..tostring(IsSelect:Get()))
-    --    --ContextStuff.IsSelect = false
-    --    IsSelect:Set(false)
-    --end)
-    --TitlePlayer:SetupFirstSaveData()
-    --TitlePlayer:StartMainStory({1})
-    local CharacterIcons = GetTitlePlayerIcons()
-        for _, CharacterIcon in ipairs(CharacterIcons) do
-            CharacterIcon:SetWorldMapData(FName(CharNameToMap["Hikari"]))
-        end
-    return true
-end)
-
 RegisterConsoleCommandHandler("giveboat", function(FullCommand,userInput)
     local SaveGame = GetSaveGame()
     SaveGame.BitFlag[7] = SaveGame.BitFlag[7]+1
@@ -295,7 +265,7 @@ RegisterConsoleCommandHandler("maxlevel", function(FullCommand,userInput)
     for i=0,7 do
         CharcterSaveDataUtil:SetCharacterLevelAndExp(i,99,9999)
     end
-    SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^19
+    --SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^19
     return true
 end)
 
@@ -313,55 +283,17 @@ RegisterConsoleCommandHandler("giverib", function(FullCommand,userInput)
     ItemFunction:AddBackpackItem(FName("ITM_EQP_ACS_031"),99, __WorldContext, {true})
     return true
 end)
---DataTable /Game/Placement/Database/PlacementData.PlacementData
 
-RegisterConsoleCommandHandler("spawnshop", function(FullCommand,userInput)
-    local PlaceDataTable = StaticFindObject("/Game/Placement/Database/PlacementData.PlacementData")
-    local shop1 = PlaceDataTable:FindRow("NPC_Fld_Dst_3_1_B_SHOP01")
-    local shop2 = PlaceDataTable:FindRow("NPC_Fld_Dst_3_1_B_SHOP02")
-    local shop3 = PlaceDataTable:FindRow("NPC_SYS_BARTENDER_Fld_Dst_3_1_B_0000")
-    local shop4 = PlaceDataTable:FindRow("NPC_Fld_Dst_3_1_B_SHOP04")
-    
-    shop1.SpawnStartFlag = 0
-    shop2.SpawnStartFlag = 0
-    shop3.SpawnStartFlag = 0
-    shop4.SpawnStartFlag = 0
-    --local nut = ItemDB:FindRow("ITM_FLV_0090")
-    --if nut==nil then
-    --    print("no nut")
-    --end
-    --nut.MaxNum = 300
-    
-    --ItemFunction:AddBackpackItem(FName("ITM_EQP_ACS_031"),99, __WorldContext, {true})
-    return true
-end)
 
 RegisterConsoleCommandHandler("BitFlagMax", function(FullCommand,userInput)
     local SaveGame = GetSaveGame()
     local PlaceDataTable = StaticFindObject("/Game/Placement/Database/PlacementData.PlacementData")
     local LevelTriggerTable = StaticFindObject("/Game/Level/Database/LevelTriggerTable.LevelTriggerTable")
-    --shipIsThere = {
-    --   [5] = 2147483647,
-    --   [6] =  2147483647,
-    --   [7]=  2147483647,
-    --   [8]= 2147483647,
-    --   [9]= 2147483647,
-    --   [10]= 2147483647,
-    --   [11]= 2147483647,
-    --   --[796] = 64, --2
 --
     --1065
     --for i=1,1065 do
     --    SaveGame.BitFlag[i] = 2147483647
     --end
-    SaveGame.BitFlag[1066]=0
-    --for i=15,20 do
-    --    SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^i
-    --end
-    --SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^15
-    --SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^16
-    --SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^17
-    --SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^18
     SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^19
     --for i=1,100 do
     --    if SaveGame.MainStoryData[i].StoryID==1300 then
@@ -395,33 +327,6 @@ RegisterConsoleCommandHandler("BitFlagMax", function(FullCommand,userInput)
     --        break
     --    end
     --end
-   --local WorldMapData = StaticFindObject("/Game/Level/Database/WorldMapTable.WorldMapTable")
-   LevelTriggerTable:ForEachRow(function(rowName, rowData)
-       print("we can fast travel")
-       if rowData.ID == 8006 then
-            for i=1,30 do
-                if rowData.FlagList[i]~=0 then
-                    rowData.FlagList[i]=0
-                end
-            end
-            return true
-       end
-       --rowData.VisibleFlag = 1
-   end)
-    --SaveGame.BitFlag[1066] = SaveGame.BitFlag[1066] + 2^20
-    --SaveGame.BitFlag[1066] = 1
-    --for k,v in pairs(shipIsThere) do
-    --    SaveGame.BitFlag[k] = v
-    --end
-    --print(SaveGame.BitFlag[1066])
-    --for i=1,2047 do
-    --    print("\"index"..i.."\":"..SaveGame.BitFlag[i]..", \n")
-    --end
-    --for i=250,350 do
-    --     SaveGame.BitFlag[305] =2147483647
-    --end
-    --SaveGame.BitFlag[305] = 12582912 -- allow to disembark?
-    --SaveGame.BitFlag[306] = 2097152
 
     return true
 end)
@@ -468,86 +373,17 @@ RegisterConsoleCommandHandler("GoFast", function(FullCommand,userInput)
     return true
 end)
 
+--local PlacementDataAPFixes = {
+--    ["NPC_Fld_Dst_3_1_B_SHOP01"] = 0,
+--    ["NPC_Fld_Dst_3_1_B_SHOP02"] = 0,
+--    ["NPC_SYS_BARTENDER_Fld_Dst_3_1_B_0000"] = 0 -- spawn shops for hikari chapter 5
+--}
 
-RegisterConsoleCommandHandler("FixChap3", function(FullCommand,userInput)
-    local stuff = StaticFindObject("/Game/Character/Database/PlayableCharacterDB.PlayableCharacterDB")
-    local stuff2 = stuff:FindRow("eFENCER")
-    stuff2.SecondPotentialityActionFlag = 0
-    print(stuff2.SecondPotentialityActionFlag)
-    --stuff2.SecondPotentialityActionLabel = stuff2.PotentialityActionLabel
+RegisterConsoleCommandHandler("indatatable", function(FullCommand,userInput)
+    local GameTextDB = GetGameTextDB()
+    print(GameTextDB:FindRow(userInput[1])~=nil)
     return true
 end)
-
-RegisterConsoleCommandHandler("GiveCharacter", function(FullCommand,userInput)
-    local SaveGame = GetSaveGame()
-    SaveGame.PlayerParty.SubMemberID[1] = 3
-    return true
-end)
-
-RegisterConsoleCommandHandler("StartVide", function(FullCommand,userInput)
-    local SaveGame = GetSaveGame()
-    --todo look into mainstorytask stuff
-    local LevelTriggerTable = StaticFindObject("/Game/Level/Database/LevelTriggerTable.LevelTriggerTable")
-    print(LevelTriggerTable)
-    LevelTriggerTable:ForEachRow(function(rowName, rowData)
-       print("we can fast travel")
-       print(rowName)
-       if rowData.ID == 8006 then
-            for i=1,30 do
-                if rowData.FlagList[i]~=0 then
-                    rowData.FlagList[i]=0
-                end
-            end
-            return true
-       end
-   end)
-    return true
-end)
-
-local PlacementDataAPFixes = {
-    ["NPC_Fld_Dst_3_1_B_SHOP01"] = 0,
-    ["NPC_Fld_Dst_3_1_B_SHOP02"] = 0,
-    ["NPC_SYS_BARTENDER_Fld_Dst_3_1_B_0000"] = 0 -- spawn shops for hikari chapter 5
-}
-
-
-
-local MainStoryFixes = {
-    ["MS_SIN_3A_0000"] = 0
-}
-
-RegisterConsoleCommandHandler("PlacementDataFix", function(FullCommand,userInput)
-    local PlacementData = GetPlacementDB()
-    for name,flag in pairs(PlacementDataAPFixes) do
-        PlacementData:FindRow(name).SpawnStartFlag = flag
-    end
-    return true
-end)
-
-RegisterConsoleCommandHandler("MainStoryFix", function(FullCommand,userInput)
-    local MainStoryDB = GetMainStoryDB()
-    --for name,flag in pairs(MainStoryFixes) do
-        print(MainStoryDB:GetRowMap())
-        
-    local rowMap = MainStoryDB:GetRowMap()
-
-    for rowName, rowData in pairs(rowMap) do
-        print("Row:", rowName)
-
-        -- If the row data is a Lua table
-        if type(rowData) == "table" then
-            for fieldName, fieldValue in pairs(rowData) do
-                print("    ", fieldName, tostring(fieldValue))
-            end
-        else
-            -- If it's a UScriptStruct
-            print("    ", tostring(rowData))
-        end
-    end
-    print(MainStoryDB:FindRow("MS_SIN_03"))
-    return true
-end)
-
 
 function Connect(commandName,userInput) 
     if #userInput < 2 then 
@@ -563,66 +399,7 @@ function Connect(commandName,userInput)
     end
 
     print("trying to connect to "..userInput[1].." with slot "..userInput[2].." and password "..password)    
-    --print("we tried but have failed")
-    -- FItemData
-    local ItemDB = GetItemDB()
-    local TextDB = GetGameTextDB()
-    local PlacementData = GetPlacementDB()
-    local LevelTriggerTable = StaticFindObject("/Game/Level/Database/LevelTriggerTable.LevelTriggerTable")
---    --print(LevelTriggerTable)
-    LevelTriggerTable:ForEachRow(function(rowName, rowData)
-       if rowData.ID == 8006 then
-            for i=1,30 do
-                if rowData.FlagList[i]~=0 then
-                    rowData.FlagList[i]=0
-                end
-            end
-            return true
-       end
-   end)
-   
-    for name,flag in pairs(PlacementDataAPFixes) do
-        PlacementData:FindRow(name).SpawnStartFlag = flag
-    end
-    if(ItemDB~=nil and TextDB~=nil)then
-        print("we got itemdb babyyy")
-        --11080
-        
-        local TextTemplate = TextDB:FindRow("eMUSIC_PLAYER_FOOTER_PLAY")
-        local ItemTemplate = ItemDB:FindRow("ITM_INF_Twn_Wld_3_1_A_030") -- unused item that doesnt showup in inventory
---
-        local BackupText = TextTemplate.Text
-        --local BackupItemName = ItemTemplate.ItemNameID
-        local BackupItemTempID = ItemTemplate.ID
---
---
-        TextTemplate.Text = FText(" ")
-        
-        local BaseID = 21080
-        for i = 1,10 do
-            BaseID = BaseID + 1
-            TextDB:AddRow("APItemText"..i,TextTemplate)
-            ItemTemplate.ID = BaseID
-            ItemTemplate.ItemNameID = FName("APItemText"..i)
-            ItemTemplate.MaxNum = 9999999
-            ItemDB:AddRow("APItem"..i,ItemTemplate)
-        end
-        --ItemDB:FindRow("ITM_EQP_JOB_0005").MaxNum = 99
-        TextTemplate.Text = FText("APItemIndex")
-        TextDB:AddRow("APItemIndexText",TextTemplate)
-        --ItemTemplate.ID = BaseID + 1
-        --ItemTemplate.ItemNameID = FName"APItemIndexText")
-        --ItemTemplate.ItemCategory = 2
-        --ItemDB:AddRow("APItemIndex",ItemTemplate)
-        
-        -- restore the references back to what they were before modifying them
-        TextTemplate.Text = BackupText
-        ItemTemplate.ID = BackupItemTempID
-        ItemTemplate.ItemNameID = FName("APItemIndexText")
-        ItemTemplate.ItemCategory = 2
-        ItemTemplate.MaxNum = 9999999
-    end
     connectToAp(host, slot, password)
-    
+
 end
 
