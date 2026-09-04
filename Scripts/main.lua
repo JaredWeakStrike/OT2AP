@@ -114,41 +114,9 @@ RegisterConsoleCommandHandler("openchest", function(FullCommand,userInput)
     return true
 end)
 
-RegisterConsoleCommandHandler("setindex", function(FullCommand,userInput)
-    print("Updating index")
-    local saveData = GetSaveGame()
-    saveData.PlayerMember[35].RawHP = userInput[1]
-    return true
-end)
-RegisterConsoleCommandHandler("getindex", function(FullCommand,userInput)
-    local saveData = GetSaveGame()
-    print(saveData.PlayerMember[35].RawHP)
-    return true
-end)
-
-RegisterConsoleCommandHandler("setindex2", function(FullCommand,userInput)
-    print("Updating index")
-    local saveData = GetSaveGame()
-    saveData.PlayerMember[35].RawHP = userInput[1]
-    return true
-end)
-RegisterConsoleCommandHandler("getindex2", function(FullCommand,userInput)
-    local saveData = GetSaveGame()
-    print(saveData.PlayerMember[35].RawHP)
-    return true
-end)
-
 RegisterConsoleCommandHandler("giveplayer", function(FullCommand,userInput)
     GiveCharacter(userInput[1])
     --HasCharacter("Hikari")
-    return true
-end)
-
-RegisterConsoleCommandHandler("getiteminback", function(FullCommand,userInput)
-    local ItemSaveDataUtil = StaticFindObject("/Script/Majesty.Default__ItemSaveDataUtil")
-    print(ItemSaveDataUtil:GetItemNumInBackpackByLabel(FName(userInput[1])))
-    local SaveManager = GetSaveManager()
-    print(SaveManager.m_TemporaryBackpackItemList:Find(10774):get())
     return true
 end)
 
@@ -158,16 +126,7 @@ RegisterConsoleCommandHandler("giveiteminback", function(FullCommand,userInput)
     local __WorldContext = pc:GetWorld() -- required for some functions.
     local ItemDB = GetItemDB()
     
-    ItemFunction:AddBackpackItem(FName(userInput[1]),9999999, __WorldContext, {true})
-    return true
-end)
-
-RegisterConsoleCommandHandler("getmp", function(FullCommand,userInput)
-    local HP = GetCharcterSaveDataUtil()
-    --print(HP:GetRawHP_FromSaveCharacterData(userInput[1]))
-    GiveCharacter(userInput[1])
-    
-    --HasCharacter("Hikari")
+    ItemFunction:AddBackpackItem(FName(userInput[1]),userInput[2], __WorldContext, {true})
     return true
 end)
 
@@ -382,6 +341,32 @@ end)
 RegisterConsoleCommandHandler("indatatable", function(FullCommand,userInput)
     local GameTextDB = GetGameTextDB()
     print(GameTextDB:FindRow(userInput[1])~=nil)
+    return true
+end)
+
+RegisterConsoleCommandHandler("backpackcontains", function(FullCommand,userInput)
+    local SaveManager = GetSaveManager()
+    if SaveManager==nil then
+        print("save manager is nil")
+    end
+    if SaveManager.m_TemporaryBackpackItemList:Contains(userInput) == false then
+        print("get m_TemporaryBackpackItemList is nil")
+    else
+        print("it is there")
+    end
+    return true
+end)
+
+RegisterConsoleCommandHandler("getindex", function(FullCommand,userInput)
+    local SaveManager = GetSaveManager()
+    if SaveManager==nil then
+        print("save manager is nil")
+    end
+    if SaveManager.m_TemporaryBackpackItemList:Contains(21110) == true then
+        print(SaveManager.m_TemporaryBackpackItemList:Find(21110):get())
+    else
+        print("it is not there")
+    end
     return true
 end)
 

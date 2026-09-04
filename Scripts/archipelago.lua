@@ -12,7 +12,7 @@ local UEHelpers = require("UEHelpers")
 local pc = UEHelpers:GetPlayerController() -- required for getting world context
 local __WorldContext = pc:GetWorld() -- required for some functions.
 local AP = require "lua-apclientpp"
-ItemIndexFNAME = FName("ITM_INF_Twn_Wld_3_1_A_030")
+ItemIndexFNAME = FName("APItemIndex")
 -- global to this mod
 local game_name = "Octopath Traveler 2"
 local items_handling = 7  -- full remote
@@ -551,14 +551,13 @@ function FillScoutedLocations()
 end
 
 function GetIndex()
-    --10774
     local SaveManager = GetSaveManager()
-    if SaveManager.m_TemporaryBackpackItemList:Contains(10774) == false then
+    if SaveManager.m_TemporaryBackpackItemList:Contains(21110) == false then
         print("get m_TemporaryBackpackItemList is nil")
         return 0
     end
 
-    return SaveManager.m_TemporaryBackpackItemList:Find(10774):get()
+    return SaveManager.m_TemporaryBackpackItemList:Find(21110):get()
 
 end
 
