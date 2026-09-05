@@ -356,7 +356,7 @@ RegisterConsoleCommandHandler("backpackcontains", function(FullCommand,userInput
     end
     return true
 end)
-
+--LevelManagerUtil:GetNowLevelName()
 RegisterConsoleCommandHandler("getindex", function(FullCommand,userInput)
     local SaveManager = GetSaveManager()
     if SaveManager==nil then
@@ -367,6 +367,13 @@ RegisterConsoleCommandHandler("getindex", function(FullCommand,userInput)
     else
         print("it is not there")
     end
+    return true
+end)
+
+RegisterConsoleCommandHandler("getlevelname", function(FullCommand,userInput)
+    local LevelManagerUtil = GetLevelManagerUtil()
+    print(LevelManagerUtil:GetNowLevelName():ToString())
+    print(LevelManagerUtil:GetNowLevelName():ToString()=="None")
     return true
 end)
 

@@ -64,6 +64,8 @@ end
 
 function ChestPopupLoop()
     local LibDialog = GetLibDialog()
+    local LevelManagerUtil = GetLevelManagerUtil()
+    
     output = {}
     --void IsDialogRunning(bool& IsRunning);
     -- if IsRunning == false then no dialog is running thus able to call chest popup
@@ -73,7 +75,7 @@ function ChestPopupLoop()
     end
 
     LibDialog:IsDialogRunning(output)
-    if(output.IsRunning==false and IsGameOverPlaying() == false and next(ChestItemQueue))then
+    if(output.IsRunning==false and IsGameOverPlaying() == false and LevelManagerUtil:GetNowLevelName():ToString()~="None" and next(ChestItemQueue))then
         OpenDefaultChest(ChestItemQueue[1])
         table.remove(ChestItemQueue,1)
     end

@@ -63,23 +63,7 @@ local pc = UEHelpers:GetPlayerController() -- required for getting world context
 local __WorldContext = pc:GetWorld() -- required for some functions.
 
 function OnItemRecieve(ItemName, PlayerName)
-    local ItemFunction = GetItemFunction()
-    --local LibDialog = StaticFindObject("/Script/Majesty.Default__LibDialog")
-    if (ItemFunction==nil) then
-        return
-    end
-
-
-    ItemNameLabel = ItemNameToItemLabel[ItemName]
-
-    if(ItemNameLabel == nil)then
-        print(ItemName.." is not a valid itemname to add into backpack")
-        return
-    end
-
-    print("giving item "..ItemNameLabel)
-    -- FName ItemId, int32 AddNum, class UObject* __WorldContext, bool& success)
-    ItemFunction:AddBackpackItem(FName(ItemNameToItemLabel[ItemName]),1, __WorldContext, {true})
+    -- popup for chest, in here have split from notification type
     table.insert(ChestItemQueue,ItemName.." from "..PlayerName)
 end
 

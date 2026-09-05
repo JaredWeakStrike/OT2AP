@@ -201,14 +201,6 @@ function connect(server, slot, password)
                 CurrentIndexFromServer = index
             end
         
-            -- ignore old items
-            if index <= GetIndex() then
-                print("item is out of index")
-                goto continue
-            end
-        
-            print(itemName .. " from " .. playerName)
-        
             -- handle item type
             if ChapterUnlocks[itemName] == false then
                 ChapterUnlocks[itemName] = true
@@ -219,14 +211,10 @@ function connect(server, slot, password)
             elseif BitFlagDict[itemName] ~= nil then
                 print("setting bitflag item as received")
                 BitFlagDict[itemName]["Recieved"] = true --look into this not working if reconnecting
-            
-            else
+            end
+            if GetIndex() < index then 
                 OnItemRecieve(itemName, playerName)
             end
-            
-            SetIndex(index)
-        
-            ::continue::
         end
         VerifyStoryFlags()
         VerifyCharacters()
@@ -398,76 +386,7 @@ function disconnect()
     collectgarbage("collect")
 end
 
-function SendLocation(locationID)
-    if ap == nil then
-        print("AP client not connected, cannot send location")
-        return
-    end
-    print("Sending location ID: "..locationID)
-    ap:LocationChecks({tonumber(locationID)})
-end
 
-function IsLocationChecked(locationID)
-    if checked_locations==nil then
-        return nil
-    end
-    return checked_locations[locationID] ~= nil
-end
-
-function SendLocationFromName(locationName)
-    local locationID = GetAPLocationIDfromName(locationName)
-    if ap == nil then
-        print("AP client not connected, cannot send location")
-        return
-    end
-
-    if locationID == nil then
-        print("Location name:"..locationName.."Is not valid.")
-        return
-    end
-    print("Sending location name: "..locationName)
-
-    ap:LocationChecks({tonumber(locationID)})
-end
-
-
-function GetAPLocationIDfromName(locationName)
-    return LocationNameToAPId[locationName]
-end
-
-function GetAPNamefromLocationID(locationID)
-    return APLocationIdToName[locationID]
-end
-
-function GetAPItemIDfromName(itemName)
-    return ItemNameToAPId[itemName]
-end
-
-function GetItemNamefromAPItemID(itemID)
-    return APItemIdToName[itemID]
-end
-
-function ChestNamefromID(ChestID)
-    return ChestIDToName[ChestID]
-end
-
-function ChestFilenameFromChestID(ChestID)
-    return ChestIDToFilename[ChestID]
-end
-
-function GetAPCheckedLocations()
-    return ap.checked_locations
-end
-
-function GetAPMissingLocations()
-    return ap.missing_locations
-end
-
-function ScoutLocations(ScoutLocations)
-    if #ScoutLocations>0 then
-        ap:LocationScouts(ScoutLocations,0)
-    end
-end
 
 function SetGoModeVide()
     local SaveGame = GetSaveGame()
@@ -553,7 +472,7 @@ end
 function GetIndex()
     local SaveManager = GetSaveManager()
     if SaveManager.m_TemporaryBackpackItemList:Contains(21110) == false then
-        print("get m_TemporaryBackpackItemList is nil")
+        --print("get m_TemporaryBackpackItemList is nil")
         return 0
     end
 
@@ -666,11 +585,12 @@ end
 
 function VerifyInventory()
     local index = GetIndex()
+    local LevelManagerUtil = GetLevelManagerUtil()
     if index == nil then
         return
     end
-    while GetIndex() < CurrentIndexFromServer do
-        local ItemName = inventory[index +1]
+    while GetIndex() < CurrentIndexFromServer and LevelManagerUtil:GetNowLevelName():ToString()~="None" do
+        local ItemName = inventory[GetIndex()+1] -- + 1 because lua sucks
         if ItemName == nil then
             print("APItemname is nil in verify invo")
             return
@@ -682,9 +602,9 @@ function VerifyInventory()
             --Characters[ItemName] = true
             --table.insert(ChestItemQueue,ItemName)
         else
-          GiveItem(ItemName)
+            print("giving "..ItemName)
+            GiveItem(ItemName)
         end
-
         IncrementIndex()
     end
 end
@@ -797,21 +717,6 @@ function IsGameOverPlaying()
     return LevelManager.m_IsGameOverPlaying
 end
 
-function HasFlag(value, bitflag)
-    return (value & bitflag) ~= 0
-end
-
-function SetFlag(value, bitflag)
-    return value | bitflag
-end
-
-function ClearFlag(value, bitflag)
-    return value & (~bitflag)
-end
-
-
-
-
 function VerifyBitflags()
     local SaveGame = GetSaveGame()
     local BitFlags = SaveGame.Bitflag
@@ -838,5 +743,88 @@ function VerifyBitflags()
                 BitFlags[index] = ClearFlag(value, bitflag)
             end
         end
+    end
+end
+
+function HasFlag(value, bitflag)
+    return (value & bitflag) ~= 0
+end
+
+function SetFlag(value, bitflag)
+    return value | bitflag
+end
+
+function ClearFlag(value, bitflag)
+    return value & (~bitflag)
+end
+
+function SendLocation(locationID)
+    if ap == nil then
+        print("AP client not connected, cannot send location")
+        return
+    end
+    print("Sending location ID: "..locationID)
+    ap:LocationChecks({tonumber(locationID)})
+end
+
+function IsLocationChecked(locationID)
+    if checked_locations==nil then
+        return nil
+    end
+    return checked_locations[locationID] ~= nil
+end
+
+function SendLocationFromName(locationName)
+    local locationID = GetAPLocationIDfromName(locationName)
+    if ap == nil then
+        print("AP client not connected, cannot send location")
+        return
+    end
+
+    if locationID == nil then
+        print("Location name:"..locationName.."Is not valid.")
+        return
+    end
+    print("Sending location name: "..locationName)
+
+    ap:LocationChecks({tonumber(locationID)})
+end
+
+
+function GetAPLocationIDfromName(locationName)
+    return LocationNameToAPId[locationName]
+end
+
+function GetAPNamefromLocationID(locationID)
+    return APLocationIdToName[locationID]
+end
+
+function GetAPItemIDfromName(itemName)
+    return ItemNameToAPId[itemName]
+end
+
+function GetItemNamefromAPItemID(itemID)
+    return APItemIdToName[itemID]
+end
+
+function ChestNamefromID(ChestID)
+    return ChestIDToName[ChestID]
+end
+
+function ChestFilenameFromChestID(ChestID)
+    return ChestIDToFilename[ChestID]
+end
+
+function GetAPCheckedLocations()
+    return ap.checked_locations
+end
+
+function GetAPMissingLocations()
+    return ap.missing_locations
+end
+
+function ScoutLocations(ScoutLocations)
+    if #ScoutLocations>0 then
+        ap:LocationScouts(ScoutLocations,0)
     end
 end
