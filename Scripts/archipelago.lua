@@ -10,7 +10,6 @@ require "ArchipelagoLists"
 
 local UEHelpers = require("UEHelpers")
 local pc = UEHelpers:GetPlayerController() -- required for getting world context
-local __WorldContext = pc:GetWorld() -- required for some functions.
 local AP = require "lua-apclientpp"
 ItemIndexFNAME = FName("APItemIndex")
 -- global to this mod
@@ -183,6 +182,7 @@ function connect(server, slot, password)
 
     function on_slot_refused(reasons)
         print("Slot refused: " .. table.concat(reasons, ", "))
+        OpenDefaultChest("Slot refused: " .. table.concat(reasons, ", "))
     end
 
     function on_items_received(items)
@@ -322,18 +322,51 @@ function connect(server, slot, password)
     ap:set_retrieved_handler(on_retrieved)
     ap:set_set_reply_handler(on_set_reply)
 end
+
 local GameOverTimer = 0
 local VerifyStuffCounter = 0
 local VerifyTitleScreen = 0
-
+local MerchantPopupTimer = 0
+local APPollHandle                    = nil
+local WinconHandle                    = nil
+local VerifyInventoryHandle           = nil
+local VerifyCharactersHandle          = nil
+local VerifyStoryFlagsHandle          = nil
+local VerifyBitflagsHandle            = nil
+local SetStartingCharacterIconsHandle = nil
 
 function connectToAp(host, slot, password)
+    connect(host, slot, password)
+    APPollHandle                    = LoopInGameThreadAfterFrames(5,APPoll)
+    WinconHandle                    = LoopInGameThreadAfterFrames(5,WinconPoll)
+    VerifyInventoryHandle           = LoopInGameThreadAfterFrames(30,VerifyInventory)     
+    VerifyCharactersHandle          = LoopInGameThreadAfterFrames(30,VerifyCharacters)   
+    VerifyStoryFlagsHandle          = LoopInGameThreadAfterFrames(30,VerifyStoryFlags)   
+    VerifyBitflagsHandle            = LoopInGameThreadAfterFrames(30,VerifyBitflags)
+    SetStartingCharacterIconsHandle = LoopInGameThreadAfterFrames(120,SetStartingCharacterIcons)
+end
+
+function APPoll()
+    if ap then
+        ap:poll()
+    end
+end
+
+function WinconPoll()
+   if CheckGoal() == true and VictoryReached==false then
+            ap:StatusUpdate(30) -- send wincon to server
+            ap:Get({"_read_client_status_"..ap:get_team_number().."_"..ap:get_player_number()})   
+    end
+end
+
+function connectToA(host, slot, password)
+    MerchantPopup("Trying to connect") -- this has to be here or it will crash the game for some reason
     ExecuteAsync(function ()
-    connect(host, slot, "")
+    connect(host, slot, password)
 
     PopupQueue = {}
     
-    while ap do
+    while ap and false do
         ap:poll()
         -- could optimize some of this to be the chest the player is looking at with the player controller
         status,CheckedLocations = pcall(CheckChests)
@@ -344,11 +377,18 @@ function connectToAp(host, slot, password)
             end
         end
 
-        ChestPopupLoop()
-        pcall(FillScoutedLocations)
-        
         VerifyStuffCounter = VerifyStuffCounter+1
         VerifyTitleScreen = VerifyTitleScreen+1
+        MerchantPopupTimer = MerchantPopupTimer+1
+        
+        pcall(FillScoutedLocations)
+        if MerchantPopupTimer==2000 then
+            print("calling popup loop")
+            if allowPopups then
+                PopupLoop()
+            end
+            MerchantPopupTimer=0
+        end
 
         -- run every 30 frames
         if VerifyStuffCounter==30 then
@@ -358,11 +398,7 @@ function connectToAp(host, slot, password)
             VerifyStoryFlags()
             VerifyBitflags()
             -- if goal is chapter count
-            if CheckGoal() == true and VictoryReached==false then
-                ap:StatusUpdate(30) -- send wincon to server
-                ap:Get({"_read_client_status_"..ap:get_team_number().."_"..ap:get_player_number()})
-                
-            end
+            
             
             VerifyStuffCounter = 0
             --print("verifying stuff2")
@@ -482,6 +518,7 @@ end
 
 function SetIndex(newIndex)
     local ItemFunction = GetItemFunction()
+    local __WorldContext = pc:GetWorld() -- required for some functions.
     print("Setting Index: "..newIndex)
     if ItemFunction==nil then
         print("Itemfunction is nil in increment index")
@@ -507,6 +544,7 @@ function IncrementIndex()
         print("Itemfunction is nil in increment index")
         return
     end
+    local __WorldContext = pc:GetWorld() -- required for some functions.
     if __WorldContext == nil then
         print("world context is nil in Increment Index")
         return
@@ -515,17 +553,18 @@ function IncrementIndex()
     print("incremented")
 end
 
-function TitleScreenObjection()
-    local TitleScrrenPlayerSelect = GetTitlePlayerSelect()
-    if TitleScrrenPlayerSelect==nil then
-        print_debug("")
-        return
-    end
-    local SaveGames = GetSaveGames()
-    for _, SaveGame in ipairs(SaveGames) do
-        if SaveGame.FirstSelectCharacterID==0 then
-            print_debug("SaveGame.FirstSelectCharacterID==0 setting PlayerCharaID to be 1")
-            TitleScrrenPlayerSelect.SelectingCharacter = 1
+function SetStartingCharacterIcons()
+    if StartingCharacter~=nil then
+        local CharacterIcons = FindAllOf("WBP_3DPlayerSelectIcon_C")
+        if CharacterIcons==nil or GetLevelManagerUtil():GetNowLevelName():ToString()~="None"then
+            print("caneling Starting Character")
+            local success = CancelDelayedAction(SetStartingCharacterIconsHandle)
+            return
+        end
+        for _, CharacterIcon in ipairs(CharacterIcons) do
+            if CharacterIcon.m_WorldMapDataLabel:ToString() ~= CharNameToMap[StartingCharacter] then
+                CharacterIcon:SetWorldMapData(FName(CharNameToMap[StartingCharacter]))
+            end
         end
     end
 end
@@ -654,19 +693,7 @@ function VerifyStoryFlags()
 end 
 
 
-function SetStartingCharacterIcons()
-    if StartingCharacter~=nil then
-        local CharacterIcons = FindAllOf("WBP_3DPlayerSelectIcon_C")
-        if CharacterIcons==nil then
-            return
-        end
-        for _, CharacterIcon in ipairs(CharacterIcons) do
-            if CharacterIcon.m_WorldMapDataLabel:ToString() ~= CharNameToMap[StartingCharacter] then
-                CharacterIcon:SetWorldMapData(FName(CharNameToMap[StartingCharacter]))
-            end
-        end
-    end
-end
+
 
 function IsChapterFinshed(index)
     local SaveGame = GetSaveGame()

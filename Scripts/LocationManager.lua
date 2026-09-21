@@ -60,23 +60,24 @@ function CheckChests()
     return output
 end
 
-
-
-function ChestPopupLoop()
-    local LibDialog = GetLibDialog()
+local PopupLoopHasRun = false
+local PopupTimer = 0
+function PopupLoop()
     local LevelManagerUtil = GetLevelManagerUtil()
-    
-    output = {}
-    --void IsDialogRunning(bool& IsRunning);
-    -- if IsRunning == false then no dialog is running thus able to call chest popup
-    if(LibDialog==nil) then
-        print_debug("LibDialog is nil in ChestPopupLoop")
-        return
-    end
+    if PopupLoopHasRun == false then
+        PlayerCharacters = FindAllOf("KSPlayerCharacter_C")
+        if PlayerCharacters~=nil and #PlayerCharacters>=1 then
+            print("incrementing popup timer "..PopupTimer)
+            PopupTimer = PopupTimer+1
+        end
+        if PopupTimer==10 then
+            local CharacterResourceManager = GetCharacterResourceManager()
+            CharacterResourceManager:RefreshLoadCharacters({FName("ShoJ000_Mle")}) -- load partitio
+            PopupLoopHasRun = true
+        end
 
-    LibDialog:IsDialogRunning(output)
-    if(output.IsRunning==false and IsGameOverPlaying() == false and LevelManagerUtil:GetNowLevelName():ToString()~="None" and next(ChestItemQueue))then
-        OpenDefaultChest(ChestItemQueue[1])
+    elseif(IsGameOverPlaying() == false and LevelManagerUtil:GetNowLevelName():ToString()~="None" and next(ChestItemQueue))then
+        MerchantPopup(ChestItemQueue[1])
         table.remove(ChestItemQueue,1)
     end
 
@@ -99,8 +100,26 @@ function OpenDefaultChest(text)
 
     TextRows:FindRow("eTHIEF_TREASUREBOX").Text = FText(text)
     DefaultChest:Open()
-end   
+end
 
+local MerchantResultcounter = 0
+function MerchantPopup(text)
+    local LibUI = GetLibUI()
+    local GameTextDB = GetGameTextDB()
+    local UIManager = StaticFindObject("/Script/Majesty.Default__BusinessWithNpcNotificationBase")
+    ---@class FSpActMerchantResult
+    local MerchantResult = UIManager.m_SpActMerchantResult
+    MerchantResult.NPCID=9007 --unsed character
+    MerchantResult.ResultTextLabel = FName("eTHIEF_TREASUREBOX")
+    MerchantResult.Result=1
+    
+    GameTextDB:FindRow("eTHIEF_TREASUREBOX").Text = FText(text)
+    print(text)
+    print(MerchantResultcounter)
+    MerchantResultcounter=MerchantResultcounter+1
+    LibUI:OpenBusinessWithNpcNotification(MerchantResult,false)
+    print("called OpenBuisness")
+end
 
 function OpenAllChets()
     local ItemDataUtility = GetItemDataUtility()

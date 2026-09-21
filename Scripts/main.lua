@@ -376,7 +376,35 @@ RegisterConsoleCommandHandler("getlevelname", function(FullCommand,userInput)
     print(LevelManagerUtil:GetNowLevelName():ToString()=="None")
     return true
 end)
-
+allowPopups = false
+RegisterConsoleCommandHandler("openui", function(FullCommand,userInput)
+    output = {}
+    table.insert(output,"Throne Chapter1 Unlock from Server")
+    local UIManager = StaticFindObject("/Script/Majesty.Default__BusinessWithNpcNotificationBase")
+    ---@class FSpActMerchantResult
+    local stuff = UIManager.m_SpActMerchantResult
+    --(Result=SUCCESS,ResultTextLabel="MER_SPACT_RESULT_6",ResultTextLabel_Param0="3",PriceBefore=50,PriceAfter=47,AcquiredItemLabel=,AcquiredItemNum=,NPCID=12208)
+    stuff.Result=1
+    stuff.NPCID =userInput[1]
+    stuff.ResultTextLabel = FName("eTHIEF_TREASUREBOX")
+    local GameTextDB = GetGameTextDB()
+    GameTextDB:FindRow("eTHIEF_TREASUREBOX").Text = FText(output[1])
+    table.remove(output,1)
+    local LibUI = StaticFindObject("/Script/Majesty.Default__LibUI")
+    --LibUI:SetJobMenuEnable(true)
+    print("we are calling open ui")
+    LibUI:OpenBusinessWithNpcNotification(stuff,true)
+    allowPopups = true
+    return true
+end)
+--CharacterResourceManager /Game/Level/Persistent.Persistent:PersistentLevel.CharacterResourceManager_2147482498
+RegisterConsoleCommandHandler("queuetex", function(FullCommand,userInput)
+    local CharacterResourceManager = FindFirstOf("CharacterResourceManager")
+    CharacterResourceManager:RefreshLoadCharacters({FName("ShoJ000_Mle")})
+    --print(LevelManagerUtil:GetNowLevelName():ToString())
+    --print(LevelManagerUtil:GetNowLevelName():ToString()=="None")
+    return true
+end)
 function Connect(commandName,userInput) 
     if #userInput < 2 then 
         print("Error trying to connect. Correct input: connect <host> <slot> [password]")
