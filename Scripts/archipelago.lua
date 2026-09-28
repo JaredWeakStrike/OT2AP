@@ -152,7 +152,8 @@ function connect(server, slot, password)
     function on_slot_connected(slot_data)
         print("Slot connected")
         ap:ConnectUpdate(nil, {"Lua-APClientPP"})
-        
+        OpenDefaultChest("Your are now connected "..slot)
+        PopupLoopHandle                 = LoopInGameThreadWithDelay(1500,PopupLoop)
 
         StartingCharacter = StartingCharacterToName[slot_data["StartingCharacter"]]
         StartingChapter   = StartingCharacter.." Chapter1 Unlock"
@@ -183,6 +184,10 @@ function connect(server, slot, password)
     function on_slot_refused(reasons)
         print("Slot refused: " .. table.concat(reasons, ", "))
         OpenDefaultChest("Slot refused: " .. table.concat(reasons, ", "))
+        ---@diagnostic disable-next-line: cast-local-type
+        ap = nil
+        collectgarbage("collect")
+        ClearAllDelayedActions()
     end
 
     function on_items_received(items)
@@ -280,6 +285,7 @@ function connect(server, slot, password)
             if VictoryReached==false and tostring(map[key])=="30" then
                 print("making victoryreaced true")
                 VictoryReached = true
+                CancelDelayedAction(WinconHandle)
             end
         end
         -- extra will include extra fields from Get
@@ -301,7 +307,6 @@ function connect(server, slot, password)
             end
         end
     end
-
 
     local uuid = ""
     ap = AP(uuid, game_name, server);
@@ -334,16 +339,21 @@ local VerifyCharactersHandle          = nil
 local VerifyStoryFlagsHandle          = nil
 local VerifyBitflagsHandle            = nil
 local SetStartingCharacterIconsHandle = nil
-
+local CheckLocationsHandle            = nil
+local FillScoutedLocationsHandle      = nil
+PopupLoopHandle                 = nil
 function connectToAp(host, slot, password)
     connect(host, slot, password)
-    APPollHandle                    = LoopInGameThreadAfterFrames(5,APPoll)
-    WinconHandle                    = LoopInGameThreadAfterFrames(5,WinconPoll)
-    VerifyInventoryHandle           = LoopInGameThreadAfterFrames(30,VerifyInventory)     
-    VerifyCharactersHandle          = LoopInGameThreadAfterFrames(30,VerifyCharacters)   
-    VerifyStoryFlagsHandle          = LoopInGameThreadAfterFrames(30,VerifyStoryFlags)   
-    VerifyBitflagsHandle            = LoopInGameThreadAfterFrames(30,VerifyBitflags)
-    SetStartingCharacterIconsHandle = LoopInGameThreadAfterFrames(120,SetStartingCharacterIcons)
+    APPollHandle                    = LoopInGameThreadWithDelay(1000,APPoll)
+    WinconHandle                    = LoopInGameThreadWithDelay(1000,WinconPoll)
+    VerifyInventoryHandle           = LoopInGameThreadWithDelay(1000,VerifyInventory)     
+    VerifyCharactersHandle          = LoopInGameThreadWithDelay(1000,VerifyCharacters)   
+    VerifyStoryFlagsHandle          = LoopInGameThreadWithDelay(1000,VerifyStoryFlags)   
+    VerifyBitflagsHandle            = LoopInGameThreadWithDelay(1000,VerifyBitflags)
+    SetStartingCharacterIconsHandle = LoopInGameThreadWithDelay(1000,SetStartingCharacterIcons)
+    CheckLocationsHandle            = LoopInGameThreadWithDelay(1000,CheckLocations)
+    FillScoutedLocationsHandle      = LoopInGameThreadWithDelay(1000,FillScoutedLocations)
+    
 end
 
 function APPoll()
@@ -358,6 +368,18 @@ function WinconPoll()
             ap:Get({"_read_client_status_"..ap:get_team_number().."_"..ap:get_player_number()})   
     end
 end
+
+function CheckLocations()
+    --status,CheckedLocations = pcall(CheckChests)
+    CheckedLocations = CheckChests()
+    if #CheckedLocations>0 then
+        ap:LocationChecks(CheckedLocations)
+        for _, APID in ipairs(CheckedLocations) do
+            checked_locations[APID] = true
+        end
+    end
+end
+
 
 function connectToA(host, slot, password)
     MerchantPopup("Trying to connect") -- this has to be here or it will crash the game for some reason
@@ -420,6 +442,7 @@ function disconnect()
 ---@diagnostic disable-next-line: cast-local-type
     ap = nil
     collectgarbage("collect")
+    ClearAllDelayedActions()
 end
 
 

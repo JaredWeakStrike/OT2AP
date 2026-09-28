@@ -34,7 +34,7 @@ function CheckChests()
                 print(Chest.ObjectData.ID.." is invalid for id")
                 NoChestName[Chest.ObjectData.ID] = true
             end
-            return output
+            --return output
         end
 
         local APID = GetAPLocationIDfromName(ChestName)
@@ -43,7 +43,7 @@ function CheckChests()
                 NoChestName[ChestName]=true
                 print(ChestName.." Has no APID")
             end
-            return output
+            --return output
         end
 
         if(Chest.IsOpenFlag == true and IsLocationChecked(APID)==false) then
@@ -76,9 +76,10 @@ function PopupLoop()
             PopupLoopHasRun = true
         end
 
-    elseif(IsGameOverPlaying() == false and LevelManagerUtil:GetNowLevelName():ToString()~="None" and next(ChestItemQueue))then
+    elseif(next(ChestItemQueue) and IsGameOverPlaying() == false and LevelManagerUtil:GetNowLevelName():ToString()~="None")then
         MerchantPopup(ChestItemQueue[1])
         table.remove(ChestItemQueue,1)
+        
     end
 
 end
